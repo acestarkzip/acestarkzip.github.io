@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+/* 상단 고정 내비게이션바 */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.site-title-box {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.project-menu {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.project-menu .p-btn {
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 6px 16px;
+    font-size: 13px;
+    background-color: #fff;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+/* 스크롤에 따라 활성화된 상단 메뉴 색상 변경 */
+.project-menu .p-btn.active, .project-menu .p-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* 전체 레이아웃 컨테이너 */
+.container {
+    display: flex;
+    margin-top: 60px; /* 상단바 높이만큼 여백 */
+    min-height: calc(100vh - 60px);
+}
+
+/* 왼쪽 고정 사이드바 */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 260px;
+    height: calc(100vh - 60px);
+    background-color: #fff;
+    border-right: 2px solid #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.toggle-box {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.toggle-btn {
+    flex: 1;
+    border: 2px solid #333;
+    border-radius: 12px;
+    background: #fff;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+    margin: 20px 0;
+}
+
+.side-menu {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.side-menu li a {
+    display: block;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    background: #fff;
+    transition: 0.2s;
+}
+
+.side-menu li a:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* 오른쪽 메인 콘텐츠 영역 */
+.main-content {
+    margin-left: 260px; /* 사이드바 너비만큼 여백 */
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.project-section {
+    scroll-margin-top: 80px; /* 상단바에 가려지지 않도록 여유 공간 */
+}
+
+.project-heading {
+    display: inline-block;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.project-card-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.project-card {
+    border: 2px solid #333;
+    border-radius: 15px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s;
+}
+
+.gif-card:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+}
