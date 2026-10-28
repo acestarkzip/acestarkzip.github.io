@@ -9,33 +9,34 @@
     <h1>안녕하세요! 깃허브 페이지가 정상적으로 생성되었습니다.</h1>
 </body>
 </html>
--->
 
-<!DOCTYPE html>
-<html lang="ko" class="dark">
-<head>
-    <!-- 테스트 시작 -->
 
-    <!-- <img src="images/a.jpg" alt="이미지 설명" width="720"> -->
+
+   <img src="images/a.jpg" alt="이미지 설명" width="720">
     
 
 
     <section class="flex flex-col items-center justify-center py-10">
     <h2 class="text-2xl font-bold mb-4">Robot Simulation</h2>
     
-    <!-- 여기에 이미지가 들어갑니다 -->
+    
     <img src="images/handmoving.gif" alt="로봇 시뮬레이션 움짤" class="rounded-lg shadow-lg max-w-full h-auto">
 
     </section>
 
-    <!-- 테스트 종료 -->
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio & Blog</title>
-    <!-- Tailwind CSS (CDN) -->
+    <title>Portfolio & Dashboard</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Tailwind dark mode configuration
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -51,477 +52,114 @@
             }
         }
     </script>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(100,100,100,0.4);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(100,100,100,0.7);
-        }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 font-sans antialiased selection:bg-sky-500 selection:text-white">
+<body class="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-100 min-h-screen transition-colors duration-300 p-4 md:p-8">
 
-    <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-b border-gray-200/50 dark:border-gray-800/50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <a href="#" class="font-bold text-xl tracking-wider text-gray-900 dark:text-white hover:opacity-80 transition-opacity">
-                    DEV<span class="text-sky-500">.LOG</span>
-                </a>
+    <!-- 전체를 감싸는 메인 컨테이너 (와이어프레임 틀) -->
+    <div class="max-w-6xl mx-auto bg-white dark:bg-gray-900 border-2 border-gray-800 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden p-6 md:p-8">
 
-                <!-- Desktop Navigation Menu -->
-                <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#about" class="hover:text-sky-500 transition-colors" data-i18n="nav_about">About</a>
-                    <a href="#project" class="hover:text-sky-500 transition-colors" data-i18n="nav_project">Project</a>
-                    <a href="#blog" class="hover:text-sky-500 transition-colors" data-i18n="nav_blog">Blog</a>
-                    <a href="#contact" class="hover:text-sky-500 transition-colors" data-i18n="nav_contact">Contact</a>
-                </nav>
-
-                <!-- Action Controls: Theme Toggle + Language Switcher -->
-                <div class="flex items-center space-x-3">
-                    <!-- Language Switcher Button -->
-                    <button id="lang-btn" class="px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center gap-1.5" title="Switch Language">
-                        <i class="fa-solid fa-globe text-sky-500"></i>
-                        <span id="lang-label">EN</span>
-                    </button>
-
-                    <!-- Dark/Light Theme Toggle Button -->
-                    <button id="theme-btn" class="p-2 rounded-full border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all text-amber-500 dark:text-sky-400" title="Toggle Theme">
-                        <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
-                    </button>
-
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
+        <!-- 1. 상단 배너 사진 영역 -->
+        <div class="w-full h-48 md:h-64 border-2 border-dashed border-gray-400 dark:border-gray-600 rounded-xl overflow-hidden flex items-center justify-center bg-gray-50 dark:bg-gray-800 mb-8">
+            <!-- 배너 이미지를 넣으려면 아래 주석을 풀고 src 경로를 수정하세요 -->
+            <!-- <img src="images/banner.jpg" alt="Banner Image" class="w-full h-full object-cover"> -->
+            <span class="text-gray-500 dark:text-gray-400 font-medium">[ 배너 고정된 사진 영역 ]</span>
         </div>
 
-        <!-- Mobile Navigation Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 pt-2 pb-4 space-y-2">
-            <a href="#about" class="mobile-link block py-2 text-base font-medium hover:text-sky-500" data-i18n="nav_about">About</a>
-            <a href="#project" class="mobile-link block py-2 text-base font-medium hover:text-sky-500" data-i18n="nav_project">Project</a>
-            <a href="#blog" class="mobile-link block py-2 text-base font-medium hover:text-sky-500" data-i18n="nav_blog">Blog</a>
-            <a href="#contact" class="mobile-link block py-2 text-base font-medium hover:text-sky-500" data-i18n="nav_contact">Contact</a>
-        </div>
-    </header>
+        <!-- 하단 영역 (좌측 사이드바 + 우측 본문) -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-    <!-- Hero Section (Full-screen background video/GIF overlay) -->
-    <section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
-        <!-- 
-            Background Video or GIF:
-            * mp4/webm 동영상을 넣으려면 <video> 태그를 사용하세요.
-            * GIF 파일로 대체하려면 <img src="your-gif.gif" ...> 를 사용하실 수 있습니다.
-        -->
-        <video class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80">
-            <!-- Sample Free Abstract Video Loop -->
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-code-animation-on-a-screen-41552-large.mp4" type="video/mp4">
-            <!-- fallback GIF: <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjEx.../giphy.gif" class="w-full h-full object-cover"> -->
-        </video>
-
-        <!-- Dark/Light Overlay for Video (Ensures Text Readability) -->
-        <div class="absolute inset-0 bg-black/60 dark:bg-black/75 z-10 transition-colors"></div>
-
-        <!-- Hero Content Overlay -->
-        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto text-white">
-            <span class="inline-block px-3 py-1 mb-4 rounded-full text-xs sm:text-sm font-semibold tracking-wider bg-sky-500/20 text-sky-300 border border-sky-400/30 backdrop-blur-sm" data-i18n="hero_subtitle">
-                WELCOME TO MY PORTFOLIO
-            </span>
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight" data-i18n="hero_title">
-                Creative Developer & Designer
-            </h1>
-            <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
-                아이디어를 생동감 넘치는 디지털 경험으로 구현합니다. 지속 가능한 코드와 감각적인 디자인을 추구합니다.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#project" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-sky-500 hover:bg-sky-600 text-white font-medium transition-all shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2" data-i18n="hero_btn_projects">
-                    프로젝트 보기 <i class="fa-solid fa-arrow-down text-sm"></i>
-                </a>
-                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium border border-white/20 backdrop-blur-sm transition-all" data-i18n="hero_btn_contact">
-                    연락하기
-                </a>
-            </div>
-        </div>
-
-        <!-- Bottom Indicator Icon -->
-        <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/70 hover:text-white transition-colors animate-bounce">
-            <i class="fa-solid fa-angle-down text-2xl"></i>
-        </a>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-24 border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4" data-i18n="about_title">About Me</h2>
-                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Profile Image / Graphic -->
-                <div class="relative mx-auto w-full max-w-md">
-                    <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 relative group">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Profile" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                </div>
-
-                <!-- Biography & Skills -->
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-bold text-sky-500" data-i18n="about_subtitle">안녕하세요! 문제를 정의하고 해결하는 개발자입니다.</h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="about_text_1">
-                        웹 인터페이스 개발과 사용자 경험 향상에 관심이 많습니다. 복잡한 문제를 가독성 높은 코드로 바꾸는 것을 즐기며, 새로운 기술을 빠르게 습득하여 프로젝트에 적용합니다.
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="about_text_2">
-                        GitHub Pages를 이용한 효율적인 문서화 및 깔끔한 코드베이스 관리를 지향합니다.
-                    </p>
-
-                    <!-- Skill Tags -->
-                    <div class="pt-4">
-                        <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3" data-i18n="skills_title">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">HTML5 / CSS3</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">JavaScript (ES6+)</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">Tailwind CSS</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">React</span>
-                            <span class="px-3 py-1 text-xs font-medium rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">Git / GitHub</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Section -->
-    <section id="project" class="py-24 bg-gray-100/50 dark:bg-gray-900/40 border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4" data-i18n="project_title">Projects</h2>
-                <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto" data-i18n="project_subtitle">최근에 다룬 주요 프로젝트들입니다.</p>
-                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full mt-4"></div>
-            </div>
-
-            <!-- Project Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- [좌측 사이드바 컬럼] (1칸 차지) -->
+            <div class="lg:col-span-1 flex flex-col space-y-6">
                 
-                <!-- Card 1 -->
-                <div class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all group">
-                    <div class="aspect-video relative overflow-hidden bg-gray-200 dark:bg-gray-800">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-3">
-                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-900/50 text-sky-600 dark:text-sky-400">Web App</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors" data-i18n="p1_title">대시보드 분석 플랫폼</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed" data-i18n="p1_desc">데이터 시각화를 다루는 실시간 반응형 인터랙티브 웹 앱 프로젝트입니다.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
-                            <a href="#" class="text-xs font-semibold text-sky-500 hover:underline flex items-center gap-1" data-i18n="view_demo">
-                                데모 보기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" title="GitHub Code">
-                                <i class="fa-brands fa-github text-lg"></i>
-                            </a>
-                        </div>
+                <!-- 낮/밤, 한글/영어 버튼 -->
+                <div class="flex space-x-2">
+                    <button onclick="toggleTheme()" class="flex-1 py-2 px-3 border border-gray-400 dark:border-gray-600 rounded-xl text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+                        <i class="fa-solid fa-moon dark:fa-sun mr-1"></i> <span id="theme-text">낮/밤</span>
+                    </button>
+                    <button onclick="toggleLang()" class="flex-1 py-2 px-3 border border-gray-400 dark:border-gray-600 rounded-xl text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+                        <i class="fa-solid fa-language mr-1"></i> <span id="lang-text">한글/영어</span>
+                    </button>
+                </div>
+
+                <!-- 프로필 원형 사진 -->
+                <div class="flex justify-center">
+                    <div class="w-32 h-32 rounded-full border-2 border-gray-800 dark:border-gray-700 overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-800">
+                        <!-- 프로필 사진 경로 지정 -->
+                        <!-- <img src="images/profile.jpg" alt="Profile" class="w-full h-full object-cover"> -->
+                        <span class="text-xs text-gray-500 dark:text-gray-400">사진</span>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all group">
-                    <div class="aspect-video relative overflow-hidden bg-gray-200 dark:bg-gray-800">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-3">
-                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400">Tool</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors" data-i18n="p2_title">생산성 자동화 툴</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed" data-i18n="p2_desc">반복적인 작업을 줄이고 작업 효율을 향상시키기 위한 경량 웹 도구입니다.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
-                            <a href="#" class="text-xs font-semibold text-sky-500 hover:underline flex items-center gap-1" data-i18n="view_demo">
-                                데모 보기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" title="GitHub Code">
-                                <i class="fa-brands fa-github text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
+                <!-- 4개의 소셜 링크 버튼 -->
+                <div class="grid grid-cols-4 gap-2">
+                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크1</a>
+                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크2</a>
+                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크3</a>
+                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크4</a>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all group">
-                    <div class="aspect-video relative overflow-hidden bg-gray-200 dark:bg-gray-800">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Project 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-3">
-                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400">Portfolio</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-500 transition-colors" data-i18n="p3_title">개인 블로그 템플릿</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed" data-i18n="p3_desc">GitHub Pages 호스팅에 최적화된 테마 커스텀 및 반응형 템플릿입니다.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
-                            <a href="#" class="text-xs font-semibold text-sky-500 hover:underline flex items-center gap-1" data-i18n="view_demo">
-                                데모 보기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" title="GitHub Code">
-                                <i class="fa-brands fa-github text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
+                <!-- 메뉴 버튼들 (about me, project, blog) -->
+                <div class="flex flex-col space-y-3 pt-2">
+                    <a href="#about" class="py-3 px-4 border border-gray-800 dark:border-gray-600 rounded-xl text-center font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-700 transition">about me</a>
+                    <a href="#project" class="py-3 px-4 border border-gray-800 dark:border-gray-600 rounded-xl text-center font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-700 transition">project</a>
+                    <a href="#blog" class="py-3 px-4 border border-gray-800 dark:border-gray-600 rounded-xl text-center font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-700 transition">blog</a>
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-24 border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4" data-i18n="blog_title">Recent Articles</h2>
-                <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto" data-i18n="blog_subtitle">개발하며 배우고 기록한 생각과 기술 블로그 포스트입니다.</p>
-                <div class="w-16 h-1 bg-sky-500 mx-auto rounded-full mt-4"></div>
-            </div>
-
-            <!-- Blog List -->
-            <div class="max-w-3xl mx-auto space-y-6">
+            <!-- [우측 본문 컬럼] (3칸 차지) -->
+            <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- Article 1 -->
-                <article class="p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-sky-500/50 dark:hover:border-sky-500/50 transition-all shadow-sm">
-                    <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
-                        <span>2026. 10. 15</span>
-                        <span class="text-sky-500 font-medium">GitHub Pages</span>
+                <!-- 자기소개 박스 -->
+                <div id="about" class="border-2 border-gray-800 dark:border-gray-700 rounded-2xl p-6 flex flex-col justify-between min-h-[300px] bg-gray-50 dark:bg-gray-800/50">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">About Me</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            안녕하세요! 이곳은 그려주신 와이어프레임 구조를 그대로 구현한 포트폴리오 메인 페이지입니다.<br><br>
+                            원하시는 텍스트와 소개 내용을 이 공간에 자유롭게 적어 넣으실 수 있습니다.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 hover:text-sky-500 transition-colors cursor-pointer" data-i18n="b1_title">GitHub Pages로 나만의 깔끔한 블로그 쉽게 만드는 법</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4" data-i18n="b1_desc">외부 테마 의존성을 지우고 처음부터 커스텀하여 빠른 로딩 속도와 자유도를 확보하는 과정을 공유합니다.</p>
-                    <a href="#" class="text-xs font-semibold text-sky-500 hover:underline inline-flex items-center gap-1" data-i18n="read_more">
-                        더 읽기 <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
-                </article>
+                    <div class="text-xs text-gray-400 mt-4">(텍스트 자기소개 영역)</div>
+                </div>
 
-                <!-- Article 2 -->
-                <article class="p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-sky-500/50 dark:hover:border-sky-500/50 transition-all shadow-sm">
-                    <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
-                        <span>2026. 09. 28</span>
-                        <span class="text-sky-500 font-medium">CSS & Tailwind</span>
+                <!-- 움직이는 사진 (.gif) 박스 -->
+                <div id="project" class="border-2 border-gray-800 dark:border-gray-700 rounded-2xl p-6 flex flex-col justify-between min-h-[300px] bg-gray-50 dark:bg-gray-800/50">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">Project Motion</h3>
+                        <!-- 움짤 GIF 넣는 곳 -->
+                        <div class="w-full h-48 rounded-lg overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700 mb-3">
+                            <!-- 경로를 원하시는 gif 파일명으로 변경하세요 -->
+                            <img src="images/handmoving.gif" alt="움직이는 사진" class="w-full h-full object-cover">
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 hover:text-sky-500 transition-colors cursor-pointer" data-i18n="b2_title">다크모드와 다국어(i18n)를 바닐라 JS로 구현하는 핵심 노하우</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4" data-i18n="b2_desc">복잡한 프레임워크 없이 단 하나의 HTML 파일 안에서 다크모드와 언어 변환 기능을 깔끔하게 작성하는 가이드입니다.</p>
-                    <a href="#" class="text-xs font-semibold text-sky-500 hover:underline inline-flex items-center gap-1" data-i18n="read_more">
-                        더 읽기 <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
-                </article>
+                    <div class="text-xs text-gray-400 text-center">움직이는 사진 .gif 영역</div>
+                </div>
 
             </div>
+
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-gray-100/50 dark:bg-gray-900/40">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4" data-i18n="contact_title">Get In Touch</h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto leading-relaxed" data-i18n="contact_subtitle">
-                새로운 프로젝트 문의나 협업 제안은 언제나 환영합니다. 아래 이메일이나 소셜 링크로 편하게 연락주세요!
-            </p>
+    </div>
 
-            <a href="mailto:your.email@example.com" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-lg shadow-sky-500/25 transition-all text-lg mb-12">
-                <i class="fa-regular fa-envelope"></i>
-                <span>your.email@example.com</span>
-            </a>
-
-            <!-- Social Links -->
-            <div class="flex justify-center space-x-6 text-2xl text-gray-600 dark:text-gray-400">
-                <a href="https://github.com" target="_blank" class="hover:text-sky-500 transition-colors" title="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="hover:text-sky-500 transition-colors" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="hover:text-sky-500 transition-colors" title="Twitter">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-gray-200 dark:border-gray-800 text-center text-xs text-gray-500 dark:text-gray-400">
-        <p>© 2026 Developer Portfolio. Built for GitHub Pages.</p>
-    </footer>
-
-    <!-- JavaScript Logic (Theme, i18n Language Switcher, Responsive Menu) -->
+    <!-- 간단한 다크모드 및 언어전환 스크립트 -->
     <script>
-        // --- 1. Multilingual Translations Dictionary (한/영 텍스트 모음) ---
-        const translations = {
-            ko: {
-                nav_about: "소개",
-                nav_project: "프로젝트",
-                nav_blog: "블로그",
-                nav_contact: "연락처",
-                hero_subtitle: "포트폴리오에 오신 것을 환영합니다",
-                hero_title: "에이스 포트폴리오",
-                hero_desc: "아이디어를 생동감 넘치는 디지털 경험으로 구현합니다. 지속 가능한 코드와 감각적인 디자인을 추구합니다.",
-                hero_btn_projects: "프로젝트 보기",
-                hero_btn_contact: "연락하기",
-                about_title: "소개 (About Me)",
-                about_subtitle: "안녕하세요! 문제를 정의하고 해결하는 개발자입니다.",
-                about_text_1: "웹 인터페이스 개발과 사용자 경험 향상에 관심이 많습니다. 복잡한 문제를 가독성 높은 코드로 바꾸는 것을 즐기며, 새로운 기술을 빠르게 습득하여 프로젝트에 적용합니다.",
-                about_text_2: "GitHub Pages를 이용한 효율적인 문서화 및 깔끔한 코드베이스 관리를 지향합니다.",
-                skills_title: "보유 기술",
-                project_title: "프로젝트",
-                project_subtitle: "최근에 다룬 주요 프로젝트들입니다.",
-                p1_title: "대시보드 분석 플랫폼",
-                p1_desc: "데이터 시각화를 다루는 실시간 반응형 인터랙티브 웹 앱 프로젝트입니다.",
-                p2_title: "생산성 자동화 툴",
-                p2_desc: "반복적인 작업을 줄이고 작업 효율을 향상시키기 위한 경량 웹 도구입니다.",
-                p3_title: "개인 블로그 템플릿",
-                p3_desc: "GitHub Pages 호스팅에 최적화된 테마 커스텀 및 반응형 템플릿입니다.",
-                view_demo: "데모 보기",
-                blog_title: "최근 글 (Blog)",
-                blog_subtitle: "개발하며 배우고 기록한 생각과 기술 블로그 포스트입니다.",
-                b1_title: "GitHub Pages로 나만의 깔끔한 블로그 쉽게 만드는 법",
-                b1_desc: "외부 테마 의존성을 지우고 처음부터 커스텀하여 빠른 로딩 속도와 자유도를 확보하는 과정을 공유합니다.",
-                b2_title: "다크모드와 다국어(i18n)를 바닐라 JS로 구현하는 핵심 노하우",
-                b2_desc: "복잡한 프레임워크 없이 단 하나의 HTML 파일 안에서 다크모드와 언어 변환 기능을 깔끔하게 작성하는 가이드입니다.",
-                read_more: "더 읽기",
-                contact_title: "연락처 (Contact)",
-                contact_subtitle: "새로운 프로젝트 문의나 협업 제안은 언제나 환영합니다. 아래 이메일이나 소셜 링크로 편하게 연락주세요!"
-            },
-            en: {
-                nav_about: "About",
-                nav_project: "Projects",
-                nav_blog: "Blog",
-                nav_contact: "Contact",
-                hero_subtitle: "WELCOME TO MY PORTFOLIO",
-                hero_title: "Creative Developer & Designer",
-                hero_desc: "Transforming ideas into vivid digital experiences. I focus on clean code, sustainability, and intuitive design.",
-                hero_btn_projects: "View Projects",
-                hero_btn_contact: "Get In Touch",
-                about_title: "About Me",
-                about_subtitle: "Hello! I am a developer who loves solving problems.",
-                about_text_1: "I am deeply interested in web interface development and improving user experiences. I enjoy turning complex issues into readable code and quickly learning new technologies.",
-                about_text_2: "I aim for efficient documentation and clean codebase management using GitHub Pages.",
-                skills_title: "Tech Stack",
-                project_title: "Projects",
-                project_subtitle: "Here are some of my recent works.",
-                p1_title: "Analytics Dashboard",
-                p1_desc: "Real-time interactive web application focused on data visualization.",
-                p2_title: "Productivity Automation Tool",
-                p2_desc: "A lightweight web tool designed to reduce repetitive tasks and enhance efficiency.",
-                p3_title: "Personal Portfolio Template",
-                p3_desc: "Customizable and responsive template optimized for GitHub Pages hosting.",
-                view_demo: "View Demo",
-                blog_title: "Recent Articles",
-                blog_subtitle: "Thoughts, learnings, and technical write-ups.",
-                b1_title: "How to Build a Clean GitHub Pages Site from Scratch",
-                b1_desc: "Sharing the process of eliminating heavy theme dependencies for maximum speed and customization.",
-                b2_title: "Implementing Dark Mode and i18n with Vanilla JavaScript",
-                b2_desc: "A clean guide to adding theme toggles and language switcher without complex frameworks.",
-                read_more: "Read More",
-                contact_title: "Get In Touch",
-                contact_subtitle: "Open for new project inquiries and collaborations. Feel free to reach out via email or social links below!"
-            }
-        };
-
-        // Current Language State (Default 'ko')
-        let currentLang = localStorage.getItem('site_lang') || 'ko';
-
-        function updateLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('site_lang', lang);
-
-            // Update Text Elements
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            // Update Switcher Button Label
-            const langLabel = document.getElementById('lang-label');
-            langLabel.textContent = lang === 'ko' ? 'EN' : '한국어';
-            
-            // Set HTML lang attribute
-            document.documentElement.lang = lang;
-        }
-
-        // --- 2. Dark/Light Theme Switching Logic ---
-        const themeBtn = document.getElementById('theme-btn');
-        const themeIcon = document.getElementById('theme-icon');
-
-        function setTheme(isDark) {
-            if (isDark) {
-                document.documentElement.classList.add('dark');
-                themeIcon.className = 'fa-solid fa-sun text-lg';
-                localStorage.setItem('theme', 'dark');
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
             } else {
-                document.documentElement.classList.remove('dark');
-                themeIcon.className = 'fa-solid fa-moon text-lg';
-                localStorage.setItem('theme', 'light');
+                html.classList.add('dark');
             }
         }
 
-        // Initialize Theme from localStorage or OS Preference
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-            setTheme(true);
-        } else {
-            setTheme(false);
+        let isKorean = true;
+        function toggleLang() {
+            isKorean = !isKorean;
+            const langText = document.getElementById('lang-text');
+            langText.innerText = isKorean ? '한글/영어' : 'English';
+            // 필요에 따라 언어별 텍스트 변환 로직 확장 가능
         }
-
-        // Toggle Theme Event
-        themeBtn.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            setTheme(!isDark);
-        });
-
-        // --- 3. Language Switcher Event ---
-        const langBtn = document.getElementById('lang-btn');
-        langBtn.addEventListener('click', () => {
-            const nextLang = currentLang === 'ko' ? 'en' : 'ko';
-            updateLanguage(nextLang);
-        });
-
-        // --- 4. Mobile Navigation Menu Toggle ---
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Initial Load Call
-        window.addEventListener('DOMContentLoaded', () => {
-            updateLanguage(currentLang);
-        });
     </script>
 </body>
 </html>
