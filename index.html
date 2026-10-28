@@ -1,165 +1,135 @@
-<!-- 
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Hello GitHub Pages!</title>
-</head>
-<body>
-    <h1>안녕하세요! 깃허브 페이지가 정상적으로 생성되었습니다.</h1>
-</body>
-</html>
-
-
-
-   <img src="images/a.jpg" alt="이미지 설명" width="720">
-    
-
-
-    <section class="flex flex-col items-center justify-center py-10">
-    <h2 class="text-2xl font-bold mb-4">Robot Simulation</h2>
-    
-    
-    <img src="images/handmoving.gif" alt="로봇 시뮬레이션 움짤" class="rounded-lg shadow-lg max-w-full h-auto">
-
-    </section>
-
-
--->
-
-
-<!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio & Dashboard</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>포트폴리오</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-100 min-h-screen transition-colors duration-300 p-4 md:p-8">
+<body>
 
-    <!-- 전체를 감싸는 메인 컨테이너 (와이어프레임 틀) -->
-    <div class="max-w-6xl mx-auto bg-white dark:bg-gray-900 border-2 border-gray-800 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden p-6 md:p-8">
+    <!-- 상단 프로젝트 내비게이션바 -->
+    <header class="top-nav">
+        <div class="site-title-box">(여기는 사이트 제목 넣어야 함)</div>
+        <nav class="project-menu">
+            <a href="#project1" class="p-btn active">프로젝트 1</a>
+            <a href="#project2" class="p-btn">프로젝트 2</a>
+            <a href="#project3" class="p-btn">프로젝트 3</a>
+            <a href="#project4" class="p-btn">프로젝트 4</a>
+            <a href="#project5" class="p-btn">프로젝트 5</a>
+            <a href="#project6" class="p-btn">프로젝트 6</a>
+        </nav>
+    </header>
 
-        <!-- 1. 상단 배너 사진 영역 -->
-        <div class="w-full h-48 md:h-64 border-2 border-dashed border-gray-400 dark:border-gray-600 rounded-xl overflow-hidden flex items-center justify-center bg-gray-50 dark:bg-gray-800 mb-8">
-            <!-- 배너 이미지를 넣으려면 아래 주석을 풀고 src 경로를 수정하세요 -->
-            <!-- <img src="images/banner.jpg" alt="Banner Image" class="w-full h-full object-cover"> -->
-            <span class="text-gray-500 dark:text-gray-400 font-medium">[ 배너 고정된 사진 영역 ]</span>
-        </div>
-
-        <!-- 하단 영역 (좌측 사이드바 + 우측 본문) -->
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-
-            <!-- [좌측 사이드바 컬럼] (1칸 차지) -->
-            <div class="lg:col-span-1 flex flex-col space-y-6">
-                
-                <!-- 낮/밤, 한글/영어 버튼 -->
-                <div class="flex space-x-2">
-                    <button onclick="toggleTheme()" class="flex-1 py-2 px-3 border border-gray-400 dark:border-gray-600 rounded-xl text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-800 transition">
-                        <i class="fa-solid fa-moon dark:fa-sun mr-1"></i> <span id="theme-text">낮/밤</span>
-                    </button>
-                    <button onclick="toggleLang()" class="flex-1 py-2 px-3 border border-gray-400 dark:border-gray-600 rounded-xl text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-800 transition">
-                        <i class="fa-solid fa-language mr-1"></i> <span id="lang-text">한글/영어</span>
-                    </button>
-                </div>
-
-                <!-- 프로필 원형 사진 -->
-                <div class="flex justify-center">
-                    <div class="w-32 h-32 rounded-full border-2 border-gray-800 dark:border-gray-700 overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-800">
-                        <!-- 프로필 사진 경로 지정 -->
-                        <!-- <img src="images/profile.jpg" alt="Profile" class="w-full h-full object-cover"> -->
-                        <span class="text-xs text-gray-500 dark:text-gray-400">사진</span>
-                    </div>
-                </div>
-
-                <!-- 4개의 소셜 링크 버튼 -->
-                <div class="grid grid-cols-4 gap-2">
-                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크1</a>
-                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크2</a>
-                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크3</a>
-                    <a href="#" class="py-2 border border-gray-400 dark:border-gray-600 rounded-lg text-center text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-800">링크4</a>
-                </div>
-
-                <!-- 메뉴 버튼들 (about me, project, blog) -->
-                <div class="flex flex-col space-y-3 pt-2">
-                    <a href="#about" class="py-3 px-4 border border-gray-800 dark:border-gray-600 rounded-xl text-center font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-700 transition">about me</a>
-                    <a href="#project" class="py-3 px-4 border border-gray-800 dark:border-gray-600 rounded-xl text-center font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-700 transition">project</a>
-                    <a href="#blog" class="py-3 px-4 border border-gray-800 dark:border-gray-600 rounded-xl text-center font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-700 transition">blog</a>
-                </div>
-
+    <div class="container">
+        <!-- 왼쪽 사이드바 (고정) -->
+        <aside class="sidebar">
+            <div class="toggle-box">
+                <button class="toggle-btn">낮/밤</button>
+                <button class="toggle-btn">한글/영어</button>
+            </div>
+            
+            <div class="profile-img">
+                <span>내 사진</span>
             </div>
 
-            <!-- [우측 본문 컬럼] (3칸 차지) -->
-            <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- 자기소개 박스 -->
-                <div id="about" class="border-2 border-gray-800 dark:border-gray-700 rounded-2xl p-6 flex flex-col justify-between min-h-[300px] bg-gray-50 dark:bg-gray-800/50">
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">About Me</h3>
-                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-                            안녕하세요! 이곳은 그려주신 와이어프레임 구조를 그대로 구현한 포트폴리오 메인 페이지입니다.<br><br>
-                            원하시는 텍스트와 소개 내용을 이 공간에 자유롭게 적어 넣으실 수 있습니다.
-                        </p>
+            <ul class="side-menu">
+                <li><a href="#about">about me</a></li>
+                <li><a href="#projects">project</a></li>
+                <li><a href="#blog">blog</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </aside>
+
+        <!-- 오른쪽 메인 콘텐츠 영역 -->
+        <main class="main-content">
+            <!-- 프로젝트 1 -->
+            <section id="project1" class="project-section">
+                <h2 class="project-heading">큰 제목 프로젝트 1</h2>
+                <div class="project-card-wrapper">
+                    <a href="프로젝트페이지링크.html" class="project-card gif-card">
+                        <p>움직이는 파일 .gif 올릴 예정입니다.<br>누르면, 프로젝트 페이지로 이동합니다.</p>
+                    </a>
+                    <div class="project-card text-card">
+                        <p>텍스트로 프로젝트 소개를 적어야됩니다.</p>
                     </div>
-                    <div class="text-xs text-gray-400 mt-4">(텍스트 자기소개 영역)</div>
                 </div>
+            </section>
 
-                <!-- 움직이는 사진 (.gif) 박스 -->
-                <div id="project" class="border-2 border-gray-800 dark:border-gray-700 rounded-2xl p-6 flex flex-col justify-between min-h-[300px] bg-gray-50 dark:bg-gray-800/50">
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">Project Motion</h3>
-                        <!-- 움짤 GIF 넣는 곳 -->
-                        <div class="w-full h-48 rounded-lg overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700 mb-3">
-                            <!-- 경로를 원하시는 gif 파일명으로 변경하세요 -->
-                            <img src="images/handmoving.gif" alt="움직이는 사진" class="w-full h-full object-cover">
-                        </div>
+            <!-- 프로젝트 2 -->
+            <section id="project2" class="project-section">
+                <h2 class="project-heading">큰 제목 프로젝트 2</h2>
+                <div class="project-card-wrapper">
+                    <a href="프로젝트페이지링크.html" class="project-card gif-card">
+                        <p>움직이는 파일 .gif 올릴 예정입니다.<br>누르면, 프로젝트 페이지로 이동합니다.</p>
+                    </a>
+                    <div class="project-card text-card">
+                        <p>텍스트로 프로젝트 소개를 적어야됩니다.</p>
                     </div>
-                    <div class="text-xs text-gray-400 text-center">움직이는 사진 .gif 영역</div>
                 </div>
+            </section>
 
-            </div>
+            <!-- 프로젝트 3 -->
+            <section id="project3" class="project-section">
+                <h2 class="project-heading">큰 제목 프로젝트 3</h2>
+                <div class="project-card-wrapper">
+                    <a href="프로젝트페이지링크.html" class="project-card gif-card">
+                        <p>움직이는 파일 .gif 올릴 예정입니다.<br>누르면, 프로젝트 페이지로 이동합니다.</p>
+                    </a>
+                    <div class="project-card text-card">
+                        <p>텍스트로 프로젝트 소개를 적어야됩니다.</p>
+                    </div>
+                </div>
+            </section>
 
-        </div>
+            <!-- 프로젝트 4~6 도 동일한 구조로 추가 가능 -->
+            <section id="project4" class="project-section">
+                <h2 class="project-heading">큰 제목 프로젝트 4</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card gif-card"><p>GIF 영역</p></div>
+                    <div class="project-card text-card"><p>소개 텍스트 영역</p></div>
+                </div>
+            </section>
+            
+            <section id="project5" class="project-section">
+                <h2 class="project-heading">큰 제목 프로젝트 5</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card gif-card"><p>GIF 영역</p></div>
+                    <div class="project-card text-card"><p>소개 텍스트 영역</p></div>
+                </div>
+            </section>
 
+            <section id="project6" class="project-section">
+                <h2 class="project-heading">큰 제목 프로젝트 6</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card gif-card"><p>GIF 영역</p></div>
+                    <div class="project-card text-card"><p>소개 텍스트 영역</p></div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <!-- 간단한 다크모드 및 언어전환 스크립트 -->
+    <!-- 스크롤 감지 및 메뉴 활성화를 위한 간단한 스크립트 -->
     <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-            } else {
-                html.classList.add('dark');
-            }
-        }
+        const sections = document.querySelectorAll('.project-section');
+        const navBtns = document.querySelectorAll('.project-menu .p-btn');
 
-        let isKorean = true;
-        function toggleLang() {
-            isKorean = !isKorean;
-            const langText = document.getElementById('lang-text');
-            langText.innerText = isKorean ? '한글/영어' : 'English';
-            // 필요에 따라 언어별 텍스트 변환 로직 확장 가능
-        }
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('href') === '#' + current) {
+                    btn.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
