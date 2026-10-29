@@ -1,778 +1,434 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko" data-lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0fdfa',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            accent: '#6366f1',
-                            glow: '#8b5cf6'
-                        },
-                        darkbg: '#0b0f17',
-                        darkcard: '#161e2e',
-                        darkborder: '#2a3447'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'Pretendard', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>Ace Stark | Portfolio</title>
     <style>
-        /* Smooth scrolling across the entire document */
-        html {
+        :root {
+            --bg-color: #0b0f17;
+            --sidebar-bg: rgba(15, 22, 36, 0.85);
+            --card-bg: rgba(22, 29, 45, 0.7);
+            --border-color: rgba(255, 255, 255, 0.12);
+            --accent-cyan: #00f2fe;
+            --accent-purple: #7928ca;
+            --text-main: #f1f5f9;
+            --text-sub: #94a3b8;
+        }
+
+        /* 라이트 모드 테마 */
+        body.light-mode {
+            --bg-color: #f1f5f9;
+            --sidebar-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --border-color: rgba(0, 0, 0, 0.12);
+            --text-main: #0f172a;
+            --text-sub: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /* 1번 요청: 부드러운 스크롤 전체 적용 */
             scroll-behavior: smooth;
         }
 
-        /* Custom scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.6);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Glassmorphism utility */
-        .glass-panel {
-            background: rgba(22, 30, 46, 0.7);
+        /* 상단 고정 프로젝트 내비게이션바 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--sidebar-bg);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 1000;
         }
 
-        .light .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+        .site-title-box {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            background: var(--card-bg);
         }
 
-        /* Top Bar Project Buttons Hover & Active Dynamic Scale Transition */
-        .project-nav-btn {
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform-origin: center center;
+        /* 프로젝트 중앙 정렬 및 유기적 확대/밀려남 이펙트 */
+        .project-menu {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            overflow-x: auto;
+            padding: 0 20px;
         }
 
-        .project-nav-btn.active {
-            transform: scale(1.18);
-            font-weight: 700;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: #ffffff !important;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3);
+        .project-menu .p-btn {
+            text-decoration: none;
+            color: var(--text-sub);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-size: 13px;
+            background: var(--card-bg);
+            white-space: nowrap;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 선택된 프로젝트 강조 및 주변 밀려남 이펙트 */
+        .project-menu .p-btn.active {
+            transform: scale(1.15);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #ffffff;
             border-color: transparent;
-            margin: 0 10px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            font-weight: 700;
         }
 
-        /* Ambient Glow Background Spheres */
-        .glow-sphere-1 {
-            position: fixed;
-            top: 10%;
-            right: 5%;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
+        /* 전체 레이아웃 컨테이너 */
+        .container {
+            display: flex;
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
         }
-        .glow-sphere-2 {
+
+        /* 왼쪽 고정 사이드바 */
+        .sidebar {
             position: fixed;
-            bottom: 10%;
-            left: 20%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            top: 70px;
+            left: 0;
+            width: 280px;
+            height: calc(100vh - 70px);
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 900;
+        }
+
+        .toggle-box {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--card-bg);
+            color: var(--text-main);
+            padding: 10px 0;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .toggle-btn:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border: 2px solid var(--border-color);
             border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-sub);
+            background: var(--card-bg);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+        }
+
+        .side-menu {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .side-menu li a {
+            display: block;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 11px;
+            text-decoration: none;
+            color: var(--text-sub);
+            font-weight: 600;
+            background: var(--card-bg);
+            transition: 0.2s;
+        }
+
+        .side-menu li a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border-color: var(--accent-cyan);
+        }
+
+        /* 2번 요청: 각 서브 페이지로 이동할 수 있는 상세 페이지 버튼 스타일 추가 */
+        .sub-page-btn {
+            display: block;
+            text-align: center;
+            font-size: 11px;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            margin-top: -4px;
+            margin-bottom: 6px;
+            transition: opacity 0.2s;
+        }
+        .sub-page-btn:hover { opacity: 0.8; text-decoration: underline; }
+
+        /* 오른쪽 메인 콘텐츠 영역 */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        /* 3번 요청: 어중간하게 올라가는 현상 방지를 위한 정확한 마진 및 스크롤 여백 */
+        .content-section {
+            scroll-margin-top: 100px;
+        }
+
+        .section-heading {
+            display: inline-block;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: var(--card-bg);
+            color: var(--accent-cyan);
+        }
+
+        .project-card-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: var(--text-main);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .gif-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+        }
+        
+        .text-card {
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        @media(max-width: 1024px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 20px; }
+            .project-card-wrapper { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body class="bg-darkbg text-slate-200 antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-300 min-h-screen light:bg-slate-100 light:text-slate-800">
+<body>
 
-    <!-- Ambient Glowing Orbs -->
-    <div class="glow-sphere-1"></div>
-    <div class="glow-sphere-2"></div>
-
-    <!-- ==========================================
-         TOP NAVIGATION BAR (Sticky Top)
-    =========================================== -->
-    <header class="fixed top-0 left-0 w-full h-16 glass-panel z-50 px-4 md:px-6 flex items-center justify-between border-b border-slate-800/80 light:border-slate-200/80">
-        <!-- Site Title / Logo Block -->
-        <div class="flex items-center space-x-3 shrink-0">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-black shadow-lg shadow-indigo-500/30">
-                <i class="fa-solid fa-code text-sm"></i>
-            </div>
-            <span class="font-bold text-base md:text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent light:from-slate-900 light:to-indigo-600" data-lang-key="title">
-                DEVELOPER PORTFOLIO
-            </span>
-        </div>
-
-        <!-- Centered Project Navigation Items -->
-        <nav class="hidden md:flex items-center justify-center space-x-2 py-1 px-4 rounded-full bg-slate-900/60 border border-slate-800/80 light:bg-slate-200/60 light:border-slate-300/80">
-            <a href="#project1" class="project-nav-btn active text-xs lg:text-sm px-4 py-1.5 rounded-full text-slate-300 hover:text-white border border-transparent hover:bg-slate-800/60 light:text-slate-700 light:hover:text-slate-900" data-project="project1">
-                <span data-lang-key="p1">프로젝트 1</span>
-            </a>
-            <a href="#project2" class="project-nav-btn text-xs lg:text-sm px-4 py-1.5 rounded-full text-slate-300 hover:text-white border border-transparent hover:bg-slate-800/60 light:text-slate-700 light:hover:text-slate-900" data-project="project2">
-                <span data-lang-key="p2">프로젝트 2</span>
-            </a>
-            <a href="#project3" class="project-nav-btn text-xs lg:text-sm px-4 py-1.5 rounded-full text-slate-300 hover:text-white border border-transparent hover:bg-slate-800/60 light:text-slate-700 light:hover:text-slate-900" data-project="project3">
-                <span data-lang-key="p3">프로젝트 3</span>
-            </a>
-            <a href="#project4" class="project-nav-btn text-xs lg:text-sm px-4 py-1.5 rounded-full text-slate-300 hover:text-white border border-transparent hover:bg-slate-800/60 light:text-slate-700 light:hover:text-slate-900" data-project="project4">
-                <span data-lang-key="p4">프로젝트 4</span>
-            </a>
-            <a href="#project5" class="project-nav-btn text-xs lg:text-sm px-4 py-1.5 rounded-full text-slate-300 hover:text-white border border-transparent hover:bg-slate-800/60 light:text-slate-700 light:hover:text-slate-900" data-project="project5">
-                <span data-lang-key="p5">프로젝트 5</span>
-            </a>
-            <a href="#project6" class="project-nav-btn text-xs lg:text-sm px-4 py-1.5 rounded-full text-slate-300 hover:text-white border border-transparent hover:bg-slate-800/60 light:text-slate-700 light:hover:text-slate-900" data-project="project6">
-                <span data-lang-key="p6">프로젝트 6</span>
-            </a>
+    <!-- 상단 프로젝트 내비게이션바 (중앙 정렬) -->
+    <header class="top-nav">
+        <div class="site-title-box" data-kr="(여기는 사이트 제목 넣어야 함)" data-en="(Site Title Here)">(여기는 사이트 제목 넣어야 함)</div>
+        <nav class="project-menu">
+            <a href="#project1" class="p-btn active" data-kr="프로젝트 1" data-en="Project 1">프로젝트 1</a>
+            <a href="#project2" class="p-btn" data-kr="프로젝트 2" data-en="Project 2">프로젝트 2</a>
+            <a href="#project3" class="p-btn" data-kr="프로젝트 3" data-en="Project 3">프로젝트 3</a>
+            <a href="#project4" class="p-btn" data-kr="프로젝트 4" data-en="Project 4">프로젝트 4</a>
+            <a href="#project5" class="p-btn" data-kr="프로젝트 5" data-en="Project 5">프로젝트 5</a>
+            <a href="#project6" class="p-btn" data-kr="프로젝트 6" data-en="Project 6">프로젝트 6</a>
         </nav>
-
-        <!-- Right Quick Status / Indicator -->
-        <div class="flex items-center space-x-2 text-xs font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-3 py-1.5 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="hidden sm:inline" data-lang-key="status">Available for hire</span>
-        </div>
     </header>
 
-
-    <!-- ==========================================
-         MAIN CONTAINER (Sidebar + Main Content)
-    =========================================== -->
-    <div class="pt-16 flex min-h-screen relative z-10 max-w-[1600px] mx-auto">
-
-        <!-- ==========================================
-             LEFT FIXED SIDEBAR
-        =========================================== -->
-        <aside class="w-64 md:w-72 fixed left-0 top-16 bottom-0 glass-panel border-r border-slate-800/80 light:border-slate-200/80 p-6 flex flex-col justify-between overflow-y-auto hidden lg:flex">
-            <div class="space-y-6">
-                
-                <!-- Toggle Switches (Day/Night & Korean/English) -->
-                <div class="grid grid-cols-2 gap-2 p-1.5 bg-slate-900/80 rounded-2xl border border-slate-800 light:bg-slate-200/80 light:border-slate-300">
-                    <button id="themeToggleBtn" class="flex items-center justify-center space-x-2 py-2 px-3 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800/80 light:text-slate-700 light:hover:bg-slate-300 transition-all">
-                        <i class="fa-solid fa-moon text-indigo-400 light:hidden"></i>
-                        <i class="fa-solid fa-sun text-amber-500 hidden light:inline"></i>
-                        <span id="themeLabel">밤</span>
-                    </button>
-                    <button id="langToggleBtn" class="flex items-center justify-center space-x-2 py-2 px-3 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800/80 light:text-slate-700 light:hover:bg-slate-300 transition-all">
-                        <i class="fa-solid fa-globe text-cyan-400"></i>
-                        <span id="langLabel">한글</span>
-                    </button>
-                </div>
-
-                <!-- Profile Circle with Glow -->
-                <div class="flex flex-col items-center text-center space-y-4 py-4 border-b border-slate-800/80 light:border-slate-200/80">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 group-hover:scale-105"></div>
-                        <div class="relative w-32 h-32 rounded-full overflow-hidden bg-slate-800 border-2 border-slate-700 p-1 flex items-center justify-center">
-                            <div class="w-full h-full rounded-full bg-gradient-to-tr from-slate-900 to-slate-800 flex flex-col items-center justify-center text-slate-400">
-                                <i class="fa-solid fa-user-astronaut text-4xl text-indigo-400 mb-1"></i>
-                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-500" data-lang-key="my_photo">내 사진</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-white light:text-slate-900">Alex Dev</h3>
-                        <p class="text-xs text-indigo-400 light:text-indigo-600 font-mono mt-0.5" data-lang-key="role">Full Stack Engineer</p>
-                    </div>
-                </div>
-
-                <!-- Left Navigation Links -->
-                <nav class="space-y-2">
-                    <a href="#about" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 light:text-slate-700 light:hover:bg-slate-200 transition-all group">
-                        <span class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-indigo-600 text-indigo-400 group-hover:text-white flex items-center justify-center transition-all">
-                            <i class="fa-regular fa-user"></i>
-                        </span>
-                        <span data-lang-key="about_me">about me</span>
-                    </a>
-                    <a href="#project1" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 light:text-slate-700 light:hover:bg-slate-200 transition-all group">
-                        <span class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-purple-600 text-purple-400 group-hover:text-white flex items-center justify-center transition-all">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </span>
-                        <span data-lang-key="project">project</span>
-                    </a>
-                    <a href="#blog" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 light:text-slate-700 light:hover:bg-slate-200 transition-all group">
-                        <span class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-600 text-cyan-400 group-hover:text-white flex items-center justify-center transition-all">
-                            <i class="fa-regular fa-newspaper"></i>
-                        </span>
-                        <span data-lang-key="blog">blog</span>
-                    </a>
-                    <a href="#contact" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 light:text-slate-700 light:hover:bg-slate-200 transition-all group">
-                        <span class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-emerald-600 text-emerald-400 group-hover:text-white flex items-center justify-center transition-all">
-                            <i class="fa-regular fa-envelope"></i>
-                        </span>
-                        <span data-lang-key="contact">contact</span>
-                    </a>
-                </nav>
+    <div class="container">
+        <!-- 왼쪽 고정 사이드바 -->
+        <aside class="sidebar">
+            <div class="toggle-box">
+                <button class="toggle-btn" id="themeToggle">낮/밤</button>
+                <button class="toggle-btn" id="langToggle">한글/영어</button>
+            </div>
+            
+            <div class="profile-img">
+                <span data-kr="내 사진" data-en="My Photo">내 사진</span>
             </div>
 
-            <!-- Footer / Copyright in Sidebar -->
-            <div class="pt-4 border-t border-slate-800/80 light:border-slate-200/80 text-center">
-                <p class="text-[11px] text-slate-500 font-mono">© 2026 Developer Portfolio.<br>All rights reserved.</p>
-            </div>
+            <ul class="side-menu">
+                <li>
+                    <a href="#about" data-kr="about me" data-en="about me">about me</a>
+                    <a href="about-me/index.html" class="sub-page-btn" data-kr="📁 상세 페이지로 이동" data-en="📁 Go to Detail Page">📁 상세 페이지로 이동</a>
+                </li>
+                <li>
+                    <a href="#projects" data-kr="project" data-en="project">project</a>
+                    <a href="project/index.html" class="sub-page-btn" data-kr="📁 상세 페이지로 이동" data-en="📁 Go to Detail Page">📁 상세 페이지로 이동</a>
+                </li>
+                <li>
+                    <a href="#blog" data-kr="blog" data-en="blog">blog</a>
+                    <a href="blog/index.html" class="sub-page-btn" data-kr="📁 상세 페이지로 이동" data-en="📁 Go to Detail Page">📁 상세 페이지로 이동</a>
+                </li>
+                <li>
+                    <a href="#contact" data-kr="contact" data-en="contact">contact</a>
+                    <a href="contact/index.html" class="sub-page-btn" data-kr="📁 상세 페이지로 이동" data-en="📁 Go to Detail Page">📁 상세 페이지로 이동</a>
+                </li>
+            </ul>
         </aside>
 
-        <!-- ==========================================
-             RIGHT MAIN CONTENT AREA
-        =========================================== -->
-        <main class="flex-1 lg:ml-72 p-4 md:p-8 lg:p-10 space-y-16">
-
-            <!-- ABOUT ME BANNER -->
-            <section id="about" class="glass-panel p-6 md:p-8 rounded-3xl relative overflow-hidden border border-slate-800/80 light:border-slate-200/80">
-                <div class="relative z-10 max-w-2xl">
-                    <span class="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4" data-lang-key="welcome_badge">
-                        ✨ Welcome to my portfolio
-                    </span>
-                    <h1 class="text-2xl md:text-4xl font-black text-white light:text-slate-900 tracking-tight leading-tight mb-4" data-lang-key="hero_title">
-                        창의적이고 확장 가능한 웹 경험을 만드는 개발자입니다.
-                    </h1>
-                    <p class="text-slate-400 light:text-slate-600 text-sm md:text-base leading-relaxed" data-lang-key="hero_desc">
-                        모던 웹 기술(React, Vue, Node.js, Tailwind)을 활용하여 직관적이고 인터랙티브한 디지털 프로덕트를 구현합니다. 아래에서 최신 프로젝트들을 살펴보세요.
-                    </p>
+        <!-- 오른쪽 메인 콘텐츠 영역 -->
+        <main class="main-content">
+            
+            <!-- About Me 섹션 (3번: 어중간한 위치 문제 해결) -->
+            <section id="about" class="content-section">
+                <h2 class="section-heading" data-kr="About Me" data-en="About Me">About Me</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card text-card" style="grid-column: span 2;" data-kr="안녕하세요! 이곳은 저를 소개하는 공간입니다. 좌측의 상세 페이지 이동 버튼을 누르면 더 자세한 내용을 확인할 수 있습니다." data-en="Hello! This is a space introducing myself. Click the detail page button on the left for more information.">
+                        안녕하세요! 이곳은 저를 소개하는 공간입니다. 좌측의 상세 페이지 이동 버튼을 누르면 더 자세한 내용을 확인할 수 있습니다.
+                    </div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 PROJECT SECTIONS (Project 1 ~ Project 6)
-            =========================================== -->
-            <div id="projects" class="space-y-16">
-
-                <!-- PROJECT 1 -->
-                <section id="project1" class="scroll-mt-24 space-y-4">
-                    <div class="inline-flex items-center space-x-3 bg-slate-900/90 light:bg-white px-4 py-2 rounded-2xl border border-indigo-500/30 shadow-lg shadow-indigo-500/5">
-                        <span class="w-3 h-3 rounded-full bg-indigo-500"></span>
-                        <h2 class="text-lg md:text-xl font-bold text-white light:text-slate-900" data-lang-key="p1_title">큰 제목 프로젝트 1</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Left Card: GIF / Media Interactive Area -->
-                        <a href="#" class="group relative block h-80 md:h-96 rounded-2xl glass-panel overflow-hidden border border-slate-800/80 hover:border-indigo-500/50 light:border-slate-200/80 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1 flex flex-col justify-between p-6">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-indigo-950/40 via-transparent to-purple-950/20 group-hover:scale-105 transition duration-500"></div>
-                            
-                            <div class="relative z-10 flex justify-between items-start">
-                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-900/80 text-indigo-400 border border-slate-700/80" data-lang-key="gif_badge">
-                                    <i class="fa-solid fa-play text-[10px] mr-1"></i> .GIF Preview
-                                </span>
-                                <span class="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700 flex items-center justify-center text-slate-300 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                                </span>
-                            </div>
-
-                            <div class="relative z-10 text-center my-auto py-8">
-                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
-                                    <i class="fa-regular fa-image"></i>
-                                </div>
-                                <p class="text-sm font-medium text-slate-300 light:text-slate-700 leading-relaxed max-w-xs mx-auto" data-lang-key="p1_gif_desc">
-                                    움직이는 파일 .gif 올릴 예정입니다.<br>
-                                    <span class="text-indigo-400 light:text-indigo-600 font-semibold underline mt-1 block">누르면, 프로젝트 페이지로 이동합니다.</span>
-                                </p>
-                            </div>
-
-                            <div class="relative z-10 text-xs text-slate-500 font-mono text-right">
-                                Click to view demo →
-                            </div>
-                        </a>
-
-                        <!-- Right Card: Text Description Area -->
-                        <div class="h-80 md:h-96 rounded-2xl glass-panel p-6 md:p-8 border border-slate-800/80 light:border-slate-200/80 flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between border-b border-slate-800 light:border-slate-200 pb-3">
-                                    <span class="text-xs font-mono text-indigo-400 light:text-indigo-600 uppercase tracking-widest font-bold">PROJECT OVERVIEW</span>
-                                    <span class="text-xs text-slate-500 font-mono">2026.01 - 2026.03</span>
-                                </div>
-                                <p class="text-slate-300 light:text-slate-700 text-sm md:text-base leading-relaxed" data-lang-key="p1_text_desc">
-                                    텍스트로 프로젝트 소개를 적어야됩니다. 이 프로젝트는 사용자 경험을 향상시키기 위한 차세대 실시간 대시보드 애플리케이션으로, 복잡한 데이터를 직관적으로 시각화합니다.
-                                </p>
-                            </div>
-
-                            <div class="space-y-3 pt-4 border-t border-slate-800/80 light:border-slate-200/80">
-                                <span class="text-xs font-semibold text-slate-400 light:text-slate-500 block">Tech Stack</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-indigo-300 light:text-indigo-700 border border-slate-800 light:border-slate-300">React</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-purple-300 light:text-purple-700 border border-slate-800 light:border-slate-300">TypeScript</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-cyan-300 light:text-cyan-700 border border-slate-800 light:border-slate-300">Tailwind CSS</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- PROJECT 2 -->
-                <section id="project2" class="scroll-mt-24 space-y-4">
-                    <div class="inline-flex items-center space-x-3 bg-slate-900/90 light:bg-white px-4 py-2 rounded-2xl border border-purple-500/30 shadow-lg shadow-purple-500/5">
-                        <span class="w-3 h-3 rounded-full bg-purple-500"></span>
-                        <h2 class="text-lg md:text-xl font-bold text-white light:text-slate-900" data-lang-key="p2_title">큰 제목 프로젝트 2</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Left Card -->
-                        <a href="#" class="group relative block h-80 md:h-96 rounded-2xl glass-panel overflow-hidden border border-slate-800/80 hover:border-purple-500/50 light:border-slate-200/80 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1 flex flex-col justify-between p-6">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-purple-950/40 via-transparent to-pink-950/20 group-hover:scale-105 transition duration-500"></div>
-                            
-                            <div class="relative z-10 flex justify-between items-start">
-                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-900/80 text-purple-400 border border-slate-700/80" data-lang-key="gif_badge">
-                                    <i class="fa-solid fa-play text-[10px] mr-1"></i> .GIF Preview
-                                </span>
-                                <span class="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700 flex items-center justify-center text-slate-300 group-hover:bg-purple-600 group-hover:text-white transition-all">
-                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                                </span>
-                            </div>
-
-                            <div class="relative z-10 text-center my-auto py-8">
-                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-2xl group-hover:scale-110 transition-transform">
-                                    <i class="fa-solid fa-film"></i>
-                                </div>
-                                <p class="text-sm font-medium text-slate-300 light:text-slate-700 leading-relaxed max-w-xs mx-auto" data-lang-key="p2_gif_desc">
-                                    움직이는 파일 .gif 올릴 예정입니다.<br>
-                                    <span class="text-purple-400 light:text-purple-600 font-semibold underline mt-1 block">누르면, 프로젝트 페이지로 이동합니다.</span>
-                                </p>
-                            </div>
-
-                            <div class="relative z-10 text-xs text-slate-500 font-mono text-right">
-                                Click to view demo →
-                            </div>
-                        </a>
-
-                        <!-- Right Card -->
-                        <div class="h-80 md:h-96 rounded-2xl glass-panel p-6 md:p-8 border border-slate-800/80 light:border-slate-200/80 flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between border-b border-slate-800 light:border-slate-200 pb-3">
-                                    <span class="text-xs font-mono text-purple-400 light:text-purple-600 uppercase tracking-widest font-bold">PROJECT OVERVIEW</span>
-                                    <span class="text-xs text-slate-500 font-mono">2025.09 - 2025.12</span>
-                                </div>
-                                <p class="text-slate-300 light:text-slate-700 text-sm md:text-base leading-relaxed" data-lang-key="p2_text_desc">
-                                    텍스트로 프로젝트 소개를 적어야됩니다. 글로벌 사용자를 타겟으로 한 E-Commerce플랫폼으로, 초고속 페이지 로딩 스피드와 반응형 마이크로 인터랙션을 제공합니다.
-                                </p>
-                            </div>
-
-                            <div class="space-y-3 pt-4 border-t border-slate-800/80 light:border-slate-200/80">
-                                <span class="text-xs font-semibold text-slate-400 light:text-slate-500 block">Tech Stack</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-purple-300 light:text-purple-700 border border-slate-800 light:border-slate-300">Next.js</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-emerald-300 light:text-emerald-700 border border-slate-800 light:border-slate-300">Node.js</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-amber-300 light:text-amber-700 border border-slate-800 light:border-slate-300">GraphQL</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- PROJECT 3 -->
-                <section id="project3" class="scroll-mt-24 space-y-4">
-                    <div class="inline-flex items-center space-x-3 bg-slate-900/90 light:bg-white px-4 py-2 rounded-2xl border border-cyan-500/30 shadow-lg shadow-cyan-500/5">
-                        <span class="w-3 h-3 rounded-full bg-cyan-500"></span>
-                        <h2 class="text-lg md:text-xl font-bold text-white light:text-slate-900" data-lang-key="p3_title">큰 제목 프로젝트 3</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Left Card -->
-                        <a href="#" class="group relative block h-80 md:h-96 rounded-2xl glass-panel overflow-hidden border border-slate-800/80 hover:border-cyan-500/50 light:border-slate-200/80 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1 flex flex-col justify-between p-6">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-950/40 via-transparent to-blue-950/20 group-hover:scale-105 transition duration-500"></div>
-                            
-                            <div class="relative z-10 flex justify-between items-start">
-                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-900/80 text-cyan-400 border border-slate-700/80" data-lang-key="gif_badge">
-                                    <i class="fa-solid fa-play text-[10px] mr-1"></i> .GIF Preview
-                                </span>
-                                <span class="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700 flex items-center justify-center text-slate-300 group-hover:bg-cyan-600 group-hover:text-white transition-all">
-                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                                </span>
-                            </div>
-
-                            <div class="relative z-10 text-center my-auto py-8">
-                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
-                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                </div>
-                                <p class="text-sm font-medium text-slate-300 light:text-slate-700 leading-relaxed max-w-xs mx-auto" data-lang-key="p3_gif_desc">
-                                    움직이는 파일 .gif 올릴 예정입니다.<br>
-                                    <span class="text-cyan-400 light:text-cyan-600 font-semibold underline mt-1 block">누르면, 프로젝트 페이지로 이동합니다.</span>
-                                </p>
-                            </div>
-
-                            <div class="relative z-10 text-xs text-slate-500 font-mono text-right">
-                                Click to view demo →
-                            </div>
-                        </a>
-
-                        <!-- Right Card -->
-                        <div class="h-80 md:h-96 rounded-2xl glass-panel p-6 md:p-8 border border-slate-800/80 light:border-slate-200/80 flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between border-b border-slate-800 light:border-slate-200 pb-3">
-                                    <span class="text-xs font-mono text-cyan-400 light:text-cyan-600 uppercase tracking-widest font-bold">PROJECT OVERVIEW</span>
-                                    <span class="text-xs text-slate-500 font-mono">2025.04 - 2025.08</span>
-                                </div>
-                                <p class="text-slate-300 light:text-slate-700 text-sm md:text-base leading-relaxed" data-lang-key="p3_text_desc">
-                                    텍스트로 프로젝트 소개를 적어야됩니다. AI 기반 자동화 텍스트 요약 서비스로, 생산성을 혁신적으로 높이는 차세대 클라우드 웹 툴입니다.
-                                </p>
-                            </div>
-
-                            <div class="space-y-3 pt-4 border-t border-slate-800/80 light:border-slate-200/80">
-                                <span class="text-xs font-semibold text-slate-400 light:text-slate-500 block">Tech Stack</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-cyan-300 light:text-cyan-700 border border-slate-800 light:border-slate-300">Python</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-indigo-300 light:text-indigo-700 border border-slate-800 light:border-slate-300">FastAPI</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-pink-300 light:text-pink-700 border border-slate-800 light:border-slate-300">Vue.js</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- PROJECT 4 -->
-                <section id="project4" class="scroll-mt-24 space-y-4">
-                    <div class="inline-flex items-center space-x-3 bg-slate-900/90 light:bg-white px-4 py-2 rounded-2xl border border-emerald-500/30 shadow-lg shadow-emerald-500/5">
-                        <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                        <h2 class="text-lg md:text-xl font-bold text-white light:text-slate-900" data-lang-key="p4_title">큰 제목 프로젝트 4</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <a href="#" class="group relative block h-80 md:h-96 rounded-2xl glass-panel overflow-hidden border border-slate-800/80 hover:border-emerald-500/50 light:border-slate-200/80 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-1 flex flex-col justify-between p-6">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-950/40 via-transparent to-teal-950/20 group-hover:scale-105 transition duration-500"></div>
-                            <div class="relative z-10 flex justify-between items-start">
-                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-900/80 text-emerald-400 border border-slate-700/80" data-lang-key="gif_badge"><i class="fa-solid fa-play text-[10px] mr-1"></i> .GIF Preview</span>
-                                <span class="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700 flex items-center justify-center text-slate-300 group-hover:bg-emerald-600 group-hover:text-white transition-all"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
-                            </div>
-                            <div class="relative z-10 text-center my-auto py-8">
-                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-chart-line"></i></div>
-                                <p class="text-sm font-medium text-slate-300 light:text-slate-700 leading-relaxed max-w-xs mx-auto" data-lang-key="p4_gif_desc">움직이는 파일 .gif 올릴 예정입니다.<br><span class="text-emerald-400 light:text-emerald-600 font-semibold underline mt-1 block">누르면, 프로젝트 페이지로 이동합니다.</span></p>
-                            </div>
-                            <div class="relative z-10 text-xs text-slate-500 font-mono text-right">Click to view demo →</div>
-                        </a>
-                        <div class="h-80 md:h-96 rounded-2xl glass-panel p-6 md:p-8 border border-slate-800/80 light:border-slate-200/80 flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between border-b border-slate-800 light:border-slate-200 pb-3">
-                                    <span class="text-xs font-mono text-emerald-400 light:text-emerald-600 uppercase tracking-widest font-bold">PROJECT OVERVIEW</span>
-                                    <span class="text-xs text-slate-500 font-mono">2025.01 - 2025.03</span>
-                                </div>
-                                <p class="text-slate-300 light:text-slate-700 text-sm md:text-base leading-relaxed" data-lang-key="p4_text_desc">텍스트로 프로젝트 소개를 적어야됩니다. 핀테크 자산 관리 대시보드 시스템.</p>
-                            </div>
-                            <div class="space-y-3 pt-4 border-t border-slate-800/80 light:border-slate-200/80">
-                                <span class="text-xs font-semibold text-slate-400 light:text-slate-500 block">Tech Stack</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-emerald-300 light:text-emerald-700 border border-slate-800 light:border-slate-300">Vue 3</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-cyan-300 light:text-cyan-700 border border-slate-800 light:border-slate-300">D3.js</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- PROJECT 5 -->
-                <section id="project5" class="scroll-mt-24 space-y-4">
-                    <div class="inline-flex items-center space-x-3 bg-slate-900/90 light:bg-white px-4 py-2 rounded-2xl border border-amber-500/30 shadow-lg shadow-amber-500/5">
-                        <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                        <h2 class="text-lg md:text-xl font-bold text-white light:text-slate-900" data-lang-key="p5_title">큰 제목 프로젝트 5</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <a href="#" class="group relative block h-80 md:h-96 rounded-2xl glass-panel overflow-hidden border border-slate-800/80 hover:border-amber-500/50 light:border-slate-200/80 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1 flex flex-col justify-between p-6">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-amber-950/40 via-transparent to-orange-950/20 group-hover:scale-105 transition duration-500"></div>
-                            <div class="relative z-10 flex justify-between items-start">
-                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-900/80 text-amber-400 border border-slate-700/80" data-lang-key="gif_badge"><i class="fa-solid fa-play text-[10px] mr-1"></i> .GIF Preview</span>
-                                <span class="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700 flex items-center justify-center text-slate-300 group-hover:bg-amber-600 group-hover:text-white transition-all"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
-                            </div>
-                            <div class="relative z-10 text-center my-auto py-8">
-                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-comments"></i></div>
-                                <p class="text-sm font-medium text-slate-300 light:text-slate-700 leading-relaxed max-w-xs mx-auto" data-lang-key="p5_gif_desc">움직이는 파일 .gif 올릴 예정입니다.<br><span class="text-amber-400 light:text-amber-600 font-semibold underline mt-1 block">누르면, 프로젝트 페이지로 이동합니다.</span></p>
-                            </div>
-                            <div class="relative z-10 text-xs text-slate-500 font-mono text-right">Click to view demo →</div>
-                        </a>
-                        <div class="h-80 md:h-96 rounded-2xl glass-panel p-6 md:p-8 border border-slate-800/80 light:border-slate-200/80 flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between border-b border-slate-800 light:border-slate-200 pb-3">
-                                    <span class="text-xs font-mono text-amber-400 light:text-amber-600 uppercase tracking-widest font-bold">PROJECT OVERVIEW</span>
-                                    <span class="text-xs text-slate-500 font-mono">2024.08 - 2024.11</span>
-                                </div>
-                                <p class="text-slate-300 light:text-slate-700 text-sm md:text-base leading-relaxed" data-lang-key="p5_text_desc">텍스트로 프로젝트 소개를 적어야됩니다. 실시간 팀 협업 메신저 플랫폼.</p>
-                            </div>
-                            <div class="space-y-3 pt-4 border-t border-slate-800/80 light:border-slate-200/80">
-                                <span class="text-xs font-semibold text-slate-400 light:text-slate-500 block">Tech Stack</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-amber-300 light:text-amber-700 border border-slate-800 light:border-slate-300">Socket.io</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-indigo-300 light:text-indigo-700 border border-slate-800 light:border-slate-300">Express</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- PROJECT 6 -->
-                <section id="project6" class="scroll-mt-24 space-y-4">
-                    <div class="inline-flex items-center space-x-3 bg-slate-900/90 light:bg-white px-4 py-2 rounded-2xl border border-pink-500/30 shadow-lg shadow-pink-500/5">
-                        <span class="w-3 h-3 rounded-full bg-pink-500"></span>
-                        <h2 class="text-lg md:text-xl font-bold text-white light:text-slate-900" data-lang-key="p6_title">큰 제목 프로젝트 6</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <a href="#" class="group relative block h-80 md:h-96 rounded-2xl glass-panel overflow-hidden border border-slate-800/80 hover:border-pink-500/50 light:border-slate-200/80 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-1 flex flex-col justify-between p-6">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-pink-950/40 via-transparent to-rose-950/20 group-hover:scale-105 transition duration-500"></div>
-                            <div class="relative z-10 flex justify-between items-start">
-                                <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-900/80 text-pink-400 border border-slate-700/80" data-lang-key="gif_badge"><i class="fa-solid fa-play text-[10px] mr-1"></i> .GIF Preview</span>
-                                <span class="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700 flex items-center justify-center text-slate-300 group-hover:bg-pink-600 group-hover:text-white transition-all"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
-                            </div>
-                            <div class="relative z-10 text-center my-auto py-8">
-                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-cubes"></i></div>
-                                <p class="text-sm font-medium text-slate-300 light:text-slate-700 leading-relaxed max-w-xs mx-auto" data-lang-key="p6_gif_desc">움직이는 파일 .gif 올릴 예정입니다.<br><span class="text-pink-400 light:text-pink-600 font-semibold underline mt-1 block">누르면, 프로젝트 페이지로 이동합니다.</span></p>
-                            </div>
-                            <div class="relative z-10 text-xs text-slate-500 font-mono text-right">Click to view demo →</div>
-                        </a>
-                        <div class="h-80 md:h-96 rounded-2xl glass-panel p-6 md:p-8 border border-slate-800/80 light:border-slate-200/80 flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between border-b border-slate-800 light:border-slate-200 pb-3">
-                                    <span class="text-xs font-mono text-pink-400 light:text-pink-600 uppercase tracking-widest font-bold">PROJECT OVERVIEW</span>
-                                    <span class="text-xs text-slate-500 font-mono">2024.03 - 2024.07</span>
-                                </div>
-                                <p class="text-slate-300 light:text-slate-700 text-sm md:text-base leading-relaxed" data-lang-key="p6_text_desc">텍스트로 프로젝트 소개를 적어야됩니다. 3D WebGL 인테리어 디자인 3D 커스텀 스튜디오.</p>
-                            </div>
-                            <div class="space-y-3 pt-4 border-t border-slate-800/80 light:border-slate-200/80">
-                                <span class="text-xs font-semibold text-slate-400 light:text-slate-500 block">Tech Stack</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-pink-300 light:text-pink-700 border border-slate-800 light:border-slate-300">Three.js</span>
-                                    <span class="text-xs px-2.5 py-1 rounded-lg bg-slate-900 light:bg-slate-200 text-purple-300 light:text-purple-700 border border-slate-800 light:border-slate-300">WebGL</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
-            <!-- BLOG SECTION -->
-            <section id="blog" class="glass-panel p-8 rounded-3xl border border-slate-800/80 light:border-slate-200/80 space-y-4">
-                <h2 class="text-xl font-bold text-white light:text-slate-900 flex items-center space-x-2">
-                    <i class="fa-regular fa-newspaper text-cyan-400"></i>
-                    <span data-lang-key="blog">blog</span>
-                </h2>
-                <p class="text-slate-400 light:text-slate-600 text-sm leading-relaxed" data-lang-key="blog_desc">
-                    기술 블로그에 작성한 최신 프론트엔드/백엔드 아티클 모음입니다.
-                </p>
-            </section>
-
-            <!-- CONTACT SECTION -->
-            <section id="contact" class="glass-panel p-8 rounded-3xl border border-slate-800/80 light:border-slate-200/80 space-y-4 mb-12">
-                <h2 class="text-xl font-bold text-white light:text-slate-900 flex items-center space-x-2">
-                    <i class="fa-regular fa-envelope text-emerald-400"></i>
-                    <span data-lang-key="contact">contact</span>
-                </h2>
-                <p class="text-slate-400 light:text-slate-600 text-sm leading-relaxed" data-lang-key="contact_desc">
-                    새로운 프로젝트 협업이나 채용 관련 문의는 언제든 편하게 연락주세요.
-                </p>
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="mailto:alex@example.com" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs md:text-sm flex items-center space-x-2 transition-all">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Email Me</span>
+            <!-- 프로젝트 1 -->
+            <section id="project1" class="content-section">
+                <h2 class="section-heading" data-kr="큰 제목 프로젝트 1" data-en="Main Project 1">큰 제목 프로젝트 1</h2>
+                <div class="project-card-wrapper">
+                    <a href="project/index.html" class="project-card gif-card">
+                        <span data-kr="움직이는 파일 .gif 올릴 예정입니다.<br>누르면, 프로젝트 페이지로 이동합니다." data-en="Moving .gif file will be uploaded here.<br>Click to go to project page.">움직이는 파일 .gif 올릴 예정입니다.<br>누르면, 프로젝트 페이지로 이동합니다.</span>
                     </a>
-                    <a href="https://github.com" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 light:bg-slate-200 light:hover:bg-slate-300 text-slate-200 light:text-slate-800 font-medium text-xs md:text-sm flex items-center space-x-2 transition-all">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
+                    <div class="project-card text-card">
+                        <span data-kr="텍스트로 프로젝트 소개를 적어야됩니다." data-en="Write project introduction with text here.">텍스트로 프로젝트 소개를 적어야됩니다.</span>
+                    </div>
                 </div>
             </section>
 
+            <!-- 프로젝트 2 -->
+            <section id="project2" class="content-section">
+                <h2 class="section-heading" data-kr="큰 제목 프로젝트 2" data-en="Main Project 2">큰 제목 프로젝트 2</h2>
+                <div class="project-card-wrapper">
+                    <a href="project/index.html" class="project-card gif-card">
+                        <span data-kr="움직이는 파일 .gif 올릴 예정입니다.<br>누르면, 프로젝트 페이지로 이동합니다." data-en="Moving .gif file will be uploaded here.<br>Click to go to project page.">움직이는 파일 .gif 올릴 예정입니다.<br>누르면, 프로젝트 페이지로 이동합니다.</span>
+                    </a>
+                    <div class="project-card text-card">
+                        <span data-kr="텍스트로 프로젝트 소개를 적어야됩니다." data-en="Write project introduction with text here.">텍스트로 프로젝트 소개를 적어야됩니다.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 프로젝트 3 -->
+            <section id="project3" class="content-section">
+                <h2 class="section-heading" data-kr="큰 제목 프로젝트 3" data-en="Main Project 3">큰 제목 프로젝트 3</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card gif-card"><span data-kr="GIF 영역" data-en="GIF Area">GIF 영역</span></div>
+                    <div class="project-card text-card"><span data-kr="소개 텍스트 영역" data-en="Description Area">소개 텍스트 영역</span></div>
+                </div>
+            </section>
+
+            <!-- 프로젝트 4 -->
+            <section id="project4" class="content-section">
+                <h2 class="section-heading" data-kr="큰 제목 프로젝트 4" data-en="Main Project 4">큰 제목 프로젝트 4</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card gif-card"><span data-kr="GIF 영역" data-en="GIF Area">GIF 영역</span></div>
+                    <div class="project-card text-card"><span data-kr="소개 텍스트 영역" data-en="Description Area">소개 텍스트 영역</span></div>
+                </div>
+            </section>
+            
+            <!-- 프로젝트 5 -->
+            <section id="project5" class="content-section">
+                <h2 class="section-heading" data-kr="큰 제목 프로젝트 5" data-en="Main Project 5">큰 제목 프로젝트 5</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card gif-card"><span data-kr="GIF 영역" data-en="GIF Area">GIF 영역</span></div>
+                    <div class="project-card text-card"><span data-kr="소개 텍스트 영역" data-en="Description Area">소개 텍스트 영역</span></div>
+                </div>
+            </section>
+
+            <!-- 프로젝트 6 -->
+            <section id="project6" class="content-section">
+                <h2 class="section-heading" data-kr="큰 제목 프로젝트 6" data-en="Main Project 6">큰 제목 프로젝트 6</h2>
+                <div class="project-card-wrapper">
+                    <div class="project-card gif-card"><span data-kr="GIF 영역" data-en="GIF Area">GIF 영역</span></div>
+                    <div class="project-card text-card"><span data-kr="소개 텍스트 영역" data-en="Description Area">소개 텍스트 영역</span></div>
+                </div>
+            </section>
         </main>
     </div>
 
-    <!-- ==========================================
-         JAVASCRIPT (ScrollSpy, Scale Effect, Theme & Language Toggle)
-    =========================================== -->
+    <!-- 스크립트: 부드러운 스크롤, ScrollSpy 강조, 다크모드, 4번 요청 자동 번역 기능 -->
     <script>
-        // Dictionary for Multilingual (Korean / English)
-        const translations = {
-            ko: {
-                title: "DEVELOPER PORTFOLIO",
-                status: "채용 가능",
-                my_photo: "내 사진",
-                role: "풀스택 엔지니어",
-                about_me: "about me",
-                project: "project",
-                blog: "blog",
-                contact: "contact",
-                welcome_badge: "✨ 포트폴리오에 오신 것을 환영합니다",
-                hero_title: "창의적이고 확장 가능한 웹 경험을 만드는 개발자입니다.",
-                hero_desc: "모던 웹 기술(React, Vue, Node.js, Tailwind)을 활용하여 직관적이고 인터랙티브한 디지털 프로덕트를 구현합니다. 아래에서 최신 프로젝트들을 살펴보세요.",
-                gif_badge: ".GIF 미리보기",
-                p1: "프로젝트 1",
-                p2: "프로젝트 2",
-                p3: "프로젝트 3",
-                p4: "프로젝트 4",
-                p5: "프로젝트 5",
-                p6: "프로젝트 6",
-                p1_title: "큰 제목 프로젝트 1",
-                p2_title: "큰 제목 프로젝트 2",
-                p3_title: "큰 제목 프로젝트 3",
-                p4_title: "큰 제목 프로젝트 4",
-                p5_title: "큰 제목 프로젝트 5",
-                p6_title: "큰 제목 프로젝트 6",
-                p1_gif_desc: "움직이는 파일 .gif 올릴 예정입니다.\n누르면, 프로젝트 페이지로 이동합니다.",
-                p2_gif_desc: "움직이는 파일 .gif 올릴 예정입니다.\n누르면, 프로젝트 페이지로 이동합니다.",
-                p3_gif_desc: "움직이는 파일 .gif 올릴 예정입니다.\n누르면, 프로젝트 페이지로 이동합니다.",
-                p4_gif_desc: "움직이는 파일 .gif 올릴 예정입니다.\n누르면, 프로젝트 페이지로 이동합니다.",
-                p5_gif_desc: "움직이는 파일 .gif 올릴 예정입니다.\n누르면, 프로젝트 페이지로 이동합니다.",
-                p6_gif_desc: "움직이는 파일 .gif 올릴 예정입니다.\n누르면, 프로젝트 페이지로 이동합니다.",
-                p1_text_desc: "텍스트로 프로젝트 소개를 적어야됩니다. 이 프로젝트는 사용자 경험을 향상시키기 위한 차세대 실시간 대시보드 애플리케이션으로, 복잡한 데이터를 직관적으로 시각화합니다.",
-                p2_text_desc: "텍스트로 프로젝트 소개를 적어야됩니다. 글로벌 사용자를 타겟으로 한 E-Commerce플랫폼으로, 초고속 페이지 로딩 스피드와 반응형 마이크로 인터랙션을 제공합니다.",
-                p3_text_desc: "텍스트로 프로젝트 소개를 적어야됩니다. AI 기반 자동화 텍스트 요약 서비스로, 생산성을 혁신적으로 높이는 차세대 클라우드 웹 툴입니다.",
-                p4_text_desc: "텍스트로 프로젝트 소개를 적어야됩니다. 핀테크 자산 관리 대시보드 시스템.",
-                p5_text_desc: "텍스트로 프로젝트 소개를 적어야됩니다. 실시간 팀 협업 메신저 플랫폼.",
-                p6_text_desc: "텍스트로 프로젝트 소개를 적어야됩니다. 3D WebGL 인테리어 디자인 3D 커스텀 스튜디오.",
-                blog_desc: "기술 블로그에 작성한 최신 프론트엔드/백엔드 아티클 모음입니다.",
-                contact_desc: "새로운 프로젝트 협업이나 채용 관련 문의는 언제든 편하게 연락주세요."
-            },
-            en: {
-                title: "DEVELOPER PORTFOLIO",
-                status: "Available for hire",
-                my_photo: "MY PHOTO",
-                role: "Full Stack Engineer",
-                about_me: "about me",
-                project: "project",
-                blog: "blog",
-                contact: "contact",
-                welcome_badge: "✨ Welcome to my portfolio",
-                hero_title: "Crafting intuitive & scalable modern web experiences.",
-                hero_desc: "I build interactive digital products using modern web tech stacks (React, Vue, Node.js, Tailwind). Explore my featured projects below.",
-                gif_badge: ".GIF Preview",
-                p1: "Project 1",
-                p2: "Project 2",
-                p3: "Project 3",
-                p4: "Project 4",
-                p5: "Project 5",
-                p6: "Project 6",
-                p1_title: "Major Project 1 Title",
-                p2_title: "Major Project 2 Title",
-                p3_title: "Major Project 3 Title",
-                p4_title: "Major Project 4 Title",
-                p5_title: "Major Project 5 Title",
-                p6_title: "Major Project 6 Title",
-                p1_gif_desc: "Animated .gif will be uploaded here.\nClick to navigate to the project page.",
-                p2_gif_desc: "Animated .gif will be uploaded here.\nClick to navigate to the project page.",
-                p3_gif_desc: "Animated .gif will be uploaded here.\nClick to navigate to the project page.",
-                p4_gif_desc: "Animated .gif will be uploaded here.\nClick to navigate to the project page.",
-                p5_gif_desc: "Animated .gif will be uploaded here.\nClick to navigate to the project page.",
-                p6_gif_desc: "Animated .gif will be uploaded here.\nClick to navigate to the project page.",
-                p1_text_desc: "Project introduction text goes here. A next-gen real-time dashboard visualization system built to optimize user workflow.",
-                p2_text_desc: "Project introduction text goes here. High-performance global E-Commerce platform with smooth micro-interactions.",
-                p3_text_desc: "Project introduction text goes here. AI-powered cloud web tool for automated text summarization and productivity.",
-                p4_text_desc: "Project introduction text goes here. Fintech asset management dashboard platform.",
-                p5_text_desc: "Project introduction text goes here. Real-time team collaboration and messaging web app.",
-                p6_text_desc: "Project introduction text goes here. 3D WebGL interior customization studio.",
-                blog_desc: "Collection of recent frontend & backend engineering blog articles.",
-                contact_desc: "Feel free to reach out for project inquiries or job opportunities."
-            }
-        };
-
-        let currentLang = 'ko';
-
-        // Dark / Light Theme Toggle Functionality
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const themeLabel = document.getElementById('themeLabel');
-        const htmlElement = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                htmlElement.classList.add('light');
-                themeLabel.textContent = currentLang === 'ko' ? '낮' : 'Day';
-            } else {
-                htmlElement.classList.remove('light');
-                htmlElement.classList.add('dark');
-                themeLabel.textContent = currentLang === 'ko' ? '밤' : 'Night';
-            }
-        });
-
-        // Language Toggle Functionality
-        const langToggleBtn = document.getElementById('langToggleBtn');
-        const langLabel = document.getElementById('langLabel');
+        // 4번 답변: 자동 번역 기능 구현 (코드를 직접 수정할 필요 없이 버튼 클릭 시 자동 전환)
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = 'kr';
 
         langToggleBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'ko' ? 'en' : 'ko';
-            langLabel.textContent = currentLang === 'ko' ? '한글' : 'English';
-            
-            // Update theme label based on language
-            if (htmlElement.classList.contains('dark')) {
-                themeLabel.textContent = currentLang === 'ko' ? '밤' : 'Night';
-            } else {
-                themeLabel.textContent = currentLang === 'ko' ? '낮' : 'Day';
-            }
-
-            // Apply translation strings
-            document.querySelectorAll('[data-lang-key]').forEach(elem => {
-                const key = elem.getAttribute('data-lang-key');
-                if (translations[currentLang][key]) {
-                    elem.innerHTML = translations[currentLang][key].replace(/\n/g, '<br>');
-                }
+            currentLang = currentLang === 'kr' ? 'en' : 'kr';
+            document.querySelectorAll('[data-kr]').forEach(el => {
+                el.innerHTML = el.getAttribute(`data-${currentLang}`);
             });
+            langToggleBtn.textContent = currentLang === 'kr' ? '한글/영어' : 'English';
         });
 
-        // Top Nav Project Buttons Dynamic Expansion & ScrollSpy
-        const projectNavBtns = document.querySelectorAll('.project-nav-btn');
-        const projectSections = document.querySelectorAll('section[id^="project"]');
+        // 낮/밤(다크/라이트) 테마 전환
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+        });
 
-        function setActiveProjectNav(targetId) {
-            projectNavBtns.forEach(btn => {
-                if (btn.getAttribute('data-project') === targetId) {
+        // 1번 & 3번 답변: 상단 프로젝트 버튼 클릭 시 끊김 없이 부드럽게 이동 및 활성화 동기화
+        const sections = document.querySelectorAll('.content-section');
+        const navBtns = document.querySelectorAll('.project-menu .p-btn');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('href') === '#' + current) {
                     btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
-
-        // IntersectionObserver for auto scroll detection
-        const observerOptions = {
-            root: null,
-            rootMargin: '-20% 0px -50% 0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    setActiveProjectNav(id);
-                }
-            });
-        }, observerOptions);
-
-        projectSections.forEach(section => observer.observe(section));
-
-        // Smooth Button Click Scroll handling
-        projectNavBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = btn.getAttribute('data-project');
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    setActiveProjectNav(targetId);
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
                 }
             });
         });
