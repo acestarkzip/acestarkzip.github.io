@@ -1,98 +1,618 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Portfolio</title>
+    <title>Blog | Ace Stark (Seonkyu Kim)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0B0F17',
+                        darkCard: 'rgba(21, 28, 44, 0.75)',
+                        accentPurple: '#8B5CF6',
+                        accentCyan: '#06B6D4',
+                    },
+                    boxShadow: {
+                        'neon-purple': '0 0 25px rgba(139, 92, 246, 0.45)',
+                        'neon-cyan': '0 0 25px rgba(6, 182, 212, 0.45)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter & Noto Sans KR Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        :root {
-            --bg-color: #0b0f17;
-            --card-bg: rgba(22, 29, 45, 0.7);
-            --border-color: rgba(255, 255, 255, 0.12);
-            --accent-cyan: #00f2fe;
-            --accent-purple: #7928ca;
-            --text-main: #f1f5f9;
-            --text-sub: #94a3b8;
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-color); color: var(--text-main); }
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(21, 28, 44, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-        header {
-            position: fixed; top: 0; width: 100%; height: 65px;
-            background: rgba(11, 15, 23, 0.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 30px; z-index: 100;
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
-        .back-home { color: var(--accent-cyan); text-decoration: none; font-weight: 600; }
 
-        .container { display: flex; margin-top: 65px; min-height: calc(100vh - 65px); }
-        .sidebar {
-            width: 280px; padding: 40px 20px; border-right: 1px solid var(--border-color);
-            display: flex; flex-direction: column; align-items: center; gap: 20px;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
-        .profile-circle {
-            width: 140px; height: 140px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            display: flex; align-items: center; justify-content: center; font-weight: bold;
+        ::-webkit-scrollbar-track {
+            background: #0B0F17;
         }
-        .nav-links { list-style: none; width: 100%; display: flex; flex-direction: column; gap: 10px; }
-        .nav-links a {
-            display: block; padding: 12px; text-align: center; border-radius: 12px;
-            text-decoration: none; color: var(--text-sub); border: 1px solid var(--border-color);
+        .light ::-webkit-scrollbar-track {
+            background: #F3F4F6;
         }
-        .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.08); color: var(--text-main); border-color: var(--accent-cyan); }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B5CF6;
+        }
 
-        .content { flex: 1; padding: 50px; max-width: 900px; }
-        .title { font-size: 2rem; margin-bottom: 30px; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        .post-item {
-            background: var(--card-bg); border: 1px solid var(--border-color);
-            border-radius: 16px; padding: 25px; margin-bottom: 20px;
-            display: flex; justify-content: space-between; align-items: center;
+        /* Active Category Button Scaling & Highlight Effect */
+        .category-btn {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
         }
-        .post-info h3 { margin-bottom: 8px; font-size: 1.2rem; }
-        .post-info p { color: var(--text-sub); font-size: 0.9rem; }
-        .date { color: var(--accent-cyan); font-size: 0.85rem; font-weight: bold; }
+
+        .category-btn.active {
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+            color: #ffffff !important;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+            border-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #A78BFA 0%, #38BDF8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Background Ambient Glow */
+        .ambient-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hide scrollbars for navbar horizontally */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
-<body>
-    <header>
-        <a href="../index.html" class="back-home">← 메인 포트폴리오로 돌아가기</a>
-        <div>Blog Logs</div>
+<body class="bg-darkBg text-slate-100 transition-colors duration-300 min-h-screen relative overflow-x-hidden dark:bg-[#0B0F17] dark:text-slate-100 light:bg-slate-50 light:text-slate-800" id="body-root">
+
+    <!-- Ambient Glow Orbs -->
+    <div class="ambient-glow bg-purple-600 top-[-100px] left-[-100px]"></div>
+    <div class="ambient-glow bg-cyan-500 bottom-[10%] right-[-100px]"></div>
+
+    <!-- 1. Header / Top Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full h-16 z-50 glass-panel border-b border-slate-800/60 dark:border-slate-800/60 light:border-slate-200/80 px-4 md:px-8 flex items-center justify-between">
+        
+        <!-- Site Title Badge -->
+        <div class="flex-shrink-0 z-10">
+            <a href="../index.html" class="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 dark:bg-purple-500/10 light:bg-purple-100 text-xs md:text-sm font-semibold tracking-wide text-purple-300 dark:text-purple-300 light:text-purple-700 flex items-center gap-2 hover:border-purple-400 transition">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span>Ace Stark (Seonkyu Kim)</span>
+            </a>
+        </div>
+
+        <!-- Center Nav: Quick Category Filter Tags -->
+        <nav class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 md:gap-3 py-2 px-4 no-scrollbar overflow-x-auto max-w-[50vw] sm:max-w-[60vw]">
+            <button data-category="all" class="category-btn active px-4 py-1.5 rounded-full text-xs md:text-sm font-medium border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 bg-slate-900/40 dark:bg-slate-900/40 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:border-purple-400 whitespace-nowrap">
+                <span data-lang-ko="전체" data-lang-en="All">전체</span>
+            </button>
+            <button data-category="robotics" class="category-btn px-4 py-1.5 rounded-full text-xs md:text-sm font-medium border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 bg-slate-900/40 dark:bg-slate-900/40 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:border-purple-400 whitespace-nowrap">
+                <span data-lang-ko="Robotics & AI" data-lang-en="Robotics & AI">Robotics & AI</span>
+            </button>
+            <button data-category="simulation" class="category-btn px-4 py-1.5 rounded-full text-xs md:text-sm font-medium border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 bg-slate-900/40 dark:bg-slate-900/40 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:border-purple-400 whitespace-nowrap">
+                <span data-lang-ko="OpenUSD & Sim" data-lang-en="OpenUSD & Sim">OpenUSD & Sim</span>
+            </button>
+            <button data-category="ros2" class="category-btn px-4 py-1.5 rounded-full text-xs md:text-sm font-medium border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 bg-slate-900/40 dark:bg-slate-900/40 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:border-purple-400 whitespace-nowrap">
+                <span data-lang-ko="ROS 2" data-lang-en="ROS 2">ROS 2</span>
+            </button>
+            <button data-category="troubleshooting" class="category-btn px-4 py-1.5 rounded-full text-xs md:text-sm font-medium border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 bg-slate-900/40 dark:bg-slate-900/40 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:border-purple-400 whitespace-nowrap">
+                <span data-lang-ko="트러블슈팅" data-lang-en="Troubleshooting">트러블슈팅</span>
+            </button>
+        </nav>
+
+        <!-- Right Status Indicator -->
+        <div class="hidden sm:flex items-center gap-2 text-xs text-slate-400 z-10">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span data-lang-ko="기술 블로그" data-lang-en="Tech Journal">기술 블로그</span>
+        </div>
     </header>
 
-    <div class="container">
-        <aside class="sidebar">
-            <div class="profile-circle">Profile</div>
-            <ul class="nav-links">
-                <li><a href="../about-me/index.html">about me</a></li>
-                <li><a href="../project/index.html">project</a></li>
-                <li><a href="../blog/index.html" class="active">blog</a></li>
-                <li><a href="../contact/index.html">contact</a></li>
-            </ul>
+    <!-- Main Outer Layout -->
+    <div class="pt-16 flex min-h-[calc(100vh-4rem)] relative z-10">
+
+        <!-- 2. Left Fixed Sidebar -->
+        <aside class="w-64 lg:w-72 fixed left-0 top-16 bottom-0 glass-panel border-r border-slate-800/60 dark:border-slate-800/60 light:border-slate-200/80 p-6 flex flex-col justify-between hidden md:flex z-40 overflow-y-auto">
+            
+            <div class="space-y-6">
+                <!-- Top Control Toggles: Day/Night & KO/EN -->
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="theme-toggle" class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 text-xs font-semibold hover:border-purple-500 hover:text-purple-400 transition-all shadow-sm">
+                        <i class="fa-solid fa-moon text-purple-400 dark:inline hidden" id="dark-icon"></i>
+                        <i class="fa-solid fa-sun text-amber-500 dark:hidden inline" id="light-icon"></i>
+                        <span id="theme-text">Dark / Light</span>
+                    </button>
+                    <button id="lang-toggle" class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100 text-xs font-semibold hover:border-cyan-500 hover:text-cyan-400 transition-all shadow-sm">
+                        <i class="fa-solid fa-globe text-cyan-400"></i>
+                        <span id="lang-text">KO / EN</span>
+                    </button>
+                </div>
+
+                <!-- Profile Picture Area -->
+                <div class="flex flex-col items-center pt-2">
+                    <a href="../about-me/about-me.html" class="relative group cursor-pointer">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-300 group-hover:scale-105"></div>
+                        <div class="relative w-28 h-28 rounded-full border-2 border-slate-700/80 bg-slate-900 flex flex-col items-center justify-center text-slate-400 group-hover:text-slate-200 transition overflow-hidden">
+                            <i class="fa-solid fa-robot text-3xl mb-1 text-purple-400"></i>
+                            <span class="text-[10px] font-medium" data-lang-ko="프로필" data-lang-en="Profile">프로필</span>
+                        </div>
+                    </a>
+                    <h3 class="mt-4 font-bold text-base text-slate-100 dark:text-slate-100 light:text-slate-800 tracking-tight">Ace Stark</h3>
+                    <p class="text-xs text-purple-400 font-medium mt-0.5">Robotics & AI Engineer</p>
+                </div>
+
+                <!-- Sidebar Navigation Menu -->
+                <nav class="space-y-2 pt-2">
+                    <a href="../about-me/about-me.html" class="flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-800/80 dark:border-slate-800/80 light:border-slate-200 bg-slate-900/40 dark:bg-slate-900/40 light:bg-slate-100/80 hover:bg-purple-600/10 hover:border-purple-500/50 hover:text-purple-300 transition group">
+                        <i class="fa-regular fa-id-card text-slate-400 group-hover:text-purple-400"></i>
+                        <span class="text-sm font-semibold" data-lang-ko="about me" data-lang-en="about me">about me</span>
+                    </a>
+                    <a href="../project/project.html" class="flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-800/80 dark:border-slate-800/80 light:border-slate-200 bg-slate-900/40 dark:bg-slate-900/40 light:bg-slate-100/80 hover:bg-purple-600/10 hover:border-purple-500/50 hover:text-purple-300 transition group">
+                        <i class="fa-solid fa-code-merge text-slate-400 group-hover:text-purple-400"></i>
+                        <span class="text-sm font-semibold" data-lang-ko="project" data-lang-en="project">project</span>
+                    </a>
+                    <!-- Active Page: Blog -->
+                    <a href="blog.html" class="flex items-center gap-3 px-4 py-3 rounded-xl border border-purple-500/60 bg-gradient-to-r from-purple-600/20 to-cyan-500/20 text-purple-300 shadow-neon-purple transition group font-bold">
+                        <i class="fa-regular fa-newspaper text-purple-400"></i>
+                        <span class="text-sm font-semibold" data-lang-ko="blog" data-lang-en="blog">blog</span>
+                    </a>
+                    <a href="../contact/contact.html" class="flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-800/80 dark:border-slate-800/80 light:border-slate-200 bg-slate-900/40 dark:bg-slate-900/40 light:bg-slate-100/80 hover:bg-purple-600/10 hover:border-purple-500/50 hover:text-purple-300 transition group">
+                        <i class="fa-regular fa-envelope text-slate-400 group-hover:text-purple-400"></i>
+                        <span class="text-sm font-semibold" data-lang-ko="contact" data-lang-en="contact">contact</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Footer info in Sidebar -->
+            <div class="pt-4 border-t border-slate-800/60 dark:border-slate-800/60 light:border-slate-200 text-center">
+                <p class="text-[11px] text-slate-500">© 2026 Ace Stark. All rights reserved.</p>
+            </div>
         </aside>
 
-        <main class="content">
-            <h1 class="title">Recent Posts</h1>
-            
-            <div class="post-item">
-                <div class="post-info">
-                    <h3>깃허브 페이지 구축 과정 트러블 슈팅</h3>
-                    <p>다크 테마 적용 및 서브 페이지 폴더 구조화 정리</p>
+        <!-- Mobile Floating Sidebar Toggle -->
+        <div class="md:hidden fixed bottom-6 right-6 z-50 flex gap-2">
+            <button id="mobile-theme-toggle" class="p-3 rounded-full bg-purple-600 text-white shadow-lg">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button id="mobile-lang-toggle" class="p-3 rounded-full bg-cyan-600 text-white shadow-lg">
+                <i class="fa-solid fa-globe"></i>
+            </button>
+        </div>
+
+        <!-- 3. Main Content Area -->
+        <main class="flex-1 md:ml-64 lg:ml-72 p-6 md:p-10 lg:p-12 space-y-10 max-w-7xl mx-auto">
+
+            <!-- Blog Title & Search Section -->
+            <section class="space-y-6">
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800/80 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl"></div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2 block">Engineering Journal & Insights</span>
+                        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-100 dark:text-slate-100 light:text-slate-800 tracking-tight">
+                            <span class="gradient-text" data-lang-ko="기술 블로그 & 연구 기록" data-lang-en="Tech Blog & Research Notes">기술 블로그 & 연구 기록</span>
+                        </h1>
+                        <p class="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm md:text-base leading-relaxed mt-2 max-w-xl" data-lang-ko="로보틱스, AI 시뮬레이션, OpenUSD, ROS 2 관련 개발 과정과 트러블슈팅 경험을 공유합니다." data-lang-en="Sharing insights, development logs, and troubleshooting notes on Robotics, AI Simulation, OpenUSD, and ROS 2.">
+                            로보틱스, AI 시뮬레이션, OpenUSD, ROS 2 관련 개발 과정과 트러블슈팅 경험을 공유합니다.
+                        </p>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="relative min-w-[280px] sm:min-w-[320px]">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="blog-search" placeholder="검색어 또는 태그 입력..." class="w-full pl-11 pr-4 py-3 rounded-2xl glass-panel border border-slate-700/60 focus:border-purple-500 text-sm text-slate-100 placeholder-slate-400 focus:outline-none transition shadow-sm" data-lang-ko-placeholder="검색어 또는 태그 입력..." data-lang-en-placeholder="Search posts or tags...">
+                    </div>
                 </div>
-                <span class="date">2026.10.29</span>
+            </section>
+
+            <!-- Featured Hero Post -->
+            <section id="featured-post-section">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl border border-purple-500/40 bg-purple-500/10 mb-4">
+                    <i class="fa-solid fa-star text-purple-400 text-xs"></i>
+                    <span class="text-xs font-bold text-purple-300" data-lang-ko="추천 아티클" data-lang-en="Featured Post">추천 아티클</span>
+                </div>
+
+                <article class="post-card group relative rounded-3xl glass-panel border border-slate-800/80 p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/60 hover:shadow-neon-purple" data-category="simulation">
+                    <!-- Left Thumbnail / Animated Visual -->
+                    <div class="lg:col-span-5 h-64 lg:h-auto rounded-2xl bg-gradient-to-br from-purple-900/40 to-cyan-900/40 border border-slate-700/50 flex flex-col items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-transparent to-cyan-500/20 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <i class="fa-solid fa-cube text-5xl text-cyan-400 mb-3 animate-bounce"></i>
+                        <span class="text-xs font-semibold text-slate-300 bg-slate-900/70 px-3 py-1 rounded-full border border-slate-700" data-lang-ko="NVIDIA Isaac Sim / OpenUSD" data-lang-en="NVIDIA Isaac Sim / OpenUSD">NVIDIA Isaac Sim / OpenUSD</span>
+                    </div>
+
+                    <!-- Right Details -->
+                    <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-3 text-xs mb-3 flex-wrap">
+                                <span class="px-3 py-1 rounded-full font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">OpenUSD & Sim</span>
+                                <span class="text-slate-400"><i class="fa-regular fa-calendar-check mr-1"></i> 2026.10.15</span>
+                                <span class="text-slate-400"><i class="fa-regular fa-clock mr-1"></i> 8 min read</span>
+                            </div>
+
+                            <h2 class="text-2xl md:text-3xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-purple-300 transition line-clamp-2" data-lang-ko="OpenUSD 파이프라인을 활용한 가상 공장 가속화 시뮬레이션 구축" data-lang-en="Building High-Speed Digital Twin Factories Using OpenUSD Pipelines">
+                                OpenUSD 파이프라인을 활용한 가상 공장 가속화 시뮬레이션 구축
+                            </h2>
+
+                            <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm leading-relaxed mt-3 line-clamp-3" data-lang-ko="Omniverse 및 Isaac Sim 플랫폼에서 대규모 로봇 자동화 라인을 최적화하기 위해 OpenUSD 레이어링 및 변형 세트(VariantSets) 구조를 설계한 실무 경험을 다룹니다." data-lang-en="Sharing practical insights into designing OpenUSD layering and VariantSets to optimize large-scale robot automation lines in Omniverse and Isaac Sim.">
+                                Omniverse 및 Isaac Sim 플랫폼에서 대규모 로봇 자동화 라인을 최적화하기 위해 OpenUSD 레이어링 및 변형 세트(VariantSets) 구조를 설계한 실무 경험을 다룹니다.
+                            </p>
+                        </div>
+
+                        <!-- Tech Badges & Read Button -->
+                        <div class="pt-4 border-t border-slate-800/60 flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800/80 text-cyan-300 border border-cyan-500/20">OpenUSD</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800/80 text-purple-300 border border-purple-500/20">Isaac Sim</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800/80 text-slate-300">Python API</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-md hover:opacity-90 transition">
+                                <span data-lang-ko="아티클 읽기" data-lang-en="Read Article">아티클 읽기</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Blog Post Grid Header -->
+            <div class="flex items-center justify-between pt-4 border-b border-slate-800/60 pb-3">
+                <h3 class="text-lg font-bold text-slate-200 dark:text-slate-200 light:text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-list-ul text-cyan-400"></i>
+                    <span data-lang-ko="최신 포스트 목록" data-lang-en="Recent Articles">최신 포스트 목록</span>
+                </h3>
+                <span id="post-count" class="text-xs text-slate-400 font-medium">Showing 6 posts</span>
             </div>
 
-            <div class="post-item">
-                <div class="post-info">
-                    <h3>모던 웹 디자인 트렌드와 CSS 라이브러리</h3>
-                    <p>글래스모피즘(Glassmorphism)과 애니메이션 기법</p>
-                </div>
-                <span class="date">2026.10.20</span>
+            <!-- Blog Posts Grid Layout -->
+            <section id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- POST 1 -->
+                <article class="post-card group rounded-3xl glass-panel border border-slate-800/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/60 hover:shadow-neon-purple" data-category="ros2">
+                    <div class="space-y-4">
+                        <div class="h-44 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                            <i class="fa-solid fa-network-wired text-4xl text-purple-400 group-hover:scale-110 transition duration-300"></i>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">ROS 2</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                            <span><i class="fa-regular fa-calendar mr-1"></i>2026.09.28</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i>5 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-purple-300 transition line-clamp-2" data-lang-ko="ROS 2 Humble DDS 튜닝 및 통신 지연시간(Latency) 최소화 가이드" data-lang-en="ROS 2 Humble DDS Tuning & Latency Minimization Guide">
+                            ROS 2 Humble DDS 튜닝 및 통신 지연시간(Latency) 최소화 가이드
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed line-clamp-3" data-lang-ko="CycloneDDS 및 FastDDS 환경에서 대용량 포인트클라우드 데이터 송수신 시 발생하는 병목 현상을 해결하기 위한 QoS 설정 노하우입니다." data-lang-en="Best practices for QoS settings to resolve bottlenecks when transmitting large point cloud data in CycloneDDS and FastDDS.">
+                            CycloneDDS 및 FastDDS 환경에서 대용량 포인트클라우드 데이터 송수신 시 발생하는 병목 현상을 해결하기 위한 QoS 설정 노하우입니다.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="flex gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">FastDDS</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">QoS</span>
+                        </div>
+                        <a href="#" class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition" data-lang-ko="읽기 →" data-lang-en="Read →">읽기 →</a>
+                    </div>
+                </article>
+
+                <!-- POST 2 -->
+                <article class="post-card group rounded-3xl glass-panel border border-slate-800/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-500/60 hover:shadow-neon-cyan" data-category="robotics">
+                    <div class="space-y-4">
+                        <div class="h-44 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                            <i class="fa-solid fa-microchip text-4xl text-cyan-400 group-hover:scale-110 transition duration-300"></i>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Robotics & AI</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                            <span><i class="fa-regular fa-calendar mr-1"></i>2026.08.12</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i>10 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-cyan-300 transition line-clamp-2" data-lang-ko="모바일 매니퓰레이터 자율주행을 위한 Nav2 및 MoveIt2 심합 연동" data-lang-en="Integrating Nav2 & MoveIt2 for Mobile Manipulator Navigation">
+                            모바일 매니퓰레이터 자율주행을 위한 Nav2 및 MoveIt2 심합 연동
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed line-clamp-3" data-lang-ko="AMR 주행 제어와 로봇 팔 궤적 계획을 실시간으로 동기화하여 작업 효율성을 증대시키는 프레임워크 구현 모듈 설명입니다." data-lang-en="Implementation guide for real-time synchronization between AMR navigation and robotic arm trajectory planning to improve task efficiency.">
+                            AMR 주행 제어와 로봇 팔 궤적 계획을 실시간으로 동기화하여 작업 효율성을 증대시키는 프레임워크 구현 모듈 설명입니다.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="flex gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">Nav2</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">MoveIt2</span>
+                        </div>
+                        <a href="#" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition" data-lang-ko="읽기 →" data-lang-en="Read →">읽기 →</a>
+                    </div>
+                </article>
+
+                <!-- POST 3 -->
+                <article class="post-card group rounded-3xl glass-panel border border-slate-800/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/60 hover:shadow-neon-purple" data-category="troubleshooting">
+                    <div class="space-y-4">
+                        <div class="h-44 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                            <i class="fa-solid fa-bug-slash text-4xl text-amber-400 group-hover:scale-110 transition duration-300"></i>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">Troubleshooting</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                            <span><i class="fa-regular fa-calendar mr-1"></i>2026.07.04</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i>6 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-purple-300 transition line-clamp-2" data-lang-ko="C++17 및 CUDA 메모리 누수 문제 원인 분석과 실전 해결법" data-lang-en="Analyzing & Resolving C++17 and CUDA Memory Leaks in Practice">
+                            C++17 및 CUDA 메모리 누수 문제 원인 분석과 실전 해결법
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed line-clamp-3" data-lang-ko="Valgrind 및 NVIDIA Nsight Systems 도구를 사용하여 로보틱스 비전 인퍼런스 엔진의 GPU 메모리 단편화를 디버깅한 기록입니다." data-lang-en="A debugging log using Valgrind and NVIDIA Nsight Systems to resolve GPU memory fragmentation in a robotics vision inference engine.">
+                            Valgrind 및 NVIDIA Nsight Systems 도구를 사용하여 로보틱스 비전 인퍼런스 엔진의 GPU 메모리 단편화를 디버깅한 기록입니다.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="flex gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">CUDA</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">C++</span>
+                        </div>
+                        <a href="#" class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition" data-lang-ko="읽기 →" data-lang-en="Read →">읽기 →</a>
+                    </div>
+                </article>
+
+                <!-- POST 4 -->
+                <article class="post-card group rounded-3xl glass-panel border border-slate-800/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-500/60 hover:shadow-neon-cyan" data-category="simulation">
+                    <div class="space-y-4">
+                        <div class="h-44 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                            <i class="fa-solid fa-shapes text-4xl text-cyan-400 group-hover:scale-110 transition duration-300"></i>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">OpenUSD & Sim</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                            <span><i class="fa-regular fa-calendar mr-1"></i>2026.05.19</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i>7 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-cyan-300 transition line-clamp-2" data-lang-ko="URDF 로봇 모델을 OpenUSD 및 PhysX 환경으로 변환 시 주의사항" data-lang-en="Key Considerations converting URDF to OpenUSD & PhysX">
+                            URDF 로봇 모델을 OpenUSD 및 PhysX 환경으로 변환 시 주의사항
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed line-clamp-3" data-lang-ko="기존 URDF 관절 파라미터와 메쉬 콜리전 속성을 OpenUSD 메타데이터 구조에 정확히 맵핑하는 가이드라인을 다룹니다." data-lang-en="Guidelines for correctly mapping URDF joint parameters and mesh collision properties into OpenUSD metadata structures.">
+                            기존 URDF 관절 파라미터와 메쉬 콜리전 속성을 OpenUSD 메타데이터 구조에 정확히 맵핑하는 가이드라인을 다룹니다.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="flex gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">URDF</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">USD</span>
+                        </div>
+                        <a href="#" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition" data-lang-ko="읽기 →" data-lang-en="Read →">읽기 →</a>
+                    </div>
+                </article>
+
+                <!-- POST 5 -->
+                <article class="post-card group rounded-3xl glass-panel border border-slate-800/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/60 hover:shadow-neon-purple" data-category="robotics">
+                    <div class="space-y-4">
+                        <div class="h-44 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                            <i class="fa-solid fa-eye text-4xl text-purple-400 group-hover:scale-110 transition duration-300"></i>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">Robotics & AI</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                            <span><i class="fa-regular fa-calendar mr-1"></i>2026.04.02</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i>9 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-purple-300 transition line-clamp-2" data-lang-ko="6D Pose Estimation 알고리즘의 실시간 Edge 컴퓨팅 이식 사례" data-lang-en="Porting 6D Pose Estimation Algorithms to Real-Time Edge Computing">
+                            6D Pose Estimation 알고리즘의 실시간 Edge 컴퓨팅 이식 사례
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed line-clamp-3" data-lang-ko="NVIDIA Jetson AGX Orin 환경에서 TensorRT 양자화(INT8)를 통한 프레임 레이트 향상 실험 결과를 공개합니다." data-lang-en="Sharing FPS optimization results via TensorRT INT8 quantization on NVIDIA Jetson AGX Orin platform.">
+                            NVIDIA Jetson AGX Orin 환경에서 TensorRT 양자화(INT8)를 통한 프레임 레이트 향상 실험 결과를 공개합니다.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="flex gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">TensorRT</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">Jetson</span>
+                        </div>
+                        <a href="#" class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition" data-lang-ko="읽기 →" data-lang-en="Read →">읽기 →</a>
+                    </div>
+                </article>
+
+                <!-- POST 6 -->
+                <article class="post-card group rounded-3xl glass-panel border border-slate-800/80 p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-500/60 hover:shadow-neon-cyan" data-category="troubleshooting">
+                    <div class="space-y-4">
+                        <div class="h-44 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                            <i class="fa-solid fa-gears text-4xl text-cyan-400 group-hover:scale-110 transition duration-300"></i>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Troubleshooting</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                            <span><i class="fa-regular fa-calendar mr-1"></i>2026.02.11</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i>4 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-cyan-300 transition line-clamp-2" data-lang-ko="Docker 기반 ROS 2 빌드 환경 가속 및 GPU 인퍼런스 패스스루 설정" data-lang-en="Accelerating Docker-based ROS 2 Build & GPU Passthrough Setup">
+                            Docker 기반 ROS 2 빌드 환경 가속 및 GPU 인퍼런스 패스스루 설정
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed line-clamp-3" data-lang-ko="개발 환경 통일을 위한 Docker Container 내부에서 NVIDIA Container Toolkit을 결합해 GUI 및 CUDA 사용을 자동화하는 구성을 작성합니다." data-lang-en="Configuring Docker Container with NVIDIA Container Toolkit to automate GUI and CUDA execution for unified dev environments.">
+                            개발 환경 통일을 위한 Docker Container 내부에서 NVIDIA Container Toolkit을 결합해 GUI 및 CUDA 사용을 자동화하는 구성을 작성합니다.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-slate-800/60 flex items-center justify-between">
+                        <div class="flex gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">Docker</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">GPU</span>
+                        </div>
+                        <a href="#" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition" data-lang-ko="읽기 →" data-lang-en="Read →">읽기 →</a>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Empty Search Results Box -->
+            <div id="no-results" class="hidden glass-panel p-12 rounded-3xl border border-slate-800/80 text-center space-y-3">
+                <i class="fa-solid fa-magnifying-glass text-3xl text-slate-500"></i>
+                <h4 class="text-lg font-bold text-slate-300" data-lang-ko="검색 결과가 없습니다." data-lang-en="No matching posts found.">검색 결과가 없습니다.</h4>
+                <p class="text-xs text-slate-500" data-lang-ko="다른 검색어나 카테고리 태그를 선택해 보세요." data-lang-en="Try searching with different keywords or selecting another category tag.">다른 검색어나 카테고리 태그를 선택해 보세요.</p>
             </div>
+
+            <!-- Footer / Newsletter Section -->
+            <section class="pt-6 pb-12">
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800/80 text-center space-y-4">
+                    <h3 class="text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-800" data-lang-ko="새로운 기술 아티클 소식 받기" data-lang-en="Subscribe to New Engineering Insights">새로운 기술 아티클 소식 받기</h3>
+                    <p class="text-xs text-slate-400 max-w-md mx-auto" data-lang-ko="로보틱스 및 AI 시뮬레이션 관련 신규 포스트가 발행될 때 알림을 받으세요." data-lang-en="Get notified whenever new technical posts on Robotics & AI Simulation are published.">로보틱스 및 AI 시뮬레이션 관련 신규 포스트가 발행될 때 알림을 받으세요.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md mx-auto">
+                        <input type="email" placeholder="email@example.com" class="w-full px-4 py-2.5 rounded-xl glass-panel border border-slate-700/60 text-xs text-slate-100 placeholder-slate-400 focus:outline-none focus:border-purple-500">
+                        <button class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold text-xs whitespace-nowrap shadow-lg hover:opacity-90 transition" data-lang-ko="구독하기" data-lang-en="Subscribe">구독하기</button>
+                    </div>
+                </div>
+            </section>
+
         </main>
     </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // 1. Dynamic Post Filtering & Search
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const postCards = document.querySelectorAll('.post-card');
+        const searchInput = document.getElementById('blog-search');
+        const postCountEl = document.getElementById('post-count');
+        const noResultsEl = document.getElementById('no-results');
+
+        let activeCategory = 'all';
+
+        function filterPosts() {
+            const query = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            postCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardText = card.innerText.toLowerCase();
+
+                const matchesCategory = (activeCategory === 'all' || cardCategory === activeCategory);
+                const matchesSearch = cardText.includes(query);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update Post Counter
+            if (postCountEl) {
+                postCountEl.textContent = `Showing ${visibleCount} posts`;
+            }
+
+            // Show/Hide Empty State
+            if (visibleCount === 0) {
+                noResultsEl.classList.remove('hidden');
+            } else {
+                noResultsEl.classList.add('hidden');
+            }
+        }
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.getAttribute('data-category');
+                filterPosts();
+            });
+        });
+
+        searchInput?.addEventListener('input', filterPosts);
+
+        // 2. Day/Night Dark-Light Mode Toggle
+        let isDark = true;
+        const htmlEl = document.documentElement;
+        const bodyRoot = document.getElementById('body-root');
+        const themeBtn = document.getElementById('theme-toggle');
+        const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+
+        function toggleTheme() {
+            isDark = !isDark;
+            if (isDark) {
+                htmlEl.classList.add('dark');
+                htmlEl.classList.remove('light');
+                bodyRoot.classList.add('bg-darkBg', 'text-slate-100');
+                bodyRoot.classList.remove('bg-slate-50', 'text-slate-800');
+            } else {
+                htmlEl.classList.remove('dark');
+                htmlEl.classList.add('light');
+                bodyRoot.classList.remove('bg-darkBg', 'text-slate-100');
+                bodyRoot.classList.add('bg-slate-50', 'text-slate-800');
+            }
+        }
+
+        themeBtn?.addEventListener('click', toggleTheme);
+        mobileThemeBtn?.addEventListener('click', toggleTheme);
+
+        // 3. Korean/English Language Toggle
+        let currentLang = 'ko';
+        const langBtn = document.getElementById('lang-toggle');
+        const mobileLangBtn = document.getElementById('mobile-lang-toggle');
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ko' ? 'en' : 'ko';
+            
+            // Update Text
+            const langElements = document.querySelectorAll('[data-lang-ko]');
+            langElements.forEach(el => {
+                const text = el.getAttribute(`data-lang-${currentLang}`);
+                if (text) el.innerHTML = text;
+            });
+
+            // Update Input Placeholders
+            const placeholderElements = document.querySelectorAll('[data-lang-ko-placeholder]');
+            placeholderElements.forEach(el => {
+                const ph = el.getAttribute(`data-lang-${currentLang}-placeholder`);
+                if (ph) el.placeholder = ph;
+            });
+        }
+
+        langBtn?.addEventListener('click', toggleLanguage);
+        mobileLangBtn?.addEventListener('click', toggleLanguage);
+    </script>
 </body>
 </html>
