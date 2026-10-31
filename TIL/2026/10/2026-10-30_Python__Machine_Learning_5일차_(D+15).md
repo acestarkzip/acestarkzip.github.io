@@ -5,21 +5,27 @@
 
 ---
 
+
 # 📚 3주차 Python Machine Learning (2026.10.26 Mon ~ 2026.10.30 Fri) | Total : 5 days
+
 
 ## 📕 E. Unsupervised Learning (2026.10.30 Fri)
 
+
 ### 📃 a. Unsupervised Learning (비지도 학습)
+
 
 ### 📃 b. Clustering (군집화)
 
+
 ### 📃 c. Dimensionality Reduction (자원 축소)
+
 
 ### 📃 d. Project (프로젝트)
 
+
 ## 📕 F. Project (2026.10.30 Fri)
 
+
 ### 📃 a. 실습 (타이타닉 생존자)
-
-
 
