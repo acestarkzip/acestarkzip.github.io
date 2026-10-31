@@ -5,7 +5,7 @@
 
 ---
 
-# 📚 1. Linux (2026.10.12~2026.10.14)
+# 📚 1. Linux (2026.10.12 Mon ~ 2026.10.14 Wed) | Total : 3 days
 
 ## 📕 A. Linux 기초 (2026.10.12 Mon)
 
@@ -51,5 +51,39 @@
 
 ### 📃 g. Automation (자동화)
 
-# 📚 2. Python 기초 문법 (2026.10.15~2026.10.16)
+# 📚 2. Python 기초&심화 문법 (2026.10.15 Thu ~ 2026.10.16 Tue) | Total : 4 days
+
+## 📕 A. Python Intro (2026.10.15 Thu)
+
+## 📕 B. Iterables (2026.10.16 Fri)
+
+## 📕 C. Function, Module & File IO (2026.10.19 Mon)
+
+## 📕 D. OOP | Object Oriented Programming (2026.10.20 Tue)
+
+# 📚 2. Python 데이터 분석 (2026.10.21 Wed ~ 2026.10.23 Fri) | Total : 3 days
+
+## 📕 A. Numpy (2026.10.21 Wed)
+
+## 📕 B. Pandas (2026.10.22 Thu)
+
+## 📕 C. Data Visualization (2026.10.23 Fri)
+
+## 📕 D. EDA (2026.10.23 Fri)
+
+# 📚 2. Python Machine Learning (2026.10.26 Mon ~ 2026.10.30 Fri) | Total : 5 days
+
+## 📕 A. Maching Learning, Linear Regression (2026.10.26 Mon)
+
+## 📕 B. Logistic Regression, KNN (2026.10.27 Tue)
+
+## 📕 C. Naive Bayes, Decision Tree (2026.10.28 Wed)
+
+## 📕 D. Ensemble, Boosting (2026.10.29 Thu)
+
+## 📕 E. Unsupervised Learning (2026.10.30 Fri)
+
+## 📕 F. Project (2026.10.30 Fri)
+
+
 
