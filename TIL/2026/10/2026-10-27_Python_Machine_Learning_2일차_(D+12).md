@@ -14,7 +14,6 @@
 - [e. Feature Scaling (특성 스케일링)](#-e-feature-scaling-표준화-정규화)
 - [f. Project (프로젝트)](#-f-project-프로젝트)
 - [핵심 요약](#-핵심-요약)
-- [학습 체크리스트](#-학습-체크리스트)
 
 ---
 
