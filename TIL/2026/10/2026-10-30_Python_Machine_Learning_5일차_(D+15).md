@@ -5,13 +5,16 @@
 
 ---
 
-- [📕 E. Unsupervised Learning (2026.10.30 Fri)](#e-unsupervised-learning-20261030-fri)
-  - [📃 a. Unsupervised Learning (비지도 학습)](#a-unsupervised-learning-비지도-학습)
-  - [📃 b. Clustering (군집화)](#b-clustering-군집화)
-  - [📃 c. Dimensionality Reduction (자원 축소)](#c-dimensionality-reduction-자원-축소)
-  - [📃 d. Project (프로젝트)](#d-project-프로젝트)
-- [📕 F. Project (2026.10.30 Fri)](#f-project-20261030-fri)
-  - [📃 a. 실습 (타이타닉 생존자)](#a-실습-타이타닉-생존자)
+- [📚 3주차 Python Machine Learning (2026.10.26 Mon ~ 2026.10.30 Fri) | Total : 5 days](#3주차-python-machine-learning-20261026-mon-20261030-fri-total-5-days)
+  - [📕 E. Unsupervised Learning (2026.10.30 Fri)](#e-unsupervised-learning-20261030-fri)
+    - [📃 a. Unsupervised Learning (비지도 학습)](#a-unsupervised-learning-비지도-학습)
+    - [📃 b. Clustering (군집화)](#b-clustering-군집화)
+    - [📃 c. Dimensionality Reduction (자원 축소)](#c-dimensionality-reduction-자원-축소)
+    - [📃 d. Project (프로젝트)](#d-project-프로젝트)
+  - [📕 F. Project (2026.10.30 Fri)](#f-project-20261030-fri)
+    - [📃 a. 실습 (타이타닉 생존자)](#a-실습-타이타닉-생존자)
+
+# 📚 3주차 Python Machine Learning (2026.10.26 Mon ~ 2026.10.30 Fri) | Total : 5 days
 
 ## 📕 E. Unsupervised Learning (2026.10.30 Fri)
 
