@@ -14,7 +14,6 @@
 - [e. Multiple Linear Regression (다중 선형 회귀)](#-e-multiple-linear-regression-다중-선형-회귀)
 - [f. Project (프로젝트)](#-f-project-프로젝트)
 - [핵심 요약](#-핵심-요약)
-- [학습 체크리스트](#-학습-체크리스트)
 
 ---
 
