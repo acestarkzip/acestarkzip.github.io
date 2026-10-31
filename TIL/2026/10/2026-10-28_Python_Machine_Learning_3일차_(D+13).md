@@ -12,7 +12,6 @@
 - [c. Hyperparameter Tuning (하이퍼파라미터 튜닝)](#-c-hyperparameter-tuning-하이퍼파라미터-튜닝)
 - [d. Project (프로젝트)](#-d-project-프로젝트)
 - [핵심 요약](#-핵심-요약)
-- [학습 체크리스트](#-학습-체크리스트)
 
 ---
 
