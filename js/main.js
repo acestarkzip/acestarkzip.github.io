@@ -8,7 +8,7 @@
     branch: "main",
     directory: "TIL"
   };
-  const CACHE_KEY = "acestarkzip-blog-posts-v1";
+  const CACHE_KEY = "acestarkzip-blog-posts-v2";
   const CACHE_DURATION = 10 * 60 * 1000;
   const MAX_POSTS = 12;
 
@@ -100,11 +100,43 @@
     return `${yearValue}.${monthValue}.${dayValue}`;
   }
 
+  // Read the "간단메모" saved in the Markdown metadata by update_readme.py.
+  // Supports both the current blockquote-list format and the earlier plain format.
+  function extractPostMemo(markdown) {
+    const lines = String(markdown || "").split(/\r?\n/);
+
+    for (const line of lines.slice(0, 20)) {
+      const match = line.match(/^\s*>\s*(?:-\s*)?\*{0,2}간단메모\s*:\*{0,2}\s*(.*?)\s*$/);
+      if (match) return match[1].trim();
+    }
+
+    return "";
+  }
+
+  async function loadPostMemo(post) {
+    const rawUrl = `https://raw.githubusercontent.com/${REPOSITORY.owner}/${REPOSITORY.name}/${REPOSITORY.branch}/${post.path
+      .split("/")
+      .map(encodeURIComponent)
+      .join("/")}`;
+
+    try {
+      const response = await fetch(rawUrl, { cache: "no-store" });
+      if (!response.ok) return { ...post, memo: "" };
+
+      const markdown = await response.text();
+      return { ...post, memo: extractPostMemo(markdown) };
+    } catch (error) {
+      // A memo fetch failure must not prevent the post list from appearing.
+      console.warn("Could not load post memo:", post.path, error);
+      return { ...post, memo: "" };
+    }
+  }
+
   function createPostElement(post, index) {
     const link = document.createElement("a");
     link.className = "post-item";
     link.href = `./post.html?file=${encodeURIComponent(post.path)}`;
-    link.setAttribute("aria-label", `${post.title}, ${formatDate(post.date)} 게시글 읽기`);
+    link.setAttribute("aria-label", `${post.title}, ${formatDate(post.date)}${post.memo ? `, 간단메모: ${post.memo}` : ""} 게시글 읽기`);
 
     const number = document.createElement("span");
     number.className = "post-number";
@@ -126,19 +158,24 @@
     title.className = "post-title";
     title.textContent = post.title;
 
+    const memo = document.createElement("span");
+    memo.className = "post-memo";
+    memo.textContent = post.memo || "";
+    if (!post.memo) memo.setAttribute("aria-hidden", "true");
+
     const arrow = document.createElement("span");
     arrow.className = "post-arrow";
     arrow.setAttribute("aria-hidden", "true");
     arrow.textContent = "↗";
 
     main.append(category, title);
-    link.append(number, date, main, arrow);
+    link.append(number, date, main, memo, arrow);
     return link;
   }
 
-  function renderPosts(posts) {
+  function renderPosts(posts, totalCount = posts.length) {
     list.replaceChildren();
-    count.textContent = String(posts.length).padStart(2, "0");
+    count.textContent = String(totalCount).padStart(2, "0");
 
     if (posts.length === 0) {
       const empty = document.createElement("div");
@@ -150,7 +187,7 @@
     }
 
     const fragment = document.createDocumentFragment();
-    posts.slice(0, MAX_POSTS).forEach((post, index) => fragment.append(createPostElement(post, index)));
+    posts.forEach((post, index) => fragment.append(createPostElement(post, index)));
     list.append(fragment);
     list.setAttribute("aria-busy", "false");
   }
@@ -180,7 +217,7 @@
     try {
       const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
       if (cached && Date.now() - cached.savedAt < CACHE_DURATION && Array.isArray(cached.posts)) {
-        renderPosts(cached.posts);
+        renderPosts(cached.posts, Number.isFinite(cached.totalCount) ? cached.totalCount : cached.posts.length);
         return;
       }
     } catch (_) {
@@ -211,12 +248,19 @@
         .filter(Boolean)
         .sort((a, b) => b.date.localeCompare(a.date) || b.path.localeCompare(a.path));
 
+      const latestPosts = await Promise.all(
+        posts.slice(0, MAX_POSTS).map((post) => loadPostMemo(post))
+      );
+
       try {
-        sessionStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), posts }));
+        sessionStorage.setItem(
+          CACHE_KEY,
+          JSON.stringify({ savedAt: Date.now(), posts: latestPosts, totalCount: posts.length })
+        );
       } catch (_) {
         // Storage may be disabled; the page still works without caching.
       }
-      renderPosts(posts);
+      renderPosts(latestPosts, posts.length);
     } catch (error) {
       console.error("Blog post loading failed:", error);
       showError(error instanceof Error ? error.message : "네트워크 연결을 확인해 주세요.");
