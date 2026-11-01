@@ -1,287 +1,147 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#111411">
-
-    <title>Field Notes</title>
-
-    <style>
-        :root {
-            --bg: #111411;
-            --text: #e7ebe7;
-            --muted: #929b93;
-            --accent: #b9e4c7;
-            --border: #2a312b;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family:
-                -apple-system, BlinkMacSystemFont,
-                "Segoe UI", "Noto Sans KR", sans-serif;
-            line-height: 1.8;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 5px;
-        }
-
-        .container {
-            width: min(720px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-        /* Header */
-
-        header {
-            padding: 85px 0 65px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .site-name {
-            display: inline-block;
-            margin-bottom: 42px;
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.13em;
-        }
-
-        .eyebrow {
-            margin: 0 0 12px;
-            color: var(--muted);
-            font-size: 11px;
-            letter-spacing: 0.16em;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: clamp(38px, 7vw, 54px);
-            line-height: 1.25;
-            letter-spacing: -0.06em;
-        }
-
-        .intro {
-            max-width: 520px;
-            margin: 22px 0 0;
-            color: var(--muted);
-            font-size: 14px;
-            word-break: keep-all;
-        }
-
-        /* Post list */
-
-        .posts {
-            padding: 38px 0 80px;
-        }
-
-        .section-title {
-            margin: 0 0 12px;
-            color: var(--muted);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.13em;
-        }
-
-        .post {
-            display: block;
-            padding: 27px 0 30px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .post:first-of-type {
-            border-top: 1px solid var(--border);
-        }
-
-        .post-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 10px;
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        .category {
-            color: var(--accent);
-        }
-
-        .post h2 {
-            margin: 0;
-            font-size: 21px;
-            font-weight: 600;
-            letter-spacing: -0.04em;
-            transition: color 0.2s ease;
-        }
-
-        .post p {
-            margin: 8px 0 0;
-            color: var(--muted);
-            font-size: 13px;
-            word-break: keep-all;
-        }
-
-        .post:hover h2 {
-            color: var(--accent);
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        /* Footer */
-
-        footer {
-            padding: 25px 0 35px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 11px;
-        }
-
-        @media (max-width: 520px) {
-            header {
-                padding: 60px 0 48px;
-            }
-
-            .site-name {
-                margin-bottom: 32px;
-            }
-
-            .post h2 {
-                font-size: 19px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="Robotics Simulation, OpenUSD, and Physical AI — a personal learning blog by ACESTARKZIP.">
+  <title>ACESTARKZIP — Robotics, Simulation & Physical AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/main.js" defer></script>
 </head>
-
 <body>
+  <div class="site-noise" aria-hidden="true"></div>
+  <div class="top-progress" aria-hidden="true"></div>
 
-    <main class="container">
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand" href="./index.html" aria-label="ACESTARKZIP home">
+        <span class="brand-mark" aria-hidden="true">A<span>.</span></span>
+        <span class="brand-name">ACESTARKZIP</span>
+      </a>
 
-        <!-- 첫 화면 -->
-        <header>
-            <a class="site-name" href="./index.html">
-                FIELD NOTES
-            </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span>
+      </button>
 
-            <p class="eyebrow">PERSONAL KNOWLEDGE BASE</p>
+      <nav class="primary-nav" id="primary-nav" aria-label="주 메뉴">
+        <a href="#about">ABOUT</a>
+        <a class="active" href="#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
 
-            <h1>
-                생각을 기록하고,<br>
-                지식을 쌓다.
-            </h1>
+  <main>
+    <section class="hero shell" id="about" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-light"></span> EXPLORING PHYSICAL AI <span class="eyebrow-line"></span> 2026—</p>
+        <h1 id="hero-title">SIMULATE<span class="green">.</span><br>LEARN<span class="green">.</span><br><span class="outline-text">BUILD THE FUTURE.</span></h1>
+        <p class="hero-description">로보틱스 시뮬레이션과 Physical AI를 탐구하며,<br class="desktop-break"> 배우고 실험한 과정을 기록합니다.</p>
+        <div class="hero-tags" aria-label="관심 분야">
+          <span>ROBOTICS SIMULATION</span>
+          <span>OpenUSD</span>
+          <span>PHYSICAL AI</span>
+        </div>
+        <a class="text-link hero-link" href="#blog">EXPLORE THE BLOG <span aria-hidden="true">↘</span></a>
+      </div>
 
-            <p class="intro">
-                공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을
-                하나씩 기록합니다.
-            </p>
-        </header>
+      <div class="hero-visual" aria-label="추상적인 디지털 트윈 시뮬레이션 그래픽" role="img">
+        <div class="visual-grid"></div>
+        <div class="visual-glow"></div>
+        <div class="visual-crosshair crosshair-one"></div>
+        <div class="visual-crosshair crosshair-two"></div>
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-middle"></div>
+        <div class="orbit orbit-inner"></div>
+        <div class="core-sphere"><span></span><i></i></div>
+        <div class="axis axis-x"></div>
+        <div class="axis axis-y"></div>
+        <div class="axis axis-z"></div>
+        <div class="visual-label label-top"><span class="label-kicker">SIMULATION / 001</span><strong>DIGITAL TWIN</strong></div>
+        <div class="visual-label label-bottom"><span>WORLD STATUS</span><strong><b class="status-light"></b> ONLINE</strong></div>
+        <span class="visual-coordinate coordinate-a">37° 33' N</span>
+        <span class="visual-coordinate coordinate-b">126° 58' E</span>
+        <span class="visual-index">FIG. 01</span>
+      </div>
 
-        <!-- 게시글 목록 -->
-        <section class="posts" aria-label="게시글 목록">
+      <div class="hero-bottom-line" aria-hidden="true">
+        <span>INDEPENDENT LEARNING LOG</span>
+        <span>SEOUL, SOUTH KOREA</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+      </div>
+    </section>
 
-            <p class="section-title">ALL NOTES</p>
+    <section class="focus-section shell" aria-label="현재 관심 분야">
+      <div class="section-kicker"><span>01</span> CURRENT FOCUS</div>
+      <div class="focus-grid">
+        <article class="focus-card focus-card-main">
+          <div class="focus-card-top"><span class="mono-label">01 / SIMULATION</span><span class="card-arrow">↗</span></div>
+          <div class="focus-icon icon-cube" aria-hidden="true"><span></span><i></i></div>
+          <h2>Robotics<br>Simulation</h2>
+          <p>Virtual environments, robot behavior, and simulation workflows.</p>
+          <span class="focus-card-foot">ISAAC SIM · ISAAC LAB</span>
+        </article>
+        <article class="focus-card">
+          <div class="focus-card-top"><span class="mono-label">02 / 3D DATA</span><span class="card-arrow">↗</span></div>
+          <div class="focus-icon icon-layers" aria-hidden="true"><span></span><span></span><span></span></div>
+          <h2>OpenUSD</h2>
+          <p>Scene description, 3D assets, and interoperable workflows.</p>
+          <span class="focus-card-foot">SCENE · LAYER · PRIM</span>
+        </article>
+        <article class="focus-card">
+          <div class="focus-card-top"><span class="mono-label">03 / INTELLIGENCE</span><span class="card-arrow">↗</span></div>
+          <div class="focus-icon icon-nodes" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+          <h2>Physical AI</h2>
+          <p>Exploring the connection between AI models and the physical world.</p>
+          <span class="focus-card-foot">AI · ROBOTS · REAL WORLD</span>
+        </article>
+      </div>
+    </section>
 
-            <!-- 게시글 1 -->
-            <a class="post"
-               href="./blog/posts/openusd-basics.html">
+    <section class="blog-section shell" id="blog" aria-labelledby="blog-title">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker"><span>02</span> KNOWLEDGE ARCHIVE</div>
+          <h2 id="blog-title">LATEST <span class="green">BLOG.</span></h2>
+          <p class="section-description">Learning notes, experiments, and things worth remembering.</p>
+        </div>
+        <div class="post-counter"><strong id="post-count">—</strong><span>POSTS<br>ARCHIVED</span></div>
+      </div>
 
-                <div class="post-meta">
-                    <span class="category">OpenUSD</span>
-                    <span>2026.10.29</span>
-                </div>
+      <div class="blog-toolbar">
+        <span class="toolbar-label"><span class="status-light"></span> RECENT WRITINGS</span>
+        <span class="toolbar-note">AUTO-SYNCED FROM GITHUB</span>
+      </div>
 
-                <h2>OpenUSD 기초 개념 정리</h2>
+      <div class="post-list" id="post-list" aria-live="polite" aria-busy="true">
+        <div class="loading-state"><span class="loading-ring" aria-hidden="true"></span><span>게시글을 불러오는 중입니다...</span></div>
+      </div>
+      <p class="blog-footnote">Posts are collected automatically from the <code>TIL/</code> directory.</p>
+    </section>
 
-                <p>
-                    Stage, Layer, Prim 등 OpenUSD의 핵심 개념을
-                    초보자 관점에서 이해하고 정리합니다.
-                </p>
+    <section class="about-strip shell">
+      <div class="section-kicker"><span>03</span> THE JOURNEY</div>
+      <div class="about-strip-content">
+        <h2>Curiosity into<br><span class="green">capability.</span></h2>
+        <p>기록은 배움을 정리하고, 실험은 이해를 깊게 만듭니다.<br>작은 학습을 쌓아 실제 문제를 해결하는 엔지니어로 성장합니다.</p>
+      </div>
+      <div class="about-strip-mark" aria-hidden="true">A<span>.</span></div>
+    </section>
+  </main>
 
-                <span class="read-more">글 읽기 ↗</span>
-            </a>
-
-            <!-- 게시글 2 -->
-            <a class="post"
-               href="./blog/posts/isaac-sim-notes.html">
-
-                <div class="post-meta">
-                    <span class="category">Isaac Sim</span>
-                    <span>2026.10.28</span>
-                </div>
-
-                <h2>Isaac Sim 학습 기록</h2>
-
-                <p>
-                    시뮬레이션 환경 구성부터 로봇 실습까지,
-                    학습 과정과 문제 해결 방법을 기록합니다.
-                </p>
-
-                <span class="read-more">글 읽기 ↗</span>
-            </a>
-
-            <!-- 게시글 3 -->
-            <a class="post"
-               href="./blog/posts/robotics-sample.html">
-
-                <div class="post-meta">
-                    <span class="category">Isaac Sim</span>
-                    <span>2026.10.28</span>
-                </div>
-
-                <h2>robotics-sample 학습 기록</h2>
-
-                <p>
-                    시뮬레이션 환경 구성부터 로봇 실습까지,
-                    학습 과정과 문제 해결 방법을 기록합니다.
-                </p>
-
-                <span class="read-more">글 읽기 ↗</span>
-            </a>
-
-            <!-- 새 게시글은 이 아래에 추가 -->
-
-        </section>
-
-        <footer>
-            FIELD NOTES · Built with HTML & CSS
-        </footer>
-
-    </main>
-
+  <footer class="site-footer shell" id="contact">
+    <div class="footer-main">
+      <div>
+        <a class="brand footer-brand" href="./index.html"><span class="brand-mark">A<span>.</span></span><span class="brand-name">ACESTARKZIP</span></a>
+        <p class="footer-caption">A PERSONAL BLOG ABOUT ROBOTICS & SIMULATION.</p>
+      </div>
+      <a class="github-link" href="https://github.com/acestarkzip" target="_blank" rel="noopener noreferrer">GITHUB PROFILE <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> ACESTARKZIP</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
 </body>
 </html>
