@@ -136,8 +136,14 @@ button, input { font: inherit; }
 .post-counter { display: flex; align-items: center; gap: 11px; padding-bottom: 8px; }
 .post-counter strong { color: var(--green-bright); font-size: 36px; font-weight: 500; letter-spacing: -.06em; }
 .post-counter span { color: var(--muted-2); font-family: var(--mono); font-size: 8px; line-height: 1.5; letter-spacing: .09em; }
-.blog-toolbar { display: flex; align-items: center; justify-content: space-between; margin-top: 43px; padding: 12px 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line); }
+.blog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 43px; padding: 12px 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line); }
 .toolbar-label { display: inline-flex; align-items: center; gap: 9px; color: #bdc8b9; font-size: 9px; letter-spacing: .1em; }
+.toolbar-controls { display: flex; align-items: center; gap: 16px; }
+.sort-controls { display: inline-flex; align-items: center; gap: 4px; }
+.sort-button { padding: 5px 9px; border: 1px solid transparent; border-radius: 2px; background: transparent; color: var(--muted-2); font-family: var(--mono); font-size: 9px; letter-spacing: .04em; cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease; }
+.sort-button:hover { border-color: var(--line-strong); color: var(--text); }
+.sort-button.is-active { border-color: rgba(118,185,0,.48); background: rgba(118,185,0,.07); color: var(--green-bright); }
+.sort-button:focus-visible { outline: 1px solid var(--green-bright); outline-offset: 3px; }
 .toolbar-note { color: var(--muted-2); font-size: 8px; letter-spacing: .1em; }
 .post-list { min-height: 120px; }
 .blog-actions { display: flex; justify-content: center; margin-top: 30px; }
@@ -267,7 +273,9 @@ button, input { font: inherit; }
   .post-counter strong { font-size: 28px; }
   .post-counter span { font-size: 7px; }
   .blog-toolbar { margin-top: 29px; }
-  .toolbar-note { font-size: 7px; }
+  .toolbar-controls { gap: 8px; }
+  .toolbar-note { display: none; }
+  .sort-button { padding: 5px 7px; font-size: 8px; }
   .post-item { grid-template-columns: 27px minmax(0,1fr) 22px; grid-template-rows: auto auto auto; gap: 5px 9px; min-height: 102px; padding: 15px 3px; }
   .post-number { grid-column: 1; grid-row: 1; font-size: 8px; }
   .post-date { grid-column: 2; grid-row: 1; font-size: 8px; }

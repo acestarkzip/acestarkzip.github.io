@@ -11,7 +11,7 @@
   const CACHE_DURATION = 10 * 60 * 1000;
   const MAX_HOME_POSTS = 15;
   const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
-  const CACHE_KEY = `acestarkzip-blog-posts-v4-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
+  const CACHE_KEY = `acestarkzip-blog-posts-v5-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -19,6 +19,11 @@
   const progress = document.querySelector(".top-progress");
   const menuButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".primary-nav");
+  const sortButtons = Array.from(document.querySelectorAll(".sort-button"));
+  let loadedPosts = [];
+  let loadedTotalCount = 0;
+  let postsReady = false;
+  let currentSort = "newest";
 
   if (year) year.textContent = String(new Date().getFullYear());
 
@@ -145,7 +150,7 @@
     return results;
   }
 
-  function createPostElement(post, index) {
+  function createPostElement(post) {
     const link = document.createElement("a");
     link.className = "post-item";
     link.href = `./post.html?file=${encodeURIComponent(post.path)}`;
@@ -153,7 +158,7 @@
 
     const number = document.createElement("span");
     number.className = "post-number";
-    number.textContent = String(index + 1).padStart(2, "0");
+    number.textContent = String(post.number).padStart(2, "0");
 
     const date = document.createElement("time");
     date.className = "post-date";
@@ -200,10 +205,34 @@
     }
 
     const fragment = document.createDocumentFragment();
-    posts.forEach((post, index) => fragment.append(createPostElement(post, index)));
+    posts.forEach((post) => fragment.append(createPostElement(post)));
     list.append(fragment);
     list.setAttribute("aria-busy", "false");
   }
+
+  function renderSortedPosts() {
+    // Keep the loading or error state visible until a post response is ready.
+    if (!postsReady) return;
+    const orderedPosts = currentSort === "oldest" ? [...loadedPosts].reverse() : loadedPosts;
+    renderPosts(orderedPosts, loadedTotalCount);
+  }
+
+  function setSortOrder(order) {
+    currentSort = order === "oldest" ? "oldest" : "newest";
+
+    sortButtons.forEach((button) => {
+      const isActive = button.dataset.sort === currentSort;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    renderSortedPosts();
+  }
+
+  // Sorting only changes display order; each post keeps its chronological number.
+  sortButtons.forEach((button) => {
+    button.addEventListener("click", () => setSortOrder(button.dataset.sort));
+  });
 
   function showError(message) {
     list.replaceChildren();
@@ -230,7 +259,10 @@
     try {
       const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
       if (cached && Date.now() - cached.savedAt < CACHE_DURATION && Array.isArray(cached.posts)) {
-        renderPosts(cached.posts, Number.isFinite(cached.totalCount) ? cached.totalCount : cached.posts.length);
+        loadedPosts = cached.posts;
+        loadedTotalCount = Number.isFinite(cached.totalCount) ? cached.totalCount : cached.posts.length;
+        postsReady = true;
+        renderSortedPosts();
         return;
       }
     } catch (_) {
@@ -265,6 +297,12 @@
         .filter(Boolean)
         .sort((a, b) => b.date.localeCompare(a.date) || b.path.localeCompare(a.path));
 
+      // Assign permanent chronological numbers across the complete archive.
+      // The newest post gets the highest number, regardless of display sorting.
+      posts.forEach((post, index) => {
+        post.number = posts.length - index;
+      });
+
       // The homepage stays concise (latest 15); the archive page loads every post.
       const visiblePosts = IS_ARCHIVE_PAGE ? posts : posts.slice(0, MAX_HOME_POSTS);
       const postsWithMemo = await loadMemosWithConcurrency(visiblePosts, 8);
@@ -277,7 +315,10 @@
       } catch (_) {
         // Storage may be disabled; the page still works without caching.
       }
-      renderPosts(postsWithMemo, posts.length);
+      loadedPosts = postsWithMemo;
+      loadedTotalCount = posts.length;
+      postsReady = true;
+      renderSortedPosts();
     } catch (error) {
       console.error("Blog post loading failed:", error);
       showError(error instanceof Error ? error.message : "네트워크 연결을 확인해 주세요.");

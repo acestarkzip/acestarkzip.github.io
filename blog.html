@@ -46,7 +46,13 @@
 
       <div class="blog-toolbar">
         <span class="toolbar-label"><span class="status-light"></span> COMPLETE ARCHIVE</span>
-        <span class="toolbar-note">AUTO-SYNCED FROM GITHUB</span>
+        <div class="toolbar-controls">
+          <div class="sort-controls" role="group" aria-label="게시글 정렬">
+            <button class="sort-button is-active" type="button" data-sort="newest" aria-pressed="true">최신순</button>
+            <button class="sort-button" type="button" data-sort="oldest" aria-pressed="false">오래된순</button>
+          </div>
+          <span class="toolbar-note">AUTO-SYNCED FROM GITHUB</span>
+        </div>
       </div>
 
       <div class="post-list" id="post-list" aria-live="polite" aria-busy="true">
