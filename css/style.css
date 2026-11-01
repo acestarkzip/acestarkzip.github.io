@@ -140,6 +140,12 @@ button, input { font: inherit; }
 .toolbar-label { display: inline-flex; align-items: center; gap: 9px; color: #bdc8b9; font-size: 9px; letter-spacing: .1em; }
 .toolbar-note { color: var(--muted-2); font-size: 8px; letter-spacing: .1em; }
 .post-list { min-height: 120px; }
+.blog-actions { display: flex; justify-content: center; margin-top: 30px; }
+.all-posts-link { display: inline-flex; align-items: center; gap: 22px; padding: 13px 18px; border: 1px solid var(--line-strong); color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .12em; transition: border-color .2s ease, color .2s ease, background .2s ease; }
+.all-posts-link:hover { border-color: rgba(118,185,0,.65); color: var(--green-bright); background: rgba(118,185,0,.045); }
+.archive-section { padding-top: 70px; }
+.archive-page main { min-height: calc(100vh - 230px); }
+.archive-page .site-footer { margin-top: 20px; }
 .post-item { display: grid; grid-template-columns: 52px 120px minmax(0,1.2fr) minmax(0,1fr) 32px; align-items: center; gap: 15px; min-height: 100px; padding: 18px 8px; border-bottom: 1px solid var(--line); transition: background .2s ease, padding .2s ease; }
 .post-item:hover { padding-right: 14px; padding-left: 14px; background: rgba(118,185,0,.045); }
 .post-number { color: #52604e; font-family: var(--mono); font-size: 10px; }

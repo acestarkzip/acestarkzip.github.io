@@ -8,9 +8,10 @@
     branch: "main",
     directory: "TIL"
   };
-  const CACHE_KEY = "acestarkzip-blog-posts-v2";
   const CACHE_DURATION = 10 * 60 * 1000;
-  const MAX_POSTS = 12;
+  const MAX_HOME_POSTS = 15;
+  const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
+  const CACHE_KEY = `acestarkzip-blog-posts-v4-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -52,10 +53,6 @@
   if (!list) return;
 
   const apiUrl = `https://api.github.com/repos/${REPOSITORY.owner}/${REPOSITORY.name}/git/trees/${REPOSITORY.branch}?recursive=1`;
-
-  function isTestOrDraft(path) {
-    return /(?:\[test\]|테스트|test[_-]?용)/i.test(path);
-  }
 
   function getPostDate(filename) {
     const match = filename.match(/^(\d{4}-\d{2}-\d{2})[_\s-]/);
@@ -132,6 +129,22 @@
     }
   }
 
+  async function loadMemosWithConcurrency(posts, concurrency = 8) {
+    const results = new Array(posts.length);
+    let nextIndex = 0;
+
+    async function worker() {
+      while (nextIndex < posts.length) {
+        const currentIndex = nextIndex++;
+        results[currentIndex] = await loadPostMemo(posts[currentIndex]);
+      }
+    }
+
+    const workerCount = Math.min(Math.max(1, concurrency), posts.length);
+    await Promise.all(Array.from({ length: workerCount }, () => worker()));
+    return results;
+  }
+
   function createPostElement(post, index) {
     const link = document.createElement("a");
     link.className = "post-item";
@@ -175,7 +188,7 @@
 
   function renderPosts(posts, totalCount = posts.length) {
     list.replaceChildren();
-    count.textContent = String(totalCount).padStart(2, "0");
+    if (count) count.textContent = String(totalCount).padStart(2, "0");
 
     if (posts.length === 0) {
       const empty = document.createElement("div");
@@ -238,29 +251,33 @@
 
       const data = await response.json();
       if (!Array.isArray(data.tree)) throw new Error("저장소 파일 목록을 확인할 수 없습니다.");
+      if (data.truncated) {
+        throw new Error("GitHub가 파일 목록을 일부만 반환했습니다. GitHub의 TIL 폴더에서 전체 파일을 확인해 주세요.");
+      }
 
+      // Include every dated Markdown file in TIL, including [TEST] and 테스트용 posts.
+      // Asset-gallery README files and other undated Markdown files are ignored by toPost().
       const posts = data.tree
         .filter((item) => item.type === "blob")
         .filter((item) => item.path.startsWith(`${REPOSITORY.directory}/`))
         .filter((item) => /\.md$/i.test(item.path))
-        .filter((item) => !isTestOrDraft(item.path))
         .map(toPost)
         .filter(Boolean)
         .sort((a, b) => b.date.localeCompare(a.date) || b.path.localeCompare(a.path));
 
-      const latestPosts = await Promise.all(
-        posts.slice(0, MAX_POSTS).map((post) => loadPostMemo(post))
-      );
+      // The homepage stays concise (latest 15); the archive page loads every post.
+      const visiblePosts = IS_ARCHIVE_PAGE ? posts : posts.slice(0, MAX_HOME_POSTS);
+      const postsWithMemo = await loadMemosWithConcurrency(visiblePosts, 8);
 
       try {
         sessionStorage.setItem(
           CACHE_KEY,
-          JSON.stringify({ savedAt: Date.now(), posts: latestPosts, totalCount: posts.length })
+          JSON.stringify({ savedAt: Date.now(), posts: postsWithMemo, totalCount: posts.length })
         );
       } catch (_) {
         // Storage may be disabled; the page still works without caching.
       }
-      renderPosts(latestPosts, posts.length);
+      renderPosts(postsWithMemo, posts.length);
     } catch (error) {
       console.error("Blog post loading failed:", error);
       showError(error instanceof Error ? error.message : "네트워크 연결을 확인해 주세요.");
