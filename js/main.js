@@ -8,10 +8,10 @@
     branch: "main",
     directory: "TIL"
   };
-  const CACHE_DURATION = 10 * 60 * 1000;
+  const CACHE_DURATION = 2 * 60 * 1000;
   const MAX_HOME_POSTS = 15;
   const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
-  const CACHE_KEY = `acestarkzip-blog-posts-v5-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
+  const CACHE_KEY = `acestarkzip-blog-posts-v6-canonical-index-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -58,6 +58,7 @@
   if (!list) return;
 
   const apiUrl = `https://api.github.com/repos/${REPOSITORY.owner}/${REPOSITORY.name}/git/trees/${REPOSITORY.branch}?recursive=1`;
+  const indexUrl = `https://raw.githubusercontent.com/${REPOSITORY.owner}/${REPOSITORY.name}/${REPOSITORY.branch}/${REPOSITORY.directory}/blog-index.json`;
 
   function getPostDate(filename) {
     const match = filename.match(/^(\d{4}-\d{2}-\d{2})[_\s-]/);
@@ -254,8 +255,79 @@
     count.textContent = "—";
   }
 
+  function normalizeIndexedPost(item) {
+    if (!item || typeof item !== "object") return null;
+    const path = String(item.path || "");
+    const date = String(item.date || "");
+    if (!path.startsWith(`${REPOSITORY.directory}/`) || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+    const title = String(item.title || "").trim() || getPostTitle(path.split("/").pop());
+    return {
+      path,
+      date,
+      title,
+      memo: String(item.memo || "").trim(),
+      category: getCategory(title),
+      notionPageId: String(item.notion_page_id || "")
+    };
+  }
+
+  async function loadCanonicalIndex() {
+    // The deploy workflow builds this file from all merged TIL Markdown files.
+    // It resolves duplicate exports of the same Notion page without deleting old .md files.
+    const response = await fetch(`${indexUrl}?v=${Date.now()}`, {
+      headers: { Accept: "application/json" },
+      cache: "no-store"
+    });
+    if (!response.ok) throw new Error(`blog-index.json 응답 오류 (${response.status})`);
+    const data = await response.json();
+    if (!data || !Array.isArray(data.posts)) throw new Error("blog-index.json 형식이 올바르지 않습니다.");
+
+    const posts = data.posts.map(normalizeIndexedPost).filter(Boolean);
+    posts.sort((a, b) => b.date.localeCompare(a.date) || a.path.localeCompare(b.path));
+    posts.forEach((post, index) => {
+      post.number = posts.length - index;
+    });
+    return {
+      posts,
+      totalCount: Number.isFinite(data.total_count) ? data.total_count : posts.length
+    };
+  }
+
+  async function loadLegacyTree() {
+    // Backward compatibility while the first canonical index is being deployed.
+    const response = await fetch(apiUrl, {
+      headers: { Accept: "application/vnd.github+json" },
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      if (response.status === 403 || response.status === 429) {
+        throw new Error("GitHub API 요청 한도에 도달했을 수 있습니다. 잠시 후 다시 방문해 주세요.");
+      }
+      throw new Error(`GitHub 응답 오류 (${response.status})`);
+    }
+
+    const data = await response.json();
+    if (!Array.isArray(data.tree)) throw new Error("저장소 파일 목록을 확인할 수 없습니다.");
+    if (data.truncated) throw new Error("GitHub가 파일 목록을 일부만 반환했습니다. TIL 폴더에서 확인해 주세요.");
+
+    const posts = data.tree
+      .filter((item) => item.type === "blob")
+      .filter((item) => item.path.startsWith(`${REPOSITORY.directory}/`))
+      .filter((item) => /\.md$/i.test(item.path))
+      .map(toPost)
+      .filter(Boolean)
+      .sort((a, b) => b.date.localeCompare(a.date) || b.path.localeCompare(a.path));
+
+    posts.forEach((post, index) => {
+      post.number = posts.length - index;
+    });
+    const visiblePosts = IS_ARCHIVE_PAGE ? posts : posts.slice(0, MAX_HOME_POSTS);
+    const postsWithMemo = await loadMemosWithConcurrency(visiblePosts, 8);
+    return { posts: postsWithMemo, totalCount: posts.length };
+  }
+
   async function loadPosts() {
-    // Reuse a short-lived cache to reduce GitHub API requests for repeat visits.
+    // A new cache key invalidates the previous filename-derived list.
     try {
       const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
       if (cached && Date.now() - cached.savedAt < CACHE_DURATION && Array.isArray(cached.posts)) {
@@ -266,58 +338,31 @@
         return;
       }
     } catch (_) {
-      // Ignore malformed or unavailable browser storage and continue with a fresh request.
+      // Continue with a fresh request if storage is unavailable or malformed.
     }
 
     try {
-      const response = await fetch(apiUrl, {
-        headers: { Accept: "application/vnd.github+json" },
-        cache: "no-store"
-      });
-      if (!response.ok) {
-        if (response.status === 403 || response.status === 429) {
-          throw new Error("GitHub API 요청 한도에 도달했을 수 있습니다. 잠시 후 다시 방문해 주세요.");
-        }
-        throw new Error(`GitHub 응답 오류 (${response.status})`);
+      let result;
+      try {
+        result = await loadCanonicalIndex();
+      } catch (indexError) {
+        console.warn("Canonical blog index is not available yet; using legacy GitHub tree:", indexError);
+        result = await loadLegacyTree();
       }
 
-      const data = await response.json();
-      if (!Array.isArray(data.tree)) throw new Error("저장소 파일 목록을 확인할 수 없습니다.");
-      if (data.truncated) {
-        throw new Error("GitHub가 파일 목록을 일부만 반환했습니다. GitHub의 TIL 폴더에서 전체 파일을 확인해 주세요.");
-      }
-
-      // Include every dated Markdown file in TIL, including [TEST] and 테스트용 posts.
-      // Asset-gallery README files and other undated Markdown files are ignored by toPost().
-      const posts = data.tree
-        .filter((item) => item.type === "blob")
-        .filter((item) => item.path.startsWith(`${REPOSITORY.directory}/`))
-        .filter((item) => /\.md$/i.test(item.path))
-        .map(toPost)
-        .filter(Boolean)
-        .sort((a, b) => b.date.localeCompare(a.date) || b.path.localeCompare(a.path));
-
-      // Assign permanent chronological numbers across the complete archive.
-      // The newest post gets the highest number, regardless of display sorting.
-      posts.forEach((post, index) => {
-        post.number = posts.length - index;
-      });
-
-      // The homepage stays concise (latest 15); the archive page loads every post.
-      const visiblePosts = IS_ARCHIVE_PAGE ? posts : posts.slice(0, MAX_HOME_POSTS);
-      const postsWithMemo = await loadMemosWithConcurrency(visiblePosts, 8);
+      const visiblePosts = IS_ARCHIVE_PAGE ? result.posts : result.posts.slice(0, MAX_HOME_POSTS);
+      loadedPosts = visiblePosts;
+      loadedTotalCount = result.totalCount;
+      postsReady = true;
 
       try {
         sessionStorage.setItem(
           CACHE_KEY,
-          JSON.stringify({ savedAt: Date.now(), posts: postsWithMemo, totalCount: posts.length })
+          JSON.stringify({ savedAt: Date.now(), posts: loadedPosts, totalCount: loadedTotalCount })
         );
       } catch (_) {
         // Storage may be disabled; the page still works without caching.
       }
-      loadedPosts = postsWithMemo;
-      loadedTotalCount = posts.length;
-      postsReady = true;
       renderSortedPosts();
     } catch (error) {
       console.error("Blog post loading failed:", error);
