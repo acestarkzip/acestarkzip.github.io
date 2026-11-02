@@ -11,7 +11,7 @@
   const CACHE_DURATION = 2 * 60 * 1000;
   const MAX_HOME_POSTS = 15;
   const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
-  const CACHE_KEY = `acestarkzip-blog-posts-v6-canonical-index-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
+  const CACHE_KEY = `acestarkzip-blog-posts-v7-canonical-index-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -283,6 +283,11 @@
     if (!data || !Array.isArray(data.posts)) throw new Error("blog-index.json 형식이 올바르지 않습니다.");
 
     const posts = data.posts.map(normalizeIndexedPost).filter(Boolean);
+    // A successful HTTP response with an empty index can still be a stale or
+    // accidentally generated index. Try the GitHub tree before showing an empty archive.
+    if (posts.length === 0) {
+      throw new Error("blog-index.json에 게시글이 없습니다. 기존 TIL 파일 목록으로 다시 확인합니다.");
+    }
     posts.sort((a, b) => b.date.localeCompare(a.date) || a.path.localeCompare(b.path));
     posts.forEach((post, index) => {
       post.number = posts.length - index;
