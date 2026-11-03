@@ -8,10 +8,10 @@
     branch: "main",
     directory: "TIL"
   };
-  const CACHE_DURATION = 2 * 60 * 1000;
+  const CACHE_DURATION = 30 * 1000;
   const MAX_HOME_POSTS = 15;
   const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
-  const CACHE_KEY = `acestarkzip-blog-posts-v7-canonical-index-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
+  const CACHE_KEY = `acestarkzip-blog-posts-v8-notion-source-of-truth-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -272,8 +272,8 @@
   }
 
   async function loadCanonicalIndex() {
-    // The deploy workflow builds this file from all merged TIL Markdown files.
-    // It resolves duplicate exports of the same Notion page without deleting old .md files.
+    // The deploy workflow builds this file from a complete Notion database snapshot.
+    // Only currently active Notion page IDs are included; matching Markdown paths remain stored in GitHub.
     const response = await fetch(`${indexUrl}?v=${Date.now()}`, {
       headers: { Accept: "application/json" },
       cache: "no-store"
@@ -281,13 +281,14 @@
     if (!response.ok) throw new Error(`blog-index.json 응답 오류 (${response.status})`);
     const data = await response.json();
     if (!data || !Array.isArray(data.posts)) throw new Error("blog-index.json 형식이 올바르지 않습니다.");
-
-    const posts = data.posts.map(normalizeIndexedPost).filter(Boolean);
-    // A successful HTTP response with an empty index can still be a stale or
-    // accidentally generated index. Try the GitHub tree before showing an empty archive.
-    if (posts.length === 0) {
-      throw new Error("blog-index.json에 게시글이 없습니다. 기존 TIL 파일 목록으로 다시 확인합니다.");
+    if (data.source_of_truth !== "notion_database") {
+      throw new Error("blog-index.json이 Notion 기준 색인이 아닙니다. GitHub Actions에서 최신 Workflow를 실행해 주세요.");
     }
+
+    // An empty authoritative index is intentional: it means there are currently
+    // no dated Notion pages with matching Markdown. Never resurrect deleted posts
+    // by falling back to every historical Markdown file in the GitHub tree.
+    const posts = data.posts.map(normalizeIndexedPost).filter(Boolean);
     posts.sort((a, b) => b.date.localeCompare(a.date) || a.path.localeCompare(b.path));
     posts.forEach((post, index) => {
       post.number = posts.length - index;
@@ -332,7 +333,8 @@
   }
 
   async function loadPosts() {
-    // A new cache key invalidates the previous filename-derived list.
+    // A new cache key invalidates previous filename/Markdown-derived caches;
+    // the short TTL limits the delay after a Notion deletion is deployed.
     try {
       const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
       if (cached && Date.now() - cached.savedAt < CACHE_DURATION && Array.isArray(cached.posts)) {
@@ -347,14 +349,9 @@
     }
 
     try {
-      let result;
-      try {
-        result = await loadCanonicalIndex();
-      } catch (indexError) {
-        console.warn("Canonical blog index is not available yet; using legacy GitHub tree:", indexError);
-        result = await loadLegacyTree();
-      }
-
+      // The Notion-authoritative index is the only source for the public blog list.
+      // Do not fall back to scanning all Markdown files: that would re-show deleted pages.
+      const result = await loadCanonicalIndex();
       const visiblePosts = IS_ARCHIVE_PAGE ? result.posts : result.posts.slice(0, MAX_HOME_POSTS);
       loadedPosts = visiblePosts;
       loadedTotalCount = result.totalCount;
