@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-03T00:56:55.257298+00:00",
-  "active_notion_page_count": 25,
+  "generated_at": "2026-11-03T01:03:11.934752+00:00",
+  "active_notion_page_count": 26,
   "matched_markdown_count": 25,
-  "missing_markdown_count": 0,
-  "scanned_markdown_count": 27,
+  "missing_markdown_count": 1,
+  "scanned_markdown_count": 28,
   "total_count": 25,
   "posts": [
     {
@@ -25,20 +25,20 @@
       "notion_url": "https://app.notion.com/p/TEST-409d9e129df78090b9d3d5835555eb9c"
     },
     {
-      "path": "TIL/2026/11/2026-11-03_[TEST]_교육_테스트.md",
-      "date": "2026-11-03",
-      "title": "[TEST]  교육 테스트",
-      "memo": "",
-      "notion_page_id": "40ad9e129df780b38c7ae81bb1e89dbd",
-      "notion_url": "https://app.notion.com/p/TEST-40ad9e129df780b38c7ae81bb1e89dbd"
-    },
-    {
       "path": "TIL/2026/11/2026-11-02_Python_ML_프로젝트_2개_진행_(D+16).md",
       "date": "2026-11-02",
       "title": "Python :  ML 프로젝트 2개 진행 (D+16)",
       "memo": "머신러닝 | 타이타닉, 뱅크 프로젝트 진행 및 Pytorch 설치",
       "notion_page_id": "40bd9e129df78016aad9f83c8c5d11d6",
       "notion_url": "https://app.notion.com/p/Python-ML-2-D-16-40bd9e129df78016aad9f83c8c5d11d6"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-02_[TEST]_교육_테스트.md",
+      "date": "2026-11-02",
+      "title": "[TEST]  교육 테스트",
+      "memo": "",
+      "notion_page_id": "40ad9e129df780b38c7ae81bb1e89dbd",
+      "notion_url": "https://app.notion.com/p/TEST-40ad9e129df780b38c7ae81bb1e89dbd"
     },
     {
       "path": "TIL/2026/11/2026-11-01_Self-Taught_블로그_개선.md",
