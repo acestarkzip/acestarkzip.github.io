@@ -1,15 +1,16 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 40cd9e129df780e5a67de4649b05c6b8 -->
-<!-- notion-last-edited-time: 2026-11-03T08:45:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-06T06:04:00.000Z -->
 
 # Python :  Deep Learning 1일차 (D+17)
 
 > - **날짜 :** 2026-11-03
-> - **간단메모 :** 딥러닝 | Deep Learning 입문
+> - **간단메모 :** 딥러닝 | 딥러닝 기본 원리(역전파)와 PyTorch 텐서 기초 다지기
 > - **원본 노션 :** [바로가기 링크](https://app.notion.com/p/Python-Deep-Learning-1-D-17-40cd9e129df780e5a67de4649b05c6b8)
 
 ---
 
+- [📚 4주차 Python Deep Learning (2026.11.03  Tue ~ 2026.11.09 Mon) | Total : 5 days](#notion-heading-410d9e129df78077a2d2c64702f1ad3e)
 - [📕 A. Deep Learning Basics (딥러닝 기초)](#notion-heading-40dd9e129df7807d8f34ea548c25b7ce)
   - [📃 a. Deep Learning (딥러닝)](#notion-heading-40dd9e129df780fda5fbf62e2f77bb2f)
     - [1. 딥러닝이란?](#notion-heading-40dd9e129df7806889f2cc410ebedb96)
@@ -47,11 +48,15 @@
 - [📝 4주차 학습 마무리](#notion-heading-40dd9e129df780909b9dc43c17f795f3)
     - [🎯 다음 학습 목표](#notion-heading-40dd9e129df780e5a8a0d667abfa2e40)
 
+<a name="notion-heading-410d9e129df78077a2d2c64702f1ad3e"></a>
+
+# 📚 4주차 Python Deep Learning (2026.11.03  Tue ~ 2026.11.09 Mon) | Total : 5 days
+
 <a name="notion-heading-40dd9e129df7807d8f34ea548c25b7ce"></a>
 
 # 📕 A. Deep Learning Basics (딥러닝 기초)
 
-**학습일: 2026.11.02 (Mon)**
+**학습일: 2026.11.03 (Tue)**
 
 ---
 

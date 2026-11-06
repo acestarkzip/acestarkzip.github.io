@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 40ad9e129df7803999f8fc34404d7760 -->
-<!-- notion-last-edited-time: 2026-11-02T23:41:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-06T06:14:00.000Z -->
 
 # Self-Taught : 4주차 진행될 내용 선행학습
 
