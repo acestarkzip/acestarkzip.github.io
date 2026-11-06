@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 410d9e129df780b3b03eed41d3c9c99d -->
-<!-- notion-last-edited-time: 2026-11-06T06:12:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-06T07:54:00.000Z -->
 
 # Python :  Deep Learning 4일차 (D+20)
 
@@ -10,122 +10,229 @@
 
 ---
 
-- [📚 4주차 Python Deep Learning (2026.11.03  Tue ~ 2026.11.09 Mon) | Total : 5 days](#notion-heading-410d9e129df7803f8a45fdf658c0250e)
-  - [📕 D. Recurrent Neural Network (2026.11.06 Fri)](#notion-heading-410d9e129df7809e8fe2c03fa9f03371)
-    - [📃 a. Sequence Data (시계열 데이터의 구조와 특징)](#notion-heading-410d9e129df7802ea462d4eb606ce5e3)
-    - [📃 b. Sequence Models의 역사 (시계열 예측 모델들의 역사와 등장이유)](#notion-heading-410d9e129df780cbbe6ffa986c33eb47)
-    - [📃 c. SimpleRNN의 구조와 모델학습](#notion-heading-410d9e129df7807ba961f48504919bd3)
-    - [📃 d. 장기 문맥과 Gated RNN (장기 의존성 문제와 극복 배경)](#notion-heading-410d9e129df780c9968edd7984ca6abe)
-    - [📃 e. LSTM (Long Short-Term Memory)](#notion-heading-410d9e129df780ffa039e20150336f53)
-    - [📃 f. RNN variants (다양한 확장 구조)](#notion-heading-410d9e129df7808d89fddbb994f54dce)
+- [📚 4주차 Python Deep Learning (2026.11.03 Tue ~ 2026.11.09 Mon) | Total : 5 days](#notion-heading-410d9e129df780a28f6bf55f83b213e8)
+  - [📕 D. Recurrent Neural Network (2026.11.06 Fri)](#notion-heading-410d9e129df7805583f5f3bb4465c7e8)
+    - [📃 a. Sequence Data (시계열 데이터의 구조와 특징)](#notion-heading-410d9e129df7808597cdfbe090a699bc)
+    - [📃 b. Sequence Models의 역사 (시계열 예측 모델들의 역사와 등장이유)](#notion-heading-410d9e129df7809daf9ed1836c984d46)
+    - [📃 c. SimpleRNN의 구조와 모델학습](#notion-heading-410d9e129df780c49595eb0023aa5ad3)
+    - [📃 d. 장기 문맥과 Gated RNN (장기 의존성 문제와 극복 배경)](#notion-heading-410d9e129df780af91c5f8b1ea9d2c9f)
+    - [📃 e. LSTM (Long Short-Term Memory)](#notion-heading-410d9e129df780d1918ee2fac2fcace4)
+    - [📃 f. RNN variants (다양한 확장 구조)](#notion-heading-410d9e129df78030a243d85d57e98056)
+  - [📌 D. Recurrent Neural Network 핵심 요약](#notion-heading-410d9e129df7800b8887c632e554e00a)
+    - [💡 오늘의 핵심 학습 포인트](#notion-heading-410d9e129df780c78406fea8241276a2)
 
-<a name="notion-heading-410d9e129df7803f8a45fdf658c0250e"></a>
+<a name="notion-heading-410d9e129df780a28f6bf55f83b213e8"></a>
 
-# 📚 4주차 Python Deep Learning (2026.11.03  Tue ~ 2026.11.09 Mon) | Total : 5 days
+# 📚 4주차 Python Deep Learning (2026.11.03 Tue ~ 2026.11.09 Mon) | Total : 5 days
 
-<a name="notion-heading-410d9e129df7809e8fe2c03fa9f03371"></a>
+<a name="notion-heading-410d9e129df7805583f5f3bb4465c7e8"></a>
 
 ## 📕 D. Recurrent Neural Network (2026.11.06 Fri)
 
-<a name="notion-heading-410d9e129df7802ea462d4eb606ce5e3"></a>
+<a name="notion-heading-410d9e129df7808597cdfbe090a699bc"></a>
 
 ### 📃 a. Sequence Data (시계열 데이터의 구조와 특징)
 
-> 💡 <strong>핵심 개념:</strong> 데이터의 <strong>'순서(Order)'</strong> 자체가 중요한 의미를 가지며, 과거의 데이터가 현재와 미래에 영향을 미치는 데이터. 독립적이고 동일한 분포(i.i.d)를 가정하는 일반적인 데이터와 달리, **시간적 의존성(Temporal Dependency)**을 가집니다.
+<strong>Sequence Data (순차 데이터)</strong>
 
-- <strong>주요 특징</strong>
-  - <strong>가변적인 길이:</strong> 문장의 길이나 음성 신호의 길이가 제각각이듯, 입력 데이터의 길이가 고정되어 있지 않습니다.
-  - <strong>문맥(Context):</strong> "I love ___" 다음에 올 단어가 이전 단어들에 의해 결정되듯, 앞뒤 문맥 정보가 필수적입니다.
-- <strong>데이터 구조 (PyTorch 기준)</strong>
-  - 일반적으로 `(Batch_size, Sequence_Length, Input_Features)` 형태의 3차원 텐서로 구성됩니다.
-- <strong>대표적인 예시</strong>
-  - 자연어 텍스트 (NLP), 주식 가격/날씨 등 시계열 데이터, 음성 신호, 비디오 프레임 등.
+- 데이터가 특정한 순서에 따라 나열된 형태이다.
+- 이전 데이터가 현재 데이터에 영향을 줄 수 있다.
+- 예시: 문장, 음성, 주가, 날씨, 센서 데이터
 
-<a name="notion-heading-410d9e129df780cbbe6ffa986c33eb47"></a>
+<strong>Time Series Data (시계열 데이터)</strong>
+
+- 시간의 흐름에 따라 수집된 데이터이다.
+- Sequence Data의 한 종류이다.
+
+<strong>주요 특징</strong>
+
+| 특징 | 설명 |
+| --- | --- |
+| 순서 의존성 | 데이터의 순서가 중요함 |
+| 시간적 의존성 | 과거 데이터가 현재에 영향을 줌 |
+| 가변 길이 | 데이터마다 길이가 다를 수 있음 |
+| 시간적 패턴 | 추세, 계절성, 순환성 등이 존재 |
+
+<strong>활용 분야:</strong> 주가 예측, 날씨 예측, 음성 인식, 서버 자원 사용량 예측
+
+---
+
+<a name="notion-heading-410d9e129df7809daf9ed1836c984d46"></a>
 
 ### 📃 b. Sequence Models의 역사 (시계열 예측 모델들의 역사와 등장이유)
 
-> 🏛️ <strong>배경:</strong> 순차적인 데이터를 처리하기 위해 통계적 기법에서 딥러닝 기법으로 발전해 온 흐름.
+순차 데이터의 관계를 효과적으로 학습하기 위해 다양한 모델이 발전했다.
 
-- <strong>1. 전통적 통계 모델 (ARIMA, HMM):</strong> 과거 몇 개의 시점만 참고하거나 엄격한 수학적 가정을 바탕으로 예측. 복잡한 비선형 패턴 학습에 한계가 있었습니다.
-- <strong>2. Feedforward NN (FNN)의 한계:</strong>
-  - 입력 크기가 고정되어 있어 가변적인 길이의 시퀀스를 처리할 수 없습니다.
-  - 과거의 정보를 기억하는 '메모리'가 없기 때문에 시계열 처리에 부적합합니다.
-- <strong>3. RNN의 등장:</strong> 내부 상태(Hidden State)를 도입하여 이전 타임스텝의 정보를 현재 타임스텝으로 전달하는 구조를 고안. 가변 길이 처리와 과거 정보 기억이 가능해졌습니다.
-- <strong>4. LSTM / GRU의 등장:</strong> RNN의 고질적인 '장기 의존성(Long-Term Dependency)' 문제를 해결하기 위해 게이트(Gate) 구조를 도입했습니다.
+| 모델 | 등장 배경 및 특징 |
+| --- | --- |
+| ARIMA | 과거의 통계적 패턴을 활용한 시계열 예측 |
+| RNN | 이전 시점의 정보를 다음 시점으로 전달 |
+| LSTM (1997) | RNN의 장기 의존성 문제 완화 |
+| GRU (2014) | LSTM의 구조를 간소화 |
+| Seq2Seq | 입력 시퀀스를 출력 시퀀스로 변환 |
+| Attention | 중요한 정보에 집중 |
+| Transformer (2017) | Self-Attention 기반 병렬 처리 |
 
-<a name="notion-heading-410d9e129df7807ba961f48504919bd3"></a>
+<strong>핵심:</strong> RNN에서 시작하여 LSTM, GRU, Attention, Transformer로 발전했다.
+
+---
+
+<a name="notion-heading-410d9e129df780c49595eb0023aa5ad3"></a>
 
 ### 📃 c. SimpleRNN의 구조와 모델학습
 
-> ⚙️ <strong>구조:</strong> 출력된 결과(Hidden State)가 다음 시점의 입력으로 다시 들어가는 순환(Recurrent) 구조를 가집니다.
+<strong>RNN (Recurrent Neural Network)</strong>
 
-- <strong>내부 동작 원리</strong>
-  - 특정 시점 $t$에서의 은닉 상태 $h_t$는 현재 시점의 입력 $x_t$와 이전 시점의 은닉 상태 $h_{t-1}$을 받아 계산됩니다.
-  - 📐 <strong>수식:</strong> $h_t = \tanh(W_{xh} x_t + W_{hh} h_{t-1} + b)$
-  - 활성화 함수로 주로 <strong>Tanh</strong>를 사용하여 값을 -1과 1 사이로 정규화합니다.
-- <strong>모델 학습 (BPTT: Backpropagation Through Time)</strong>
-  - 시계열 데이터의 길이(Sequence Length)만큼 신경망을 시간 순서대로 펼친(Unfold) 후, 역전파를 수행합니다.
-  - 매 시점마다 오차(Loss)를 계산하고, 이 오차가 시간을 거슬러 올라가며 가중치($W_{xh}, W_{hh}$)를 업데이트합니다. (모든 시점(Time Step)에서 동일한 가중치를 공유합니다.)
+- 이전 시점의 정보를 현재 시점으로 전달하는 순환 신경망이다.
+- 순차 데이터의 시간적 관계를 학습한다.
 
-<a name="notion-heading-410d9e129df780c9968edd7984ca6abe"></a>
+<strong>주요 구성 요소</strong>
+
+| 구성 요소 | 설명 |
+| --- | --- |
+| Input | 현재 입력 데이터 |
+| Hidden State | 이전 정보를 저장하고 전달하는 내부 상태 |
+| Weight | 학습에 사용되는 가중치 |
+| Output | 모델의 예측 결과 |
+
+<strong>작동 과정</strong>
+
+1. 현재 입력 데이터 전달
+1. 이전 Hidden State 전달
+1. 두 정보를 결합하여 계산
+1. 새로운 Hidden State 생성
+1. 다음 시점으로 정보 전달
+
+<strong>주요 특징</strong>
+
+- 시간 단계마다 동일한 가중치 사용 (Weight Sharing)
+- BPTT(Backpropagation Through Time)를 이용한 역전파 학습
+- 순차 데이터의 패턴 학습
+
+<strong>입력 데이터 구조 (PyTorch)</strong>
+
+`(Batch Size, Sequence Length, Input Features)`
+
+| 항목 | 설명 |
+| --- | --- |
+| Batch Size | 한 번에 학습하는 데이터 개수 |
+| Sequence Length | 하나의 데이터에 포함된 시간 단계 |
+| Input Features | 시간 단계마다 입력되는 변수 개수 |
+
+---
+
+<a name="notion-heading-410d9e129df780af91c5f8b1ea9d2c9f"></a>
 
 ### 📃 d. 장기 문맥과 Gated RNN (장기 의존성 문제와 극복 배경)
 
-> ⚠️ <strong>문제점:</strong> SimpleRNN은 시퀀스 길이가 길어질수록(Sequence Length가 커질수록) 앞부분의 정보가 뒤로 갈수록 희미해지는 **장기 의존성 문제(Long-Term Dependency)**가 발생합니다.
+<strong>Long-Term Dependency (장기 의존성)</strong>
 
-- <strong>원인 분석 (기울기 소실/폭발)</strong>
-  - BPTT 과정에서 시간을 거슬러 역전파를 할 때, 같은 가중치 행렬($W_{hh}$)이 계속 곱해집니다.
-  - 행렬의 고윳값이 1보다 작으면 기울기가 0으로 수렴하는 기울기 소실(Vanishing Gradient)이 발생하여 과거의 정보를 학습하지 못합니다. (반대로 1보다 크면 기울기 폭발 발생).
-- <strong>극복 배경 (Gated RNN)</strong>
-  - 단순히 이전 상태에 가중치를 곱하는 것을 넘어, <strong>"무엇을 기억하고 무엇을 잊을지"</strong> 신경망이 스스로 조절할 수 있는 장치(Gate)가 필요해졌습니다.
+- 오래전의 정보가 현재 결과에 영향을 주는 현상이다.
+- 기존 RNN은 긴 시퀀스에서 과거 정보를 유지하기 어렵다.
 
-<a name="notion-heading-410d9e129df780ffa039e20150336f53"></a>
+<strong>주요 문제점</strong>
+
+| 문제 | 설명 |
+| --- | --- |
+| Vanishing Gradient | 역전파 과정에서 기울기가 지나치게 작아짐 |
+| Exploding Gradient | 역전파 과정에서 기울기가 지나치게 커짐 |
+
+<strong>BPTT (Backpropagation Through Time)</strong>
+
+- RNN의 시간 방향으로 오차를 역전파하는 학습 방식이다.
+
+<strong>Gated RNN (게이트 기반 RNN)</strong>
+
+- Gate를 통해 정보를 기억하거나 제거하는 구조이다.
+- 장기 의존성 문제를 완화하기 위해 개발되었다.
+- 대표 모델: LSTM, GRU
+
+---
+
+<a name="notion-heading-410d9e129df780d1918ee2fac2fcace4"></a>
 
 ### 📃 e. LSTM (Long Short-Term Memory)
 
-> 🌟 <strong>핵심 혁신:</strong> 셀 상태(Cell State)라는 덧셈 기반의 정보 고속도로를 도입하여, 기울기 소실 없이 정보가 시퀀스 끝까지 흐르도록 설계된 구조.
+<strong>LSTM이란?</strong>
 
-- <strong>동작 원리 (3개의 Gate와 Cell State)</strong>
-  - <strong>Cell State ($C_t$):</strong> 네트워크를 관통하는 컨베이어 벨트. 정보가 선형적인 덧셈 연산을 통해 전달되므로 기울기가 소실되지 않고 오래 유지됩니다.
-  - <strong>1. 망각 게이트 (Forget Gate):</strong> 과거의 정보를 얼마나 버릴지 결정. (Sigmoid 함수 사용, 0에 가까울수록 잊음)
-  - <strong>2. 입력 게이트 (Input Gate):</strong> 현재 입력된 새로운 정보를 Cell State에 얼마나 추가할지 결정.
-  - <strong>3. 출력 게이트 (Output Gate):</strong> 업데이트된 Cell State를 바탕으로 다음 시점으로 넘길 Hidden State($h_t$)를 결정.
-- <strong>💻 PyTorch 코드 실습 구조 </strong>Python
-```python
-import torch
-import torch.nn as nn
+- 기존 RNN의 장기 의존성 문제를 완화하기 위해 개발된 순환 신경망이다.
+- 1997년 제안되었다.
+- Cell State와 Gate를 이용해 정보를 선택적으로 기억한다.
 
-class LSTMModel(nn.Module):
-    def __init__(self, input_size, hidden_size, num_classes):
-        super(LSTMModel, self).__init__()
-        # batch_first=True 설정 시 (Batch, Seq_len, Feature) 형태로 입력
-        self.lstm = nn.LSTM(input_size, hidden_size, batch_first=True)
-        self.fc = nn.Linear(hidden_size, num_classes)
+<strong>주요 구성 요소</strong>
 
-    def forward(self, x):
-        # x shape: (batch_size, sequence_length, input_size)
-        # LSTM은 출력(out)과 마지막 시점의 (hidden_state, cell_state)를 반환
-        out, (h_n, c_n) = self.lstm(x)
+| 구성 요소 | 역할 |
+| --- | --- |
+| Cell State | 장기 기억 정보 전달 |
+| Hidden State | 현재 시점의 정보 전달 |
+| Forget Gate | 불필요한 기존 정보 제거 |
+| Input Gate | 새로운 정보 저장 |
+| Output Gate | 외부로 전달할 정보 결정 |
 
-        # 시퀀스의 가장 마지막 시점(out[:, -1, :])의 출력만 사용하여 분류 예측
-        out = self.fc(out[:, -1, :])
-        return out
-```
+<strong>LSTM의 작동 과정</strong>
 
+1. Forget Gate: 기존 정보 중 버릴 내용 결정
+1. Input Gate: 새로운 정보 중 저장할 내용 결정
+1. Cell State: 기존 기억과 새로운 정보 업데이트
+1. Output Gate: 현재 기억 중 출력할 정보 결정
+1. Hidden State: 새로운 상태 생성
 
-<a name="notion-heading-410d9e129df7808d89fddbb994f54dce"></a>
+<strong>핵심:</strong> 중요한 정보는 기억하고 불필요한 정보는 잊도록 학습하는 구조이다.
+
+---
+
+<a name="notion-heading-410d9e129df78030a243d85d57e98056"></a>
 
 ### 📃 f. RNN variants (다양한 확장 구조)
 
-> 🚀 <strong>확장:</strong> 복잡한 시계열 데이터를 더 효율적이고 깊게 학습하기 위해 고안된 변형 모델들.
+기본 RNN의 단점을 보완하거나 특정 작업에 적합하도록 발전한 구조이다.
 
-- <strong>1. GRU (Gated Recurrent Unit)</strong>
-  - LSTM의 구조를 경량화한 모델. Cell State와 Hidden State를 하나로 합치고, Gate를 2개(Update Gate, Reset Gate)로 줄였습니다.
-  - 파라미터 수가 적어 학습 속도가 빠르면서도 LSTM과 유사한 성능을 냅니다.
-- <strong>2. 층첩 구조 (Deep RNN / Stacked RNN)</strong>
-  - RNN 층을 수직으로 여러 개 쌓아 올린 구조. (`nn.LSTM(..., num_layers=2)` 형태로 구현)
-  - 하위 층에서는 미시적인 패턴을, 상위 층에서는 거시적이고 추상적인 패턴을 학습하여 복잡도를 높입니다.
-- <strong>3. 양방향 RNN (Bidirectional RNN)</strong>
-  - 데이터의 순방향(과거➔미래)뿐만 아니라 역방향(미래➔과거)으로도 데이터를 처리하여 병합하는 구조.
-  - 기계 번역, 텍스트 분석 등 "전체 문맥"을 파악해야 하는 작업에 매우 효과적입니다. (`nn.LSTM(..., bidirectional=True)`)
+| 모델 | 핵심 특징 |
+| --- | --- |
+| SimpleRNN | 기본적인 순환 신경망 |
+| LSTM | 3개의 Gate와 Cell State 활용 |
+| GRU | 2개의 Gate를 사용하는 간소화된 구조 |
+| Bidirectional RNN | 과거와 미래 양방향 정보 활용 |
+| Stacked RNN | 여러 RNN 계층을 쌓은 구조 |
+| Encoder-Decoder | 입력 시퀀스를 출력 시퀀스로 변환 |
+| Attention | 중요한 정보에 집중 |
+| Transformer | Self-Attention 기반 정보 처리 |
+
+<strong>주요 개념</strong>
+
+- <strong>GRU:</strong> LSTM보다 구조가 단순하며 별도의 Cell State를 사용하지 않는다.
+- <strong>Bidirectional RNN:</strong> 양방향의 문맥 정보를 함께 활용한다.
+- <strong>Stacked RNN:</strong> 여러 계층을 연결하여 복잡한 특징을 학습한다.
+- <strong>Encoder-Decoder:</strong> 번역과 같은 시퀀스 변환 작업에 활용한다.
+- <strong>Attention:</strong> 중요한 입력 정보에 더 높은 가중치를 부여한다.
+- <strong>Transformer:</strong> RNN의 순환 구조 없이 Attention을 중심으로 처리한다.
+
+---
+
+<a name="notion-heading-410d9e129df7800b8887c632e554e00a"></a>
+
+## 📌 D. Recurrent Neural Network 핵심 요약
+
+| 핵심 용어 | 반드시 기억할 내용 |
+| --- | --- |
+| Sequence Data | 순서가 중요한 데이터 |
+| Time Series | 시간에 따라 수집된 데이터 |
+| RNN | 이전 정보를 다음 시점으로 전달 |
+| Hidden State | 이전 정보를 담는 내부 상태 |
+| BPTT | 시간 방향 역전파 |
+| Vanishing Gradient | 기울기 소실 |
+| LSTM | 장기 기억을 위한 Gate 구조 |
+| GRU | LSTM의 간소화된 구조 |
+| Attention | 중요한 정보에 집중 |
+| Transformer | Self-Attention 기반 모델 |
+
+<a name="notion-heading-410d9e129df780c78406fea8241276a2"></a>
+
+### 💡 오늘의 핵심 학습 포인트
+
+1. RNN은 이전 정보를 기억하여 다음 데이터 처리에 활용한다.
+1. 기존 RNN은 긴 시퀀스에서 기울기 소실 문제가 발생할 수 있다.
+1. LSTM과 GRU는 Gate를 이용하여 정보의 흐름을 조절한다.
+1. Transformer는 순환 구조 대신 Attention을 활용한다.
+
+<strong>최종 목표:</strong> 순차 데이터가 무엇인지 이해하고, RNN에서 Transformer까지 발전한 이유와 각 모델의 차이를 설명할 수 있어야 한다.
