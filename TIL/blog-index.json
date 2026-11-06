@@ -1,12 +1,12 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-06T06:17:06.578582+00:00",
+  "generated_at": "2026-11-06T06:18:40.973618+00:00",
   "active_notion_page_count": 30,
-  "matched_markdown_count": 27,
-  "missing_markdown_count": 3,
-  "scanned_markdown_count": 27,
-  "total_count": 27,
+  "matched_markdown_count": 28,
+  "missing_markdown_count": 2,
+  "scanned_markdown_count": 28,
+  "total_count": 28,
   "posts": [
     {
       "path": "TIL/2026/11/2026-11-06_Python_Deep_Learning_4일차_(D+20).md",
@@ -15,6 +15,14 @@
       "memo": "딥러닝 | 시계열 데이터용 RNN 구조와 장기 기억을 위한 LSTM/GRU",
       "notion_page_id": "410d9e129df780b3b03eed41d3c9c99d",
       "notion_url": "https://app.notion.com/p/Python-Deep-Learning-4-D-20-410d9e129df780b3b03eed41d3c9c99d"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-05_Python_Deep_Learning_3일차_(D+19).md",
+      "date": "2026-11-05",
+      "title": "Python :  Deep Learning 3일차 (D+19)",
+      "memo": "딥러닝 | 이미지 처리를 위한 CNN 구조와 주요 비전 모델 이해",
+      "notion_page_id": "410d9e129df780bb8df9ce7469c53bd3",
+      "notion_url": "https://app.notion.com/p/Python-Deep-Learning-3-D-19-410d9e129df780bb8df9ce7469c53bd3"
     },
     {
       "path": "TIL/2026/11/2026-11-03_Python_Deep_Learning_1일차_(D+17).md",
