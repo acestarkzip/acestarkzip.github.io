@@ -1,13 +1,21 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-06T22:43:33.969465+00:00",
-  "active_notion_page_count": 30,
-  "matched_markdown_count": 29,
+  "generated_at": "2026-11-07T10:44:35.963719+00:00",
+  "active_notion_page_count": 31,
+  "matched_markdown_count": 30,
   "missing_markdown_count": 1,
-  "scanned_markdown_count": 29,
-  "total_count": 29,
+  "scanned_markdown_count": 30,
+  "total_count": 30,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-07_Self-Taught_2026_로보월드_방문_후기.md",
+      "date": "2026-11-07",
+      "title": "Self-Taught : 2026 로보월드 방문 후기",
+      "memo": "메모 | 각 업체별 인터뷰 및 앞으로의 방향",
+      "notion_page_id": "411d9e129df78073bcdfc50c0fc2ff35",
+      "notion_url": "https://app.notion.com/p/Self-Taught-2026-411d9e129df78073bcdfc50c0fc2ff35"
+    },
     {
       "path": "TIL/2026/11/2026-11-06_Python_Deep_Learning_4일차_(D+20).md",
       "date": "2026-11-06",
