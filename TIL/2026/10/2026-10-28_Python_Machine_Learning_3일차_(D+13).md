@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 409d9e129df7802186fee388faa78a68 -->
-<!-- notion-last-edited-time: 2026-11-01T02:35:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-08T06:14:00.000Z -->
 
 # Python : Machine Learning 3일차 (D+13)
 
@@ -24,7 +24,7 @@
 
 # 📚 3주차 Python Machine Learning
 
-**2026.10.26 Mon ~ 2026.10.30 Fri | Total: 5 days**
+<strong>2026.10.26 Mon ~ 2026.10.30 Fri | Total: 5 days</strong>
 
 <a name="notion-heading-40ad9e129df780fe8633c0bd9113418e"></a>
 
@@ -34,24 +34,24 @@
 
 ### 📃 a. Naïve Bayes (나이브 베이즈)
 
-**나이브 베이즈(Naive Bayes)** 는 베이즈 정리를 기반으로 데이터를 특정 클래스에 속할 확률을 계산하여 분류하는 알고리즘이다.
+<strong>나이브 베이즈(Naive Bayes)</strong> 는 베이즈 정리를 기반으로 데이터를 특정 클래스에 속할 확률을 계산하여 분류하는 알고리즘이다.
 
-특성들이 서로 **조건부 독립**이라고 가정한다는 점이 특징이다. 실제 데이터에서 특성들이 완전히 독립적이지 않더라도 이 가정을 사용해 계산을 단순화한다.
+특성들이 서로 <strong>조건부 독립</strong>이라고 가정한다는 점이 특징이다. 실제 데이터에서 특성들이 완전히 독립적이지 않더라도 이 가정을 사용해 계산을 단순화한다.
 
-**베이즈 정리**
+<strong>베이즈 정리</strong>
 
 - `P(A|B)`: B라는 증거가 주어졌을 때 A일 확률
 - `P(B|A)`: A일 때 B라는 증거가 관찰될 확률
 - `P(A)`: 사전 확률
 - `P(B)`: 증거 B가 관찰될 확률
 
-**예시**
+<strong>예시</strong>
 
 - 이메일의 단어를 분석하여 스팸 여부 분류
 - 문서의 주제를 자동으로 분류
 - 텍스트 감정 분석의 기초 모델로 활용
 
-**scikit-learn의 주요 모델**
+<strong>scikit-learn의 주요 모델</strong>
 
 | 모델 | 특징 | 활용 예시 |
 | --- | --- | --- |
@@ -59,7 +59,7 @@
 | `MultinomialNB` | 특성값이 주로 빈도나 횟수 형태일 때 사용 | 단어 출현 횟수 |
 | `BernoulliNB` | 특성이 0 또는 1의 이진 형태일 때 사용 | 단어 출현 여부 |
 
-**기본 코드**
+<strong>기본 코드</strong>
 
 ```text
 from sklearn.naive_bayes import GaussianNB
@@ -70,13 +70,13 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 ```
 
-**장점**
+<strong>장점</strong>
 
 - 학습과 예측이 비교적 빠르다.
 - 구현이 간단하다.
 - 텍스트 분류 등에서 유용하다.
 
-**주의점**
+<strong>주의점</strong>
 
 - 특성 간 조건부 독립 가정이 실제 데이터와 맞지 않을 수 있다.
 - 모델별로 적합한 데이터 형태가 다르다.
@@ -85,32 +85,32 @@ y_pred = model.predict(X_test)
 
 ### 📃 b. Decision Tree (결정 트리)
 
-**결정 트리(Decision Tree)** 는 데이터를 여러 조건으로 나누면서 최종 클래스를 예측하는 알고리즘이다.
+<strong>결정 트리(Decision Tree)</strong> 는 데이터를 여러 조건으로 나누면서 최종 클래스를 예측하는 알고리즘이다.
 
 쉽게 말해, 질문에 답하면서 정답을 찾아가는 의사결정 과정과 비슷하다.
 
-**예시: 서버 고장 여부 예측**
+<strong>예시: 서버 고장 여부 예측</strong>
 
 1. CPU 사용률이 90% 이상인가?
 1. 온도가 80°C 이상인가?
 1. 과거 오류 기록이 있는가?
 1. 조건에 따라 정상 또는 고장으로 분류
 
-**주요 용어**
+<strong>주요 용어</strong>
 
-- **Root Node(루트 노드)**: 트리의 가장 처음 노드
-- **Decision Node(결정 노드)**: 조건에 따라 데이터를 나누는 노드
-- **Leaf Node(리프 노드)**: 최종 예측 결과를 나타내는 노드
-- **Depth(깊이)**: 트리가 얼마나 깊게 분기하는지 나타내는 값
-- **Overfitting(과적합)**: 학습 데이터에 지나치게 맞춰져 새로운 데이터에서 성능이 떨어지는 현상
+- <strong>Root Node(루트 노드)</strong>: 트리의 가장 처음 노드
+- <strong>Decision Node(결정 노드)</strong>: 조건에 따라 데이터를 나누는 노드
+- <strong>Leaf Node(리프 노드)</strong>: 최종 예측 결과를 나타내는 노드
+- <strong>Depth(깊이)</strong>: 트리가 얼마나 깊게 분기하는지 나타내는 값
+- <strong>Overfitting(과적합)</strong>: 학습 데이터에 지나치게 맞춰져 새로운 데이터에서 성능이 떨어지는 현상
 
-**데이터를 나누는 기준**
+<strong>데이터를 나누는 기준</strong>
 
-- **Gini Impurity(지니 불순도)**: 한 노드에 서로 다른 클래스가 얼마나 섞여 있는지 측정
-- **Entropy(엔트로피)**: 클래스의 불확실성을 측정
+- <strong>Gini Impurity(지니 불순도)</strong>: 한 노드에 서로 다른 클래스가 얼마나 섞여 있는지 측정
+- <strong>Entropy(엔트로피)</strong>: 클래스의 불확실성을 측정
 - 일반적으로 불순도가 낮아지도록 데이터를 분할한다.
 
-**기본 코드**
+<strong>기본 코드</strong>
 
 ```text
 from sklearn.tree import DecisionTreeClassifier
@@ -124,7 +124,7 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 ```
 
-**주요 하이퍼파라미터**
+<strong>주요 하이퍼파라미터</strong>
 
 | 파라미터 | 의미 |
 | --- | --- |
@@ -133,13 +133,13 @@ y_pred = model.predict(X_test)
 | `min_samples_leaf` | 리프 노드에 필요한 최소 샘플 수 |
 | `criterion` | 분할 기준. 예: `gini`, `entropy`, `log_loss` |
 
-**장점**
+<strong>장점</strong>
 
 - 조건과 예측 과정을 비교적 이해하기 쉽다.
 - 특성 간 비선형 관계를 학습할 수 있다.
 - 일반적인 결정 트리는 특성 스케일링이 필수는 아니다.
 
-**주의점**
+<strong>주의점</strong>
 
 - 트리가 너무 깊으면 과적합이 발생할 수 있다.
 - 데이터가 조금 바뀌어도 트리 구조가 달라질 수 있다.
@@ -148,20 +148,20 @@ y_pred = model.predict(X_test)
 
 ### 📃 c. Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)
 
-**하이퍼파라미터(Hyperparameter)** 는 모델이 학습을 시작하기 전에 사용자가 설정하는 값이다.
+<strong>하이퍼파라미터(Hyperparameter)</strong> 는 모델이 학습을 시작하기 전에 사용자가 설정하는 값이다.
 
 예를 들어, 결정 트리의 최대 깊이인 `max_depth`나 KNN의 이웃 수인 `n_neighbors`가 있다.
 
-- **Parameter(모델 파라미터)**: 학습 과정에서 모델이 데이터로부터 학습하는 값
-- **Hyperparameter(하이퍼파라미터)**: 사용자가 학습 전에 설정하거나 탐색하는 값
+- <strong>Parameter(모델 파라미터)</strong>: 학습 과정에서 모델이 데이터로부터 학습하는 값
+- <strong>Hyperparameter(하이퍼파라미터)</strong>: 사용자가 학습 전에 설정하거나 탐색하는 값
 
-**하이퍼파라미터 튜닝(Hyperparameter Tuning)** 은 여러 설정을 비교해 성능이 좋은 조합을 찾는 과정이다.
+<strong>하이퍼파라미터 튜닝(Hyperparameter Tuning)</strong> 은 여러 설정을 비교해 성능이 좋은 조합을 찾는 과정이다.
 
 <a name="notion-heading-40ad9e129df780429c36ff38add9a51c"></a>
 
 #### 1. GridSearchCV
 
-사용자가 지정한 하이퍼파라미터 조합을 **모두 탐색**한다.
+사용자가 지정한 하이퍼파라미터 조합을 <strong>모두 탐색</strong>한다.
 
 ```text
 from sklearn.tree import DecisionTreeClassifier
@@ -195,7 +195,7 @@ best_model = grid_search.best_estimator_
 
 #### 2. RandomizedSearchCV
 
-지정한 후보 범위에서 **일정 횟수만큼 조합을 무작위로 탐색**한다.
+지정한 후보 범위에서 <strong>일정 횟수만큼 조합을 무작위로 탐색</strong>한다.
 
 ```text
 from sklearn.tree import DecisionTreeClassifier
@@ -226,7 +226,7 @@ print("최고 CV 점수:", random_search.best_score_)
 
 `n_iter=10`은 10개의 하이퍼파라미터 조합을 탐색한다는 뜻이다.
 
-**두 방법의 차이**
+<strong>두 방법의 차이</strong>
 
 | 구분 | GridSearchCV | RandomizedSearchCV |
 | --- | --- | --- |
@@ -234,13 +234,13 @@ print("최고 CV 점수:", random_search.best_score_)
 | 계산 비용 | 조합이 많으면 커짐 | 탐색 횟수로 조절 가능 |
 | 적합한 상황 | 후보 조합이 적을 때 | 후보가 많고 탐색 범위가 넓을 때 |
 
-**교차 검증(Cross-Validation)**
+<strong>교차 검증(Cross-Validation)</strong>
 
 데이터를 여러 부분으로 나누어 학습과 검증을 반복하는 방법이다.
 
 예를 들어 `cv=5`이면 데이터를 5개 폴드로 나누고, 매번 1개 폴드를 검증에 사용하고 나머지 4개를 학습에 사용한다. 이 과정을 반복해 평균 성능을 구한다.
 
-**주의사항**
+<strong>주의사항</strong>
 
 - 하이퍼파라미터 선택에는 학습 데이터 내부의 교차 검증을 사용한다.
 - 최종 성능 평가는 튜닝에 사용하지 않은 테스트 데이터로 수행한다.
@@ -253,7 +253,7 @@ print("최고 CV 점수:", random_search.best_score_)
 
 나이브 베이즈와 결정 트리를 사용해 분류 모델을 만들고, 하이퍼파라미터 튜닝으로 성능을 비교한다.
 
-**기본 진행 순서**
+<strong>기본 진행 순서</strong>
 
 1. 데이터 불러오기 및 구조 확인
 1. 결측치와 이상치 처리
@@ -265,7 +265,7 @@ print("최고 CV 점수:", random_search.best_score_)
 1. 최적 모델을 테스트 데이터로 평가
 1. 튜닝 전후 성능 비교
 
-**모델별 기본 코드**
+<strong>모델별 기본 코드</strong>
 
 ```text
 from sklearn.naive_bayes import GaussianNB
@@ -301,12 +301,12 @@ print(classification_report(y_test, tree_pred))
 
 ## ✅ 핵심 요약
 
-- **Naive Bayes**: 베이즈 정리와 조건부 독립 가정을 이용해 확률 기반으로 분류한다.
-- **Decision Tree**: 조건에 따라 데이터를 분할해 예측하며, 해석하기 쉽지만 과적합에 주의해야 한다.
-- **Hyperparameter Tuning**: 모델 설정을 바꿔 성능이 좋은 조합을 찾는다.
-- **GridSearchCV**: 지정한 모든 조합을 탐색한다.
-- **RandomizedSearchCV**: 지정한 횟수만큼 조합을 무작위로 탐색한다.
-- **Cross-Validation**: 데이터를 여러 폴드로 나누어 모델의 성능을 평가한다.
+- <strong>Naive Bayes</strong>: 베이즈 정리와 조건부 독립 가정을 이용해 확률 기반으로 분류한다.
+- <strong>Decision Tree</strong>: 조건에 따라 데이터를 분할해 예측하며, 해석하기 쉽지만 과적합에 주의해야 한다.
+- <strong>Hyperparameter Tuning</strong>: 모델 설정을 바꿔 성능이 좋은 조합을 찾는다.
+- <strong>GridSearchCV</strong>: 지정한 모든 조합을 탐색한다.
+- <strong>RandomizedSearchCV</strong>: 지정한 횟수만큼 조합을 무작위로 탐색한다.
+- <strong>Cross-Validation</strong>: 데이터를 여러 폴드로 나누어 모델의 성능을 평가한다.
 - 최종 성능은 튜닝에 사용하지 않은 테스트 데이터로 평가한다.
 
-**🎯 학습 목표:** 나이브 베이즈와 결정 트리의 차이를 이해하고, 교차 검증과 하이퍼파라미터 튜닝으로 분류 모델의 성능을 개선할 수 있다.
+<strong>🎯 학습 목표:</strong> 나이브 베이즈와 결정 트리의 차이를 이해하고, 교차 검증과 하이퍼파라미터 튜닝으로 분류 모델의 성능을 개선할 수 있다.

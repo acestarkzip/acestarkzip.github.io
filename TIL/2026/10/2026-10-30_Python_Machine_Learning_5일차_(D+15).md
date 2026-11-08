@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 40ad9e129df78071a0caf2b0a5322c6e -->
-<!-- notion-last-edited-time: 2026-11-01T02:35:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-08T06:14:00.000Z -->
 
 # Python : Machine Learning 5일차 (D+15)
 
@@ -40,7 +40,7 @@
 
 ### 📃 a. Unsupervised Learning (비지도 학습)
 
-**정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝**
+<strong>정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝</strong>
 
 | 구분 | 지도 학습 | 비지도 학습 |
 | --- | --- | --- |
@@ -48,14 +48,14 @@
 | 목적 | 예측 | 패턴 발견 |
 | 예시 | 생존 여부 예측 | 고객 그룹화 |
 
-- **Clustering (군집화)** : 비슷한 데이터끼리 그룹화
-- **Dimensionality Reduction (차원 축소)** : 데이터의 특성 수를 줄임
+- <strong>Clustering (군집화)</strong> : 비슷한 데이터끼리 그룹화
+- <strong>Dimensionality Reduction (차원 축소)</strong> : 데이터의 특성 수를 줄임
 
 <a name="notion-heading-40ad9e129df78070812ef237ff11a7fa"></a>
 
 ### 📃 b. Clustering (군집화)
 
-**비슷한 특성을 가진 데이터끼리 그룹으로 묶는 방법**
+<strong>비슷한 특성을 가진 데이터끼리 그룹으로 묶는 방법</strong>
 
 대표 알고리즘:
 
@@ -64,7 +64,7 @@
 | K-Means | 지정한 K개의 그룹으로 분류 |
 | DBSCAN | 데이터의 밀도를 기준으로 그룹화, 이상치 탐지 가능 |
 
-**K-Means 핵심 코드**
+<strong>K-Means 핵심 코드</strong>
 
 ```text
 from sklearn.cluster import KMeans
@@ -77,21 +77,21 @@ df['cluster'] = model.fit_predict(X_scaled)
 - `fit_predict()` : 학습 후 각 데이터의 군집 번호 반환
 - `X_scaled` : 스케일링한 입력 데이터
 
-💡 **주의:** K-Means처럼 거리를 사용하는 알고리즘은 `StandardScaler` 등을 이용한 데이터 스케일링이 중요하다.
+💡 <strong>주의:</strong> K-Means처럼 거리를 사용하는 알고리즘은 `StandardScaler` 등을 이용한 데이터 스케일링이 중요하다.
 
 <a name="notion-heading-40ad9e129df780678982e6d6ada7180e"></a>
 
 ### 📃 c. Dimensionality Reduction (차원 축소)
 
-**데이터의 특성 수를 줄여 데이터 분석과 시각화를 쉽게 만드는 방법**
+<strong>데이터의 특성 수를 줄여 데이터 분석과 시각화를 쉽게 만드는 방법</strong>
 
-대표 알고리즘: **PCA (Principal Component Analysis, 주성분 분석)**
+대표 알고리즘: <strong>PCA (Principal Component Analysis, 주성분 분석)</strong>
 
 - 여러 특성을 소수의 새로운 특성으로 압축한다.
 - 데이터 시각화와 데이터 복잡도 감소에 활용한다.
 - 차원을 줄이는 과정에서 일부 정보가 손실될 수 있다.
 
-**PCA 핵심 코드**
+<strong>PCA 핵심 코드</strong>
 
 ```text
 from sklearn.decomposition import PCA
@@ -106,7 +106,7 @@ print(pca.explained_variance_ratio_)
 - `fit_transform()` : 학습 후 데이터를 변환
 - `explained_variance_ratio_` : 각 주성분이 설명하는 분산의 비율
 
-💡 **쉽게 기억하기**
+💡 <strong>쉽게 기억하기</strong>
 
 - Clustering = 비슷한 데이터끼리 묶기
 - PCA = 여러 특성을 적은 수의 특성으로 압축하기
@@ -115,7 +115,7 @@ print(pca.explained_variance_ratio_)
 
 ### 📃 d. Project (프로젝트)
 
-**비지도 학습 프로젝트 기본 순서**
+<strong>비지도 학습 프로젝트 기본 순서</strong>
 
 1. 데이터 수집 및 탐색
 1. 결측치 및 이상치 확인
@@ -124,7 +124,7 @@ print(pca.explained_variance_ratio_)
 1. 알고리즘 적용 (K-Means, DBSCAN, PCA)
 1. 결과 평가 및 시각화
 
-**주요 평가 지표**
+<strong>주요 평가 지표</strong>
 
 - `Silhouette Score` : 군집이 얼마나 잘 분리되어 있는지 평가
 - `Explained Variance Ratio` : PCA의 주성분이 설명하는 분산의 비율
@@ -139,10 +139,10 @@ print(pca.explained_variance_ratio_)
 
 ### 📃 a. 실습 (타이타닉 생존자)
 
-**승객 정보를 이용해 생존 여부를 예측하는 머신러닝 프로젝트**
+<strong>승객 정보를 이용해 생존 여부를 예측하는 머신러닝 프로젝트</strong>
 
-- 학습 유형: **지도 학습 (Supervised Learning)**
-- 문제 유형: **분류 (Classification)**
+- 학습 유형: <strong>지도 학습 (Supervised Learning)</strong>
+- 문제 유형: <strong>분류 (Classification)</strong>
 - 타깃 변수: `Survived`
   - `0` : 사망
   - `1` : 생존
@@ -255,4 +255,4 @@ print(accuracy)
 | `predict()` | 예측 |
 | `Accuracy` | 예측 정확도 |
 
-**🎯 이번 주 핵심:** 비지도 학습의 군집화와 차원 축소를 이해하고, 타이타닉 데이터를 이용해 머신러닝의 기본 흐름인 **전처리 → 데이터 분리 → 모델 학습 → 예측 → 평가** 를 익힌다.
+<strong>🎯 이번 주 핵심:</strong> 비지도 학습의 군집화와 차원 축소를 이해하고, 타이타닉 데이터를 이용해 머신러닝의 기본 흐름인 <strong>전처리 → 데이터 분리 → 모델 학습 → 예측 → 평가</strong> 를 익힌다.

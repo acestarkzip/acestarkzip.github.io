@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 409d9e129df7802dbbe2cb4d97eb412f -->
-<!-- notion-last-edited-time: 2026-11-01T02:35:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-08T06:14:00.000Z -->
 
 # Python : Machine Learning 2일차 (D+12)
 
@@ -24,7 +24,7 @@
 
 # 📚 3주차 Python Machine Learning
 
-**2026.10.26 Mon ~ 2026.10.30 Fri | Total: 5 days**
+<strong>2026.10.26 Mon ~ 2026.10.30 Fri | Total: 5 days</strong>
 
 <a name="notion-heading-40ad9e129df780499e8ae41c8b581a42"></a>
 
@@ -34,16 +34,16 @@
 
 ### 📃 a. Classification (분류 알고리즘)
 
-**분류(Classification)** 는 데이터를 학습하여 새로운 데이터가 어떤 범주(Class)에 속하는지 예측하는 머신러닝 방법이다.
+<strong>분류(Classification)</strong> 는 데이터를 학습하여 새로운 데이터가 어떤 범주(Class)에 속하는지 예측하는 머신러닝 방법이다.
 
-**예시**
+<strong>예시</strong>
 
 - 이메일이 스팸인지 아닌지 분류
 - 서버 상태가 정상인지 고장인지 분류
 - 이미지에 어떤 물체가 있는지 분류
 - 고객이 상품을 구매할지 구매하지 않을지 예측
 
-**분류의 종류**
+<strong>분류의 종류</strong>
 
 - 이진 분류(Binary Classification): 두 가지 범주 중 하나를 예측
   - 예: 정상 / 고장
@@ -52,7 +52,7 @@
 - 다중 레이블 분류(Multilabel Classification): 하나의 데이터에 여러 범주를 동시에 부여
   - 예: 이미지에 사람과 자동차가 함께 존재
 
-**분류와 회귀의 차이**
+<strong>분류와 회귀의 차이</strong>
 
 | 구분 | 분류(Classification) | 회귀(Regression) |
 | --- | --- | --- |
@@ -60,17 +60,17 @@
 | 예시 | 고장 여부 예측 | 장비 온도 예측 |
 | 대표 알고리즘 | Logistic Regression, KNN Classifier | Linear Regression |
 
-※ 로지스틱 회귀는 이름에 '회귀'가 들어가지만, 일반적으로 **분류 문제에 사용**한다.
+※ 로지스틱 회귀는 이름에 '회귀'가 들어가지만, 일반적으로 <strong>분류 문제에 사용</strong>한다.
 
 <a name="notion-heading-40ad9e129df780d7b6d4ef709b8143fe"></a>
 
 ### 📃 b. Logistic Regression (로지스틱 회귀)
 
-**로지스틱 회귀(Logistic Regression)** 는 입력 데이터를 바탕으로 특정 클래스에 속할 확률을 계산하고, 이를 이용해 분류하는 알고리즘이다.
+<strong>로지스틱 회귀(Logistic Regression)</strong> 는 입력 데이터를 바탕으로 특정 클래스에 속할 확률을 계산하고, 이를 이용해 분류하는 알고리즘이다.
 
 예: 서버의 온도와 사용률을 바탕으로 고장 가능성을 예측한다.
 
-**핵심 개념**
+<strong>핵심 개념</strong>
 
 - 입력 특성(Feature): 예측에 사용하는 데이터
 - 확률(Probability): 특정 클래스에 속할 가능성
@@ -80,7 +80,7 @@
 
 예를 들어, 고장 확률이 0.8이고 임계값이 0.5라면 고장으로 분류할 수 있다.
 
-**기본 코드**
+<strong>기본 코드</strong>
 
 ```text
 from sklearn.linear_model import LogisticRegression
@@ -107,7 +107,7 @@ y_proba = model.predict_proba(X_test)
 
 분류 모델의 성능을 평가할 때는 실제 정답과 모델의 예측 결과를 비교한다.
 
-**혼동 행렬(Confusion Matrix)**
+<strong>혼동 행렬(Confusion Matrix)</strong>
 
 | 구분 | 의미 |
 | --- | --- |
@@ -118,7 +118,7 @@ y_proba = model.predict_proba(X_test)
 
 예를 들어, 서버 고장 예측에서 실제로 고장 난 서버를 정상이라고 판단하면 FN에 해당한다.
 
-**주요 평가 지표**
+<strong>주요 평가 지표</strong>
 
 | 지표 | 의미 | 특징 |
 | --- | --- | --- |
@@ -128,7 +128,7 @@ y_proba = model.predict_proba(X_test)
 | F1-score | Precision과 Recall의 조화평균 | 두 지표를 함께 고려 |
 | ROC-AUC | 분류 모델이 두 클래스를 구분하는 능력 | 일반적으로 1에 가까울수록 좋음 |
 
-**평가 지표 코드**
+<strong>평가 지표 코드</strong>
 
 ```text
 from sklearn.metrics import (
@@ -149,7 +149,7 @@ print(confusion_matrix(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 ```
 
-**어떤 지표가 중요할까?**
+<strong>어떤 지표가 중요할까?</strong>
 
 - 고장 탐지처럼 실제 고장을 놓치는 것이 위험하다면 Recall이 중요할 수 있다.
 - 정상 데이터를 고장이라고 잘못 판단하는 비용이 크다면 Precision도 중요하다.
@@ -161,19 +161,19 @@ print(classification_report(y_test, y_pred))
 
 ### 📃 d. K-Nearest Neighbors (K-최근접 이웃)
 
-**KNN(K-Nearest Neighbors)** 은 새로운 데이터와 가까운 K개의 학습 데이터를 찾고, 주변 이웃의 정보를 이용해 결과를 예측하는 알고리즘이다.
+<strong>KNN(K-Nearest Neighbors)</strong> 은 새로운 데이터와 가까운 K개의 학습 데이터를 찾고, 주변 이웃의 정보를 이용해 결과를 예측하는 알고리즘이다.
 
 분류에서는 주변 이웃 중 가장 많이 나타나는 클래스를 예측한다.
 
 예: 새로운 서버의 상태와 비슷한 과거 서버 사례 K개를 찾아 고장 여부를 판단한다.
 
-**K의 의미**
+<strong>K의 의미</strong>
 
 - K = 1: 가장 가까운 데이터 하나를 기준으로 예측
 - K가 작으면: 주변 데이터의 영향을 크게 받으며 노이즈에 민감할 수 있음
 - K가 크면: 더 넓은 범위의 데이터를 고려하지만, 너무 크면 서로 다른 클래스가 섞일 수 있음
 
-**기본 코드**
+<strong>기본 코드</strong>
 
 ```text
 from sklearn.neighbors import KNeighborsClassifier
@@ -188,7 +188,7 @@ y_pred = model.predict(X_test)
 - `fit()`: 학습 데이터를 저장하고 예측에 필요한 정보를 준비
 - `predict()`: 주변 이웃을 바탕으로 클래스 예측
 
-**특징**
+<strong>특징</strong>
 
 - 이해하기 쉽고 구현이 간단하다.
 - 예측 시 주변 데이터를 찾아야 하므로 데이터가 많으면 느려질 수 있다.
@@ -198,11 +198,11 @@ y_pred = model.predict(X_test)
 
 ### 📃 e. Feature Scaling (표준화, 정규화)
 
-**Feature Scaling(특성 스케일링)** 은 서로 다른 단위나 범위를 가진 특성들의 값을 일정한 기준으로 변환하는 과정이다.
+<strong>Feature Scaling(특성 스케일링)</strong> 은 서로 다른 단위나 범위를 가진 특성들의 값을 일정한 기준으로 변환하는 과정이다.
 
 예를 들어, 나이는 20~80이고 연봉은 2,000만~1억 원이라면 연봉의 숫자 범위가 훨씬 크다. 거리 기반 알고리즘에서는 큰 범위의 특성이 거리에 더 큰 영향을 줄 수 있다.
 
-**1. 표준화(Standardization)**
+<strong>1. 표준화(Standardization)</strong>
 
 데이터의 평균을 0, 표준편차를 1로 변환한다.
 
@@ -217,7 +217,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 ```
 
-**2. 정규화(Normalization, Min-Max Scaling)**
+<strong>2. 정규화(Normalization, Min-Max Scaling)</strong>
 
 일반적으로 데이터를 지정된 범위, 예를 들어 0~1로 변환하는 것을 의미한다.
 
@@ -232,7 +232,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 ```
 
-**표준화와 정규화의 차이**
+<strong>표준화와 정규화의 차이</strong>
 
 | 구분 | 표준화 | Min-Max 정규화 |
 | --- | --- | --- |
@@ -240,7 +240,7 @@ X_test_scaled = scaler.transform(X_test)
 | 결과 | 평균 0, 표준편차 1 | 지정한 범위, 보통 0~1 |
 | 특징 | 값이 반드시 0~1에 들어가지는 않음 | 이상치에 영향을 많이 받을 수 있음 |
 
-**주의사항**
+<strong>주의사항</strong>
 
 - 반드시 학습 데이터에 `fit_transform()`을 적용한다.
 - 테스트 데이터에는 학습 데이터에서 얻은 기준으로 `transform()`만 적용한다.
@@ -253,7 +253,7 @@ X_test_scaled = scaler.transform(X_test)
 
 분류 프로젝트에서는 데이터를 준비하고 분류 모델을 학습한 다음, 적절한 평가 지표로 결과를 확인한다.
 
-**기본 진행 순서**
+<strong>기본 진행 순서</strong>
 
 1. 데이터 불러오기 및 구조 확인
 1. 결측치와 이상치 처리
@@ -265,7 +265,7 @@ X_test_scaled = scaler.transform(X_test)
 1. 혼동 행렬과 평가 지표로 성능 평가
 1. 모델별 결과 비교 및 개선
 
-**핵심 코드 예시: 스케일링과 KNN**
+<strong>핵심 코드 예시: 스케일링과 KNN</strong>
 
 ```text
 from sklearn.model_selection import train_test_split
@@ -301,12 +301,12 @@ print(classification_report(y_test, y_pred))
 
 ## ✅ 핵심 요약
 
-- **분류**는 데이터를 특정 범주로 나누는 문제다.
-- **로지스틱 회귀**는 확률을 계산해 클래스를 예측한다.
-- **Accuracy, Precision, Recall, F1-score**는 대표적인 분류 평가 지표다.
-- **KNN**은 가까운 K개의 이웃을 이용해 클래스를 예측한다.
-- **Feature Scaling**은 특성의 범위와 단위를 조정한다.
+- <strong>분류</strong>는 데이터를 특정 범주로 나누는 문제다.
+- <strong>로지스틱 회귀</strong>는 확률을 계산해 클래스를 예측한다.
+- <strong>Accuracy, Precision, Recall, F1-score</strong>는 대표적인 분류 평가 지표다.
+- <strong>KNN</strong>은 가까운 K개의 이웃을 이용해 클래스를 예측한다.
+- <strong>Feature Scaling</strong>은 특성의 범위와 단위를 조정한다.
 - KNN은 거리의 영향을 받기 때문에 스케일링이 중요하다.
 - 스케일러는 학습 데이터로만 학습하고, 테스트 데이터에는 같은 기준을 적용한다.
 
-**🎯 학습 목표:** 로지스틱 회귀와 KNN으로 분류 모델을 만들고, 분류 평가 지표와 특성 스케일링을 활용해 모델 성능을 비교할 수 있다.
+<strong>🎯 학습 목표:</strong> 로지스틱 회귀와 KNN으로 분류 모델을 만들고, 분류 평가 지표와 특성 스케일링을 활용해 모델 성능을 비교할 수 있다.

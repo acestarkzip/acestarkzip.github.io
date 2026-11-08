@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 409d9e129df78052b3aee564985e4101 -->
-<!-- notion-last-edited-time: 2026-11-01T02:41:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-08T06:12:00.000Z -->
 
 # [TEST] gif, url, pdf, 등 인지 테스트
 

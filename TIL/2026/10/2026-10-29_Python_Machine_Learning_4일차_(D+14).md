@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 409d9e129df78029a25cffd7a8d57ef8 -->
-<!-- notion-last-edited-time: 2026-11-01T02:35:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-08T06:14:00.000Z -->
 
 # Python : Machine Learning 4일차 (D+14)
 
@@ -25,7 +25,7 @@
 
 # 📚 3주차 Python Machine Learning
 
-**2026.10.26 Mon ~ 2026.10.30 Fri | Total: 5 days**
+<strong>2026.10.26 Mon ~ 2026.10.30 Fri | Total: 5 days</strong>
 
 <a name="notion-heading-40ad9e129df78025ba50fa2cbb923a3e"></a>
 
@@ -35,11 +35,11 @@
 
 ### 📃 a. Ensemble (앙상블)
 
-**앙상블(Ensemble)** 은 여러 머신러닝 모델의 예측을 결합하여 하나의 모델보다 더 안정적이거나 정확한 결과를 얻으려는 방법이다.
+<strong>앙상블(Ensemble)</strong> 은 여러 머신러닝 모델의 예측을 결합하여 하나의 모델보다 더 안정적이거나 정확한 결과를 얻으려는 방법이다.
 
 쉽게 말해, 한 사람의 판단에만 의존하지 않고 여러 사람의 의견을 종합하는 것과 비슷하다.
 
-**대표적인 앙상블 기법**
+<strong>대표적인 앙상블 기법</strong>
 
 | 기법 | 핵심 원리 | 대표 알고리즘 |
 | --- | --- | --- |
@@ -54,8 +54,8 @@
 
 여러 모델의 예측을 결합한다.
 
-- **Hard Voting**: 각 모델이 예측한 클래스 중 다수결로 결정
-- **Soft Voting**: 각 모델이 예측한 클래스별 확률을 평균 내어 결정
+- <strong>Hard Voting</strong>: 각 모델이 예측한 클래스 중 다수결로 결정
+- <strong>Soft Voting</strong>: 각 모델이 예측한 클래스별 확률을 평균 내어 결정
 
 ```text
 from sklearn.ensemble import VotingClassifier
@@ -80,7 +80,7 @@ y_pred = model.predict(X_test)
 
 #### 2. Bagging (배깅)
 
-**Bagging(Bootstrap Aggregating)** 은 원본 데이터에서 복원 추출로 여러 학습용 표본을 만들고, 각 모델을 독립적으로 학습한 뒤 결과를 결합하는 방식이다.
+<strong>Bagging(Bootstrap Aggregating)</strong> 은 원본 데이터에서 복원 추출로 여러 학습용 표본을 만들고, 각 모델을 독립적으로 학습한 뒤 결과를 결합하는 방식이다.
 
 - 여러 모델을 병렬로 학습할 수 있다.
 - 모델의 예측 변동을 줄이는 데 도움이 된다.
@@ -90,7 +90,7 @@ y_pred = model.predict(X_test)
 
 #### 3. Random Forest (랜덤 포레스트)
 
-**Random Forest** 는 여러 결정 트리를 학습하여 예측을 결합하는 알고리즘이다.
+<strong>Random Forest</strong> 는 여러 결정 트리를 학습하여 예측을 결합하는 알고리즘이다.
 
 각 트리는 서로 다른 데이터 표본을 사용하며, 분할할 때 일부 특성만 고려해 트리 간 다양성을 높인다.
 
@@ -98,7 +98,7 @@ y_pred = model.predict(X_test)
 - 회귀: 여러 트리의 예측값을 평균 내는 방식이 일반적
 - 단일 결정 트리보다 과적합을 줄이는 데 도움이 될 수 있다.
 
-**기본 코드**
+<strong>기본 코드</strong>
 
 ```text
 from sklearn.ensemble import RandomForestClassifier
@@ -126,11 +126,11 @@ y_pred = model.predict(X_test)
 
 ### 📃 b. Boosting (부스팅)
 
-**부스팅(Boosting)** 은 여러 약한 학습기(Weak Learner)를 순차적으로 학습하여, 이전 단계의 모델이 잘 처리하지 못한 부분을 보완하는 앙상블 기법이다.
+<strong>부스팅(Boosting)</strong> 은 여러 약한 학습기(Weak Learner)를 순차적으로 학습하여, 이전 단계의 모델이 잘 처리하지 못한 부분을 보완하는 앙상블 기법이다.
 
 쉽게 말해, 문제를 풀고 틀린 부분을 분석한 뒤 다음 학습기가 그 부분을 더 잘 처리하도록 학습하는 방식이다.
 
-**대표적인 부스팅 알고리즘**
+<strong>대표적인 부스팅 알고리즘</strong>
 
 | 알고리즘 | 핵심 원리 |
 | --- | --- |
@@ -140,7 +140,7 @@ y_pred = model.predict(X_test)
 | LightGBM | 효율적인 학습과 빠른 처리를 목표로 설계된 부스팅 프레임워크 |
 | CatBoost | 범주형 특성 처리를 지원하며 다양한 데이터에서 활용되는 부스팅 프레임워크 |
 
-**배깅과 부스팅의 차이**
+<strong>배깅과 부스팅의 차이</strong>
 
 | 구분 | Bagging | Boosting |
 | --- | --- | --- |
@@ -173,7 +173,7 @@ y_pred = model.predict(X_test)
 - `learning_rate`: 각 학습기가 최종 예측에 기여하는 정도
 - `max_depth`: 개별 트리의 최대 깊이
 
-**주의사항**
+<strong>주의사항</strong>
 
 - `learning_rate`를 낮추면 충분한 성능을 얻기 위해 더 많은 학습기가 필요할 수 있다.
 - 학습기가 너무 많거나 트리가 지나치게 복잡하면 과적합이 발생할 수 있다.
@@ -185,7 +185,7 @@ y_pred = model.predict(X_test)
 
 여러 앙상블 모델을 학습하고 성능을 비교하는 프로젝트이다.
 
-**기본 진행 순서**
+<strong>기본 진행 순서</strong>
 
 1. 데이터 불러오기 및 구조 확인
 1. 결측치와 이상치 처리
@@ -197,7 +197,7 @@ y_pred = model.predict(X_test)
 1. 모델별 성능 비교
 1. 필요하면 하이퍼파라미터 튜닝
 
-**모델 비교 코드**
+<strong>모델 비교 코드</strong>
 
 ```text
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
@@ -226,7 +226,7 @@ for name, model in models.items():
 
 ※ 위 코드는 이진 분류를 기준으로 한다. 다중 클래스 분류에서는 `f1_score()`의 `average` 옵션을 데이터에 맞게 지정해야 한다.
 
-**프로젝트에서 확인할 점**
+<strong>프로젝트에서 확인할 점</strong>
 
 - 어떤 모델이 가장 높은 평가 점수를 얻었는가?
 - 학습 데이터와 테스트 데이터의 성능 차이가 큰가?
@@ -239,12 +239,12 @@ for name, model in models.items():
 
 ## ✅ 핵심 요약
 
-- **Ensemble**: 여러 모델의 예측을 결합하는 방법이다.
-- **Voting**: 여러 모델의 예측을 투표나 확률 결합으로 종합한다.
-- **Bagging**: 여러 모델을 독립적으로 학습하고 결과를 결합한다.
-- **Random Forest**: 여러 결정 트리를 결합한 대표적인 배깅 계열 알고리즘이다.
-- **Boosting**: 모델을 순차적으로 학습하며 이전 모델의 부족한 점을 보완한다.
-- **Gradient Boosting, XGBoost, LightGBM, CatBoost** 는 대표적인 부스팅 계열 알고리즘이다.
+- <strong>Ensemble</strong>: 여러 모델의 예측을 결합하는 방법이다.
+- <strong>Voting</strong>: 여러 모델의 예측을 투표나 확률 결합으로 종합한다.
+- <strong>Bagging</strong>: 여러 모델을 독립적으로 학습하고 결과를 결합한다.
+- <strong>Random Forest</strong>: 여러 결정 트리를 결합한 대표적인 배깅 계열 알고리즘이다.
+- <strong>Boosting</strong>: 모델을 순차적으로 학습하며 이전 모델의 부족한 점을 보완한다.
+- <strong>Gradient Boosting, XGBoost, LightGBM, CatBoost</strong> 는 대표적인 부스팅 계열 알고리즘이다.
 - 모델의 성능은 데이터와 평가 지표에 따라 달라지므로 직접 비교해야 한다.
 
-**🎯 학습 목표:** Random Forest와 Gradient Boosting의 차이를 이해하고, 여러 앙상블 모델을 학습해 평가 지표로 성능을 비교할 수 있다.
+<strong>🎯 학습 목표:</strong> Random Forest와 Gradient Boosting의 차이를 이해하고, 여러 앙상블 모델을 학습해 평가 지표로 성능을 비교할 수 있다.

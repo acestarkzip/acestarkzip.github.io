@@ -1,13 +1,21 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-08T10:45:25.754239+00:00",
+  "generated_at": "2026-11-08T11:50:36.122744+00:00",
   "active_notion_page_count": 32,
-  "matched_markdown_count": 31,
-  "missing_markdown_count": 1,
-  "scanned_markdown_count": 31,
-  "total_count": 31,
+  "matched_markdown_count": 32,
+  "missing_markdown_count": 0,
+  "scanned_markdown_count": 33,
+  "total_count": 32,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-09_Python_Deep_Learning_5일차_(D+21).md",
+      "date": "2026-11-09",
+      "title": "Python :  Deep Learning 5일차 (D+21)",
+      "memo": "딥러닝 | 자연어 처리(NLP) 기초와 트랜스포머(Transformer) 아키텍처 흐름 파악",
+      "notion_page_id": "410d9e129df78078b299e80ccee1ba56",
+      "notion_url": "https://app.notion.com/p/Python-Deep-Learning-5-D-21-410d9e129df78078b299e80ccee1ba56"
+    },
     {
       "path": "TIL/2026/11/2026-11-08_Self-Taught_블로그_개선_(메모_참고).md",
       "date": "2026-11-08",
@@ -65,7 +73,7 @@
       "notion_url": "https://app.notion.com/p/Python-ML-2-D-16-40bd9e129df78016aad9f83c8c5d11d6"
     },
     {
-      "path": "TIL/2026/11/2026-11-01_Self-Taught_블로그_개선.md",
+      "path": "TIL/2026/11/2026-11-01_Self-Taught_블로그_개선_(메모_참고).md",
       "date": "2026-11-01",
       "title": "Self-Taught : 블로그 개선 (메모 참고)",
       "memo": "메모 | Notion to Github 연동 작업 진행",
