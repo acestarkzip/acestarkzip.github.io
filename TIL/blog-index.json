@@ -1,13 +1,21 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-07T22:40:24.481087+00:00",
-  "active_notion_page_count": 31,
-  "matched_markdown_count": 30,
+  "generated_at": "2026-11-08T10:45:25.754239+00:00",
+  "active_notion_page_count": 32,
+  "matched_markdown_count": 31,
   "missing_markdown_count": 1,
-  "scanned_markdown_count": 30,
-  "total_count": 30,
+  "scanned_markdown_count": 31,
+  "total_count": 31,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-08_Self-Taught_블로그_개선_(메모_참고).md",
+      "date": "2026-11-08",
+      "title": "Self-Taught : 블로그 개선 (메모 참고)",
+      "memo": "메모 | Github page 검색&태그 추가, 페이지 UI 개선, SNS 연동, 등",
+      "notion_page_id": "412d9e129df780349b50fee677159e6e",
+      "notion_url": "https://app.notion.com/p/Self-Taught-412d9e129df780349b50fee677159e6e"
+    },
     {
       "path": "TIL/2026/11/2026-11-07_Self-Taught_2026_로보월드_방문_후기.md",
       "date": "2026-11-07",
@@ -59,7 +67,7 @@
     {
       "path": "TIL/2026/11/2026-11-01_Self-Taught_블로그_개선.md",
       "date": "2026-11-01",
-      "title": "Self-Taught : 블로그 개선",
+      "title": "Self-Taught : 블로그 개선 (메모 참고)",
       "memo": "메모 | Notion to Github 연동 작업 진행",
       "notion_page_id": "40bd9e129df78021b9c3fc931c30a161",
       "notion_url": "https://app.notion.com/p/Self-Taught-40bd9e129df78021b9c3fc931c30a161"
