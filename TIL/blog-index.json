@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-08T11:50:36.122744+00:00",
+  "generated_at": "2026-11-08T22:41:15.470450+00:00",
   "active_notion_page_count": 32,
   "matched_markdown_count": 32,
   "missing_markdown_count": 0,
