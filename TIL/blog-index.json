@@ -1,13 +1,21 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-09T22:49:50.319846+00:00",
-  "active_notion_page_count": 32,
-  "matched_markdown_count": 32,
+  "generated_at": "2026-11-10T10:55:09.097596+00:00",
+  "active_notion_page_count": 33,
+  "matched_markdown_count": 33,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 33,
-  "total_count": 32,
+  "scanned_markdown_count": 34,
+  "total_count": 33,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-10_OpenAI_API_연동_후_테스트.md",
+      "date": "2026-11-10",
+      "title": "OpenAI API 연동 후 테스트",
+      "memo": "",
+      "notion_page_id": "414d9e129df78056bd46dae5123cbef0",
+      "notion_url": "https://app.notion.com/p/OpenAI-API-414d9e129df78056bd46dae5123cbef0"
+    },
     {
       "path": "TIL/2026/11/2026-11-09_Python_Deep_Learning_5일차_(D+21).md",
       "date": "2026-11-09",
