@@ -542,3 +542,100 @@ button, input { font: inherit; }
   .archive-controls { margin-left: auto; }
   .footer-brand .brand-name { font-size: 12px; }
 }
+
+
+/* ==========================================================
+   SSS ROBOTICS — refined shared header (2026-11-12)
+   Shorter top bar, slightly larger mark, clearer navigation.
+   ========================================================== */
+@media (min-width: 901px) {
+  .header-inner {
+    min-height: 100px;
+  }
+  .header-brand .brand-logo {
+    width: 94px !important;
+    height: 94px !important;
+    min-width: 94px !important;
+    min-height: 94px !important;
+    max-width: 94px !important;
+    max-height: 94px !important;
+    flex-basis: 94px !important;
+  }
+  .primary-nav {
+    gap: 42px;
+    margin-right: clamp(28px, 3vw, 42px);
+  }
+  .primary-nav a {
+    font-size: 12px;
+    letter-spacing: .10em;
+  }
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    margin-left: 6px;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 900px) {
+  .header-inner {
+    min-height: 92px;
+  }
+  .header-brand .brand-logo {
+    width: 86px !important;
+    height: 86px !important;
+    min-width: 86px !important;
+    min-height: 86px !important;
+    max-width: 86px !important;
+    max-height: 86px !important;
+    flex-basis: 86px !important;
+  }
+  .header-brand .brand-name {
+    font-size: 24px;
+  }
+  .brand-tagline {
+    font-size: 10px;
+  }
+  .primary-nav {
+    gap: 27px;
+    margin-right: 20px;
+  }
+  .primary-nav a {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 680px) {
+  .header-inner {
+    min-height: 82px;
+  }
+  .header-brand {
+    gap: 10px;
+  }
+  .header-brand .brand-logo {
+    width: 74px !important;
+    height: 74px !important;
+    min-width: 74px !important;
+    min-height: 74px !important;
+    max-width: 74px !important;
+    max-height: 74px !important;
+    flex-basis: 74px !important;
+  }
+  .header-brand .brand-name {
+    font-size: 20px;
+  }
+  .brand-tagline {
+    max-width: 180px;
+    font-size: 8.5px;
+    line-height: 1.35;
+  }
+  .primary-nav {
+    top: 81px;
+    right: 0;
+    left: 0;
+    gap: 0;
+    margin-right: 0;
+  }
+  .primary-nav a {
+    font-size: 12px;
+  }
+}
