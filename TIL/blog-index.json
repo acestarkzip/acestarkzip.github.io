@@ -1,20 +1,28 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-10T22:46:11.499416+00:00",
-  "active_notion_page_count": 33,
-  "matched_markdown_count": 33,
+  "generated_at": "2026-11-11T11:02:03.406391+00:00",
+  "active_notion_page_count": 34,
+  "matched_markdown_count": 34,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 34,
-  "total_count": 33,
+  "scanned_markdown_count": 35,
+  "total_count": 34,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-11_LLM_MCP_2일차_(D+23).md",
+      "date": "2026-11-11",
+      "title": "LLM MCP 2일차 (D+23)",
+      "memo": "LLM | MCP",
+      "notion_page_id": "414d9e129df7801ab2e7ce2b5d769b6e",
+      "notion_url": "https://app.notion.com/p/LLM-MCP-2-D-23-414d9e129df7801ab2e7ce2b5d769b6e"
+    },
     {
       "path": "TIL/2026/11/2026-11-10_OpenAI_API_연동_후_테스트.md",
       "date": "2026-11-10",
-      "title": "OpenAI API 연동 후 테스트",
-      "memo": "",
+      "title": "OpenAI API 연동 후 테스트 1일차 (D+22)",
+      "memo": "LLM | API 호출 후 반응형 챗봇 만들기 진행",
       "notion_page_id": "414d9e129df78056bd46dae5123cbef0",
-      "notion_url": "https://app.notion.com/p/OpenAI-API-414d9e129df78056bd46dae5123cbef0"
+      "notion_url": "https://app.notion.com/p/OpenAI-API-1-D-22-414d9e129df78056bd46dae5123cbef0"
     },
     {
       "path": "TIL/2026/11/2026-11-09_Python_Deep_Learning_5일차_(D+21).md",
