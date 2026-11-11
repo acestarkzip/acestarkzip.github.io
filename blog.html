@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b09">
-  <meta name="description" content="All learning notes and experiments by ACESTARKZIP.">
-  <title>All Posts — ACESTARKZIP</title>
+  <meta name="description" content="S급 로봇 연구소 전체 게시글 — 로봇과 인간이 공존할 미래를 준비합니다.">
+  <title>S급 로봇 연구소 - 로봇과 인간이 공존할 미래를 준비합니다.</title>
+  <link rel="icon" type="image/png" href="./images/sss-robotics-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,16 +16,16 @@
 <body class="archive-page">
   <div class="site-noise" aria-hidden="true"></div>
   <div class="top-progress" aria-hidden="true"></div>
-
   <header class="site-header">
     <div class="header-inner shell">
-      <a class="brand" href="./index.html" aria-label="ACESTARKZIP home">
-        <span class="brand-mark" aria-hidden="true">A<span>.</span></span>
-        <span class="brand-name">ACESTARKZIP</span>
+      <a class="brand header-brand" href="./index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="./images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
       </a>
-      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span>
-      </button>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
       <nav class="primary-nav" id="primary-nav" aria-label="주 메뉴">
         <a href="./index.html#about">ABOUT</a>
         <a class="active" href="./blog.html">BLOG <span class="nav-dot"></span></a>
@@ -32,45 +33,42 @@
       </nav>
     </div>
   </header>
-
   <main>
-    <section class="blog-section archive-section shell" id="blog" aria-labelledby="archive-title">
+    <section class="blog-section shell archive-blog-section" id="blog" aria-labelledby="blog-title">
       <div class="section-heading">
         <div>
           <div class="section-kicker"><span>02</span> KNOWLEDGE ARCHIVE</div>
-          <h2 id="archive-title">ALL <span class="green">POSTS.</span></h2>
-          <p class="section-description">전체 학습 기록과 테스트 게시글을 포함한 아카이브입니다.</p>
+          <h1 id="blog-title">ALL <span class="green">POSTS.</span></h1>
+          <p class="section-description">전체 학습 기록과 실험, 프로젝트 노트를 모았습니다.</p>
         </div>
         <div class="post-counter"><strong id="post-count">—</strong><span>POSTS<br>ARCHIVED</span></div>
       </div>
-
       <div class="blog-toolbar">
         <span class="toolbar-label"><span class="status-light"></span> COMPLETE ARCHIVE</span>
-        <div class="toolbar-controls">
-          <div class="sort-controls" role="group" aria-label="게시글 정렬">
-            <button class="sort-button is-active" type="button" data-sort="newest" aria-pressed="true">최신순</button>
-            <button class="sort-button" type="button" data-sort="oldest" aria-pressed="false">오래된순</button>
-          </div>
-          <span class="toolbar-note">AUTO-SYNCED FROM GITHUB</span>
+        <div class="archive-controls" role="group" aria-label="게시글 정렬">
+          <button class="sort-button is-active" type="button" data-sort="newest" aria-pressed="true">최신순</button>
+          <button class="sort-button" type="button" data-sort="oldest" aria-pressed="false">오래된순</button>
         </div>
+        <span class="toolbar-note">AUTO-SYNCED FROM NOTION</span>
       </div>
-
       <div class="post-list" id="post-list" aria-live="polite" aria-busy="true">
         <div class="loading-state"><span class="loading-ring" aria-hidden="true"></span><span>전체 게시글을 불러오는 중입니다...</span></div>
       </div>
-      <p class="blog-footnote">Every dated Markdown file under <code>TIL/</code> is listed here, including [TEST] and 테스트용 posts.</p>
+      <p class="blog-footnote">Posts are collected automatically from the <code>TIL/</code> directory.</p>
+      <div class="blog-actions archive-actions">
+        <a class="view-all-posts" href="./index.html">BACK TO HOME <span aria-hidden="true">↗</span></a>
+      </div>
     </section>
   </main>
-
-  <footer class="site-footer shell">
+  <footer class="site-footer shell" id="contact">
     <div class="footer-main">
       <div>
-        <a class="brand footer-brand" href="./index.html"><span class="brand-mark">A<span>.</span></span><span class="brand-name">ACESTARKZIP</span></a>
-        <p class="footer-caption">A PERSONAL BLOG ABOUT ROBOTICS &amp; SIMULATION.</p>
+        <a class="brand footer-brand" href="./index.html"><img class="footer-logo" src="./images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고"><span class="brand-name">S급 로봇 연구소</span></a>
+        <p class="footer-caption">로봇과 인간이 공존할 미래를 준비합니다.</p>
       </div>
       <a class="github-link" href="https://github.com/acestarkzip" target="_blank" rel="noopener noreferrer">GITHUB PROFILE <span aria-hidden="true">↗</span></a>
     </div>
-    <div class="footer-bottom"><span>© <span id="current-year">2026</span> ACESTARKZIP</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>ROBOTICS · AI · SIMULATION<span class="green">.</span></span></div>
   </footer>
 </body>
 </html>

@@ -472,3 +472,73 @@ button, input { font: inherit; }
     align-self: center;
   }
 }
+
+
+/* S급 로봇 연구소: archive button and shared footer branding */
+.blog-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.view-all-posts {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid rgba(118,185,0,.42);
+  color: var(--green-bright);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  transition: background .2s ease, border-color .2s ease, gap .2s ease;
+}
+.view-all-posts:hover {
+  gap: 29px;
+  border-color: var(--green-bright);
+  background: rgba(118,185,0,.07);
+}
+.view-all-posts span { font-size: 16px; }
+.footer-logo {
+  display: block;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex: 0 0 42px;
+}
+.footer-brand { display: inline-flex; align-items: center; gap: 11px; }
+.footer-brand .brand-name { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: -.03em; }
+.archive-blog-section { padding-top: 70px; }
+.archive-blog-section .section-heading { margin-bottom: 0; }
+.archive-blog-section .blog-toolbar { margin-top: 38px; }
+.archive-controls { display: flex; align-items: center; gap: 5px; }
+.sort-button {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 10px;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+.sort-button:hover { color: var(--text); }
+.sort-button.is-active { border-color: rgba(118,185,0,.5); color: var(--green-bright); background: rgba(118,185,0,.06); }
+.archive-blog-section .post-list { min-height: 260px; }
+.archive-actions { margin-top: 34px; }
+
+@media (max-width: 900px) {
+  .archive-blog-section { padding-top: 55px; }
+  .archive-blog-section .blog-toolbar { gap: 10px; flex-wrap: wrap; }
+}
+@media (max-width: 680px) {
+  .blog-actions { margin-top: 24px; }
+  .view-all-posts { width: 100%; min-height: 44px; }
+  .archive-blog-section { padding-top: 42px; }
+  .archive-blog-section .blog-toolbar { align-items: flex-start; }
+  .archive-blog-section .toolbar-note { width: 100%; }
+  .archive-controls { margin-left: auto; }
+  .footer-brand .brand-name { font-size: 12px; }
+}
