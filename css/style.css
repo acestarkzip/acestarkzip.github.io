@@ -45,9 +45,8 @@ button, input { font: inherit; }
 .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(8,11,9,.84); backdrop-filter: blur(18px); }
 .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 11px; }
-.brand-mark { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 1px solid rgba(118,185,0,.65); color: var(--text); font-size: 16px; font-weight: 800; letter-spacing: -.08em; }
-.brand-mark span { color: var(--green); }
-.brand-name { font-size: 12px; font-weight: 800; letter-spacing: .13em; }
+.brand-logo { display: block; width: auto; height: 27px; max-width: 92px; object-fit: contain; flex: 0 0 auto; }
+.brand-name { color: var(--text); font-size: 12px; font-weight: 500; letter-spacing: .15em; line-height: 1; }
 .primary-nav { display: flex; align-items: center; gap: 37px; }
 .primary-nav a { position: relative; color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .11em; transition: color .2s ease; }
 .primary-nav a:hover, .primary-nav a.active { color: var(--text); }
@@ -166,7 +165,7 @@ button, input { font: inherit; }
 .about-strip-mark span { color: rgba(118,185,0,.14); }
 .site-footer { padding-top: 31px; padding-bottom: 25px; border-top: 1px solid var(--line-strong); }
 .footer-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
-.footer-brand .brand-mark { width: 27px; height: 27px; font-size: 14px; }
+.footer-brand .brand-logo { height: 24px; max-width: 82px; }
 .footer-caption { margin: 12px 0 0; color: var(--muted-2); font-size: 8px; letter-spacing: .08em; }
 .github-link { display: inline-flex; align-items: center; gap: 13px; padding: 9px 0; color: #b5c1b1; font-size: 9px; letter-spacing: .1em; transition: color .2s ease; }
 .github-link:hover { color: var(--green-bright); }
@@ -222,6 +221,7 @@ button, input { font: inherit; }
 @media (max-width: 680px) {
   .shell { width: min(100% - 40px, var(--shell)); }
   .header-inner { min-height: 66px; }
+  .brand-logo { height: 24px; max-width: 82px; }
   .brand-name { font-size: 11px; }
   .menu-toggle { display: flex; width: 38px; height: 38px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border: 1px solid var(--line-strong); background: transparent; cursor: pointer; }
   .menu-toggle span { display: block; width: 14px; height: 1px; background: var(--text); transition: transform .2s ease; }
@@ -286,54 +286,183 @@ button, input { font: inherit; }
 }
 
 
-/* S급 로봇 연구소: header brand only (original site styles preserved) */
-.site-header .header-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
+/* ==========================================================
+   SSS ROBOTICS — header sizing + blog list layout repair
+   These overrides preserve the existing page design.
+   ========================================================== */
+
+/* Brand header: larger logo and readable Korean title */
+.header-inner {
+  min-height: 88px;
 }
-.site-header .brand-logo {
+.header-brand {
+  gap: 14px;
+}
+.header-brand .brand-logo {
   display: block;
-  width: 44px;
-  height: 44px;
-  max-width: 44px;
-  max-height: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  flex: 0 0 44px;
+  width: 60px !important;
+  height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
   object-fit: contain;
-  border-radius: 50%;
+  flex: 0 0 60px;
 }
-.site-header .brand-copy {
+.brand-copy {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2px;
   min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
-.site-header .brand-name {
+.header-brand .brand-name {
   color: var(--text);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: -.04em;
-  line-height: 1.3;
+  letter-spacing: -.035em;
+  line-height: 1.25;
 }
-.site-header .brand-tagline {
+.brand-tagline {
+  display: block;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: -.025em;
-  line-height: 1.35;
-  white-space: nowrap;
+  line-height: 1.4;
 }
-@media (max-width: 680px) {
-  .site-header .header-brand { gap: 9px; max-width: calc(100% - 54px); }
-  .site-header .brand-logo {
-    width: 38px; height: 38px; min-width: 38px; min-height: 38px;
-    max-width: 38px; max-height: 38px; flex-basis: 38px;
+
+/* Blog list: restore the five-column layout
+   number | date | category/title | memo | arrow */
+.post-item {
+  grid-template-columns:
+    52px
+    120px
+    minmax(0, 1.15fr)
+    minmax(170px, .95fr)
+    32px;
+  align-items: center;
+  gap: 15px;
+}
+.post-number,
+.post-date,
+.post-main,
+.post-memo,
+.post-arrow {
+  min-width: 0;
+}
+.post-memo {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.post-memo:empty {
+  visibility: hidden;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .header-inner {
+    min-height: 82px;
   }
-  .site-header .brand-name { font-size: 13px; }
-  .site-header .brand-tagline { font-size: 8px; white-space: normal; }
+  .header-brand .brand-logo {
+    width: 56px !important;
+    height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+    flex-basis: 56px;
+  }
+  .header-brand .brand-name {
+    font-size: 17px;
+  }
+  .brand-tagline {
+    font-size: 10px;
+  }
+  .post-item {
+    grid-template-columns:
+      40px
+      100px
+      minmax(0, 1.1fr)
+      minmax(140px, .9fr)
+      28px;
+    gap: 10px;
+  }
+  .post-memo {
+    font-size: 10px;
+    line-height: 1.55;
+  }
+}
+
+/* Mobile: stack date, title and memo without narrow side columns */
+@media (max-width: 680px) {
+  .header-inner {
+    min-height: 76px;
+  }
+  .header-brand {
+    gap: 9px;
+  }
+  .header-brand .brand-logo {
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    flex-basis: 48px;
+  }
+  .header-brand .brand-name {
+    font-size: 15px;
+  }
+  .brand-tagline {
+    max-width: 180px;
+    font-size: 9px;
+    line-height: 1.35;
+    white-space: normal;
+  }
+  .post-item {
+    grid-template-columns: 28px minmax(0, 1fr) 24px;
+    grid-template-rows: auto auto auto;
+    gap: 5px 9px;
+    min-height: 102px;
+    padding: 14px 3px;
+  }
+  .post-number {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 8px;
+  }
+  .post-date {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 8px;
+  }
+  .post-main {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .post-category {
+    display: inline-block;
+    margin: 0 7px 0 0;
+    font-size: 7px;
+  }
+  .post-title {
+    display: inline;
+    font-size: 13px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .post-memo {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 10px;
+    line-height: 1.45;
+    -webkit-line-clamp: 2;
+  }
+  .post-arrow {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+    align-self: center;
+  }
 }
