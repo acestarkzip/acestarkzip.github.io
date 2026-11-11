@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b09">
-  <meta name="description" content="Robotics Simulation, OpenUSD, and Physical AI — a personal learning blog by ACESTARKZIP.">
-  <title>ACESTARKZIP — Robotics, Simulation & Physical AI</title>
+  <meta name="description" content="로봇과 인간이 공존할 미래를 준비합니다.">
+  <title>S급 로봇 연구소</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,9 +18,12 @@
 
   <header class="site-header">
     <div class="header-inner shell">
-      <a class="brand" href="./index.html" aria-label="ACESTARKZIP home">
-        <span class="brand-mark" aria-hidden="true">A<span>.</span></span>
-        <span class="brand-name">ACESTARKZIP</span>
+      <a class="brand header-brand" href="./index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="./images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
       </a>
 
       <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav">
@@ -114,22 +117,13 @@
 
       <div class="blog-toolbar">
         <span class="toolbar-label"><span class="status-light"></span> RECENT WRITINGS</span>
-        <div class="toolbar-controls">
-          <div class="sort-controls" role="group" aria-label="게시글 정렬">
-            <button class="sort-button is-active" type="button" data-sort="newest" aria-pressed="true">최신순</button>
-            <button class="sort-button" type="button" data-sort="oldest" aria-pressed="false">오래된순</button>
-          </div>
-          <span class="toolbar-note">AUTO-SYNCED FROM GITHUB</span>
-        </div>
+        <span class="toolbar-note">AUTO-SYNCED FROM GITHUB</span>
       </div>
 
       <div class="post-list" id="post-list" aria-live="polite" aria-busy="true">
         <div class="loading-state"><span class="loading-ring" aria-hidden="true"></span><span>게시글을 불러오는 중입니다...</span></div>
       </div>
-      <div class="blog-actions">
-        <a class="all-posts-link" href="./blog.html">VIEW ALL POSTS <span aria-hidden="true">↗</span></a>
-      </div>
-      <p class="blog-footnote">All dated Markdown posts, including test entries, are collected from the <code>TIL/</code> directory.</p>
+      <p class="blog-footnote">Posts are collected automatically from the <code>TIL/</code> directory.</p>
     </section>
 
     <section class="about-strip shell">
