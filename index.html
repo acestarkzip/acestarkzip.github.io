@@ -116,6 +116,17 @@
         <div class="post-counter"><strong id="post-count">—</strong><span>POSTS<br>ARCHIVED</span></div>
       </div>
 
+      <div class="blog-discovery" aria-label="게시글 검색 및 태그 필터">
+        <label class="blog-search" for="post-search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="post-search" type="search" placeholder="제목, 메모, 태그 검색..." autocomplete="off">
+          <span class="search-hint">SEARCH</span>
+        </label>
+        <div class="tag-filter-heading"><span>CATEGORIES / NOTION TAGS</span><button class="tag-reset" id="tag-reset" type="button" disabled>RESET</button></div>
+        <div class="tag-filter-list" id="tag-filters" aria-label="노션 태그 필터">
+          <span class="tag-filter-loading">노션 태그를 불러오는 중입니다...</span>
+        </div>
+      </div>
       <div class="blog-toolbar">
         <span class="toolbar-label"><span class="status-light"></span> RECENT WRITINGS</span>
         <span class="toolbar-note">AUTO-SYNCED FROM GITHUB</span>

@@ -11,7 +11,7 @@
   const CACHE_DURATION = 30 * 1000;
   const MAX_HOME_POSTS = 15;
   const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
-  const CACHE_KEY = `acestarkzip-blog-posts-v8-notion-source-of-truth-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
+  const CACHE_KEY = `acestarkzip-blog-posts-v9-notion-tags-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -20,6 +20,11 @@
   const menuButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".primary-nav");
   const sortButtons = Array.from(document.querySelectorAll(".sort-button"));
+  const searchInput = document.getElementById("post-search");
+  const tagFilterList = document.getElementById("tag-filters");
+  const tagReset = document.getElementById("tag-reset");
+  let selectedTags = new Set();
+  let searchQuery = "";
   let loadedPosts = [];
   let loadedTotalCount = 0;
   let postsReady = false;
@@ -151,6 +156,71 @@
     return results;
   }
 
+  const NOTION_TAG_COLORS = {
+    default: "#686868", gray: "#686868", brown: "#8b654b", orange: "#a96732",
+    yellow: "#9a812d", green: "#477b55", blue: "#416e9d", purple: "#76518f",
+    pink: "#995d7b", red: "#9b4d4d"
+  };
+
+  function tagColor(color) {
+    return NOTION_TAG_COLORS[String(color || "default").toLowerCase()] || NOTION_TAG_COLORS.default;
+  }
+
+  function collectTags(posts) {
+    const tags = new Map();
+    posts.forEach((post) => (post.tags || []).forEach((tag) => {
+      const key = tag.name.toLocaleLowerCase();
+      if (!tags.has(key)) tags.set(key, tag);
+    }));
+    return Array.from(tags.values()).sort((a, b) => a.name.localeCompare(b.name, "ko"));
+  }
+
+  function renderTagFilters() {
+    if (!tagFilterList) return;
+    tagFilterList.replaceChildren();
+    const allButton = document.createElement("button");
+    allButton.type = "button";
+    allButton.className = `tag-filter${selectedTags.size === 0 ? " is-active" : ""}`;
+    allButton.textContent = "ALL";
+    allButton.setAttribute("aria-pressed", String(selectedTags.size === 0));
+    allButton.addEventListener("click", () => { selectedTags.clear(); renderTagFilters(); renderSortedPosts(); });
+    tagFilterList.append(allButton);
+
+    collectTags(loadedPosts).forEach((tag) => {
+      const button = document.createElement("button");
+      const active = selectedTags.has(tag.name);
+      button.type = "button";
+      button.className = `tag-filter${active ? " is-active" : ""}`;
+      button.textContent = tag.name;
+      button.style.setProperty("--tag-color", tagColor(tag.color));
+      button.setAttribute("aria-pressed", String(active));
+      button.addEventListener("click", () => {
+        if (selectedTags.has(tag.name)) selectedTags.delete(tag.name); else selectedTags.add(tag.name);
+        renderTagFilters(); renderSortedPosts();
+      });
+      tagFilterList.append(button);
+    });
+    if (tagReset) tagReset.disabled = selectedTags.size === 0 && !searchQuery;
+  }
+
+  function getFilteredPosts() {
+    const query = searchQuery.trim().toLocaleLowerCase();
+    return loadedPosts.filter((post) => {
+      const tags = post.tags || [];
+      const matchesTags = selectedTags.size === 0 || tags.some((tag) => selectedTags.has(tag.name));
+      const searchable = [post.title, post.memo, ...tags.map((tag) => tag.name)].join(" ").toLocaleLowerCase();
+      return matchesTags && (!query || searchable.includes(query));
+    });
+  }
+
+  function createTagChip(tag) {
+    const chip = document.createElement("span");
+    chip.className = "post-tag-chip";
+    chip.textContent = tag.name;
+    chip.style.setProperty("--tag-color", tagColor(tag.color));
+    return chip;
+  }
+
   function createPostElement(post) {
     const link = document.createElement("a");
     link.className = "post-item";
@@ -177,6 +247,11 @@
     title.className = "post-title";
     title.textContent = post.title;
 
+    const tags = document.createElement("span");
+    tags.className = "post-tags";
+    (post.tags || []).forEach((tag) => tags.append(createTagChip(tag)));
+    if (!post.tags || post.tags.length === 0) tags.setAttribute("aria-hidden", "true");
+
     const memo = document.createElement("span");
     memo.className = "post-memo";
     memo.textContent = post.memo || "";
@@ -188,7 +263,7 @@
     arrow.textContent = "↗";
 
     main.append(category, title);
-    link.append(number, date, main, memo, arrow);
+    link.append(number, date, main, tags, memo, arrow);
     return link;
   }
 
@@ -214,8 +289,11 @@
   function renderSortedPosts() {
     // Keep the loading or error state visible until a post response is ready.
     if (!postsReady) return;
-    const orderedPosts = currentSort === "oldest" ? [...loadedPosts].reverse() : loadedPosts;
-    renderPosts(orderedPosts, loadedTotalCount);
+    const filtered = getFilteredPosts();
+    const ordered = currentSort === "oldest" ? [...filtered].reverse() : filtered;
+    const visible = IS_ARCHIVE_PAGE ? ordered : ordered.slice(0, MAX_HOME_POSTS);
+    renderPosts(visible, filtered.length);
+    if (tagReset) tagReset.disabled = selectedTags.size === 0 && !searchQuery;
   }
 
   function setSortOrder(order) {
@@ -229,6 +307,12 @@
 
     renderSortedPosts();
   }
+
+  if (searchInput) searchInput.addEventListener("input", () => { searchQuery = searchInput.value || ""; renderSortedPosts(); });
+  if (tagReset) tagReset.addEventListener("click", () => {
+    selectedTags.clear(); searchQuery = ""; if (searchInput) searchInput.value = "";
+    renderTagFilters(); renderSortedPosts();
+  });
 
   // Sorting only changes display order; each post keeps its chronological number.
   sortButtons.forEach((button) => {
@@ -266,6 +350,7 @@
       date,
       title,
       memo: String(item.memo || "").trim(),
+      tags: Array.isArray(item.tags) ? item.tags.map((tag) => ({ name: String(tag && tag.name || "").trim(), color: String(tag && tag.color || "default") })).filter((tag) => tag.name) : [],
       category: getCategory(title),
       notionPageId: String(item.notion_page_id || "")
     };
@@ -341,6 +426,7 @@
         loadedPosts = cached.posts;
         loadedTotalCount = Number.isFinite(cached.totalCount) ? cached.totalCount : cached.posts.length;
         postsReady = true;
+        renderTagFilters();
         renderSortedPosts();
         return;
       }
@@ -353,9 +439,10 @@
       // Do not fall back to scanning all Markdown files: that would re-show deleted pages.
       const result = await loadCanonicalIndex();
       const visiblePosts = IS_ARCHIVE_PAGE ? result.posts : result.posts.slice(0, MAX_HOME_POSTS);
-      loadedPosts = visiblePosts;
+      loadedPosts = result.posts;
       loadedTotalCount = result.totalCount;
       postsReady = true;
+      renderTagFilters();
 
       try {
         sessionStorage.setItem(
