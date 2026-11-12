@@ -1,28 +1,36 @@
 {
   "schema_version": 2,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-11T22:56:55.896029+00:00",
-  "active_notion_page_count": 34,
-  "matched_markdown_count": 34,
+  "generated_at": "2026-11-12T11:05:34.629245+00:00",
+  "active_notion_page_count": 35,
+  "matched_markdown_count": 35,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 35,
-  "total_count": 34,
+  "scanned_markdown_count": 36,
+  "total_count": 35,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-12_LLM_Tool&MCP_3일차_(D+24).md",
+      "date": "2026-11-12",
+      "title": "LLM Tool&MCP 3일차 (D+24)",
+      "memo": "LLM | MCP",
+      "notion_page_id": "416d9e129df780f8beebcba5eb9c4954",
+      "notion_url": "https://app.notion.com/p/LLM-Tool-MCP-3-D-24-416d9e129df780f8beebcba5eb9c4954"
+    },
     {
       "path": "TIL/2026/11/2026-11-11_LLM_MCP_2일차_(D+23).md",
       "date": "2026-11-11",
-      "title": "LLM MCP 2일차 (D+23)",
-      "memo": "LLM | MCP",
+      "title": "LLM Multimodal 2일차 (D+23)",
+      "memo": "LLM | 멀티모달 프롬프트 이미지 가공",
       "notion_page_id": "414d9e129df7801ab2e7ce2b5d769b6e",
-      "notion_url": "https://app.notion.com/p/LLM-MCP-2-D-23-414d9e129df7801ab2e7ce2b5d769b6e"
+      "notion_url": "https://app.notion.com/p/LLM-Multimodal-2-D-23-414d9e129df7801ab2e7ce2b5d769b6e"
     },
     {
       "path": "TIL/2026/11/2026-11-10_OpenAI_API_연동_후_테스트.md",
       "date": "2026-11-10",
-      "title": "OpenAI API 연동 후 테스트 1일차 (D+22)",
+      "title": "LLM OpenAI API  1일차 (D+22)",
       "memo": "LLM | API 호출 후 반응형 챗봇 만들기 진행",
       "notion_page_id": "414d9e129df78056bd46dae5123cbef0",
-      "notion_url": "https://app.notion.com/p/OpenAI-API-1-D-22-414d9e129df78056bd46dae5123cbef0"
+      "notion_url": "https://app.notion.com/p/LLM-OpenAI-API-1-D-22-414d9e129df78056bd46dae5123cbef0"
     },
     {
       "path": "TIL/2026/11/2026-11-09_Python_Deep_Learning_5일차_(D+21).md",
