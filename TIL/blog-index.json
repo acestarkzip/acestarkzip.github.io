@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-12T12:53:07.854343+00:00",
+  "generated_at": "2026-11-12T13:05:45.883688+00:00",
   "active_notion_page_count": 35,
   "matched_markdown_count": 35,
   "missing_markdown_count": 0,
@@ -13,7 +13,12 @@
       "date": "2026-11-12",
       "title": "LLM Tool&MCP 3일차 (D+24)",
       "memo": "LLM | MCP",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "416d9e129df780f8beebcba5eb9c4954",
       "notion_url": "https://app.notion.com/p/LLM-Tool-MCP-3-D-24-416d9e129df780f8beebcba5eb9c4954"
     },
@@ -22,7 +27,12 @@
       "date": "2026-11-11",
       "title": "LLM Multimodal 2일차 (D+23)",
       "memo": "LLM | 멀티모달 프롬프트 이미지 가공",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "414d9e129df7801ab2e7ce2b5d769b6e",
       "notion_url": "https://app.notion.com/p/LLM-Multimodal-2-D-23-414d9e129df7801ab2e7ce2b5d769b6e"
     },
@@ -31,7 +41,12 @@
       "date": "2026-11-10",
       "title": "LLM OpenAI API  1일차 (D+22)",
       "memo": "LLM | API 호출 후 반응형 챗봇 만들기 진행",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "414d9e129df78056bd46dae5123cbef0",
       "notion_url": "https://app.notion.com/p/LLM-OpenAI-API-1-D-22-414d9e129df78056bd46dae5123cbef0"
     },
@@ -40,7 +55,12 @@
       "date": "2026-11-09",
       "title": "Python :  Deep Learning 5일차 (D+21)",
       "memo": "딥러닝 | 자연어 처리(NLP) 기초와 트랜스포머(Transformer) 아키텍처 흐름 파악",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "410d9e129df78078b299e80ccee1ba56",
       "notion_url": "https://app.notion.com/p/Python-Deep-Learning-5-D-21-410d9e129df78078b299e80ccee1ba56"
     },
@@ -49,7 +69,12 @@
       "date": "2026-11-08",
       "title": "Self-Taught : 블로그 개선 (메모 참고)",
       "memo": "메모 | Github page 검색&태그 추가, 페이지 UI 개선, SNS 연동, 등",
-      "tags": [],
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
       "notion_page_id": "412d9e129df780349b50fee677159e6e",
       "notion_url": "https://app.notion.com/p/Self-Taught-412d9e129df780349b50fee677159e6e"
     },
@@ -58,7 +83,12 @@
       "date": "2026-11-07",
       "title": "Self-Taught : 2026 로보월드 방문 후기",
       "memo": "메모 | 각 업체별 인터뷰 및 앞으로의 방향",
-      "tags": [],
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
       "notion_page_id": "411d9e129df78073bcdfc50c0fc2ff35",
       "notion_url": "https://app.notion.com/p/Self-Taught-2026-411d9e129df78073bcdfc50c0fc2ff35"
     },
@@ -67,7 +97,16 @@
       "date": "2026-11-06",
       "title": "Python :  Deep Learning 4일차 (D+20)",
       "memo": "딥러닝 | 시계열 데이터용 RNN 구조와 장기 기억을 위한 LSTM/GRU",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "딥러닝",
+          "color": "gray"
+        }
+      ],
       "notion_page_id": "410d9e129df780b3b03eed41d3c9c99d",
       "notion_url": "https://app.notion.com/p/Python-Deep-Learning-4-D-20-410d9e129df780b3b03eed41d3c9c99d"
     },
@@ -76,7 +115,12 @@
       "date": "2026-11-05",
       "title": "Python :  Deep Learning 3일차 (D+19)",
       "memo": "딥러닝 | 이미지 처리를 위한 CNN 구조와 주요 비전 모델 이해",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "410d9e129df780bb8df9ce7469c53bd3",
       "notion_url": "https://app.notion.com/p/Python-Deep-Learning-3-D-19-410d9e129df780bb8df9ce7469c53bd3"
     },
@@ -85,7 +129,12 @@
       "date": "2026-11-04",
       "title": "Python :  Deep Learning 2일차 (D+18)",
       "memo": "딥러닝 | 이미지 처리를 위한 CNN 구조와 주요 비전 모델 이해",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "410d9e129df7803ba8b1cd16629d97f4",
       "notion_url": "https://app.notion.com/p/Python-Deep-Learning-2-D-18-410d9e129df7803ba8b1cd16629d97f4"
     },
@@ -94,7 +143,12 @@
       "date": "2026-11-03",
       "title": "Python :  Deep Learning 1일차 (D+17)",
       "memo": "딥러닝 | 딥러닝 기본 원리(역전파)와 PyTorch 텐서 기초 다지기",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "40cd9e129df780e5a67de4649b05c6b8",
       "notion_url": "https://app.notion.com/p/Python-Deep-Learning-1-D-17-40cd9e129df780e5a67de4649b05c6b8"
     },
@@ -103,7 +157,12 @@
       "date": "2026-11-02",
       "title": "Python :  ML 프로젝트 2개 진행 (D+16)",
       "memo": "머신러닝 | 타이타닉, 뱅크 프로젝트 진행 및 Pytorch 설치",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "40bd9e129df78016aad9f83c8c5d11d6",
       "notion_url": "https://app.notion.com/p/Python-ML-2-D-16-40bd9e129df78016aad9f83c8c5d11d6"
     },
@@ -112,7 +171,12 @@
       "date": "2026-11-01",
       "title": "Self-Taught : 블로그 개선 (메모 참고)",
       "memo": "메모 | Notion to Github 연동 작업 진행",
-      "tags": [],
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
       "notion_page_id": "40bd9e129df78021b9c3fc931c30a161",
       "notion_url": "https://app.notion.com/p/Self-Taught-40bd9e129df78021b9c3fc931c30a161"
     },
@@ -121,7 +185,12 @@
       "date": "2026-10-31",
       "title": "Self-Taught : 4주차 진행될 내용 선행학습",
       "memo": "메모 | 딥러닝 간단히 탐색",
-      "tags": [],
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
       "notion_page_id": "40ad9e129df7803999f8fc34404d7760",
       "notion_url": "https://app.notion.com/p/Self-Taught-4-40ad9e129df7803999f8fc34404d7760"
     },
@@ -130,7 +199,16 @@
       "date": "2026-10-31",
       "title": "Self-Taught : 1주차부터 3주차까지 복습",
       "memo": "메모 | 리눅스, 파이썬, 데이터분석, 머신러닝 복기",
-      "tags": [],
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        },
+        {
+          "name": "복습",
+          "color": "gray"
+        }
+      ],
       "notion_page_id": "40ad9e129df780d6a5ecf744d584eec3",
       "notion_url": "https://app.notion.com/p/Self-Taught-1-3-40ad9e129df780d6a5ecf744d584eec3"
     },
@@ -139,7 +217,12 @@
       "date": "2026-10-30",
       "title": "Python : Machine Learning 5일차 (D+15)",
       "memo": "머신러닝 | Unsupervised Learning",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "40ad9e129df78071a0caf2b0a5322c6e",
       "notion_url": "https://app.notion.com/p/Python-Machine-Learning-5-D-15-40ad9e129df78071a0caf2b0a5322c6e"
     },
@@ -148,7 +231,12 @@
       "date": "2026-10-29",
       "title": "Python : Machine Learning 4일차 (D+14)",
       "memo": "머신러닝 | Ensemble, Boosting",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df78029a25cffd7a8d57ef8",
       "notion_url": "https://app.notion.com/p/Python-Machine-Learning-4-D-14-409d9e129df78029a25cffd7a8d57ef8"
     },
@@ -157,7 +245,12 @@
       "date": "2026-10-28",
       "title": "Python : Machine Learning 3일차 (D+13)",
       "memo": "머신러닝 | Naive Bayes, Decision Tree",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df7802186fee388faa78a68",
       "notion_url": "https://app.notion.com/p/Python-Machine-Learning-3-D-13-409d9e129df7802186fee388faa78a68"
     },
@@ -166,7 +259,12 @@
       "date": "2026-10-27",
       "title": "Python : Machine Learning 2일차 (D+12)",
       "memo": "머신러닝 | Logistic Regression, KNN",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df7802dbbe2cb4d97eb412f",
       "notion_url": "https://app.notion.com/p/Python-Machine-Learning-2-D-12-409d9e129df7802dbbe2cb4d97eb412f"
     },
@@ -175,7 +273,12 @@
       "date": "2026-10-26",
       "title": "Python : Machine Learning 1일차 (D+11)",
       "memo": "머신러닝 | Maching Learning, Linear Regression",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df78005bbc6e2ed35c1246d",
       "notion_url": "https://app.notion.com/p/Python-Machine-Learning-1-D-11-409d9e129df78005bbc6e2ed35c1246d"
     },
@@ -184,7 +287,12 @@
       "date": "2026-10-23",
       "title": "Python : 데이터 분석 및 실무 활용 3일차 (D+10)",
       "memo": "데이터분석 | Matplotlib, Seaborn, EDA",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df780c6a867f17060d3ef8d",
       "notion_url": "https://app.notion.com/p/Python-3-D-10-409d9e129df780c6a867f17060d3ef8d"
     },
@@ -193,7 +301,12 @@
       "date": "2026-10-22",
       "title": "Python : 데이터 분석 및 실무 활용 2일차 (D+9)",
       "memo": "데이터분석 | Pandas",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df780e9bae4ea194a036fb1",
       "notion_url": "https://app.notion.com/p/Python-2-D-9-409d9e129df780e9bae4ea194a036fb1"
     },
@@ -202,7 +315,12 @@
       "date": "2026-10-21",
       "title": "Python : 데이터 분석 및 실무 활용 1일차 (D+8)",
       "memo": "데이터분석 | Numpy",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df780de9ff5fcbc31efe7b6",
       "notion_url": "https://app.notion.com/p/Python-1-D-8-409d9e129df780de9ff5fcbc31efe7b6"
     },
@@ -211,7 +329,12 @@
       "date": "2026-10-20",
       "title": "Python : 파이썬 프로그래밍 심화 문법 2일차 (D+7)",
       "memo": "파이썬 | 함수 정의, 모듈 활용, 파일 읽고 쓰기, OOP",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df7803f981cf060d66305b6",
       "notion_url": "https://app.notion.com/p/Python-2-D-7-409d9e129df7803f981cf060d66305b6"
     },
@@ -220,7 +343,12 @@
       "date": "2026-10-19",
       "title": "Python : 파이썬 프로그래밍 심화 문법 1일차 (D+6)",
       "memo": "파이썬 | 리스트, 튜플, 딕셔너리, 집합, 반복 가능한 객체 이해",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df780e4a7a4ebe22c6c69ca",
       "notion_url": "https://app.notion.com/p/Python-1-D-6-409d9e129df780e4a7a4ebe22c6c69ca"
     },
@@ -229,7 +357,12 @@
       "date": "2026-10-16",
       "title": "Python : 파이썬 프로그래밍 기초 문법 2일차 (D+5)",
       "memo": "파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df78029ae58eb88b17aedcb",
       "notion_url": "https://app.notion.com/p/Python-2-D-5-409d9e129df78029ae58eb88b17aedcb"
     },
@@ -238,7 +371,12 @@
       "date": "2026-10-15",
       "title": "Python : 파이썬 프로그래밍 기초 문법  1일차 (D+4)",
       "memo": "파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df7808c909be8f809f9370e",
       "notion_url": "https://app.notion.com/p/Python-1-D-4-409d9e129df7808c909be8f809f9370e"
     },
@@ -247,7 +385,12 @@
       "date": "2026-10-14",
       "title": "Linux : 리눅스 기초  3일차 (D+3)",
       "memo": "리눅스 | Shell Script, Network",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df780f785aae1e834241f93",
       "notion_url": "https://app.notion.com/p/Linux-3-D-3-409d9e129df780f785aae1e834241f93"
     },
@@ -256,7 +399,12 @@
       "date": "2026-10-13",
       "title": "Linux : 리눅스 기초 2일차 (D+2)",
       "memo": "리눅스 | 권한, 프로세스, 패키지",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df7808994a7e128b104d28c",
       "notion_url": "https://app.notion.com/p/Linux-2-D-2-409d9e129df7808994a7e128b104d28c"
     },
@@ -265,7 +413,12 @@
       "date": "2026-10-12",
       "title": "Linux : 리눅스 기초 1일차 (D+1)",
       "memo": "리눅스 | 리눅스 기초",
-      "tags": [],
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        }
+      ],
       "notion_page_id": "409d9e129df7805fb6b1e821c5e22c5d",
       "notion_url": "https://app.notion.com/p/Linux-1-D-1-409d9e129df7805fb6b1e821c5e22c5d"
     },
@@ -274,7 +427,12 @@
       "date": "2026-10-01",
       "title": "TEST 페이지 입니다.",
       "memo": "",
-      "tags": [],
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
       "notion_page_id": "40dd9e129df7808b9e85eed110493070",
       "notion_url": "https://app.notion.com/p/TEST-40dd9e129df7808b9e85eed110493070"
     },
@@ -283,7 +441,12 @@
       "date": "2026-10-01",
       "title": "[TEST] 탭키 기능 작동 여부 테스트",
       "memo": "",
-      "tags": [],
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
       "notion_page_id": "40ad9e129df780fb955ce4e4d60a1736",
       "notion_url": "https://app.notion.com/p/TEST-40ad9e129df780fb955ce4e4d60a1736"
     },
@@ -292,7 +455,12 @@
       "date": "2026-10-01",
       "title": "[TEST] 목차, 코드, 등 테스트",
       "memo": "",
-      "tags": [],
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
       "notion_page_id": "40ad9e129df7808c8e07c701400a738b",
       "notion_url": "https://app.notion.com/p/TEST-40ad9e129df7808c8e07c701400a738b"
     },
@@ -301,7 +469,12 @@
       "date": "2026-10-01",
       "title": "[TEST] 노션 기능 테스트 (이미지)",
       "memo": "",
-      "tags": [],
+      "tags": [
+        {
+          "name": "프로젝트",
+          "color": "yellow"
+        }
+      ],
       "notion_page_id": "409d9e129df78090b9d3d5835555eb9c",
       "notion_url": "https://app.notion.com/p/TEST-409d9e129df78090b9d3d5835555eb9c"
     },
@@ -310,7 +483,12 @@
       "date": "2026-10-01",
       "title": "[TEST] gif, url, pdf, 등 인지 테스트",
       "memo": "",
-      "tags": [],
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
       "notion_page_id": "409d9e129df78052b3aee564985e4101",
       "notion_url": "https://app.notion.com/p/TEST-gif-url-pdf-409d9e129df78052b3aee564985e4101"
     },
@@ -319,7 +497,12 @@
       "date": "2026-10-01",
       "title": "[TEST]  교육 테스트",
       "memo": "",
-      "tags": [],
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
       "notion_page_id": "40ad9e129df780b38c7ae81bb1e89dbd",
       "notion_url": "https://app.notion.com/p/TEST-40ad9e129df780b38c7ae81bb1e89dbd"
     }
