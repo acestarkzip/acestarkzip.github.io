@@ -639,3 +639,44 @@ button, input { font: inherit; }
     font-size: 12px;
   }
 }
+
+/* ==========================================================
+   SSS ROBOTICS — second header refinement (2026-11-12)
+   Keep the approved logo dimensions exactly as they are.
+   Only reduce header height slightly and enlarge/shift nav left.
+   ========================================================== */
+@media (min-width: 901px) {
+  .header-inner {
+    min-height: 96px;
+  }
+  .primary-nav {
+    gap: 46px;
+    margin-right: clamp(56px, 5vw, 76px);
+  }
+  .primary-nav a {
+    font-size: 13px;
+    letter-spacing: .10em;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 900px) {
+  .header-inner {
+    min-height: 90px;
+  }
+  .primary-nav {
+    gap: 30px;
+    margin-right: 30px;
+  }
+  .primary-nav a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .header-inner {
+    min-height: 80px;
+  }
+  .primary-nav a {
+    font-size: 13px;
+  }
+}
