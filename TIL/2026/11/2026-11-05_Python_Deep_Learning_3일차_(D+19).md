@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 410d9e129df780bb8df9ce7469c53bd3 -->
-<!-- notion-last-edited-time: 2026-11-08T06:14:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-12T13:12:00.000Z -->
 
 # Python :  Deep Learning 3일차 (D+19)
 

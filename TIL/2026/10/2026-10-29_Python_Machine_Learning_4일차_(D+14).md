@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 409d9e129df78029a25cffd7a8d57ef8 -->
-<!-- notion-last-edited-time: 2026-11-08T06:14:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-12T13:12:00.000Z -->
 
 # Python : Machine Learning 4일차 (D+14)
 

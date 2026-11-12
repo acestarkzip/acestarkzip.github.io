@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 414d9e129df78056bd46dae5123cbef0 -->
-<!-- notion-last-edited-time: 2026-11-12T08:01:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-12T13:13:00.000Z -->
 
 # LLM OpenAI API  1일차 (D+22)
 

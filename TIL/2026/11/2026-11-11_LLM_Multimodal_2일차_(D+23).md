@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 414d9e129df7801ab2e7ce2b5d769b6e -->
-<!-- notion-last-edited-time: 2026-11-12T11:04:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-12T13:13:00.000Z -->
 
 # LLM Multimodal 2일차 (D+23)
 
