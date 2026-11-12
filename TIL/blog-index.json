@@ -1,11 +1,11 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-12T12:44:19.833700+00:00",
+  "generated_at": "2026-11-12T12:53:07.854343+00:00",
   "active_notion_page_count": 35,
   "matched_markdown_count": 35,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 36,
+  "scanned_markdown_count": 38,
   "total_count": 35,
   "posts": [
     {
@@ -18,7 +18,7 @@
       "notion_url": "https://app.notion.com/p/LLM-Tool-MCP-3-D-24-416d9e129df780f8beebcba5eb9c4954"
     },
     {
-      "path": "TIL/2026/11/2026-11-11_LLM_MCP_2일차_(D+23).md",
+      "path": "TIL/2026/11/2026-11-11_LLM_Multimodal_2일차_(D+23).md",
       "date": "2026-11-11",
       "title": "LLM Multimodal 2일차 (D+23)",
       "memo": "LLM | 멀티모달 프롬프트 이미지 가공",
@@ -27,7 +27,7 @@
       "notion_url": "https://app.notion.com/p/LLM-Multimodal-2-D-23-414d9e129df7801ab2e7ce2b5d769b6e"
     },
     {
-      "path": "TIL/2026/11/2026-11-10_OpenAI_API_연동_후_테스트.md",
+      "path": "TIL/2026/11/2026-11-10_LLM_OpenAI_API_1일차_(D+22).md",
       "date": "2026-11-10",
       "title": "LLM OpenAI API  1일차 (D+22)",
       "memo": "LLM | API 호출 후 반응형 챗봇 만들기 진행",
