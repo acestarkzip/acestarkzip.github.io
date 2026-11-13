@@ -1,18 +1,36 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-12T22:50:04.897664+00:00",
-  "active_notion_page_count": 35,
-  "matched_markdown_count": 35,
+  "generated_at": "2026-11-13T10:40:14.608158+00:00",
+  "active_notion_page_count": 36,
+  "matched_markdown_count": 36,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 38,
-  "total_count": 35,
+  "scanned_markdown_count": 39,
+  "total_count": 36,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-13_LLM_RAG_4일차_(D+25).md",
+      "date": "2026-11-13",
+      "title": "LLM RAG 4일차 (D+25)",
+      "memo": "LLM | MCP",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "LLM",
+          "color": "pink"
+        }
+      ],
+      "notion_page_id": "417d9e129df780e6a078c949a7f94268",
+      "notion_url": "https://app.notion.com/p/LLM-RAG-4-D-25-417d9e129df780e6a078c949a7f94268"
+    },
     {
       "path": "TIL/2026/11/2026-11-12_LLM_Tool&MCP_3일차_(D+24).md",
       "date": "2026-11-12",
       "title": "LLM Tool&MCP 3일차 (D+24)",
-      "memo": "LLM | MCP",
+      "memo": "LLM | 도구 호출, 외부 API 호출하기, MCP",
       "tags": [
         {
           "name": "교육",
