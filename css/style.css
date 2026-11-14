@@ -1036,3 +1036,67 @@ button, input { font: inherit; }
     transform: none;
   }
 }
+
+
+/* ==========================================================
+   SOCIAL BANNERS v3 — tight neon-frame crop, no rectangular glow
+   ========================================================== */
+.hero-side {
+  max-width: 700px;
+}
+
+.hero-social-section {
+  margin-top: 18px;
+}
+
+.hero-social-heading {
+  margin-bottom: 9px;
+}
+
+.hero-social-links {
+  gap: 8px;
+}
+
+.social-banner-link {
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none !important;
+  filter: none;
+  line-height: 0;
+}
+
+.social-banner-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2032 / 420;
+  object-fit: contain;
+  border: 0;
+  border-radius: 22px;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.social-banner-link:hover,
+.social-banner-link:focus-visible {
+  transform: translateY(-2px) scale(1.006);
+  filter: drop-shadow(0 0 7px rgba(154,230,0,.20));
+}
+
+@media (max-width: 1050px) and (min-width: 681px) {
+  .hero-side { max-width: 100%; }
+  .hero-social-section { margin-top: 14px; }
+  .hero-social-links { gap: 7px; }
+}
+
+@media (max-width: 680px) {
+  .hero-social-section { margin-top: 16px; }
+  .hero-social-links { gap: 8px; }
+  .social-banner-link,
+  .social-banner-link img {
+    border-radius: 16px;
+  }
+}
