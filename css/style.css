@@ -1100,3 +1100,37 @@ button, input { font: inherit; }
     border-radius: 16px;
   }
 }
+
+
+/* ==========================================================
+   SSS ROBOTICS — header logo recovery + compact hero top spacing
+   2026-11-14
+   ========================================================== */
+
+/* The logo asset is supplied at images/sss-robotics-logo.png.
+   Keep the approved logo dimensions and existing header layout. */
+
+/* Reduce the excessive blank area above the hero content.
+   The right-side visual and social banners remain unchanged. */
+@media (min-width: 901px) {
+  .hero {
+    min-height: 760px;
+    padding-top: 28px;
+    padding-bottom: 76px;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 900px) {
+  .hero {
+    min-height: 720px;
+    padding-top: 28px;
+    padding-bottom: 68px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    padding-top: 36px;
+    padding-bottom: 88px;
+  }
+}
