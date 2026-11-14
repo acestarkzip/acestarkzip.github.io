@@ -717,3 +717,148 @@ button, input { font: inherit; }
   .post-memo { grid-column: 2; grid-row: 4; }
   .post-arrow { grid-column: 3; grid-row: 1 / span 4; }
 }
+
+
+/* ==========================================================
+   SSS ROBOTICS — hero social cards
+   YouTube robot-dog / GitHub researcher profile
+   ========================================================== */
+.hero-side {
+  width: 100%;
+  max-width: 510px;
+  justify-self: end;
+  min-width: 0;
+}
+.hero-side .hero-visual {
+  max-width: none;
+}
+.hero-social-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 13px;
+}
+.social-card {
+  display: flex;
+  min-width: 0;
+  min-height: 92px;
+  align-items: center;
+  gap: 11px;
+  padding: 9px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(135deg, rgba(17,25,17,.96), rgba(8,13,9,.96));
+  transition: border-color .22s ease, background .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+.social-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(154,230,0,.72);
+  background: linear-gradient(135deg, rgba(24,39,17,.98), rgba(9,15,10,.98));
+  box-shadow: 0 0 22px rgba(118,185,0,.10), inset 0 0 18px rgba(118,185,0,.035);
+}
+.social-image-wrap {
+  display: block;
+  width: 66px;
+  height: 66px;
+  flex: 0 0 66px;
+  overflow: hidden;
+  border: 1px solid rgba(154,230,0,.28);
+  background: #0b100c;
+}
+.social-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+.social-card:hover .social-image-wrap img {
+  transform: scale(1.07);
+}
+.social-card-youtube .social-image-wrap img {
+  object-position: center;
+}
+.social-image-avatar {
+  border-radius: 50%;
+  border-color: rgba(210,224,205,.45);
+}
+.social-image-avatar img {
+  object-position: center;
+}
+.social-card-copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+.social-card-platform {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .11em;
+}
+.social-platform-icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+}
+.youtube-icon { color: #ff4545; }
+.github-icon { color: #f1f5ef; font-size: 12px; }
+.social-card-copy > strong {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.social-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 3px;
+  color: var(--green-bright);
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: .07em;
+}
+.social-card-action b {
+  font-size: 12px;
+  font-weight: 400;
+  transition: transform .2s ease;
+}
+.social-card:hover .social-card-action b {
+  transform: translate(2px,-2px);
+}
+
+@media (max-width: 900px) {
+  .hero-side { max-width: none; }
+  .social-card { gap: 8px; padding: 8px; }
+  .social-image-wrap { width: 58px; height: 58px; flex-basis: 58px; }
+  .social-card-copy > strong { font-size: 11px; }
+}
+@media (max-width: 680px) {
+  .hero-side { width: min(100%, 440px); margin: 0 auto; }
+  .hero-side .hero-visual { margin: 42px auto 0; }
+  .hero-social-links { gap: 8px; margin-top: 10px; }
+  .social-card { min-height: 80px; gap: 7px; padding: 7px; }
+  .social-image-wrap { width: 48px; height: 48px; flex-basis: 48px; }
+  .social-card-platform { font-size: 7px; }
+  .social-card-copy > strong { font-size: 10px; }
+  .social-card-action { font-size: 6px; }
+}
+@media (max-width: 380px) {
+  .hero-social-links { grid-template-columns: 1fr; }
+  .social-card { min-height: 76px; }
+  .social-image-wrap { width: 52px; height: 52px; flex-basis: 52px; }
+}
