@@ -1,13 +1,27 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-14T22:41:36.590709+00:00",
-  "active_notion_page_count": 36,
-  "matched_markdown_count": 36,
-  "missing_markdown_count": 0,
-  "scanned_markdown_count": 39,
-  "total_count": 36,
+  "generated_at": "2026-11-15T10:47:12.320287+00:00",
+  "active_notion_page_count": 38,
+  "matched_markdown_count": 37,
+  "missing_markdown_count": 1,
+  "scanned_markdown_count": 40,
+  "total_count": 37,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-15_[네이버_블로그_연동_테스트_입니다].md",
+      "date": "2026-11-15",
+      "title": "[네이버 블로그 연동 테스트 입니다]",
+      "memo": "메모 | 네이버 블로그 연동 작업",
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
+      "notion_page_id": "419d9e129df780519227c101b454ae81",
+      "notion_url": "https://app.notion.com/p/419d9e129df780519227c101b454ae81"
+    },
     {
       "path": "TIL/2026/11/2026-11-13_LLM_RAG_4일차_(D+25).md",
       "date": "2026-11-13",
