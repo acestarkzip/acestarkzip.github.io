@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 419d9e129df780b9ba8dfb888755bacf -->
-<!-- notion-last-edited-time: 2026-11-15T11:37:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-15T11:47:00.000Z -->
 
 # NVIDIA OpenUSD 는 무엇인가?
 
@@ -11,6 +11,8 @@
 ---
 
 [![NVIDIA OpenUSD 는 무엇인가?](./2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/01_NVIDIA-OpenUSD-%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/01_NVIDIA-OpenUSD-%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80.png)
+
+• Youtube : [<u>https://www.youtube.com/@sssrobotics</u>](https://www.youtube.com/@sssrobotics)
 
 <div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">📌</span><div style="min-width:0;flex:1;"><strong>안녕하세요, ‘S급 로봇 연구소’ 입니다.<br>
 오늘의 기술 블로그 주제는 [   </strong>NVIDIA OpenUSD 는 무엇인가?<strong>   ] 입니다</strong></div></div><p style="margin:.35rem 0 .75rem;"><strong>오늘의 핵심 세 가지</strong><strong> :</strong></p>

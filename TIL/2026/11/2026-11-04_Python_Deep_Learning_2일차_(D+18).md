@@ -32,7 +32,7 @@
 
 ### 📃 a. PyTorch – torch.nn
 
-> 💡 <strong>핵심 개념:</strong> 딥러닝 모델을 구축하는 데 필요한 모든 기본 구성 요소(Layer, 활성화 함수, 손실 함수 등)를 제공하는 PyTorch의 핵심 모듈입니다.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>핵심 개념:</strong> 딥러닝 모델을 구축하는 데 필요한 모든 기본 구성 요소(Layer, 활성화 함수, 손실 함수 등)를 제공하는 PyTorch의 핵심 모듈입니다.</p></blockquote>
 
 - <strong>주요 특징</strong>
   - `torch.nn` 패키지 안에는 신경망 구축에 필요한 다양한 클래스가 이미 구현되어 있습니다.
@@ -46,7 +46,7 @@
 
 ### 📃 b. nn.Module 활용법
 
-> 🛠️ <strong>구조:</strong> PyTorch에서 모든 신경망 모델의 <strong>기본(Base) 클래스</strong>입니다. 사용자 정의 모델을 만들 때 반드시 이 클래스를 상속받아야 합니다.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🛠️ <strong>구조:</strong> PyTorch에서 모든 신경망 모델의 <strong>기본(Base) 클래스</strong>입니다. 사용자 정의 모델을 만들 때 반드시 이 클래스를 상속받아야 합니다.</p></blockquote>
 
 - <strong>모델 정의의 2가지 필수 메서드</strong>
   1. `__init__(self)`: 모델에서 사용할 레이어와 컴포넌트들을 정의하고 초기화합니다. (가중치를 갖는 층은 반드시 여기서 정의)
@@ -73,7 +73,7 @@ class CustomMLP(nn.Module):
 
 ### 📃 c. Data Loading
 
-> 📦 <strong>개념:</strong> 대용량의 데이터를 메모리에 효율적으로 적재하고, 모델에 병렬로 공급하기 위한 파이프라인 구축 과정입니다.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">📦 <strong>개념:</strong> 대용량의 데이터를 메모리에 효율적으로 적재하고, 모델에 병렬로 공급하기 위한 파이프라인 구축 과정입니다.</p></blockquote>
 
 - <strong>1. Dataset (</strong>`torch.utils.data.Dataset`<strong>)</strong>
   - 데이터의 특징(Feature)과 정답(Label)을 정의하는 클래스입니다.
@@ -89,7 +89,7 @@ class CustomMLP(nn.Module):
 
 ### 📃 d. Optimizer
 
-> ⚙️ <strong>개념:</strong> 오차(Loss)를 줄이기 위해 역전파(Backpropagation)를 통해 계산된 기울기(Gradient)를 바탕으로 <strong>가중치를 어떻게 업데이트할지 결정하는 알고리즘</strong>입니다.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">⚙️ <strong>개념:</strong> 오차(Loss)를 줄이기 위해 역전파(Backpropagation)를 통해 계산된 기울기(Gradient)를 바탕으로 <strong>가중치를 어떻게 업데이트할지 결정하는 알고리즘</strong>입니다.</p></blockquote>
 
 - <strong>주요 Optimizer 알고리즘</strong>
   - <strong>SGD (Stochastic Gradient Descent):</strong> 가장 기본적인 최적화 기법. 학습 방향이 흔들리는 단점을 보완하기 위해 관성(Momentum)을 추가하여 자주 사용합니다.
@@ -103,7 +103,7 @@ class CustomMLP(nn.Module):
 
 ### 📃 e. Normalization (정규화)
 
-> ⚖️ <strong>개념:</strong> 신경망 내부 레이어의 입력 데이터 분포가 학습 진행에 따라 계속 변하는 현상(Internal Covariate Shift)을 방지하여 학습을 안정화하고 속도를 높이는 기법입니다.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">⚖️ <strong>개념:</strong> 신경망 내부 레이어의 입력 데이터 분포가 학습 진행에 따라 계속 변하는 현상(Internal Covariate Shift)을 방지하여 학습을 안정화하고 속도를 높이는 기법입니다.</p></blockquote>
 
 - <strong>Batch Normalization (배치 정규화)</strong>
   - 미니 배치(Mini-batch) 단위로 데이터의 평균을 0, 분산을 1로 정규화한 뒤, 학습 가능한 스케일(Gamma)과 시프트(Beta) 파라미터를 적용합니다.
@@ -115,7 +115,7 @@ class CustomMLP(nn.Module):
 
 ### 📃 f. Regularization (규제) 및 과적합 방지
 
-> 🛡️ <strong>개념:</strong> 모델이 훈련 데이터에만 과도하게 맞춰져 새로운 데이터에 대한 예측력이 떨어지는 <strong>과적합(Overfitting)을 방지</strong>하는 일반화(Generalization) 기법들입니다.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🛡️ <strong>개념:</strong> 모델이 훈련 데이터에만 과도하게 맞춰져 새로운 데이터에 대한 예측력이 떨어지는 <strong>과적합(Overfitting)을 방지</strong>하는 일반화(Generalization) 기법들입니다.</p></blockquote>
 
 - <strong>1. L2 Regularization (Weight Decay / 가중치 감소)</strong>
   - 손실 함수에 가중치의 제곱합(L2 Norm)을 페널티로 추가하여, 특정 가중치가 비정상적으로 커지는 것을 억제합니다.
@@ -130,7 +130,7 @@ class CustomMLP(nn.Module):
 
 ### 📃 f. Weight Initialization (가중치 초기화)
 
-> 🎲 <strong>개념:</strong> 딥러닝 모델 학습을 시작할 때, <strong>가중치(Weight)의 초깃값을 어떻게 설정하느냐에 따라 기울기 소실(Vanishing)이나 폭발(Exploding)을 방지</strong>하고 학습 성공 여부가 결정됩니다. (초기 가중치를 0으로 설정하면 모든 뉴런이 똑같이 업데이트되므로 절대 안 됩니다.)
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🎲 <strong>개념:</strong> 딥러닝 모델 학습을 시작할 때, <strong>가중치(Weight)의 초깃값을 어떻게 설정하느냐에 따라 기울기 소실(Vanishing)이나 폭발(Exploding)을 방지</strong>하고 학습 성공 여부가 결정됩니다. (초기 가중치를 0으로 설정하면 모든 뉴런이 똑같이 업데이트되므로 절대 안 됩니다.)</p></blockquote>
 
 - <strong>1. Xavier (Glorot) Initialization</strong>
   - 이전 층의 노드 수와 다음 층의 노드 수를 모두 고려하여 균등 또는 정규 분포로 가중치를 초기화합니다.

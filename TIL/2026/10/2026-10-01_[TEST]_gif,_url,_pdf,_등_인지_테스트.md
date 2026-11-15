@@ -23,7 +23,7 @@
 
 - 노션의 URL Bookmark 기능을 통해 ‘샘플 이미지’를 볼 수 있고, 누르면 해당 링크로 이동합니다.  
 
-> 💡 샘플입니다. 참고 부탁 드립니다.
+<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;">샘플입니다. 참고 부탁 드립니다.</div></div></div>
 
 - 노션의 Callout 기능을 통해 강조합니다.  
 
@@ -44,9 +44,9 @@
 
 - 노션의 사진 중첩 기능 덕분에 두 개를 연속으로 볼 수 있습니다.
 
-> 💡 [샘플입니다. 참고 부탁 드립니다.](https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90)
+<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;"><a href="https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90">샘플입니다. 참고 부탁 드립니다.</a></div></div></div>
 
-> 💡 [https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-기본-개념](https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90)
+<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;"><a href="https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90">https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-기본-개념</a></div></div></div>
 
 ### 4. 느낀 점 & 회고
 
