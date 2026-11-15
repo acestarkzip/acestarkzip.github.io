@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-15T11:54:27.459346+00:00",
+  "generated_at": "2026-11-15T12:56:00.512859+00:00",
   "active_notion_page_count": 39,
   "matched_markdown_count": 39,
   "missing_markdown_count": 0,
@@ -12,8 +12,13 @@
       "path": "TIL/2026/11/2026-11-15_NVIDIA_USD,_USDA,_USDC,_USDZ의_차이점은_무엇인가.md",
       "date": "2026-11-15",
       "title": "NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?",
-      "memo": "",
-      "tags": [],
+      "memo": "메모 | NVIDIA 기초 EP.02",
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
       "notion_page_id": "419d9e129df78035a681c929e6b93ab9",
       "notion_url": "https://app.notion.com/p/NVIDIA-USD-USDA-USDC-USDZ-419d9e129df78035a681c929e6b93ab9"
     },
@@ -21,7 +26,7 @@
       "path": "TIL/2026/11/2026-11-15_NVIDIA_OpenUSD_는_무엇인가.md",
       "date": "2026-11-15",
       "title": "NVIDIA OpenUSD 는 무엇인가?",
-      "memo": "메모 | NVIDIA 기초",
+      "memo": "메모 | NVIDIA 기초 EP.01",
       "tags": [
         {
           "name": "자기개발",

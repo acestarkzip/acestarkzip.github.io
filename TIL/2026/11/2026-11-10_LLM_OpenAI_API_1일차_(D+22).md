@@ -24,37 +24,37 @@
 
 # 📚 1. OpenAI API 메일 수령
 
-[![📚 1. OpenAI API 메일 수령](./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/01_1-OpenAI-API-%EB%A9%94%EC%9D%BC-%EC%88%98%EB%A0%B9.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/01_1-OpenAI-API-%EB%A9%94%EC%9D%BC-%EC%88%98%EB%A0%B9.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/01_1-OpenAI-API-%EB%A9%94%EC%9D%BC-%EC%88%98%EB%A0%B9.png"><img src="./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/01_1-OpenAI-API-%EB%A9%94%EC%9D%BC-%EC%88%98%EB%A0%B9.png" alt="📚 1. OpenAI API 메일 수령" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-414d9e129df780c5a44ae484573fc99c"></a>
 
 ## 📕 a. API 초대 수락 후 Secret Key 발급
 
-[![📕 a. API 초대 수락 후 Secret Key 발급](./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/02_a-API-%EC%B4%88%EB%8C%80-%EC%88%98%EB%9D%BD-%ED%9B%84-Secret-Key-%EB%B0%9C%EA%B8%89.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/02_a-API-%EC%B4%88%EB%8C%80-%EC%88%98%EB%9D%BD-%ED%9B%84-Secret-Key-%EB%B0%9C%EA%B8%89.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/02_a-API-%EC%B4%88%EB%8C%80-%EC%88%98%EB%9D%BD-%ED%9B%84-Secret-Key-%EB%B0%9C%EA%B8%89.png"><img src="./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/02_a-API-%EC%B4%88%EB%8C%80-%EC%88%98%EB%9D%BD-%ED%9B%84-Secret-Key-%EB%B0%9C%EA%B8%89.png" alt="📕 a. API 초대 수락 후 Secret Key 발급" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-414d9e129df780ee882ecf59a0c63355"></a>
 
 ## 📕 b. OpenAI Service Health 체크
 
-[![📕 b. OpenAI Service Health 체크](./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/03_b-OpenAI-Service-Health-%EC%B2%B4%ED%81%AC.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/03_b-OpenAI-Service-Health-%EC%B2%B4%ED%81%AC.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/03_b-OpenAI-Service-Health-%EC%B2%B4%ED%81%AC.png"><img src="./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/03_b-OpenAI-Service-Health-%EC%B2%B4%ED%81%AC.png" alt="📕 b. OpenAI Service Health 체크" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-414d9e129df7804288dbd331647cb1df"></a>
 
 ## 📕 c. Limits 체크
 
-[![📕 c. Limits 체크](./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/04_c-Limits-%EC%B2%B4%ED%81%AC.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/04_c-Limits-%EC%B2%B4%ED%81%AC.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/04_c-Limits-%EC%B2%B4%ED%81%AC.png"><img src="./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/04_c-Limits-%EC%B2%B4%ED%81%AC.png" alt="📕 c. Limits 체크" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-414d9e129df780f092e4cb8d6efcd2d1"></a>
 
 ## 📕 d. 로컬에서 API 호출 후 요청&응답 테스트
 
-[![📕 d. 로컬에서 API 호출 후 요청&응답 테스트](./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/05_d-%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%EC%9A%94%EC%B2%AD%EC%9D%91%EB%8B%B5-%ED%85%8C%EC%8A%A4%ED%8A%B8.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/05_d-%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%EC%9A%94%EC%B2%AD%EC%9D%91%EB%8B%B5-%ED%85%8C%EC%8A%A4%ED%8A%B8.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/05_d-%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%EC%9A%94%EC%B2%AD%EC%9D%91%EB%8B%B5-%ED%85%8C%EC%8A%A4%ED%8A%B8.png"><img src="./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/05_d-%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%EC%9A%94%EC%B2%AD%EC%9D%91%EB%8B%B5-%ED%85%8C%EC%8A%A4%ED%8A%B8.png" alt="📕 d. 로컬에서 API 호출 후 요청&amp;응답 테스트" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-414d9e129df780a7a982cdd000bc045c"></a>
 
 ## 📕 e. 비용확인
 
-[![📕 e. 비용확인](./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/06_e-%EB%B9%84%EC%9A%A9%ED%99%95%EC%9D%B8.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/06_e-%EB%B9%84%EC%9A%A9%ED%99%95%EC%9D%B8.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/06_e-%EB%B9%84%EC%9A%A9%ED%99%95%EC%9D%B8.png"><img src="./2026-11-10_LLM_OpenAI_API_1%EC%9D%BC%EC%B0%A8_%28D%2B22%29_assets/06_e-%EB%B9%84%EC%9A%A9%ED%99%95%EC%9D%B8.png" alt="📕 e. 비용확인" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-414d9e129df780f6ad1af2939e047e06"></a>
 
@@ -254,3 +254,5 @@ You >>>
 
 
 ```
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>

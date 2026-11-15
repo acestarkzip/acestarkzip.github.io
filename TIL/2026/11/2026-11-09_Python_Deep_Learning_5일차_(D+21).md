@@ -32,7 +32,7 @@
 
 ### 📃 a. Natural Language Processing (자연어 처리)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>핵심 개념:</strong> 텍스트, 음성 등 비정형 자연어 데이터를 컴퓨터가 연산 가능한 수학적 벡터로 변환하여, 언어의 의미적/통사적 규칙을 모델링하는 분야입니다.</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>핵심 개념:</strong> 텍스트, 음성 등 비정형 자연어 데이터를 컴퓨터가 연산 가능한 수학적 벡터로 변환하여, 언어의 의미적/통사적 규칙을 모델링하는 분야입니다.</p></blockquote>
 
 - <strong>주요 태스크 분류</strong>
   - <strong>NLU (자연어 이해):</strong> 감성 분석, 개체명 인식(NER), 텍스트 분류, 기계 독해(MRC)
@@ -42,7 +42,7 @@
 
 ### 📃 b. NLP 입문 (Corpus, Tokenization, Vocabulary, Embedding)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🛠️ <strong>파이프라인:</strong> 텍스트 데이터 ➔ 토큰화 ➔ 정수 인코딩 ➔ 밀집 벡터(Dense Vector) 변환</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🛠️ <strong>파이프라인:</strong> 텍스트 데이터 ➔ 토큰화 ➔ 정수 인코딩 ➔ 밀집 벡터(Dense Vector) 변환</p></blockquote>
 
 - <strong>1. Corpus (말뭉치) &amp; Preprocessing:</strong>
   - 모델 학습을 위해 수집된 텍스트 원본. 노이즈 제거(정규 표현식), 불용어(Stopword) 처리 수행.
@@ -60,7 +60,7 @@
 
 ### 📃 c. Word2Vec (Vector, Cosine Similarity)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🌐 <strong>개념:</strong> "분포 가설(Distributional Hypothesis) - 문맥에서 같이 등장하는 단어는 의미도 비슷하다"를 기반으로 단어 벡터를 학습하는 초기 임베딩 아키텍처.</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🌐 <strong>개념:</strong> "분포 가설(Distributional Hypothesis) - 문맥에서 같이 등장하는 단어는 의미도 비슷하다"를 기반으로 단어 벡터를 학습하는 초기 임베딩 아키텍처.</p></blockquote>
 
 - <strong>학습 아키텍처</strong>
   - <strong>CBOW (Continuous Bag of Words):</strong> 주변 단어(Context)들의 임베딩 평균을 내어 중심 단어(Target)를 예측. (속도가 빠름)
@@ -84,7 +84,7 @@ $$
 
 ### 📃 d. Seq2Seq (Encoder, Decoder)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🔄 <strong>구조:</strong> 가변 길이의 입력 시퀀스를 가변 길이의 출력 시퀀스로 매핑하는 아키텍처. (기계 번역에 주로 사용)</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🔄 <strong>구조:</strong> 가변 길이의 입력 시퀀스를 가변 길이의 출력 시퀀스로 매핑하는 아키텍처. (기계 번역에 주로 사용)</p></blockquote>
 
 - <strong>1. Encoder (인코더):</strong>
   - 입력 시퀀스의 토큰들을 RNN(LSTM/GRU)으로 순차적으로 읽어들임.
@@ -101,7 +101,7 @@ $$
 
 ### 📃 e. Attention (어텐션)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🎯 <strong>핵심 혁신:</strong> Seq2Seq의 병목 현상을 해결하기 위해, 디코더가 매 시점 단어를 생성할 때마다 인코더의 <strong>전체 타임스텝 출력을 다시 스캔하여 현재 예측에 중요한 부분에 가중치(Attention)를 두는 메커니즘</strong>.</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🎯 <strong>핵심 혁신:</strong> Seq2Seq의 병목 현상을 해결하기 위해, 디코더가 매 시점 단어를 생성할 때마다 인코더의 <strong>전체 타임스텝 출력을 다시 스캔하여 현재 예측에 중요한 부분에 가중치(Attention)를 두는 메커니즘</strong>.</p></blockquote>
 
 - <strong>Q, K, V (Query, Key, Value) 개념</strong>
   - <strong>Query (질의):</strong> 현재 시점 디코더의 Hidden State (지금 예측해야 할 상황)
@@ -116,7 +116,7 @@ $$
 
 ### 📃 f. Transformer (Self Attention, Multi-head Attention, BERT)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🚀 <strong>배경:</strong> "Attention Is All You Need (2017)". 순차적 연산(RNN)을 완전히 배제하고, 어텐션 메커니즘만으로 병렬 연산을 구현하여 시퀀스를 처리하는 현대 딥러닝의 표준 아키텍처.</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🚀 <strong>배경:</strong> "Attention Is All You Need (2017)". 순차적 연산(RNN)을 완전히 배제하고, 어텐션 메커니즘만으로 병렬 연산을 구현하여 시퀀스를 처리하는 현대 딥러닝의 표준 아키텍처.</p></blockquote>
 
 - <strong>1. Positional Encoding (위치 인코딩)</strong>
   - RNN을 제거했기 때문에 모델이 단어의 '순서(Sequence)'를 알 수 없음.
@@ -138,9 +138,13 @@ $$
   - <strong>MLM (Masked Language Modeling):</strong> 입력 문장의 단어 15%를 `[MASK]`로 가리고 이를 양방향 문맥을 통해 예측하는 방식으로 학습.
   - 단어의 문맥에 따라 임베딩 벡터가 동적으로 변하기 때문에 Word2Vec의 다의어 문제를 완벽히 해결함.
 
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
 ---
 
-<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;">gradio, fastmcp, openai, requests, python-dotenv  왜 사용하는건가요?</div></div></div>
+<div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span aria-hidden="true" style="flex:0 0 auto;line-height:1.55;">💡</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><span style="background-color:rgba(160,160,155,.20);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone">gradio, fastmcp, openai, requests, python-dotenv  왜 사용하는건가요?</span></div></div></div>
 
 <a name="notion-heading-410d9e129df780af820de5203cf2fdf8"></a>
 
@@ -210,3 +214,5 @@ Python에서 HTTP 요청을 쉽게 보내고 응답을 받을 수 있게 해주�
 - 민감한 정보의 코드 분리
 
 쉽게 말하면, API Key와 같은 비밀 정보를 소스 코드에 직접 적지 않도록 관리하는 도구입니다.
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>

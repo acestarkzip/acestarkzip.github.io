@@ -35,13 +35,13 @@
 
 # 1. 멀티모달 예제 “Image-to-Text (이미지 투 텍스트)”
 
-[![1. 멀티모달 예제 “Image-to-Text (이미지 투 텍스트)”](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/01_%EB%A9%80%ED%8B%B0%EB%AA%A8%EB%8B%AC-%EC%98%88%EC%A0%9C-Image-to-Text-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%88%AC-%ED%85%8D%EC%8A%A4.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/01_%EB%A9%80%ED%8B%B0%EB%AA%A8%EB%8B%AC-%EC%98%88%EC%A0%9C-Image-to-Text-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%88%AC-%ED%85%8D%EC%8A%A4.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/01_%EB%A9%80%ED%8B%B0%EB%AA%A8%EB%8B%AC-%EC%98%88%EC%A0%9C-Image-to-Text-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%88%AC-%ED%85%8D%EC%8A%A4.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/01_%EB%A9%80%ED%8B%B0%EB%AA%A8%EB%8B%AC-%EC%98%88%EC%A0%9C-Image-to-Text-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%88%AC-%ED%85%8D%EC%8A%A4.png" alt="1. 멀티모달 예제 “Image-to-Text (이미지 투 텍스트)”" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df780a09cb2cb4f63057a4b"></a>
 
 ## 결과 : API 호출 후 URL 이미지 설명
 
-[![결과 : API 호출 후 URL 이미지 설명](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/02_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-URL-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%84%A4%EB%AA%85.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/02_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-URL-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%84%A4%EB%AA%85.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/02_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-URL-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%84%A4%EB%AA%85.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/02_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-URL-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%84%A4%EB%AA%85.png" alt="결과 : API 호출 후 URL 이미지 설명" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df780fca2b7edd926d01300"></a>
 
@@ -104,13 +104,13 @@ print(response.choices[0].message.content)
 
 ## 예상 : API 호출 후 프롬프트로 출력된 이미지 
 
-[![예상 : API 호출 후 프롬프트로 출력된 이미지](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/03_%EC%98%88%EC%83%81-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/03_%EC%98%88%EC%83%81-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/03_%EC%98%88%EC%83%81-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/03_%EC%98%88%EC%83%81-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png" alt="예상 : API 호출 후 프롬프트로 출력된 이미지" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df780569785c7dbc445fa98"></a>
 
 ## 결과 : API 호출 후 프롬프트로 출력된 이미지 
 
-[![결과 : API 호출 후 프롬프트로 출력된 이미지](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/04_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/04_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/04_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/04_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png" alt="결과 : API 호출 후 프롬프트로 출력된 이미지" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df780dfbe82e6119ebe43fd"></a>
 
@@ -169,7 +169,7 @@ elif hasattr(image_data, "url") and image_data.url:
 
 ## 결과 : API 호출 후 프롬프트로 출력된 이미지 
 
-[![결과 : API 호출 후 프롬프트로 출력된 이미지](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/05_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/05_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/05_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/05_%EA%B2%B0%EA%B3%BC-API-%ED%98%B8%EC%B6%9C-%ED%9B%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A1%9C-%EC%B6%9C%EB%A0%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80.png" alt="결과 : API 호출 후 프롬프트로 출력된 이미지" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df780b48525f6a2b9639333"></a>
 
@@ -221,11 +221,13 @@ elif hasattr(image_data, "url") and image_data.url:
     print(f"이미지가 다운로드되어 저장되었습니다:\n-> {output_path}")
 ```
 
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
 <a name="notion-heading-415d9e129df780fa9ccbe7aa07325395"></a>
 
 ## 결과 : 이미지 흑백 전환하기
 
-[![결과 : 이미지 흑백 전환하기](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/06_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9D%91%EB%B0%B1-%EC%A0%84%ED%99%98%ED%95%98%EA%B8%B0.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/06_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9D%91%EB%B0%B1-%EC%A0%84%ED%99%98%ED%95%98%EA%B8%B0.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/06_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9D%91%EB%B0%B1-%EC%A0%84%ED%99%98%ED%95%98%EA%B8%B0.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/06_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9D%91%EB%B0%B1-%EC%A0%84%ED%99%98%ED%95%98%EA%B8%B0.png" alt="결과 : 이미지 흑백 전환하기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df7806eabdae6fa186a2d15"></a>
 
@@ -264,11 +266,13 @@ with gr.Blocks() as demo:
 demo.launch()
 ```
 
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
 <a name="notion-heading-415d9e129df7801c89dcfb7d4c6eeb4f"></a>
 
 ## 결과 : 이미지 회전 적용하기
 
-[![결과 : 이미지 회전 적용하기](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/07_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/07_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/07_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/07_%EA%B2%B0%EA%B3%BC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0.png" alt="결과 : 이미지 회전 적용하기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df78074a611e8087131aa70"></a>
 
@@ -321,6 +325,10 @@ with gr.Blocks() as demo:
 demo.launch()
 ```
 
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
 <a name="notion-heading-415d9e129df780e6818eea06f78cd397"></a>
 
 ## 결과 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력
@@ -329,15 +337,15 @@ demo.launch()
 
 ### 그림판에 손으로 그린 그림
 
-[![그림판에 손으로 그린 그림](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/08_%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EC%86%90%EC%9C%BC%EB%A1%9C-%EA%B7%B8%EB%A6%B0-%EA%B7%B8%EB%A6%BC.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/08_%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EC%86%90%EC%9C%BC%EB%A1%9C-%EA%B7%B8%EB%A6%B0-%EA%B7%B8%EB%A6%BC.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/08_%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EC%86%90%EC%9C%BC%EB%A1%9C-%EA%B7%B8%EB%A6%B0-%EA%B7%B8%EB%A6%BC.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/08_%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EC%86%90%EC%9C%BC%EB%A1%9C-%EA%B7%B8%EB%A6%B0-%EA%B7%B8%EB%A6%BC.png" alt="그림판에 손으로 그린 그림" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df780a49c8ce5a19cbf4df5"></a>
 
 ### 출력된 결과물(gpt-image-1-mini)
 
-[![출력된 결과물(gpt-image-1-mini)](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/09_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/09_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/09_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/09_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png" alt="출력된 결과물(gpt-image-1-mini)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-[![출력된 결과물(gpt-image-1-mini)](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/10_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/10_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/10_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/10_%EC%B6%9C%EB%A0%A5%EB%90%9C-%EA%B2%B0%EA%B3%BC%EB%AC%BCgpt-image-1-mini.png" alt="출력된 결과물(gpt-image-1-mini)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df7800a82b9d379096312bc"></a>
 
@@ -466,18 +474,20 @@ demo.launch()
 
 ## 코드 : 그림판에 그린 손그림을 이미지로 출력 (GPT-5.6 Luna)
 
-[![코드 : 그림판에 그린 손그림을 이미지로 출력 (GPT-5.6 Luna)](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/11_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/11_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/11_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/11_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png" alt="코드 : 그림판에 그린 손그림을 이미지로 출력 (GPT-5.6 Luna)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-[![코드 : 그림판에 그린 손그림을 이미지로 출력 (GPT-5.6 Luna)](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/12_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/12_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/12_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/12_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png" alt="코드 : 그림판에 그린 손그림을 이미지로 출력 (GPT-5.6 Luna)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-[![코드 : 그림판에 그린 손그림을 이미지로 출력 (GPT-5.6 Luna)](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/13_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/13_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/13_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/13_%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5-GPT-56.png" alt="코드 : 그림판에 그린 손그림을 이미지로 출력 (GPT-5.6 Luna)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-415d9e129df7803fa021dbb78d5535ea"></a>
 
 ### 번외 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력
 
-[![번외 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/14_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/14_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/14_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/14_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png" alt="번외 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-[![번외 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/15_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/15_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/15_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/15_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png" alt="번외 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-[![번외 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력](./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/16_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/16_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/16_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png"><img src="./2026-11-11_LLM_Multimodal_2%EC%9D%BC%EC%B0%A8_%28D%2B23%29_assets/16_%EB%B2%88%EC%99%B8-%EA%B7%B8%EB%A6%BC%ED%8C%90%EC%97%90-%EA%B7%B8%EB%A6%B0-%EC%86%90%EA%B7%B8%EB%A6%BC%EC%9D%84-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%99%80-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%B6%9C%EB%A0%A5.png" alt="번외 : 그림판에 그린 손그림을 프롬프트와 이미지로 출력" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
