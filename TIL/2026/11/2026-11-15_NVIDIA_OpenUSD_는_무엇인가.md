@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 419d9e129df780b9ba8dfb888755bacf -->
-<!-- notion-last-edited-time: 2026-11-15T11:15:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-15T11:37:00.000Z -->
 
 # NVIDIA OpenUSD 는 무엇인가?
 
@@ -12,22 +12,19 @@
 
 [![NVIDIA OpenUSD 는 무엇인가?](./2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/01_NVIDIA-OpenUSD-%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/01_NVIDIA-OpenUSD-%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80.png)
 
-> 📌 <strong>안녕하세요, ‘S급 로봇 연구소’ 입니다.
-> 📌 오늘의 기술 블로그 주제는 [   </strong>NVIDIA OpenUSD 는 무엇인가?<strong>   ] 입니다</strong>
+<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">📌</span><div style="min-width:0;flex:1;"><strong>안녕하세요, ‘S급 로봇 연구소’ 입니다.<br>
+오늘의 기술 블로그 주제는 [   </strong>NVIDIA OpenUSD 는 무엇인가?<strong>   ] 입니다</strong></div></div><p style="margin:.35rem 0 .75rem;"><strong>오늘의 핵심 세 가지</strong><strong> :</strong></p>
+<ol style="margin:.5rem 0 .75rem 1.5rem;padding-left:.6rem;"><li>OpenUSD가 무엇인지 이해하기</li><li>OpenUSD의 주요 특징 알아보기</li><li>NVIDIA Omniverse와 Isaac Sim에서 어떻게 활용되는지 알아보기</li></ol>
+</div>
 
-<strong>오늘의 핵심 세 가지</strong><strong> :</strong>
-
-1. OpenUSD가 무엇인지 이해하기
-1. OpenUSD의 주요 특징 알아보기
-1. NVIDIA Omniverse와 Isaac Sim에서 어떻게 활용되는지 알아보기
 ---
 
 <a name="notion-heading-419d9e129df780639c94ed4daf7b1573"></a>
 
-# 📚 목차
+# 📚 목차 (Today's Topics)
 
-- [📚 목차](#notion-heading-419d9e129df780639c94ed4daf7b1573)
-- [📖 오늘의 진행 내용](#notion-heading-419d9e129df780e3b26ada7a3c1357d0)
+- [📚 목차 (Today's Topics)](#notion-heading-419d9e129df780639c94ed4daf7b1573)
+- [📖 오늘의 진행 내용﻿ (Today's Topics)﻿](#notion-heading-419d9e129df780e3b26ada7a3c1357d0)
   - [📕 1. NVIDIA OpenUSD란 무엇인가?](#notion-heading-419d9e129df7807db1bacce3d8f32425)
     - [📄 1-1. OpenUSD의 개념](#notion-heading-419d9e129df780c589bbd9a6de335386)
       - [✏️ 1-1-1. OpenUSD는 어디에서 시작되었을까?](#notion-heading-419d9e129df7801b99a3ec16bf52c48c)
@@ -54,13 +51,13 @@
       - [✏️ 5-2-1. OpenUSD와 Isaac Sim의 관계](#notion-heading-419d9e129df7806dac50c836aa095561)
 - [📜 회고 및 다음 과제 (Retrospective & Next Steps)](#notion-heading-419d9e129df78010bd0fd147911296e0)
 - [👥 참고 문헌 (References)](#notion-heading-419d9e129df780e1abddc77f7dc5b29b)
-- [📨 Contact us](#notion-heading-419d9e129df780a8b534dd8538e256ec)
+- [📨 문의하기 (Contact us)](#notion-heading-419d9e129df780a8b534dd8538e256ec)
 
 ---
 
 <a name="notion-heading-419d9e129df780e3b26ada7a3c1357d0"></a>
 
-# 📖 오늘의 진행 내용
+# 📖 오늘의 진행 내용﻿ (Today's Topics)﻿
 
 <a name="notion-heading-419d9e129df7807db1bacce3d8f32425"></a>
 
@@ -271,11 +268,11 @@ Isaac Sim은 이러한 데이터를 활용하여 로봇이 가상환경에서 �
 
 <strong>Isaac Sim = 구성된 가상환경에서 로봇을 시뮬레이션하는 도구</strong>
 
----
-
 <a name="notion-heading-419d9e129df78010bd0fd147911296e0"></a>
 
 # 📜 회고 및 다음 과제 (Retrospective & Next Steps)
+
+---
 
 이번 학습에서는 OpenUSD의 기본 개념과 활용 분야를 알아보았습니다.
 
@@ -294,11 +291,11 @@ OpenUSD는 단순한 3D 파일 형식이 아니라 다양한 3D 데이터를 통
 
 NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?
 
----
-
 <a name="notion-heading-419d9e129df780e1abddc77f7dc5b29b"></a>
 
 # 👥 참고 문헌 (References)
+
+---
 
 - NVIDIA Learn OpenUSD
   [https://docs.nvidia.com/learn-openusd/latest/](https://docs.nvidia.com/learn-openusd/latest/)
@@ -315,12 +312,13 @@ NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?
 
 <a name="notion-heading-419d9e129df780a8b534dd8538e256ec"></a>
 
-# 📨 Contact us
+# 📨 문의하기 (Contact us)
 
 ---
 
-[![📨 Contact us](./2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/02_Contact-us.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/02_Contact-us.png)
+[![📨 문의하기 (Contact us)](./2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/02_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-15_NVIDIA_OpenUSD_%EB%8A%94_%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80_assets/02_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png)
 
->  
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><ul style="margin:.5rem 0 .75rem 1.5rem;padding-left:.6rem;"><li>Youtube : <a href="https://www.youtube.com/@sssrobotics">https://www.youtube.com/@sssrobotics</a></li><li>Blog : <a href="https://www.sssrobotics.com/">https://www.sssrobotics.com</a></li></ul>
+</blockquote>
 
-#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #로봇시뮬레이션 #robot #simulation #엔비디아 #S급 로봇 연구소
+#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #로봇시뮬레이션 #robot #simulation #엔비디아

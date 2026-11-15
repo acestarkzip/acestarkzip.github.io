@@ -32,7 +32,7 @@
 
 ### 📃 a. Natural Language Processing (자연어 처리)
 
-> 💡 <strong>핵심 개념:</strong> 텍스트, 음성 등 비정형 자연어 데이터를 컴퓨터가 연산 가능한 수학적 벡터로 변환하여, 언어의 의미적/통사적 규칙을 모델링하는 분야입니다.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>핵심 개념:</strong> 텍스트, 음성 등 비정형 자연어 데이터를 컴퓨터가 연산 가능한 수학적 벡터로 변환하여, 언어의 의미적/통사적 규칙을 모델링하는 분야입니다.</p></blockquote>
 
 - <strong>주요 태스크 분류</strong>
   - <strong>NLU (자연어 이해):</strong> 감성 분석, 개체명 인식(NER), 텍스트 분류, 기계 독해(MRC)
@@ -42,7 +42,7 @@
 
 ### 📃 b. NLP 입문 (Corpus, Tokenization, Vocabulary, Embedding)
 
-> 🛠️ <strong>파이프라인:</strong> 텍스트 데이터 ➔ 토큰화 ➔ 정수 인코딩 ➔ 밀집 벡터(Dense Vector) 변환
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🛠️ <strong>파이프라인:</strong> 텍스트 데이터 ➔ 토큰화 ➔ 정수 인코딩 ➔ 밀집 벡터(Dense Vector) 변환</p></blockquote>
 
 - <strong>1. Corpus (말뭉치) &amp; Preprocessing:</strong>
   - 모델 학습을 위해 수집된 텍스트 원본. 노이즈 제거(정규 표현식), 불용어(Stopword) 처리 수행.
@@ -60,7 +60,7 @@
 
 ### 📃 c. Word2Vec (Vector, Cosine Similarity)
 
-> 🌐 <strong>개념:</strong> "분포 가설(Distributional Hypothesis) - 문맥에서 같이 등장하는 단어는 의미도 비슷하다"를 기반으로 단어 벡터를 학습하는 초기 임베딩 아키텍처.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🌐 <strong>개념:</strong> "분포 가설(Distributional Hypothesis) - 문맥에서 같이 등장하는 단어는 의미도 비슷하다"를 기반으로 단어 벡터를 학습하는 초기 임베딩 아키텍처.</p></blockquote>
 
 - <strong>학습 아키텍처</strong>
   - <strong>CBOW (Continuous Bag of Words):</strong> 주변 단어(Context)들의 임베딩 평균을 내어 중심 단어(Target)를 예측. (속도가 빠름)
@@ -84,7 +84,7 @@ $$
 
 ### 📃 d. Seq2Seq (Encoder, Decoder)
 
-> 🔄 <strong>구조:</strong> 가변 길이의 입력 시퀀스를 가변 길이의 출력 시퀀스로 매핑하는 아키텍처. (기계 번역에 주로 사용)
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🔄 <strong>구조:</strong> 가변 길이의 입력 시퀀스를 가변 길이의 출력 시퀀스로 매핑하는 아키텍처. (기계 번역에 주로 사용)</p></blockquote>
 
 - <strong>1. Encoder (인코더):</strong>
   - 입력 시퀀스의 토큰들을 RNN(LSTM/GRU)으로 순차적으로 읽어들임.
@@ -101,7 +101,7 @@ $$
 
 ### 📃 e. Attention (어텐션)
 
-> 🎯 <strong>핵심 혁신:</strong> Seq2Seq의 병목 현상을 해결하기 위해, 디코더가 매 시점 단어를 생성할 때마다 인코더의 <strong>전체 타임스텝 출력을 다시 스캔하여 현재 예측에 중요한 부분에 가중치(Attention)를 두는 메커니즘</strong>.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🎯 <strong>핵심 혁신:</strong> Seq2Seq의 병목 현상을 해결하기 위해, 디코더가 매 시점 단어를 생성할 때마다 인코더의 <strong>전체 타임스텝 출력을 다시 스캔하여 현재 예측에 중요한 부분에 가중치(Attention)를 두는 메커니즘</strong>.</p></blockquote>
 
 - <strong>Q, K, V (Query, Key, Value) 개념</strong>
   - <strong>Query (질의):</strong> 현재 시점 디코더의 Hidden State (지금 예측해야 할 상황)
@@ -116,7 +116,7 @@ $$
 
 ### 📃 f. Transformer (Self Attention, Multi-head Attention, BERT)
 
-> 🚀 <strong>배경:</strong> "Attention Is All You Need (2017)". 순차적 연산(RNN)을 완전히 배제하고, 어텐션 메커니즘만으로 병렬 연산을 구현하여 시퀀스를 처리하는 현대 딥러닝의 표준 아키텍처.
+<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🚀 <strong>배경:</strong> "Attention Is All You Need (2017)". 순차적 연산(RNN)을 완전히 배제하고, 어텐션 메커니즘만으로 병렬 연산을 구현하여 시퀀스를 처리하는 현대 딥러닝의 표준 아키텍처.</p></blockquote>
 
 - <strong>1. Positional Encoding (위치 인코딩)</strong>
   - RNN을 제거했기 때문에 모델이 단어의 '순서(Sequence)'를 알 수 없음.
@@ -140,7 +140,7 @@ $$
 
 ---
 
-> 💡 gradio, fastmcp, openai, requests, python-dotenv  왜 사용하는건가요?
+<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;">gradio, fastmcp, openai, requests, python-dotenv  왜 사용하는건가요?</div></div></div>
 
 <a name="notion-heading-410d9e129df780af820de5203cf2fdf8"></a>
 
