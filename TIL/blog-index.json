@@ -1,13 +1,31 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-15T22:43:37.866436+00:00",
-  "active_notion_page_count": 39,
-  "matched_markdown_count": 39,
+  "generated_at": "2026-11-16T11:26:58.764560+00:00",
+  "active_notion_page_count": 40,
+  "matched_markdown_count": 40,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 43,
-  "total_count": 39,
+  "scanned_markdown_count": 44,
+  "total_count": 40,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-16_LLM_프로젝트_진행_5일차_(D+26).md",
+      "date": "2026-11-16",
+      "title": "LLM 프로젝트 진행 5일차 (D+26)",
+      "memo": "LLM | 최종 프로젝트 진행",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "LLM",
+          "color": "pink"
+        }
+      ],
+      "notion_page_id": "41ad9e129df780ac999de5b0fe351760",
+      "notion_url": "https://app.notion.com/p/LLM-5-D-26-41ad9e129df780ac999de5b0fe351760"
+    },
     {
       "path": "TIL/2026/11/2026-11-15_NVIDIA_USD,_USDA,_USDC,_USDZ의_차이점은_무엇인가.md",
       "date": "2026-11-15",
