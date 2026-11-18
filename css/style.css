@@ -1134,3 +1134,51 @@ button, input { font: inherit; }
     padding-bottom: 88px;
   }
 }
+
+
+/* ==========================================================
+   SSS ROBOTICS — prevent long post titles from overlapping tags
+   Keep the existing six-column archive layout and brand styling.
+   ========================================================== */
+.post-main {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.post-title {
+  display: -webkit-box !important;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.post-tags {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 680px) {
+  .post-main {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .post-title {
+    display: -webkit-box !important;
+    font-size: 13px;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+  }
+}
