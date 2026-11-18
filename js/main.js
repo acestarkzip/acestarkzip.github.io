@@ -224,7 +224,9 @@
   function createPostElement(post) {
     const link = document.createElement("a");
     link.className = "post-item";
-    link.href = `./post.html?file=${encodeURIComponent(post.path)}`;
+    link.href = post.notionPageId
+      ? `./posts/${post.notionPageId.replace(/-/g, "").toLowerCase()}/`
+      : `./post.html?file=${encodeURIComponent(post.path)}`;
     link.setAttribute("aria-label", `${post.title}, ${formatDate(post.date)}${post.memo ? `, 간단메모: ${post.memo}` : ""} 게시글 읽기`);
 
     const number = document.createElement("span");
