@@ -1,18 +1,36 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-18T04:53:54.462004+00:00",
-  "active_notion_page_count": 41,
-  "matched_markdown_count": 41,
+  "generated_at": "2026-11-18T05:46:05.076198+00:00",
+  "active_notion_page_count": 42,
+  "matched_markdown_count": 42,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 45,
-  "total_count": 41,
+  "scanned_markdown_count": 46,
+  "total_count": 42,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-18_C++_2일차_(D+28).md",
+      "date": "2026-11-18",
+      "title": "C++ 2일차 (D+28)",
+      "memo": "C++ | 문자열 처리와 함수·포인터를 통한 메모리 제어",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "LLM",
+          "color": "pink"
+        }
+      ],
+      "notion_page_id": "41cd9e129df780afbfc7d6849f72a393",
+      "notion_url": "https://app.notion.com/p/C-2-D-28-41cd9e129df780afbfc7d6849f72a393"
+    },
     {
       "path": "TIL/2026/11/2026-11-17_C++_1일차_(D+27).md",
       "date": "2026-11-17",
       "title": "C++ 1일차 (D+27)",
-      "memo": "LLM | 최종 프로젝트 진행",
+      "memo": "C++ | 입출력, 변수·배열, 연산자, 조건문·반복문",
       "tags": [
         {
           "name": "교육",

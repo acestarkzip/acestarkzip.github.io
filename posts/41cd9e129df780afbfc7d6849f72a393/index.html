@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <!-- SSS Robotics current brand favicon (cache-busted) -->
+  <link rel="icon" href="/favicon.ico?v=20261118" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png?v=20261118">
+  <link rel="shortcut icon" href="/favicon.ico?v=20261118">
+  <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
+  <!-- SSS Robotics current brand favicon (cache-busted) -->
+  <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
+  <meta name="description" content="- 🚀 C++ 심화 핵심 정리 (문자열·함수·포인터·객체지향·정렬) - 1. 문자와 문자열 (char, string) - C++ - 2. 함수 (Function) - 3. 포인터 (Pointer)">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/41cd9e129df780afbfc7d6849f72a393/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="C++ 2일차 (D+28) | S급 로봇 연구소">
+  <meta property="og:description" content="- 🚀 C++ 심화 핵심 정리 (문자열·함수·포인터·객체지향·정렬) - 1. 문자와 문자열 (char, string) - C++ - 2. 함수 (Function) - 3. 포인터 (Pointer)">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/41cd9e129df780afbfc7d6849f72a393/">
+  <meta property="og:image" content="https://www.sssrobotics.com/images/sss-robotics-logo.png">
+  <meta property="og:image:alt" content="S급 로봇 연구소 공식 로고">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C++ 2일차 (D+28) | S급 로봇 연구소">
+  <meta name="twitter:description" content="- 🚀 C++ 심화 핵심 정리 (문자열·함수·포인터·객체지향·정렬) - 1. 문자와 문자열 (char, string) - C++ - 2. 함수 (Function) - 3. 포인터 (Pointer)">
+  <meta name="twitter:image" content="https://www.sssrobotics.com/images/sss-robotics-logo.png">
+  <meta property="article:published_time" content="2026-11-18">
+  <title>C++ 2일차 (D+28) | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">C++ 2일차 (D+28)</h1>
+      <p class="article-path" id="article-path">2026-11-18 · C++ | 문자열 처리와 함수·포인터를 통한 메모리 제어</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-11-18</li>
+<li><strong>간단메모 :</strong> C++ | 문자열 처리와 함수·포인터를 통한 메모리 제어</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/C-2-D-28-41cd9e129df780afbfc7d6849f72a393">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><a href="#notion-heading-41cd9e129df780f18c9cf19d205df2b3">🚀 C++ 심화 핵심 정리 (문자열·함수·포인터·객체지향·정렬)</a></li>
+<li><a href="#notion-heading-41cd9e129df7801ca2e1c995213f419f">1. 문자와 문자열 (char, string)</a><ul>
+<li><a href="#notion-heading-41cd9e129df78086a1d2d4103d55dec3">C++</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-41cd9e129df780da9a3bfc6d1fe50fad">2. 함수 (Function)</a></li>
+<li><a href="#notion-heading-41cd9e129df780a99240d8061fb4f724">3. 포인터 (Pointer)</a><ul>
+<li><a href="#notion-heading-41cd9e129df780f98189c8881e62d4bf">C++</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-41cd9e129df78082b11ef7cc2a1402ea">4. 구조체와 클래스 (struct, class)</a></li>
+<li><a href="#notion-heading-41cd9e129df780199838d5d2ddf97575">5. 정렬 (sort)</a><ul>
+<li><a href="#notion-heading-41cd9e129df7803789dae1899ed24c75">C++</a></li>
+</ul>
+</li>
+</ul>
+<p><a></a></p>
+<h1>🚀 C++ 심화 핵심 정리 (문자열·함수·포인터·객체지향·정렬)</h1>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>한 줄 요약:</strong> <code>char</code>·<code>string</code> 문자열 처리와 함수·포인터를 통한 메모리 제어부터 <code>struct</code>·<code>class</code> 기반의 객체지향(상속·다형성·캡슐화) 및 사용자 정의 <code>sort</code> 정렬까지 다룬 C++ 심화 핵심 노트</p></blockquote>
+
+<p><a></a></p>
+<h2>1. 문자와 문자열 (<code>char</code>, <code>string</code>)</h2>
+<ul>
+<li><strong>문자(</strong><code>char</code><strong>) 특징:</strong> 1바이트 크기의 문자 1개를 저장하며 홀따옴표(<code>' '</code>)로 감싸서 표현합니다. ASCII 코드표에 따라 고유 숫자와 대응되며, 정수나 다른 <code>char</code>와 <code>+</code> 연산 시 <code>int</code>로 자동 변환됩니다. <code>(char)</code> 또는 <code>(int)</code>로 형변환(type casting)하여 문자와 정수를 오갈 수 있습니다.</li>
+<li><strong>문자열(</strong><code>string</code><strong>) 특징:</strong> 쌍따옴표(<code>" "</code>)로 감싸 표현하며 <code>&lt;string&gt;</code> 헤더를 포함하는 것이 권장됩니다. 문자 배열처럼 인덱싱으로 각 글자에 접근·수정할 수 있고, 끝에는 항상 널 문자(<code>'\0'</code>)가 포함되며 <code>+</code> 연산자로 문자열 결합(concatenation)이 가능합니다.</li>
+<li><strong>주요 </strong><code>string</code><strong> 메서드:</strong></li>
+<li><code>size()</code>: 널 문자를 제외한 문자열 길이를 부호 없는 정수(<code>size_t</code>)로 반환하므로 <code>int</code>와 연산할 때는 <code>(int)a.size()</code>로 형변환하는 것이 안전합니다.</li>
+<li><code>substr(index, count)</code>: <code>index</code> 위치부터 <code>count</code>개(생략 시 끝까지)의 부분 문자열을 잘라 반환합니다.</li>
+<li><code>find("str", index)</code>: <code>index</code>부터 <code>"str"</code>이 처음 등장하는 위치를 반환하며, 찾지 못하면 <code>string::npos</code>를 반환합니다.</li>
+</ul>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<p><a></a></p>
+<h3>C++</h3>
+<pre><code class="language-cpp">// find와 substr을 활용한 문자열 파싱(parsing) 예시
+string s = &quot;abc,def,ghi&quot;;
+int idx = 0, pos = -1;
+while ((pos = s.find(&quot;,&quot;, idx)) != string::npos) {
+    cout &lt;&lt; s.substr(idx, pos - idx) &lt;&lt; '\n';
+    idx = pos + 1;
+}
+cout &lt;&lt; s.substr(idx) &lt;&lt; '\n';
+</code></pre>
+<p><a></a></p>
+<h2>2. 함수 (<code>Function</code>)</h2>
+<ul>
+<li><strong>구조와 동작:</strong> <code>반환자료형 함수명(매개변수)</code> 형태로 정의하며, <code>return</code> 문을 만나면 반환값을 가지고 호출되었던 위치로 복귀합니다. 반환값이 없는 경우 <code>void</code>를 사용합니다.</li>
+<li><strong>지역 변수 vs 전역 변수:</strong></li>
+<li><strong>지역 변수:</strong> 함수 내부나 매개변수로 선언되며 해당 함수 안에서만 유효하고 종료 시 사라집니다.</li>
+<li><strong>전역 변수:</strong> 함수 외부에 선언되어 모든 함수에서 접근 가능하며 변경 사항이 유지됩니다.</li>
+<li><strong>함수와 배열:</strong> 배열을 함수에 넘길 때는 배열 이름(첫 번째 요소의 메모리 주소)이 전달되므로 함수 내부에서 요소를 수정하면 원본 배열에도 반영됩니다. C++ 특성상 배열 자체를 직접 반환하는 함수는 만들 수 없습니다.</li>
+</ul>
+<p><a></a></p>
+<h2>3. 포인터 (<code>Pointer</code>)</h2>
+<ul>
+<li><strong>개념 및 활용 목적:</strong> 값이 아닌 메모리 주소 자체를 저장하고 다루는 변수로, 대용량 데이터를 복사 없이 전달하거나 원본 값을 직접 수정하고 연결리스트 같은 자료구조를 구현할 때 사용합니다.</li>
+<li><strong>핵심 연산자:</strong></li>
+<li><code>&amp;</code> (주소 연산자): 변수가 저장된 메모리 주소를 가져옵니다.</li>
+<li>(역참조 연산자): 포인터가 가리키는 메모리 주소에 저장된 실제 값에 접근하거나 값을 변경합니다. 포인터의 자료형은 가리킬 변수의 자료형과 반드시 일치해야 합니다.</li>
+<li><strong>배열과 포인터:</strong> 배열의 이름 자체가 첫 번째 요소의 주소(포인터)이며, <code>(p + i)</code>처럼 포인터 연산을 통해 연속된 메모리에 접근할 수 있습니다.</li>
+<li><strong>Call by Value vs Call by Reference:</strong></li>
+<li><strong>Call by Value:</strong> 값을 복사해서 전달하므로 원본 변수는 변하지 않습니다.</li>
+<li><strong>Call by Reference:</strong> 메모리 주소(포인터)를 전달해 원본 값을 직접 수정하며, 함수가 여러 결과값을 변경·반환하는 효과를 낼 수 있습니다.</li>
+</ul>
+<p><a></a></p>
+<h3>C++</h3>
+<pre><code class="language-cpp">// 포인터를 활용한 swap 함수
+void swap(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+</code></pre>
+<p><a></a></p>
+<h2>4. 구조체와 클래스 (<code>struct</code>, <code>class</code>)</h2>
+<ul>
+<li><strong>사용자 정의 자료형 (</strong><code>struct</code><strong> vs </strong><code>class</code><strong>):</strong> 여러 속성(변수)과 메서드(함수)를 하나로 묶어 관리하기 위해 사용하며, 정의 끝에는 반드시 세미콜론(<code>;</code>)을 붙입니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>구분</strong></th>
+<th><strong>struct</strong></th>
+<th><strong>class</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>멤버 기본 접근 권한</strong></td>
+<td><code>public</code> (모두 공개)</td>
+<td><code>private</code> (비공개)</td>
+</tr>
+<tr>
+<td><strong>기본 상속 방식</strong></td>
+<td><code>public</code> 상속</td>
+<td><code>private</code> 상속</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>캡슐화(Encapsulation)와 접근 지정자:</strong></li>
+<li><code>public</code>: 클래스 외부 어디서든 접근 가능합니다.</li>
+<li><code>protected</code>: 해당 클래스와 상속받은 자식 클래스 내부에서만 접근 가능합니다.</li>
+<li><code>private</code>: 해당 클래스 내부에서만 접근 가능하며, 외부에서 읽고 쓸 때는 <code>public</code>으로 선언된 <code>getter</code>와 <code>setter</code> 함수를 통해 제어합니다.</li>
+<li><strong>생성자(Constructor)와 상속(Inheritance):</strong></li>
+<li><strong>생성자:</strong> 인스턴스 생성 시 멤버 변수를 초기화하는 함수입니다.</li>
+<li><strong>상속:</strong> <code>class 자식 : public 부모</code> 형태로 기존 클래스의 속성과 메서드를 물려받아 확장합니다.</li>
+<li><strong>다형성(Polymorphism)과 추상 클래스(Abstract Class):</strong></li>
+<li><strong>오버로딩(Overloading):</strong> 같은 이름의 함수를 매개변수의 개수·타입·순서만 다르게 여러 개 정의하는 기법입니다. 자식 클래스에서 부모의 오버로딩된 함수를 모두 쓰려면 <code>using 부모클래스::함수명;</code>을 선언해야 합니다.</li>
+<li><strong>오버라이딩(Overriding)과 </strong><code>virtual</code><strong>:</strong> 부모 클래스의 함수를 자식 클래스에서 재정의하는 것으로, 포인터로 다룰 때도 실제 객체의 함수가 실행되려면 부모 함수에 <code>virtual</code>을, 자식 함수에 <code>override</code>를 명시해야 합니다.</li>
+<li><strong>추상 클래스:</strong> <code>virtual void grade() const = 0;</code>처럼 순수 가상 함수를 하나 이상 포함한 클래스로, 직접 인스턴스를 생성할 수 없으며 자식 클래스에서 반드시 해당 함수를 오버라이딩해야 합니다.</li>
+</ul>
+<p><a></a></p>
+<h2>5. 정렬 (<code>sort</code>)</h2>
+<ul>
+<li><strong>기본 배열 정렬:</strong> <code>&lt;algorithm&gt;</code> 헤더를 포함하고 <code>sort(시작주소, 끝주소)</code> 형태로 호출합니다.</li>
+<li>오름차순(기본): <code>sort(arr, arr + 5);</code></li>
+<li>내림차순: <code>sort(arr, arr + 5, greater&lt;int&gt;());</code></li>
+<li><strong>구조체 / 클래스 사용자 정의 정렬:</strong> 기본 비교 기준(<code>&lt;</code>)이 없으므로 아래 두 가지 방법 중 하나를 구현해야 합니다.<br>
+  1. <strong>비교 함수(</strong><code>cmp</code><strong>) 전달:</strong> <code>bool cmp(Point a, Point b)</code> 함수를 정의하여 <code>sort(points, points + 4, cmp);</code>의 세 번째 인자로 넘깁니다.<br>
+  1. <code>&lt;</code><strong> 연산자 오버로딩:</strong> 구조체/클래스 내부에 <code>bool operator &lt; (const Point o) const</code>를 정의하여 기본 <code>sort(points, points + 4);</code>로 정렬되도록 만듭니다.</li>
+</ul>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<p><a></a></p>
+<h3>C++</h3>
+<pre><code class="language-cpp">struct Point {
+    int y, x;
+    bool operator &lt; (const Point o) const {
+        if (y == o.y) return x &lt; o.x; // y가 같으면 x 오름차순
+        return y &lt; o.y;               // y 오름차순
+    }
+};
+</code></pre>
+<p>노션에 붙여넣으신 뒤 코드 블록 언어를 <code>C++</code>로 지정하시고, 각 섹션을 토글이나 콜아웃으로 정리하시면 복습하실 때 훨씬 보기 편합니다. 추가로 실습 코드 풀이 정리가 필요하시면 말씀해 주세요!</p>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>
