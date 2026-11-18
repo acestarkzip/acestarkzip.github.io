@@ -129,9 +129,11 @@
 <p>기본적인 벡터 검색은 '의미' 기반이라 뉘앙스를 파악하는 데는 좋지만, <strong>정확한 키워드나 부품 번호, 고유 명사 매칭에는 취약</strong>합니다.</p>
 <ul>
 <li><strong>BM25 검색 알고리즘:</strong> 단어가 문서에 얼마나 자주 등장하는지(<code>TF</code>), 그 단어가 전체 문서들 사이에서 얼마나 희귀한 핵심어인지(<code>IDF</code>), 그리고 문서의 길이까지 모두 계산하여 <strong>키워드가 정확히 일치하는 문서</strong>를 찾는 전통적이고 강력한 검색 방식입니다.</li>
-<li><strong>Tokenizing (토큰화):</strong> BM25 검색 등을 위해 문장을 가장 작은 덩어리(토큰)로 쪼개는 작업입니다.</li>
+<li><strong>Tokenizing (토큰화):</strong> BM25 검색 등을 위해 문장을 가장 작은 덩어리(토큰)로 쪼개는 작업입니다.<ul>
 <li>OpenAI 모델들은 자체 공식 라이브러리인 <code>tiktoken</code>을 사용합니다.</li>
 <li>한국어는 조사와 어미가 다양해(예: 먹었어요, 먹었다) 처리가 까다로우므로, <code>kiwipiepy</code> 같은 형태소 분석기를 사용하여 명사나 동사 위주로 토큰을 추출하면 검색 품질이 훨씬 좋아집니다.</li>
+</ul>
+</li>
 <li><strong>Hybrid Search (하이브리드 검색):</strong> 의미 기반의 <code>Vector Search</code>와 정확한 키워드 기반의 <code>BM25 검색</code>을 동시에 진행한 뒤, 두 결과를 병합하여 상호 단점을 보완하는 최고 성능의 검색 기법입니다.</li>
 </ul>
 <p><a></a></p>

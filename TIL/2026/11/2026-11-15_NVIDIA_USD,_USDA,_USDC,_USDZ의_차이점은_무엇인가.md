@@ -299,16 +299,16 @@ def Xform "Robot"
 ---
 
 1. NVIDIA Learn OpenUSD - OpenUSD File Formats
-   [https://docs.nvidia.com/learn-openusd/latest/stage-setting/usd-file-formats.html](https://docs.nvidia.com/learn-openusd/latest/stage-setting/usd-file-formats.html)
+    [https://docs.nvidia.com/learn-openusd/latest/stage-setting/usd-file-formats.html](https://docs.nvidia.com/learn-openusd/latest/stage-setting/usd-file-formats.html)
 
 1. OpenUSD Official Documentation - Frequently Asked Questions
-   [https://openusd.org/release/usdfaq.html](https://openusd.org/release/usdfaq.html)
+    [https://openusd.org/release/usdfaq.html](https://openusd.org/release/usdfaq.html)
 
 1. NVIDIA Omniverse - OpenUSD Frequently Asked Questions
-   [https://docs.omniverse.nvidia.com/usd/latest/learn-openusd/faq.html](https://docs.omniverse.nvidia.com/usd/latest/learn-openusd/faq.html)
+    [https://docs.omniverse.nvidia.com/usd/latest/learn-openusd/faq.html](https://docs.omniverse.nvidia.com/usd/latest/learn-openusd/faq.html)
 
 1. NVIDIA Omniverse - Learn OpenUSD YouTube
-   [https://www.youtube.com/watch?v=Cbx4EkjPe2A](https://www.youtube.com/watch?v=Cbx4EkjPe2A)
+    [https://www.youtube.com/watch?v=Cbx4EkjPe2A](https://www.youtube.com/watch?v=Cbx4EkjPe2A)
 
 <div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
 

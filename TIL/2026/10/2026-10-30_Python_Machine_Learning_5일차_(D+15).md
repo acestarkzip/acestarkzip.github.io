@@ -144,8 +144,8 @@ print(pca.explained_variance_ratio_)
 - 학습 유형: <strong>지도 학습 (Supervised Learning)</strong>
 - 문제 유형: <strong>분류 (Classification)</strong>
 - 타깃 변수: `Survived`
-  - `0` : 사망
-  - `1` : 생존
+    - `0` : 사망
+    - `1` : 생존
 
 <a name="notion-heading-40ad9e129df780c88db5f0eef69644ba"></a>
 

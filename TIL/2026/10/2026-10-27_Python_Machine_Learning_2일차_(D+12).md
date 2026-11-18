@@ -46,11 +46,11 @@
 <strong>분류의 종류</strong>
 
 - 이진 분류(Binary Classification): 두 가지 범주 중 하나를 예측
-  - 예: 정상 / 고장
+    - 예: 정상 / 고장
 - 다중 클래스 분류(Multiclass Classification): 세 가지 이상의 범주 중 하나를 예측
-  - 예: 자동차 / 사람 / 자전거
+    - 예: 자동차 / 사람 / 자전거
 - 다중 레이블 분류(Multilabel Classification): 하나의 데이터에 여러 범주를 동시에 부여
-  - 예: 이미지에 사람과 자동차가 함께 존재
+    - 예: 이미지에 사람과 자동차가 함께 존재
 
 <strong>분류와 회귀의 차이</strong>
 

@@ -46,8 +46,8 @@
 <strong>머신러닝의 대표적인 유형</strong>
 
 - 지도학습(Supervised Learning): 정답이 있는 데이터로 학습
-  - 회귀(Regression): 가격, 온도 등 연속적인 값 예측
-  - 분류(Classification): 합격/불합격, 정상/고장 등 범주 예측
+    - 회귀(Regression): 가격, 온도 등 연속적인 값 예측
+    - 분류(Classification): 합격/불합격, 정상/고장 등 범주 예측
 - 비지도학습(Unsupervised Learning): 정답 없이 데이터의 패턴이나 군집 탐색
 - 강화학습(Reinforcement Learning): 보상을 바탕으로 행동 전략 학습
 

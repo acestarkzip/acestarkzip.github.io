@@ -305,16 +305,16 @@ NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?
 ---
 
 - NVIDIA Learn OpenUSD
-  [https://docs.nvidia.com/learn-openusd/latest/](https://docs.nvidia.com/learn-openusd/latest/)
+    [https://docs.nvidia.com/learn-openusd/latest/](https://docs.nvidia.com/learn-openusd/latest/)
 
 - NVIDIA Developer - OpenUSD
-  [https://developer.nvidia.com/openusd](https://developer.nvidia.com/openusd)
+    [https://developer.nvidia.com/openusd](https://developer.nvidia.com/openusd)
 
 - NVIDIA Isaac Sim Documentation
-  [https://docs.isaacsim.omniverse.nvidia.com/latest/](https://docs.isaacsim.omniverse.nvidia.com/latest/)
+    [https://docs.isaacsim.omniverse.nvidia.com/latest/](https://docs.isaacsim.omniverse.nvidia.com/latest/)
 
 - Pixar OpenUSD
-  [https://openusd.org/](https://openusd.org/)
+    [https://openusd.org/](https://openusd.org/)
 
 <div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
 
