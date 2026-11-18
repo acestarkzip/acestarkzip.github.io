@@ -11,11 +11,11 @@
 ---
 
 - [📚 4주차 Python Deep Learning (2026.11.03  Tue ~ 2026.11.09 Mon) | Total : 5 days](#notion-heading-410d9e129df780cf8b4fde26df77d331)
-  - [📕 C. Convolutional Neural Network (2026.11.05 Thu)](#notion-heading-410d9e129df7802abb59f230d982046e)
-    - [📃 a. Convolutional Neural Network (합성곱 신경망)](#notion-heading-410d9e129df78012b039d27ba77da23a)
-    - [📃 b. LeNet-5 (CNN의 시초)](#notion-heading-410d9e129df780d79bd0d85bb8eeabb4)
-    - [📃 c. AlexNet (ImageNet 우승 모델)](#notion-heading-410d9e129df7808c91e6f88ffdbf4809)
-    - [📃 d. Project (Pokemon CNN)](#notion-heading-410d9e129df7802db56bf84db6e942ea)
+    - [📕 C. Convolutional Neural Network (2026.11.05 Thu)](#notion-heading-410d9e129df7802abb59f230d982046e)
+        - [📃 a. Convolutional Neural Network (합성곱 신경망)](#notion-heading-410d9e129df78012b039d27ba77da23a)
+        - [📃 b. LeNet-5 (CNN의 시초)](#notion-heading-410d9e129df780d79bd0d85bb8eeabb4)
+        - [📃 c. AlexNet (ImageNet 우승 모델)](#notion-heading-410d9e129df7808c91e6f88ffdbf4809)
+        - [📃 d. Project (Pokemon CNN)](#notion-heading-410d9e129df7802db56bf84db6e942ea)
 
 <a name="notion-heading-410d9e129df780cf8b4fde26df77d331"></a>
 

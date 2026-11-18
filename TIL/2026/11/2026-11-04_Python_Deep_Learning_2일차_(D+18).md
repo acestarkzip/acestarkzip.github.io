@@ -11,14 +11,14 @@
 ---
 
 - [📚 4주차 Python Deep Learning (2026.11.03 Tue ~ 2026.11.09 Mon) | Total : 5 days](#notion-heading-410d9e129df78072be2ef0776b6441e2)
-  - [📕 B. Deep Learning Advanced (2026.11.04 Wed)](#notion-heading-410d9e129df780359571fe97e5434f6f)
-    - [📃 a. PyTorch – torch.nn](#notion-heading-410d9e129df7801e9230eeed8f28c1c1)
-    - [📃 b. nn.Module 활용법](#notion-heading-410d9e129df780018859c5de5d25fb65)
-    - [📃 c. Data Loading](#notion-heading-410d9e129df780628e7ec201711488fa)
-    - [📃 d. Optimizer](#notion-heading-410d9e129df7807a86f0ea4117666af5)
-    - [📃 e. Normalization (정규화)](#notion-heading-410d9e129df78050acfccbaf8bdf263a)
-    - [📃 f. Regularization (규제) 및 과적합 방지](#notion-heading-410d9e129df780709e69cfec805d9f15)
-    - [📃 f. Weight Initialization (가중치 초기화)](#notion-heading-410d9e129df780a29cabd9462056dc6c)
+    - [📕 B. Deep Learning Advanced (2026.11.04 Wed)](#notion-heading-410d9e129df780359571fe97e5434f6f)
+        - [📃 a. PyTorch – torch.nn](#notion-heading-410d9e129df7801e9230eeed8f28c1c1)
+        - [📃 b. nn.Module 활용법](#notion-heading-410d9e129df780018859c5de5d25fb65)
+        - [📃 c. Data Loading](#notion-heading-410d9e129df780628e7ec201711488fa)
+        - [📃 d. Optimizer](#notion-heading-410d9e129df7807a86f0ea4117666af5)
+        - [📃 e. Normalization (정규화)](#notion-heading-410d9e129df78050acfccbaf8bdf263a)
+        - [📃 f. Regularization (규제) 및 과적합 방지](#notion-heading-410d9e129df780709e69cfec805d9f15)
+        - [📃 f. Weight Initialization (가중치 초기화)](#notion-heading-410d9e129df780a29cabd9462056dc6c)
 
 <a name="notion-heading-410d9e129df78072be2ef0776b6441e2"></a>
 

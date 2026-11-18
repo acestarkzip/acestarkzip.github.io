@@ -11,14 +11,14 @@
 ---
 
 - [📚 4주차 Python Deep Learning (2026.11.03  Tue ~ 2026.11.09 Mon) | Total : 5 days](#notion-heading-410d9e129df78093901dd0537e706fce)
-  - [📕 E. Deep Learning Basics (2026.11.09 Mon)](#notion-heading-410d9e129df7805895fbe5ef006327a1)
-    - [📃 a. Natural Language Processing (자연어 처리)](#notion-heading-410d9e129df780ac89e4d489f49a72ee)
-    - [📃 b. NLP 입문 (Corpus, Tokenization, Vocabulary, Embedding)](#notion-heading-410d9e129df78013ab3ed55b17fb39e7)
-    - [📃 c. Word2Vec (Vector, Cosine Similarity)](#notion-heading-410d9e129df780c4afa3fa7e9878bbee)
-    - [📃 d. Seq2Seq (Encoder, Decoder)](#notion-heading-410d9e129df7807bb50fcb9b5cc736d2)
-    - [📃 e. Attention (어텐션)](#notion-heading-410d9e129df780bd9070e61208969038)
-    - [📃 f. Transformer (Self Attention, Multi-head Attention, BERT)](#notion-heading-410d9e129df780d7a258cbbbdca1122e)
-  - [📕 번외. 각 라이브러리는 무엇인가요?](#notion-heading-410d9e129df780af820de5203cf2fdf8)
+    - [📕 E. Deep Learning Basics (2026.11.09 Mon)](#notion-heading-410d9e129df7805895fbe5ef006327a1)
+        - [📃 a. Natural Language Processing (자연어 처리)](#notion-heading-410d9e129df780ac89e4d489f49a72ee)
+        - [📃 b. NLP 입문 (Corpus, Tokenization, Vocabulary, Embedding)](#notion-heading-410d9e129df78013ab3ed55b17fb39e7)
+        - [📃 c. Word2Vec (Vector, Cosine Similarity)](#notion-heading-410d9e129df780c4afa3fa7e9878bbee)
+        - [📃 d. Seq2Seq (Encoder, Decoder)](#notion-heading-410d9e129df7807bb50fcb9b5cc736d2)
+        - [📃 e. Attention (어텐션)](#notion-heading-410d9e129df780bd9070e61208969038)
+        - [📃 f. Transformer (Self Attention, Multi-head Attention, BERT)](#notion-heading-410d9e129df780d7a258cbbbdca1122e)
+    - [📕 번외. 각 라이브러리는 무엇인가요?](#notion-heading-410d9e129df780af820de5203cf2fdf8)
 
 <a name="notion-heading-410d9e129df78093901dd0537e706fce"></a>
 

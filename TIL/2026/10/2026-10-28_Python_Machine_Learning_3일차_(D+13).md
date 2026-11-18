@@ -11,14 +11,14 @@
 ---
 
 - [📚 3주차 Python Machine Learning](#notion-heading-40ad9e129df7807fbcd5e58387b8c27c)
-  - [📕 C. Naive Bayes, Decision Tree (2026.10.28 Wed)](#notion-heading-40ad9e129df780fe8633c0bd9113418e)
-    - [📃 a. Naïve Bayes (나이브 베이즈)](#notion-heading-40ad9e129df78089a585d9a2f0db2991)
-    - [📃 b. Decision Tree (결정 트리)](#notion-heading-40ad9e129df780f3853ec698e1bb2545)
-    - [📃 c. Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)](#notion-heading-40ad9e129df780a19eb3dfaf938eca37)
-      - [1. GridSearchCV](#notion-heading-40ad9e129df780429c36ff38add9a51c)
-      - [2. RandomizedSearchCV](#notion-heading-40ad9e129df780318907da2bf15f94b5)
-    - [📃 d. Project (프로젝트)](#notion-heading-40ad9e129df78051b5cfd9bf2ed79807)
-  - [✅ 핵심 요약](#notion-heading-40ad9e129df780179deaf6a3e9836b49)
+    - [📕 C. Naive Bayes, Decision Tree (2026.10.28 Wed)](#notion-heading-40ad9e129df780fe8633c0bd9113418e)
+        - [📃 a. Naïve Bayes (나이브 베이즈)](#notion-heading-40ad9e129df78089a585d9a2f0db2991)
+        - [📃 b. Decision Tree (결정 트리)](#notion-heading-40ad9e129df780f3853ec698e1bb2545)
+        - [📃 c. Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)](#notion-heading-40ad9e129df780a19eb3dfaf938eca37)
+            - [1. GridSearchCV](#notion-heading-40ad9e129df780429c36ff38add9a51c)
+            - [2. RandomizedSearchCV](#notion-heading-40ad9e129df780318907da2bf15f94b5)
+        - [📃 d. Project (프로젝트)](#notion-heading-40ad9e129df78051b5cfd9bf2ed79807)
+    - [✅ 핵심 요약](#notion-heading-40ad9e129df780179deaf6a3e9836b49)
 
 <a name="notion-heading-40ad9e129df7807fbcd5e58387b8c27c"></a>
 

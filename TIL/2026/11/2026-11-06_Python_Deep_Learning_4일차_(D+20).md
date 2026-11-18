@@ -11,15 +11,15 @@
 ---
 
 - [📚 4주차 Python Deep Learning (2026.11.03 Tue ~ 2026.11.09 Mon) | Total : 5 days](#notion-heading-410d9e129df780a28f6bf55f83b213e8)
-  - [📕 D. Recurrent Neural Network (2026.11.06 Fri)](#notion-heading-410d9e129df7805583f5f3bb4465c7e8)
-    - [📃 a. Sequence Data (시계열 데이터의 구조와 특징)](#notion-heading-410d9e129df7808597cdfbe090a699bc)
-    - [📃 b. Sequence Models의 역사 (시계열 예측 모델들의 역사와 등장이유)](#notion-heading-410d9e129df7809daf9ed1836c984d46)
-    - [📃 c. SimpleRNN의 구조와 모델학습](#notion-heading-410d9e129df780c49595eb0023aa5ad3)
-    - [📃 d. 장기 문맥과 Gated RNN (장기 의존성 문제와 극복 배경)](#notion-heading-410d9e129df780af91c5f8b1ea9d2c9f)
-    - [📃 e. LSTM (Long Short-Term Memory)](#notion-heading-410d9e129df780d1918ee2fac2fcace4)
-    - [📃 f. RNN variants (다양한 확장 구조)](#notion-heading-410d9e129df78030a243d85d57e98056)
-  - [📌 D. Recurrent Neural Network 핵심 요약](#notion-heading-410d9e129df7800b8887c632e554e00a)
-    - [💡 오늘의 핵심 학습 포인트](#notion-heading-410d9e129df780c78406fea8241276a2)
+    - [📕 D. Recurrent Neural Network (2026.11.06 Fri)](#notion-heading-410d9e129df7805583f5f3bb4465c7e8)
+        - [📃 a. Sequence Data (시계열 데이터의 구조와 특징)](#notion-heading-410d9e129df7808597cdfbe090a699bc)
+        - [📃 b. Sequence Models의 역사 (시계열 예측 모델들의 역사와 등장이유)](#notion-heading-410d9e129df7809daf9ed1836c984d46)
+        - [📃 c. SimpleRNN의 구조와 모델학습](#notion-heading-410d9e129df780c49595eb0023aa5ad3)
+        - [📃 d. 장기 문맥과 Gated RNN (장기 의존성 문제와 극복 배경)](#notion-heading-410d9e129df780af91c5f8b1ea9d2c9f)
+        - [📃 e. LSTM (Long Short-Term Memory)](#notion-heading-410d9e129df780d1918ee2fac2fcace4)
+        - [📃 f. RNN variants (다양한 확장 구조)](#notion-heading-410d9e129df78030a243d85d57e98056)
+    - [📌 D. Recurrent Neural Network 핵심 요약](#notion-heading-410d9e129df7800b8887c632e554e00a)
+        - [💡 오늘의 핵심 학습 포인트](#notion-heading-410d9e129df780c78406fea8241276a2)
 
 <a name="notion-heading-410d9e129df780a28f6bf55f83b213e8"></a>
 

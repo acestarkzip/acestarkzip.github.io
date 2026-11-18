@@ -11,15 +11,15 @@
 ---
 
 - [📚 3주차 Python Machine Learning](#notion-heading-40ad9e129df7800fb526f8b074039c64)
-  - [📕 D. Ensemble, Boosting (2026.10.29 Thu)](#notion-heading-40ad9e129df78025ba50fa2cbb923a3e)
-    - [📃 a. Ensemble (앙상블)](#notion-heading-40ad9e129df780a2b791cd6bbd65a5af)
-      - [1. Voting (보팅)](#notion-heading-40ad9e129df7800690fbfd85b66c663f)
-      - [2. Bagging (배깅)](#notion-heading-40ad9e129df7802fa128cea765a9fcbd)
-      - [3. Random Forest (랜덤 포레스트)](#notion-heading-40ad9e129df78026ab99c3b78f2f99c3)
-    - [📃 b. Boosting (부스팅)](#notion-heading-40ad9e129df78066ac8ffba71ccf636d)
-      - [Gradient Boosting 기본 코드](#notion-heading-40ad9e129df780259cbcf09e8541334e)
-    - [📃 c. Project (프로젝트)](#notion-heading-40ad9e129df780d7b9bec7d13bc33715)
-  - [✅ 핵심 요약](#notion-heading-40ad9e129df7809093bdd72933c0879a)
+    - [📕 D. Ensemble, Boosting (2026.10.29 Thu)](#notion-heading-40ad9e129df78025ba50fa2cbb923a3e)
+        - [📃 a. Ensemble (앙상블)](#notion-heading-40ad9e129df780a2b791cd6bbd65a5af)
+            - [1. Voting (보팅)](#notion-heading-40ad9e129df7800690fbfd85b66c663f)
+            - [2. Bagging (배깅)](#notion-heading-40ad9e129df7802fa128cea765a9fcbd)
+            - [3. Random Forest (랜덤 포레스트)](#notion-heading-40ad9e129df78026ab99c3b78f2f99c3)
+        - [📃 b. Boosting (부스팅)](#notion-heading-40ad9e129df78066ac8ffba71ccf636d)
+            - [Gradient Boosting 기본 코드](#notion-heading-40ad9e129df780259cbcf09e8541334e)
+        - [📃 c. Project (프로젝트)](#notion-heading-40ad9e129df780d7b9bec7d13bc33715)
+    - [✅ 핵심 요약](#notion-heading-40ad9e129df7809093bdd72933c0879a)
 
 <a name="notion-heading-40ad9e129df7800fb526f8b074039c64"></a>
 

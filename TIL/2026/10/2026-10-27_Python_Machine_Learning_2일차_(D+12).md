@@ -11,14 +11,14 @@
 ---
 
 - [📚 3주차 Python Machine Learning](#notion-heading-40ad9e129df780f99badfdff240535b1)
-  - [📕 B. Logistic Regression, KNN (2026.10.27 Tue)](#notion-heading-40ad9e129df780499e8ae41c8b581a42)
-    - [📃 a. Classification (분류 알고리즘)](#notion-heading-40ad9e129df78008950beab72ec2017b)
-    - [📃 b. Logistic Regression (로지스틱 회귀)](#notion-heading-40ad9e129df780d7b6d4ef709b8143fe)
-    - [📃 c. Evaluation (분류 평가 지표)](#notion-heading-40ad9e129df7807ebec7e14fc398de1e)
-    - [📃 d. K-Nearest Neighbors (K-최근접 이웃)](#notion-heading-40ad9e129df7808cb356e3da0015229d)
-    - [📃 e. Feature Scaling (표준화, 정규화)](#notion-heading-40ad9e129df780f288f4c3c174a1cf4b)
-    - [📃 f. Project (프로젝트)](#notion-heading-40ad9e129df7802a9e71c577a5a539b7)
-  - [✅ 핵심 요약](#notion-heading-40ad9e129df780ab9833d6a0209c05d0)
+    - [📕 B. Logistic Regression, KNN (2026.10.27 Tue)](#notion-heading-40ad9e129df780499e8ae41c8b581a42)
+        - [📃 a. Classification (분류 알고리즘)](#notion-heading-40ad9e129df78008950beab72ec2017b)
+        - [📃 b. Logistic Regression (로지스틱 회귀)](#notion-heading-40ad9e129df780d7b6d4ef709b8143fe)
+        - [📃 c. Evaluation (분류 평가 지표)](#notion-heading-40ad9e129df7807ebec7e14fc398de1e)
+        - [📃 d. K-Nearest Neighbors (K-최근접 이웃)](#notion-heading-40ad9e129df7808cb356e3da0015229d)
+        - [📃 e. Feature Scaling (표준화, 정규화)](#notion-heading-40ad9e129df780f288f4c3c174a1cf4b)
+        - [📃 f. Project (프로젝트)](#notion-heading-40ad9e129df7802a9e71c577a5a539b7)
+    - [✅ 핵심 요약](#notion-heading-40ad9e129df780ab9833d6a0209c05d0)
 
 <a name="notion-heading-40ad9e129df780f99badfdff240535b1"></a>
 

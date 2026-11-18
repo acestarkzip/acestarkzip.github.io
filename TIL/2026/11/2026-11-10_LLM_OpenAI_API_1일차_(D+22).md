@@ -11,14 +11,14 @@
 ---
 
 - [📚 1. OpenAI API 메일 수령](#notion-heading-414d9e129df780f598cfd86032fe190c)
-  - [📕 a. API 초대 수락 후 Secret Key 발급](#notion-heading-414d9e129df780c5a44ae484573fc99c)
-  - [📕 b. OpenAI Service Health 체크](#notion-heading-414d9e129df780ee882ecf59a0c63355)
-  - [📕 c. Limits 체크](#notion-heading-414d9e129df7804288dbd331647cb1df)
-  - [📕 d. 로컬에서 API 호출 후 요청&응답 테스트](#notion-heading-414d9e129df780f092e4cb8d6efcd2d1)
-  - [📕 e. 비용확인](#notion-heading-414d9e129df780a7a982cdd000bc045c)
-  - [📕 f. API 호출 후 요청&응답 테스트 코드](#notion-heading-414d9e129df780f6ad1af2939e047e06)
-  - [📕 g. API 호출 후 실시간 요청&응답 코드](#notion-heading-414d9e129df7804f8553da545079b769)
-  - [📕 h. API 호출 후 실시간 요청&응답 결과](#notion-heading-414d9e129df780a2b8a1fd382b17499a)
+    - [📕 a. API 초대 수락 후 Secret Key 발급](#notion-heading-414d9e129df780c5a44ae484573fc99c)
+    - [📕 b. OpenAI Service Health 체크](#notion-heading-414d9e129df780ee882ecf59a0c63355)
+    - [📕 c. Limits 체크](#notion-heading-414d9e129df7804288dbd331647cb1df)
+    - [📕 d. 로컬에서 API 호출 후 요청&응답 테스트](#notion-heading-414d9e129df780f092e4cb8d6efcd2d1)
+    - [📕 e. 비용확인](#notion-heading-414d9e129df780a7a982cdd000bc045c)
+    - [📕 f. API 호출 후 요청&응답 테스트 코드](#notion-heading-414d9e129df780f6ad1af2939e047e06)
+    - [📕 g. API 호출 후 실시간 요청&응답 코드](#notion-heading-414d9e129df7804f8553da545079b769)
+    - [📕 h. API 호출 후 실시간 요청&응답 결과](#notion-heading-414d9e129df780a2b8a1fd382b17499a)
 
 <a name="notion-heading-414d9e129df780f598cfd86032fe190c"></a>
 

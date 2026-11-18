@@ -11,14 +11,14 @@
 ---
 
 - [📚 3주차 Python Machine Learning](#notion-heading-40ad9e129df780ed8fe5ffadb4269dd2)
-  - [📕 A. Machine Learning, Linear Regression (2026.10.26 Mon)](#notion-heading-40ad9e129df780ad8532f03150143f9f)
-    - [📃 a. Machine Learning (머신러닝)](#notion-heading-40ad9e129df78094b208e8fe757c805d)
-    - [📃 b. Linear Regression (선형 회귀)](#notion-heading-40ad9e129df780e7b8b2c3ac05bbd1a3)
-    - [📃 c. Error Metrics (에러 지표, 평가 지표)](#notion-heading-40ad9e129df780b5839fe72b7406641c)
-    - [📃 d. scikit-learn (사이킷런)](#notion-heading-40ad9e129df780b39056e6eec8437c24)
-    - [📃 e. Multiple Linear Regression (다중 선형 회귀)](#notion-heading-40ad9e129df78081b22bd3248ddcc3b0)
-    - [📃 f. Project (프로젝트)](#notion-heading-40ad9e129df780ebb6ceda3621719bc7)
-  - [✅ 핵심 요약](#notion-heading-40ad9e129df78020b309c4daafb911f1)
+    - [📕 A. Machine Learning, Linear Regression (2026.10.26 Mon)](#notion-heading-40ad9e129df780ad8532f03150143f9f)
+        - [📃 a. Machine Learning (머신러닝)](#notion-heading-40ad9e129df78094b208e8fe757c805d)
+        - [📃 b. Linear Regression (선형 회귀)](#notion-heading-40ad9e129df780e7b8b2c3ac05bbd1a3)
+        - [📃 c. Error Metrics (에러 지표, 평가 지표)](#notion-heading-40ad9e129df780b5839fe72b7406641c)
+        - [📃 d. scikit-learn (사이킷런)](#notion-heading-40ad9e129df780b39056e6eec8437c24)
+        - [📃 e. Multiple Linear Regression (다중 선형 회귀)](#notion-heading-40ad9e129df78081b22bd3248ddcc3b0)
+        - [📃 f. Project (프로젝트)](#notion-heading-40ad9e129df780ebb6ceda3621719bc7)
+    - [✅ 핵심 요약](#notion-heading-40ad9e129df78020b309c4daafb911f1)
 
 <a name="notion-heading-40ad9e129df780ed8fe5ffadb4269dd2"></a>
 

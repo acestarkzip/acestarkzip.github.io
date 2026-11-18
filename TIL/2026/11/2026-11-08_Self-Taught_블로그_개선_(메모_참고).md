@@ -11,8 +11,8 @@
 ---
 
 - [블로그 개선 작업 : Github banner 업데이트 (링크연동)](#notion-heading-412d9e129df7804b98e4c306ef52f223)
-  - [Github pages 변경된 내용](#notion-heading-412d9e129df780d1b653f1df860cf9ee)
-  - [Youtube 변경 된 내용](#notion-heading-412d9e129df7806bb796e5ea84956aec)
+    - [Github pages 변경된 내용](#notion-heading-412d9e129df780d1b653f1df860cf9ee)
+    - [Youtube 변경 된 내용](#notion-heading-412d9e129df7806bb796e5ea84956aec)
 
 <a name="notion-heading-412d9e129df7804b98e4c306ef52f223"></a>
 
