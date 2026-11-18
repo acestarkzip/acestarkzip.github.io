@@ -11,7 +11,7 @@
   const CACHE_DURATION = 30 * 1000;
   const MAX_HOME_POSTS = 15;
   const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
-  const CACHE_KEY = `acestarkzip-blog-posts-v9-notion-tags-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
+  const CACHE_KEY = `acestarkzip-blog-posts-v10-notion-number-order-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -354,7 +354,9 @@
       memo: String(item.memo || "").trim(),
       tags: Array.isArray(item.tags) ? item.tags.map((tag) => ({ name: String(tag && tag.name || "").trim(), color: String(tag && tag.color || "default") })).filter((tag) => tag.name) : [],
       category: getCategory(title),
-      notionPageId: String(item.notion_page_id || "")
+      notionPageId: String(item.notion_page_id || ""),
+      notionNumber: typeof item.number === "number" && Number.isFinite(item.number) ? item.number : null,
+      createdTime: String(item.created_time || "")
     };
   }
 
@@ -376,13 +378,33 @@
     // no dated Notion pages with matching Markdown. Never resurrect deleted posts
     // by falling back to every historical Markdown file in the GitHub tree.
     const posts = data.posts.map(normalizeIndexedPost).filter(Boolean);
-    posts.sort((a, b) => b.date.localeCompare(a.date) || a.path.localeCompare(b.path));
-    posts.forEach((post, index) => {
-      post.number = posts.length - index;
+
+    // The Notion number property is the primary chronological ordering source.
+    // If a page has no number, keep it after numbered posts and use created_time.
+    const numberedPosts = posts.filter((post) => Number.isFinite(post.notionNumber));
+    const unnumberedPosts = posts.filter((post) => !Number.isFinite(post.notionNumber));
+
+    numberedPosts.sort((a, b) =>
+      (b.notionNumber - a.notionNumber)
+      || b.createdTime.localeCompare(a.createdTime)
+      || a.path.localeCompare(b.path)
+    );
+    unnumberedPosts.sort((a, b) =>
+      (b.createdTime || b.date).localeCompare(a.createdTime || a.date)
+      || b.date.localeCompare(a.date)
+      || a.path.localeCompare(b.path)
+    );
+
+    const orderedPosts = [...numberedPosts, ...unnumberedPosts];
+    orderedPosts.forEach((post, index) => {
+      post.number = Number.isFinite(post.notionNumber)
+        ? post.notionNumber
+        : orderedPosts.length - index;
     });
+
     return {
-      posts,
-      totalCount: Number.isFinite(data.total_count) ? data.total_count : posts.length
+      posts: orderedPosts,
+      totalCount: Number.isFinite(data.total_count) ? data.total_count : orderedPosts.length
     };
   }
 
