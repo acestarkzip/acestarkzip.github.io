@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="- 📚 1주차 Linux (2026.10.12 Mon 2026.10.14 Wed) | Total : 3 days - 📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/40ad9e129df7808c8e07c701400a738b/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="[TEST] 목차, 코드, 등 테스트 | S급 로봇 연구소">
+  <meta property="og:description" content="- 📚 1주차 Linux (2026.10.12 Mon 2026.10.14 Wed) | Total : 3 days - 📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/40ad9e129df7808c8e07c701400a738b/">
+  <meta property="article:published_time" content="2026-10-01">
+  <title>[TEST] 목차, 코드, 등 테스트 | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/sss-robotics-logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">[TEST] 목차, 코드, 등 테스트</h1>
+      <p class="article-path" id="article-path">2026-10-01 · </p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-10-01</li>
+<li><strong>간단메모 :</strong> </li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/TEST-40ad9e129df7808c8e07c701400a738b">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><a href="#notion-heading-40ad9e129df78059936fca14e8500ab6">📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed) | Total : 3 days</a></li>
+<li><a href="#notion-heading-40ad9e129df7808e98f7f0dcf5dbcd76">📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)</a><ul>
+<li><a href="#notion-heading-40ad9e129df780f299a6d4e14b9362f7">📃 a. User (유저/사용자)</a></li>
+<li><a href="#notion-heading-40ad9e129df78059a1d8f846e346f3de">📃 b. File Permission (파일 권한)</a></li>
+<li><a href="#notion-heading-40ad9e129df7803ba4c9ea52a1e4dcf1">📃 c. Group (그룹)</a></li>
+<li><a href="#notion-heading-40ad9e129df7808c910de86060c9f4b8">📃 d. Processes (프로세스)</a></li>
+<li><a href="#notion-heading-40ad9e129df780eaab0fd323c25bcd74">📃 e. Package (패키지)</a></li>
+</ul>
+</li>
+</ul>
+<p><a></a></p>
+<h1>📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed) | Total : 3 days</h1>
+<p><a></a></p>
+<h2>📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)</h2>
+<p><a></a></p>
+<h3>📃 a. User (유저/사용자)</h3>
+<p><strong>1. 개념</strong></p>
+<ul>
+<li>User는 리눅스 시스템을 사용하는 개별 사용자를 의미한다.</li>
+<li>리눅스는 여러 사용자가 하나의 컴퓨터를 함께 사용할 수 있는 다중 사용자(Multi-user) 운영체제이다.</li>
+<li>각 사용자는 고유한 사용자 ID(UID)를 가지고 있으며, 사용자마다 접근할 수 있는 파일과 실행할 수 있는 명령에 차이가 있다.</li>
+<li>시스템 설정 변경이나 프로그램 설치 등 관리자 권한이 필요한 작업은 <code>root</code> 또는 <code>sudo</code>를 통해 수행한다.</li>
+</ul>
+<p><strong>2. 주요 사용자 유형</strong></p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root</td>
+<td>시스템 전체를 관리할 수 있는 최고 관리자 계정</td>
+</tr>
+<tr>
+<td>일반 사용자</td>
+<td>할당된 권한 범위 내에서 시스템을 사용하는 계정</td>
+</tr>
+<tr>
+<td>시스템 사용자</td>
+<td>서비스나 프로그램을 실행하기 위해 사용하는 계정</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. 주요 명령어</strong></p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>whoami</code></td>
+<td>현재 로그인한 사용자 확인</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>현재 사용자의 UID, GID 및 그룹 정보 확인</td>
+</tr>
+<tr>
+<td><code>users</code></td>
+<td>현재 로그인한 사용자 목록 확인</td>
+</tr>
+<tr>
+<td><code>who</code></td>
+<td>로그인한 사용자와 접속 정보 확인</td>
+</tr>
+<tr>
+<td><code>sudo</code></td>
+<td>관리자 권한으로 명령어 실행</td>
+</tr>
+<tr>
+<td><code>su</code></td>
+<td>다른 사용자 계정으로 전환</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. 명령어 실습</strong></p>
+<pre><code class="language-text"># 현재 사용자 확인
+whoami
+
+# 사용자 ID와 그룹 정보 확인
+id
+
+# 관리자 권한으로 명령 실행
+sudo apt update
+
+# root 사용자로 전환
+sudo su
+</code></pre>
+<p><strong>5. 핵심 정리</strong></p>
+<ul>
+<li><code>root</code>는 리눅스의 최고 관리자 계정이다.</li>
+<li><code>sudo</code>는 일반 사용자가 특정 명령을 관리자 권한으로 실행하도록 해준다.</li>
+<li><code>UID</code>는 사용자 식별 번호이며, 일반적으로 root의 UID는 <code>0</code>이다.</li>
+</ul>
+<hr>
+<p><a></a></p>
+<h3>📃 b. File Permission (파일 권한)</h3>
+<p><strong>1. 개념</strong></p>
+<ul>
+<li>File Permission은 파일이나 디렉터리에 대한 접근 권한을 의미한다.</li>
+<li>리눅스에서는 사용자(User), 그룹(Group), 기타 사용자(Others)를 기준으로 권한을 구분한다.</li>
+<li>파일을 읽거나 수정하거나 실행할 수 있는 권한을 각각 설정할 수 있다.</li>
+</ul>
+<p><strong>2. 권한의 종류</strong></p>
+<table>
+<thead>
+<tr>
+<th>권한</th>
+<th>기호</th>
+<th>숫자</th>
+<th>파일에서의 의미</th>
+<th>디렉터리에서의 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read</td>
+<td><code>r</code></td>
+<td>4</td>
+<td>파일 내용 읽기</td>
+<td>디렉터리 내부 목록 확인</td>
+</tr>
+<tr>
+<td>Write</td>
+<td><code>w</code></td>
+<td>2</td>
+<td>파일 내용 수정</td>
+<td>파일 및 디렉터리 생성·삭제·이름 변경</td>
+</tr>
+<tr>
+<td>Execute</td>
+<td><code>x</code></td>
+<td>1</td>
+<td>파일 실행</td>
+<td>디렉터리 접근 및 내부 항목 탐색</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. 권한 표시 방법</strong></p>
+<p>다음 명령어를 통해 파일 및 디렉터리의 권한을 확인할 수 있다.</p>
+<pre><code class="language-text">ls -l
+</code></pre>
+<p>출력 예시:</p>
+<pre><code class="language-text">-rwxr-xr-- 1 user group 1024 Oct 13 10:00 test.sh
+</code></pre>
+<p>권한 부분인 <code>-rwxr-xr--</code>는 다음과 같이 구분된다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>값</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>파일 유형</td>
+<td><code>-</code></td>
+<td>일반 파일</td>
+</tr>
+<tr>
+<td>User</td>
+<td><code>rwx</code></td>
+<td>읽기, 쓰기, 실행 가능</td>
+</tr>
+<tr>
+<td>Group</td>
+<td><code>r-x</code></td>
+<td>읽기, 실행 가능</td>
+</tr>
+<tr>
+<td>Others</td>
+<td><code>r--</code></td>
+<td>읽기만 가능</td>
+</tr>
+</tbody>
+</table>
+<p>※ 첫 번째 문자는 파일 유형을 의미한다. 일반 파일은 <code>-</code>, 디렉터리는 <code>d</code>로 표시된다.</p>
+<p><strong>4. 숫자를 이용한 권한 설정</strong></p>
+<p>권한은 <code>r=4</code>, <code>w=2</code>, <code>x=1</code>의 숫자를 더해서 표현할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th>권한</th>
+<th>계산</th>
+<th>숫자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rwx</code></td>
+<td>4 + 2 + 1</td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>rw-</code></td>
+<td>4 + 2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>r-x</code></td>
+<td>4 + 1</td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>r--</code></td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>-wx</code></td>
+<td>2 + 1</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>-w-</code></td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>--x</code></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>---</code></td>
+<td>권한 없음</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>예시:</p>
+<ul>
+<li><code>755</code> : 소유자는 모든 권한, 그룹과 기타 사용자는 읽기 및 실행 권한</li>
+<li><code>644</code> : 소유자는 읽기 및 쓰기 권한, 그룹과 기타 사용자는 읽기 권한</li>
+<li><code>700</code> : 소유자만 읽기, 쓰기 및 실행 권한</li>
+</ul>
+<p><strong>5. 주요 명령어</strong></p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ls -l</code></td>
+<td>파일 및 디렉터리 권한 확인</td>
+</tr>
+<tr>
+<td><code>chmod</code></td>
+<td>파일 및 디렉터리 권한 변경</td>
+</tr>
+<tr>
+<td><code>chown</code></td>
+<td>파일 및 디렉터리 소유자 변경</td>
+</tr>
+<tr>
+<td><code>chgrp</code></td>
+<td>파일 및 디렉터리 그룹 변경</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6. 명령어 실습</strong></p>
+<pre><code class="language-text"># 파일 권한 확인
+ls -l test.sh
+
+# 소유자에게 실행 권한 추가
+chmod u+x test.sh
+
+# 권한을 755로 변경
+chmod 755 test.sh
+
+# 권한을 644로 변경
+chmod 644 test.txt
+
+# 파일 소유자를 user로 변경
+sudo chown user test.txt
+
+# 파일 소유자와 그룹을 함께 변경
+sudo chown user:group test.txt
+</code></pre>
+<p><strong>7. 핵심 정리</strong></p>
+<ul>
+<li><code>chmod</code>는 권한(Permission)을 변경한다.</li>
+<li><code>chown</code>은 소유자(Owner)를 변경한다.</li>
+<li><code>chgrp</code>는 소속 그룹(Group)을 변경한다.</li>
+<li>권한 설정은 시스템 보안과 사용자별 접근 제어에 중요하다.</li>
+</ul>
+<hr>
+<p><a></a></p>
+<h3>📃 c. Group (그룹)</h3>
+<p><strong>1. 개념</strong></p>
+<ul>
+<li>Group은 여러 사용자를 하나의 단위로 묶어서 관리하는 기능이다.</li>
+<li>같은 그룹에 속한 사용자들은 그룹에 부여된 파일 및 디렉터리 권한을 공유할 수 있다.</li>
+<li>여러 사용자가 동일한 프로젝트나 시스템 자원을 함께 사용하는 환경에서 유용하다.</li>
+<li>각 그룹은 고유한 그룹 ID(GID)를 가진다.</li>
+</ul>
+<p><strong>2. 그룹의 종류</strong></p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary Group</td>
+<td>사용자가 기본적으로 소속되는 주 그룹</td>
+</tr>
+<tr>
+<td>Secondary Group</td>
+<td>사용자가 추가로 소속될 수 있는 보조 그룹</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. 주요 명령어</strong></p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>groups</code></td>
+<td>현재 사용자의 그룹 확인</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>사용자 및 그룹 ID 확인</td>
+</tr>
+<tr>
+<td><code>groupadd</code></td>
+<td>새로운 그룹 생성</td>
+</tr>
+<tr>
+<td><code>groupdel</code></td>
+<td>그룹 삭제</td>
+</tr>
+<tr>
+<td><code>usermod</code></td>
+<td>사용자 계정 정보 수정</td>
+</tr>
+<tr>
+<td><code>gpasswd</code></td>
+<td>그룹 구성원 및 그룹 암호 관리</td>
+</tr>
+<tr>
+<td><code>getent group</code></td>
+<td>시스템 그룹 정보 확인</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. 명령어 실습</strong></p>
+<pre><code class="language-text"># 현재 사용자가 속한 그룹 확인
+groups
+
+# 사용자 및 그룹 정보 확인
+id
+
+# 새로운 그룹 생성
+sudo groupadd robotics
+
+# 사용자 user를 robotics 그룹에 추가
+sudo usermod -aG robotics user
+
+# 그룹 정보 확인
+getent group robotics
+
+# 그룹 삭제
+sudo groupdel robotics
+</code></pre>
+<p>※ <code>usermod -aG</code>에서 <code>-a</code>는 기존 그룹을 유지하면서 추가한다는 의미다. <code>-a</code> 없이 <code>-G</code>만 사용하면 기존 보조 그룹 목록이 교체될 수 있으므로 주의한다.</p>
+<p><strong>5. User와 Group의 관계</strong></p>
+<p>예를 들어 <code>robotics</code>라는 그룹에 <code>user1</code>, <code>user2</code>, <code>user3</code>이 소속되어 있다고 가정한다.</p>
+<ul>
+<li><code>user1</code>, <code>user2</code>, <code>user3</code>은 같은 그룹에 속한다.</li>
+<li>특정 디렉터리의 그룹을 <code>robotics</code>로 지정할 수 있다.</li>
+<li>그룹에 읽기 및 쓰기 권한을 부여하면 해당 그룹의 구성원들이 공동으로 사용할 수 있다.</li>
+</ul>
+<pre><code class="language-text"># 디렉터리의 그룹을 robotics로 변경
+sudo chgrp robotics project
+
+# 그룹에 읽기, 쓰기 및 실행 권한 부여
+sudo chmod 770 project
+</code></pre>
+<p><strong>6. 핵심 정리</strong></p>
+<ul>
+<li>User는 개별 사용자 계정이다.</li>
+<li>Group은 여러 사용자를 하나로 묶어 권한을 관리하는 단위다.</li>
+<li>UID는 사용자 ID, GID는 그룹 ID를 의미한다.</li>
+<li>그룹을 활용하면 여러 사용자의 파일 접근 권한을 효율적으로 관리할 수 있다.</li>
+</ul>
+<hr>
+<p><a></a></p>
+<h3>📃 d. Processes (프로세스)</h3>
+<p><strong>1. 개념</strong></p>
+<ul>
+<li>Process는 실행 중인 프로그램을 의미한다.</li>
+<li>프로그램은 디스크에 저장된 실행 파일이고, 프로세스는 해당 프로그램이 실행되면서 메모리와 CPU 등의 시스템 자원을 사용하는 상태를 말한다.</li>
+<li>하나의 프로그램에서 여러 프로세스가 생성될 수 있다.</li>
+<li>리눅스는 여러 프로세스를 동시에 실행하고 관리한다.</li>
+</ul>
+<p><strong>2. 프로세스의 주요 정보</strong></p>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td>Process ID. 프로세스 고유 식별 번호</td>
+</tr>
+<tr>
+<td>PPID</td>
+<td>Parent Process ID. 부모 프로세스의 ID</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>해당 프로세스를 실행한 사용자</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>프로세스가 사용하는 CPU 자원</td>
+</tr>
+<tr>
+<td>MEM</td>
+<td>프로세스가 사용하는 메모리</td>
+</tr>
+<tr>
+<td>STATUS</td>
+<td>프로세스의 현재 상태</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. 프로세스 상태</strong></p>
+<table>
+<thead>
+<tr>
+<th>상태</th>
+<th>기호</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Running</td>
+<td>R</td>
+<td>CPU에서 실행 중이거나 실행 대기 중</td>
+</tr>
+<tr>
+<td>Sleeping</td>
+<td>S</td>
+<td>이벤트나 작업을 기다리는 상태</td>
+</tr>
+<tr>
+<td>Uninterruptible Sleep</td>
+<td>D</td>
+<td>일반적으로 I/O 작업을 기다리는 상태</td>
+</tr>
+<tr>
+<td>Stopped</td>
+<td>T</td>
+<td>실행이 일시 정지된 상태</td>
+</tr>
+<tr>
+<td>Zombie</td>
+<td>Z</td>
+<td>실행은 종료됐지만 부모 프로세스가 종료 상태를 아직 회수하지 않은 상태</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. 주요 명령어</strong></p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ps</code></td>
+<td>프로세스 정보 확인</td>
+</tr>
+<tr>
+<td><code>ps aux</code></td>
+<td>시스템 전체 프로세스 목록 확인</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>CPU 및 메모리 사용량 등 실시간 확인</td>
+</tr>
+<tr>
+<td><code>htop</code></td>
+<td>프로세스 상태를 직관적으로 확인하는 도구</td>
+</tr>
+<tr>
+<td><code>pgrep</code></td>
+<td>프로세스 이름 등을 기준으로 PID 검색</td>
+</tr>
+<tr>
+<td><code>kill</code></td>
+<td>PID를 지정해 프로세스에 시그널 전송</td>
+</tr>
+<tr>
+<td><code>killall</code></td>
+<td>이름을 기준으로 프로세스에 시그널 전송</td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td>현재 셸에서 실행하거나 중지한 작업 확인</td>
+</tr>
+<tr>
+<td><code>bg</code></td>
+<td>작업을 백그라운드에서 실행</td>
+</tr>
+<tr>
+<td><code>fg</code></td>
+<td>작업을 포그라운드로 가져오기</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. 명령어 실습</strong></p>
+<pre><code class="language-text"># 현재 터미널과 관련된 프로세스 확인
+ps
+
+# 시스템 전체 프로세스 확인
+ps aux
+
+# 실시간 프로세스 및 자원 사용량 확인
+top
+
+# 프로세스 이름으로 PID 검색
+pgrep python
+
+# PID가 1234인 프로세스에 종료 요청
+kill 1234
+
+# 강제 종료 시그널 전송
+kill -9 1234
+</code></pre>
+<p><strong>6. Foreground와 Background</strong></p>
+<p>프로세스는 실행 방식에 따라 포그라운드와 백그라운드로 구분할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foreground</td>
+<td>현재 터미널에서 실행되며 작업이 끝나기 전까지 터미널 입력을 점유</td>
+</tr>
+<tr>
+<td>Background</td>
+<td>터미널의 입력을 점유하지 않고 뒤에서 실행</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text"># 포그라운드 실행
+python script.py
+
+# 백그라운드 실행
+python script.py &amp;
+
+# 현재 셸의 작업 목록 확인
+jobs
+
+# 작업을 백그라운드로 전환
+bg
+
+# 작업을 포그라운드로 전환
+fg
+</code></pre>
+<p><strong>7. 프로세스 종료</strong></p>
+<p><code>kill</code>은 프로세스를 종료하거나 특정 동작을 요청하기 위해 시그널(Signal)을 전달하는 명령어다.</p>
+<table>
+<thead>
+<tr>
+<th>시그널</th>
+<th>번호</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>정상적인 종료 요청. 기본 <code>kill</code> 동작</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>프로세스를 강제로 종료</td>
+</tr>
+<tr>
+<td>SIGSTOP</td>
+<td>19</td>
+<td>프로세스를 일시 정지</td>
+</tr>
+<tr>
+<td>SIGCONT</td>
+<td>18</td>
+<td>정지된 프로세스 재개</td>
+</tr>
+</tbody>
+</table>
+<p>※ 프로세스 종료 시에는 먼저 <code>kill PID</code>를 사용하여 정상 종료를 요청하고, 종료되지 않는 경우에만 <code>kill -9 PID</code>를 사용하는 것이 좋다.</p>
+<p><strong>8. 핵심 정리</strong></p>
+<ul>
+<li>Process는 실행 중인 프로그램이다.</li>
+<li>PID는 각각의 프로세스를 구분하는 고유 번호다.</li>
+<li><code>ps</code>와 <code>top</code>은 프로세스 상태 및 자원 사용량을 확인할 때 사용한다.</li>
+<li><code>kill</code>은 프로세스에 종료 등의 시그널을 전달한다.</li>
+<li>Foreground는 현재 터미널에서 실행하고, Background는 뒤에서 실행한다.</li>
+</ul>
+<hr>
+<p><a></a></p>
+<h3>📃 e. Package (패키지)</h3>
+<p><strong>1. 개념</strong></p>
+<ul>
+<li>Package는 프로그램을 설치하고 관리할 수 있도록 필요한 파일과 정보를 하나로 묶어 놓은 단위다.</li>
+<li>일반적으로 실행 파일, 라이브러리, 설정 파일 및 설치 정보 등이 포함될 수 있다.</li>
+<li>리눅스에서는 패키지 관리자를 이용해 프로그램을 설치, 업데이트, 삭제할 수 있다.</li>
+<li>패키지 관리자는 프로그램 간의 의존성(Dependency)도 관리한다.</li>
+</ul>
+<p><strong>2. 패키지 관리자(Package Manager)</strong></p>
+<p>리눅스 배포판에 따라 사용하는 패키지 관리자가 다르다.</p>
+<table>
+<thead>
+<tr>
+<th>배포판</th>
+<th>패키지 관리자</th>
+<th>패키지 형식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ubuntu</td>
+<td>APT</td>
+<td><code>.deb</code></td>
+</tr>
+<tr>
+<td>Debian</td>
+<td>APT</td>
+<td><code>.deb</code></td>
+</tr>
+<tr>
+<td>Fedora</td>
+<td>DNF</td>
+<td><code>.rpm</code></td>
+</tr>
+<tr>
+<td>RHEL</td>
+<td>DNF / YUM</td>
+<td><code>.rpm</code></td>
+</tr>
+<tr>
+<td>CentOS</td>
+<td>DNF / YUM</td>
+<td><code>.rpm</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. 패키지 관리 관련 용어</strong></p>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td>프로그램 패키지를 저장하고 배포하는 저장소</td>
+</tr>
+<tr>
+<td>Dependency</td>
+<td>특정 프로그램을 실행하기 위해 필요한 다른 패키지</td>
+</tr>
+<tr>
+<td>Package Manager</td>
+<td>패키지 설치, 업데이트, 삭제 등을 관리하는 도구</td>
+</tr>
+<tr>
+<td>Package Index</td>
+<td>저장소에서 제공하는 패키지 정보 목록</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>패키지 목록 정보를 최신 상태로 갱신</td>
+</tr>
+<tr>
+<td>Upgrade</td>
+<td>설치된 패키지를 새 버전으로 업데이트</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. Ubuntu 주요 명령어 (APT)</strong></p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sudo apt update</code></td>
+<td>패키지 목록 업데이트</td>
+</tr>
+<tr>
+<td><code>sudo apt upgrade</code></td>
+<td>설치된 패키지 업데이트</td>
+</tr>
+<tr>
+<td><code>sudo apt install 패키지명</code></td>
+<td>패키지 설치</td>
+</tr>
+<tr>
+<td><code>sudo apt remove 패키지명</code></td>
+<td>패키지 삭제</td>
+</tr>
+<tr>
+<td><code>sudo apt purge 패키지명</code></td>
+<td>패키지 및 관련 설정 파일 삭제</td>
+</tr>
+<tr>
+<td><code>sudo apt autoremove</code></td>
+<td>더 이상 필요하지 않은 의존 패키지 정리</td>
+</tr>
+<tr>
+<td><code>apt search 패키지명</code></td>
+<td>패키지 검색</td>
+</tr>
+<tr>
+<td><code>apt show 패키지명</code></td>
+<td>패키지 정보 확인</td>
+</tr>
+<tr>
+<td><code>dpkg -l</code></td>
+<td>설치된 패키지 목록 확인</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. 명령어 실습</strong></p>
+<pre><code class="language-text"># 패키지 목록 업데이트
+sudo apt update
+
+# 설치된 패키지 업데이트
+sudo apt upgrade
+
+# htop 패키지 설치
+sudo apt install htop
+
+# 설치된 패키지 정보 확인
+apt show htop
+
+# 설치된 패키지 삭제
+sudo apt remove htop
+
+# 패키지와 관련 설정 파일 삭제
+sudo apt purge htop
+
+# 더 이상 필요하지 않은 패키지 정리
+sudo apt autoremove
+</code></pre>
+<p><strong>6. apt update와 apt upgrade의 차이</strong></p>
+<p>두 명령어는 이름이 비슷하지만 역할이 다르다.</p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apt update</code></td>
+<td>저장소에서 최신 패키지 목록을 가져온다.</td>
+</tr>
+<tr>
+<td><code>apt upgrade</code></td>
+<td>최신 패키지 목록을 기준으로 설치된 패키지를 업데이트한다.</td>
+</tr>
+</tbody>
+</table>
+<p>쉽게 말하면 다음과 같다.</p>
+<ul>
+<li><code>apt update</code> = 어떤 프로그램이 새 버전으로 나왔는지 확인</li>
+<li><code>apt upgrade</code> = 확인한 새 버전으로 실제 프로그램 업데이트</li>
+</ul>
+<p>※ <code>apt update</code>만 실행한다고 설치된 프로그램이 자동으로 업데이트되지는 않는다.</p>
+<p><strong>7. 패키지와 의존성(Dependency)</strong></p>
+<p>예를 들어 프로그램 A를 설치하는 데 프로그램 B와 라이브러리 C가 필요하다고 가정한다.</p>
+<ul>
+<li>프로그램 A는 B와 C에 의존한다.</li>
+<li>A를 실행하려면 필요한 B와 C도 설치되어 있어야 한다.</li>
+<li>APT와 같은 패키지 관리자는 이러한 의존성을 확인하고 필요한 패키지를 함께 설치한다.</li>
+</ul>
+<p><strong>8. 핵심 정리</strong></p>
+<ul>
+<li>Package는 프로그램을 설치하고 관리하기 위한 묶음 단위다.</li>
+<li>Package Manager는 패키지의 설치, 업데이트, 삭제를 담당한다.</li>
+<li>Repository는 패키지를 제공하는 저장소다.</li>
+<li>Dependency는 프로그램 실행에 필요한 다른 패키지를 의미한다.</li>
+<li>Ubuntu에서는 일반적으로 <code>apt</code>를 사용한다.</li>
+<li><code>apt update</code>는 패키지 목록 갱신, <code>apt upgrade</code>는 설치된 패키지 업데이트다.</li>
+</ul>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>

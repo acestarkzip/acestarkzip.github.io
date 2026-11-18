@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="- 📚 1주차 Linux (2026.10.12 Mon 2026.10.14 Wed) - 📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue) - 📃 a. User (유저/사용자)">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/409d9e129df7808994a7e128b104d28c/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="Linux : 리눅스 기초 2일차 (D+2) | S급 로봇 연구소">
+  <meta property="og:description" content="- 📚 1주차 Linux (2026.10.12 Mon 2026.10.14 Wed) - 📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue) - 📃 a. User (유저/사용자)">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/409d9e129df7808994a7e128b104d28c/">
+  <meta property="article:published_time" content="2026-10-13">
+  <title>Linux : 리눅스 기초 2일차 (D+2) | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/sss-robotics-logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">Linux : 리눅스 기초 2일차 (D+2)</h1>
+      <p class="article-path" id="article-path">2026-10-13 · 리눅스 | 권한, 프로세스, 패키지</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-10-13</li>
+<li><strong>간단메모 :</strong> 리눅스 | 권한, 프로세스, 패키지</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/Linux-2-D-2-409d9e129df7808994a7e128b104d28c">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><a href="#notion-heading-40ad9e129df780f0b2f5f495dc319e8a">📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed)</a></li>
+<li><a href="#notion-heading-40ad9e129df780cca956d189bd852efc">📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)</a><ul>
+<li><a href="#notion-heading-40ad9e129df780c0913ce2fdae104e86">📃 a. User (유저/사용자)</a></li>
+<li><a href="#notion-heading-40ad9e129df780cd8351fb8079cdf02e">📃 b. File Permission (파일 권한)</a></li>
+<li><a href="#notion-heading-40ad9e129df780cb822afe6a41bd7ef1">📃 c. Group (그룹)</a></li>
+<li><a href="#notion-heading-40ad9e129df780f881f8dc7af965d963">📃 d. Processes (프로세스)</a></li>
+<li><a href="#notion-heading-40ad9e129df780eb9738e67cef0990a9">📃 e. Package (패키지)</a></li>
+<li><a href="#notion-heading-40ad9e129df780a18a24dc40cf89d01c">💡 핵심 요약</a></li>
+</ul>
+</li>
+</ul>
+<p><a></a></p>
+<h1>📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed)</h1>
+<p><strong>Total : 3 days</strong></p>
+<p><a></a></p>
+<h2>📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)</h2>
+<p><a></a></p>
+<h3>📃 a. User (유저/사용자)</h3>
+<ul>
+<li><strong>User</strong> : Linux 시스템을 사용하는 개별 사용자 계정</li>
+<li><strong>root</strong> : 시스템의 모든 권한을 가진 관리자 계정</li>
+<li><code>whoami</code> : 현재 사용자 확인</li>
+<li><code>sudo 명령어</code> : 관리자 권한으로 명령어 실행</li>
+<li><code>passwd</code> : 비밀번호 변경</li>
+</ul>
+<pre><code class="language-text">whoami
+sudo apt update
+</code></pre>
+<p><a></a></p>
+<h3>📃 b. File Permission (파일 권한)</h3>
+<ul>
+<li>파일과 디렉터리에 대한 <strong>읽기(r), 쓰기(w), 실행(x)</strong> 권한을 설정</li>
+<li>권한은 <strong>소유자(User), 그룹(Group), 기타 사용자(Other)</strong> 기준으로 구분</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>권한</th>
+<th>의미</th>
+<th>숫자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>읽기</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>쓰기</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>실행</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>ls -l</code> : 파일 권한 확인</li>
+<li><code>chmod</code> : 파일 권한 변경</li>
+<li><code>chown</code> : 파일 소유자 변경</li>
+</ul>
+<pre><code class="language-text">ls -l
+chmod 755 script.sh
+chmod +x script.sh
+</code></pre>
+<p><strong>💡 </strong><code>755</code><strong> 의미:</strong> 소유자는 읽기·쓰기·실행, 그룹과 기타 사용자는 읽기·실행 가능</p>
+<p><a></a></p>
+<h3>📃 c. Group (그룹)</h3>
+<ul>
+<li><strong>Group</strong> : 여러 사용자에게 공통 권한을 부여하기 위한 사용자 집합</li>
+<li>파일과 디렉터리의 권한을 그룹 단위로 관리할 수 있음</li>
+<li><code>groups</code> : 현재 사용자의 그룹 확인</li>
+<li><code>id</code> : 사용자 및 그룹 ID 확인</li>
+<li><code>chgrp</code> : 파일의 그룹 변경</li>
+<li><code>usermod</code> : 사용자 그룹 설정 변경</li>
+</ul>
+<pre><code class="language-text">groups
+id
+sudo chgrp developers file.txt
+</code></pre>
+<p><a></a></p>
+<h3>📃 d. Processes (프로세스)</h3>
+<ul>
+<li><strong>Process</strong> : 실행 중인 프로그램</li>
+<li><strong>PID</strong> : 프로세스를 식별하는 고유 번호</li>
+<li><strong>Foreground</strong> : 터미널에서 직접 실행되는 작업</li>
+<li><strong>Background</strong> : 터미널 작업과 별도로 실행되는 작업</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ps aux</code></td>
+<td>실행 중인 프로세스 확인</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>프로세스 및 시스템 자원 사용량 확인</td>
+</tr>
+<tr>
+<td><code>kill PID</code></td>
+<td>프로세스에 종료 신호 전달</td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td>현재 셸의 작업 목록 확인</td>
+</tr>
+<tr>
+<td><code>명령어 &amp;</code></td>
+<td>백그라운드 실행</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text">ps aux
+top
+sleep 100 &amp;
+jobs
+kill 1234
+</code></pre>
+<p>※ <code>1234</code>는 예시 PID입니다. 실제 종료할 프로세스의 PID를 확인해야 합니다.</p>
+<p><a></a></p>
+<h3>📃 e. Package (패키지)</h3>
+<ul>
+<li><strong>Package</strong> : 프로그램과 실행에 필요한 파일을 묶어 배포하는 단위</li>
+<li><strong>APT</strong> : Ubuntu에서 패키지를 설치하고 관리하는 도구</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sudo apt update</code></td>
+<td>패키지 목록 갱신</td>
+</tr>
+<tr>
+<td><code>sudo apt upgrade</code></td>
+<td>설치된 패키지 업데이트</td>
+</tr>
+<tr>
+<td><code>sudo apt install 패키지명</code></td>
+<td>패키지 설치</td>
+</tr>
+<tr>
+<td><code>sudo apt remove 패키지명</code></td>
+<td>패키지 제거</td>
+</tr>
+<tr>
+<td><code>apt search 검색어</code></td>
+<td>패키지 검색</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text">sudo apt update
+sudo apt install git
+git --version
+</code></pre>
+<hr>
+<p><a></a></p>
+<h3>💡 핵심 요약</h3>
+<ul>
+<li><strong>User</strong> : 사용자 계정과 관리자 권한 이해</li>
+<li><strong>Permission</strong> : 파일 접근 권한(r, w, x) 관리</li>
+<li><strong>Group</strong> : 사용자 그룹을 통한 권한 관리</li>
+<li><strong>Process</strong> : 실행 중인 프로그램과 시스템 자원 관리</li>
+<li><strong>Package</strong> : APT를 활용한 프로그램 설치 및 업데이트</li>
+</ul>
+<p><strong>🎯 학습 목표:</strong> Linux의 사용자·권한 구조를 이해하고, 프로세스를 확인하며, 필요한 개발 도구를 직접 설치할 수 있다.</p>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>

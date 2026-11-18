@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="- 📖 1. RAG 개념 - A. LLM과 외부 지식의 한계 🧠 - B. RAG Workflow (검색 증강 생성) 🔄 - C. Data Loader &amp; Text Splitter 🛠️ - D. 고급 RAG 기술 (Improving Retrieval) 🚀">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/417d9e129df780e6a078c949a7f94268/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="LLM RAG 4일차 (D+25) | S급 로봇 연구소">
+  <meta property="og:description" content="- 📖 1. RAG 개념 - A. LLM과 외부 지식의 한계 🧠 - B. RAG Workflow (검색 증강 생성) 🔄 - C. Data Loader &amp; Text Splitter 🛠️ - D. 고급 RAG 기술 (Improving Retrieval) 🚀">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/417d9e129df780e6a078c949a7f94268/">
+  <meta property="article:published_time" content="2026-11-13">
+  <title>LLM RAG 4일차 (D+25) | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/sss-robotics-logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">LLM RAG 4일차 (D+25)</h1>
+      <p class="article-path" id="article-path">2026-11-13 · LLM | MCP</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-11-13</li>
+<li><strong>간단메모 :</strong> LLM | MCP</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/LLM-RAG-4-D-25-417d9e129df780e6a078c949a7f94268">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><a href="#notion-heading-417d9e129df780648b5dc1eae64f2f4d">📖 1. RAG 개념</a></li>
+<li><a href="#notion-heading-417d9e129df780faa35ddcabe9e039a6">A. LLM과 외부 지식의 한계 🧠</a></li>
+<li><a href="#notion-heading-417d9e129df780c9869bd4058c3eb745">B. RAG Workflow (검색 증강 생성) 🔄</a></li>
+<li><a href="#notion-heading-417d9e129df780e3b729f10b3f4386bc">C. Data Loader &amp; Text Splitter 🛠️</a></li>
+<li><a href="#notion-heading-417d9e129df78025a0b5e27a18c1369b">D. 고급 RAG 기술 (Improving Retrieval) 🚀</a></li>
+<li><a href="#notion-heading-417d9e129df780b791acd61551c52cb2">2. 실습</a></li>
+<li><a href="#notion-heading-417d9e129df7802db414f701af8fd910">A. 환경설정</a></li>
+<li><a href="#notion-heading-417d9e129df78066bcf5c3e77ac14ea4">B. OpenAI API Client 구성</a></li>
+<li><a href="#notion-heading-417d9e129df780efbf7cf675ccf96e44">C. Long term Context 방식</a></li>
+<li><a href="#notion-heading-417d9e129df780f681b9cb3a800e68f0">D. 문서를 전달 후 질문에 답변</a></li>
+</ul>
+<p><a></a></p>
+<h1>📖 1. RAG 개념</h1>
+<p><a></a></p>
+<h2>A. LLM과 외부 지식의 한계 🧠</h2>
+<ul>
+<li><strong>Knowledge Cutoff (지식 마감일):</strong> LLM 모델 자체는 사전에 학습된 데이터까지만 알고 있기 때문에 최신 뉴스나 날씨에 대답할 수 없습니다.</li>
+<li><strong>사</strong>내 데이터 접근 불가: 보안이 걸린 우리 회사만의 고유한 정보나 일반적이지 않은 비밀 데이터는 웹 검색으로도 알 수 없습니다.</li>
+<li><strong>Long-context Prompting의 한계:</strong> 문서를 검색 과정 없이 통째로 프롬프트에 넣어 LLM에 전달하는 방법이 있습니다. 하지만 이 방식은 문서를 통째로 넣기 때문에 토큰(비용) 낭비가 심하고, 모델이 한 번에 처리할 수 있는 <code>Context Window</code> 용량을 초과하면 호출 자체가 불가능해진다는 치명적인 단점이 있습니다.</li>
+</ul>
+<p><a></a></p>
+<h2>B. RAG Workflow (검색 증강 생성) 🔄</h2>
+<p>긴 문서를 통째로 넣는 대신, 사용자의 질문과 <strong>관련된 부분(조각)만 검색해서 LLM에게 넘겨주는 방식</strong>입니다. 짧고 핵심적인 Context만 전달하여 효율을 높입니다.</p>
+<p><strong>Step 1: Indexing (문서를 검색 가능하게 준비하는 과정)</strong></p>
+<ul>
+<li><strong>Document Loading:</strong> 참고할 원본 문서(PDF, Word 등)를 불러옵니다.</li>
+<li><strong>Chunking:</strong> 긴 문서를 검색하기 좋은 작은 텍스트 조각(<code>Chunk</code>)으로 자릅니다. 문맥이 끊기지 않도록 앞뒤 내용을 살짝 겹치게 자르는 것을 <code>Overlap</code>이라고 합니다.</li>
+<li><strong>Embedding:</strong> 텍스트 조각들을 AI가 이해하고 계산할 수 있는 숫자 배열인 <code>Vector(벡터)</code>로 변환합니다. 의미가 비슷할수록 벡터 공간에서 서로 가까운 위치에 배치됩니다.</li>
+<li><strong>Vector Store:</strong> 변환된 벡터와 원본 텍스트를 저장하는 데이터베이스입니다. 로컬 환경에서 가볍고 파이썬으로 다루기 쉬운 <code>ChromaDB</code>가 대표적입니다.</li>
+</ul>
+<p><strong>Step 2: Retrieval (검색 및 답변 생성 과정)</strong></p>
+<ul>
+<li>사용자가 질문하면, 질문 역시 벡터로 변환한 뒤 Vector Store에서 가장 의미가 비슷한 문서 조각(<code>Chunk</code>)을 검색해서 가져옵니다.</li>
+<li>가져온 내용만 바탕으로 LLM이 최종 답변을 생성합니다.</li>
+</ul>
+<p><a></a></p>
+<h2>C. Data Loader &amp; Text Splitter 🛠️</h2>
+<ul>
+<li><strong>Document Loader:</strong> .txt, .pdf, .docx, .csv 등 형식이 제각각인 파일들에서 텍스트와 메타데이터(페이지 번호 등 부가 정보)를 뽑아내어 일관된 <code>Document</code> 객체 형태로 만들어주는 도구입니다.</li>
+<li><strong>LangChain Community:</strong> 다양한 로더들을 직접 구현할 필요 없이 통일된 파이썬 문법으로 쉽게 사용할 수 있도록 도와주는 SDK 모음입니다. <code>TextLoader</code>, <code>PyPDFLoader</code>, <code>CSVLoader</code> 등을 제공합니다.</li>
+<li><strong>Text Splitter:</strong> 로더가 읽어온 문서를 쪼개는 도구입니다. 대표적으로 <code>RecursiveCharacterTextSplitter</code>는 문단(엔터 두 번) ➔ 줄바꿈 ➔ 문장 끝 ➔ 공백 순서로 우선순위를 두어, 최대한 문맥이 깨지지 않게 영리하게 텍스트를 분할합니다.</li>
+</ul>
+<p><a></a></p>
+<h2>D. 고급 RAG 기술 (Improving Retrieval) 🚀</h2>
+<p>기본적인 벡터 검색은 '의미' 기반이라 뉘앙스를 파악하는 데는 좋지만, <strong>정확한 키워드나 부품 번호, 고유 명사 매칭에는 취약</strong>합니다.</p>
+<ul>
+<li><strong>BM25 검색 알고리즘:</strong> 단어가 문서에 얼마나 자주 등장하는지(<code>TF</code>), 그 단어가 전체 문서들 사이에서 얼마나 희귀한 핵심어인지(<code>IDF</code>), 그리고 문서의 길이까지 모두 계산하여 <strong>키워드가 정확히 일치하는 문서</strong>를 찾는 전통적이고 강력한 검색 방식입니다.</li>
+<li><strong>Tokenizing (토큰화):</strong> BM25 검색 등을 위해 문장을 가장 작은 덩어리(토큰)로 쪼개는 작업입니다.</li>
+<li>OpenAI 모델들은 자체 공식 라이브러리인 <code>tiktoken</code>을 사용합니다.</li>
+<li>한국어는 조사와 어미가 다양해(예: 먹었어요, 먹었다) 처리가 까다로우므로, <code>kiwipiepy</code> 같은 형태소 분석기를 사용하여 명사나 동사 위주로 토큰을 추출하면 검색 품질이 훨씬 좋아집니다.</li>
+<li><strong>Hybrid Search (하이브리드 검색):</strong> 의미 기반의 <code>Vector Search</code>와 정확한 키워드 기반의 <code>BM25 검색</code>을 동시에 진행한 뒤, 두 결과를 병합하여 상호 단점을 보완하는 최고 성능의 검색 기법입니다.</li>
+</ul>
+<p><a></a></p>
+<h1>2. 실습</h1>
+<p><a></a></p>
+<h2>A. 환경설정</h2>
+<p><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/01_A-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95.png"><img src="//home/runner/work/notion-to-github/notion-to-github/pages-site/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/01_A-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95.png" alt="A. 환경설정"></a></p>
+
+<p><a></a></p>
+<h2>B. OpenAI API Client 구성</h2>
+<p><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/02_B-OpenAI-API-Client-%EA%B5%AC%EC%84%B1.png"><img src="//home/runner/work/notion-to-github/notion-to-github/pages-site/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/02_B-OpenAI-API-Client-%EA%B5%AC%EC%84%B1.png" alt="B. OpenAI API Client 구성"></a></p>
+
+<p><a></a></p>
+<h2>C. Long term Context 방식</h2>
+<p><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/03_C-Long-term-Context-%EB%B0%A9%EC%8B%9D.png"><img src="//home/runner/work/notion-to-github/notion-to-github/pages-site/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/03_C-Long-term-Context-%EB%B0%A9%EC%8B%9D.png" alt="C. Long term Context 방식"></a></p>
+
+<p><a></a></p>
+<h2>D. 문서를 전달 후 질문에 답변</h2>
+<p><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/04_D-%EB%AC%B8%EC%84%9C%EB%A5%BC-%EC%A0%84%EB%8B%AC-%ED%9B%84-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8B%B5%EB%B3%80.png"><img src="//home/runner/work/notion-to-github/notion-to-github/pages-site/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/04_D-%EB%AC%B8%EC%84%9C%EB%A5%BC-%EC%A0%84%EB%8B%AC-%ED%9B%84-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8B%B5%EB%B3%80.png" alt="D. 문서를 전달 후 질문에 답변"></a></p>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>

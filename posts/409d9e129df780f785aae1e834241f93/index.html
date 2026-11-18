@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="- 📚 1주차 Linux (2026.10.12 Mon 2026.10.14 Wed) - 📕 C. Linux Shell Script, Network (2026.10.14 Wed) - 📃 a. Shell Script (쉘 스크립트)">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/409d9e129df780f785aae1e834241f93/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="Linux : 리눅스 기초  3일차 (D+3) | S급 로봇 연구소">
+  <meta property="og:description" content="- 📚 1주차 Linux (2026.10.12 Mon 2026.10.14 Wed) - 📕 C. Linux Shell Script, Network (2026.10.14 Wed) - 📃 a. Shell Script (쉘 스크립트)">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/409d9e129df780f785aae1e834241f93/">
+  <meta property="article:published_time" content="2026-10-14">
+  <title>Linux : 리눅스 기초  3일차 (D+3) | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/sss-robotics-logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">Linux : 리눅스 기초  3일차 (D+3)</h1>
+      <p class="article-path" id="article-path">2026-10-14 · 리눅스 | Shell Script, Network</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-10-14</li>
+<li><strong>간단메모 :</strong> 리눅스 | Shell Script, Network</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/Linux-3-D-3-409d9e129df780f785aae1e834241f93">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><a href="#notion-heading-40ad9e129df780468cfbd1b65a7259dc">📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed)</a></li>
+<li><a href="#notion-heading-40ad9e129df780f7a830d0265e37a4ec">📕 C. Linux Shell Script, Network (2026.10.14 Wed)</a><ul>
+<li><a href="#notion-heading-40ad9e129df7801c8c2cd21a23269f9e">📃 a. Shell Script (쉘 스크립트)</a></li>
+<li><a href="#notion-heading-40ad9e129df78066ac5ad1fba7c38522">📃 b. Variable (변수)</a></li>
+<li><a href="#notion-heading-40ad9e129df7804b8d88dfea692767b0">📃 c. Conditional (조건문)</a></li>
+<li><a href="#notion-heading-40ad9e129df780979e93f26e2ff89e1d">📃 d. Loop (반복문)</a></li>
+<li><a href="#notion-heading-40ad9e129df78076ba9bc2b34349e070">📃 e. Network (네트워크)</a></li>
+<li><a href="#notion-heading-40ad9e129df7809aa6d3f2523f601c46">📃 f. CRUD (Create, Read, Update, Delete)</a></li>
+<li><a href="#notion-heading-40ad9e129df78094a41af61f1df3406e">📃 g. Automation (자동화)</a></li>
+<li><a href="#notion-heading-40ad9e129df7807782fece89320be079">💡 핵심 요약</a></li>
+</ul>
+</li>
+</ul>
+<p><a></a></p>
+<h1>📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed)</h1>
+<p><strong>Total : 3 days</strong></p>
+<p><a></a></p>
+<h2>📕 C. Linux Shell Script, Network (2026.10.14 Wed)</h2>
+<p><a></a></p>
+<h3>📃 a. Shell Script (쉘 스크립트)</h3>
+<ul>
+<li><strong>Shell</strong> : 사용자가 입력한 명령어를 해석하고 실행하는 프로그램</li>
+<li><strong>Shell Script</strong> : 여러 명령어를 파일에 작성하여 순서대로 실행하는 스크립트</li>
+<li>반복 작업을 자동화하고 시스템 관리에 활용</li>
+</ul>
+<pre><code class="language-text">#!/bin/bash
+echo &quot;Hello, Linux!&quot;
+pwd
+ls
+</code></pre>
+<ul>
+<li><code>#!/bin/bash</code> : Bash로 스크립트를 실행하도록 지정</li>
+<li><code>echo</code> : 문자열이나 값을 출력</li>
+</ul>
+<p><strong>실행 방법</strong></p>
+<pre><code class="language-text">chmod +x script.sh
+./script.sh
+</code></pre>
+<p><a></a></p>
+<h3>📃 b. Variable (변수)</h3>
+<ul>
+<li><strong>변수</strong> : 데이터나 값을 저장하는 이름</li>
+<li>Bash에서는 <code>변수명=값</code> 형태로 선언하며, <code>=</code> 앞뒤에 공백을 넣지 않음</li>
+<li><code>$변수명</code> 또는 <code>${변수명}</code>으로 값을 사용</li>
+</ul>
+<pre><code class="language-text">name=&quot;Robot&quot;
+echo &quot;$name&quot;
+</code></pre>
+<ul>
+<li><code>name="Robot"</code> : 변수에 값 저장</li>
+<li><code>echo "$name"</code> : 변수 값 출력</li>
+<li><code>$?</code> : 직전 명령어의 종료 상태 확인 (<code>0</code>은 일반적으로 성공)</li>
+</ul>
+<p><a></a></p>
+<h3>📃 c. Conditional (조건문)</h3>
+<ul>
+<li><strong>조건문</strong> : 조건에 따라 서로 다른 명령어를 실행하는 구조</li>
+<li>Bash에서는 <code>if</code>, <code>elif</code>, <code>else</code> 사용</li>
+</ul>
+<pre><code class="language-text">if [ &quot;$1&quot; -gt 10 ]; then
+    echo &quot;10보다 큽니다.&quot;
+else
+    echo &quot;10 이하입니다.&quot;
+fi
+</code></pre>
+<ul>
+<li><code>$1</code> : 스크립트 실행 시 전달한 첫 번째 인자</li>
+<li><code>gt</code> : 숫자가 크다는 의미</li>
+<li><code>fi</code> : <code>if</code> 문 종료</li>
+</ul>
+<p><a></a></p>
+<h3>📃 d. Loop (반복문)</h3>
+<ul>
+<li><strong>반복문</strong> : 같은 작업을 여러 번 실행하는 구조</li>
+<li><code>for</code> : 정해진 대상이나 범위를 반복</li>
+<li><code>while</code> : 조건이 참인 동안 반복</li>
+</ul>
+<pre><code class="language-text">for i in 1 2 3; do
+    echo &quot;$i&quot;
+done
+</code></pre>
+<pre><code class="language-text">count=1
+while [ &quot;$count&quot; -le 3 ]; do
+    echo &quot;$count&quot;
+    count=$((count + 1))
+done
+</code></pre>
+<p><a></a></p>
+<h3>📃 e. Network (네트워크)</h3>
+<ul>
+<li><strong>Network</strong> : 컴퓨터와 장치가 데이터를 주고받는 연결 구조</li>
+<li><strong>IP Address</strong> : 네트워크에서 장치를 식별하는 주소</li>
+<li><strong>Port</strong> : 장치 내에서 통신 대상 프로그램을 구분하는 번호</li>
+<li><strong>DNS</strong> : 도메인 이름을 IP 주소로 변환하는 시스템</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ip addr</code></td>
+<td>네트워크 인터페이스 및 IP 확인</td>
+</tr>
+<tr>
+<td><code>ping 주소</code></td>
+<td>네트워크 연결 확인</td>
+</tr>
+<tr>
+<td><code>curl 주소</code></td>
+<td>서버에 요청을 보내 응답 확인</td>
+</tr>
+<tr>
+<td><code>ss -tuln</code></td>
+<td>열려 있는 TCP/UDP 포트 확인</td>
+</tr>
+<tr>
+<td><code>hostname</code></td>
+<td>컴퓨터 이름 확인</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text">ip addr
+ping -c 4 google.com
+curl -I https://www.google.com
+</code></pre>
+<p><a></a></p>
+<h3>📃 f. CRUD (Create, Read, Update, Delete)</h3>
+<ul>
+<li><strong>CRUD</strong> : 데이터를 생성·조회·수정·삭제하는 기본 작업</li>
+<li>파일 관리, 데이터베이스, API 등에서 널리 사용되는 개념</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>작업</th>
+<th>의미</th>
+<th>Linux 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td>생성</td>
+<td><code>touch file.txt</code></td>
+</tr>
+<tr>
+<td>Read</td>
+<td>조회</td>
+<td><code>cat file.txt</code></td>
+</tr>
+<tr>
+<td>Update</td>
+<td>수정</td>
+<td><code>nano file.txt</code></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>삭제</td>
+<td><code>rm file.txt</code></td>
+</tr>
+</tbody>
+</table>
+<p>※ CRUD의 일반적인 약자는 <strong>Create, Read, Update, Delete</strong>입니다. 강의 목차의 <code>Undo</code>는 일반적으로 <code>Update</code>를 의미하는 것으로 보입니다.</p>
+<p><a></a></p>
+<h3>📃 g. Automation (자동화)</h3>
+<ul>
+<li><strong>Automation</strong> : 반복적인 작업을 자동으로 실행하도록 구성하는 것</li>
+<li>Shell Script와 반복문을 활용해 여러 명령어를 한 번에 실행 가능</li>
+<li><code>cron</code> : 특정 시간이나 주기에 맞춰 작업을 실행하는 스케줄러</li>
+</ul>
+<pre><code class="language-text">#!/bin/bash
+echo &quot;작업 시작: $(date)&quot;
+mkdir -p logs
+echo &quot;작업 완료&quot;
+</code></pre>
+<ul>
+<li><code>$(date)</code> : 현재 날짜와 시간을 명령어 결과로 삽입</li>
+<li><code>mkdir -p logs</code> : <code>logs</code> 폴더가 없으면 생성</li>
+</ul>
+<p><strong>💡 활용 예시</strong></p>
+<ul>
+<li>로그 파일 정리</li>
+<li>시스템 상태 점검</li>
+<li>파일 백업</li>
+<li>개발 환경 초기 설정</li>
+</ul>
+<hr>
+<p><a></a></p>
+<h3>💡 핵심 요약</h3>
+<ul>
+<li><strong>Shell Script</strong> : 여러 Linux 명령어를 하나의 파일로 실행</li>
+<li><strong>Variable</strong> : 데이터 저장 및 재사용</li>
+<li><strong>Conditional &amp; Loop</strong> : 조건에 따른 실행과 반복 작업 구현</li>
+<li><strong>Network</strong> : IP, 포트, DNS 및 연결 상태 이해</li>
+<li><strong>CRUD</strong> : 데이터 생성·조회·수정·삭제</li>
+<li><strong>Automation</strong> : 스크립트와 스케줄러를 활용한 반복 작업 자동화</li>
+</ul>
+<p><strong>🎯 학습 목표:</strong> Shell Script로 변수·조건문·반복문을 활용하고, 기본적인 네트워크 상태를 확인하며, 반복 작업을 자동화할 수 있다.</p>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>

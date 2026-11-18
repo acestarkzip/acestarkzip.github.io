@@ -22,10 +22,12 @@
 
 ## Github pages 변경된 내용
 
-[![Github pages 변경된 내용](./2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/01_Github-pages-%EB%B3%80%EA%B2%BD%EB%90%9C-%EB%82%B4%EC%9A%A9.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/01_Github-pages-%EB%B3%80%EA%B2%BD%EB%90%9C-%EB%82%B4%EC%9A%A9.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/01_Github-pages-%EB%B3%80%EA%B2%BD%EB%90%9C-%EB%82%B4%EC%9A%A9.png"><img src="./2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/01_Github-pages-%EB%B3%80%EA%B2%BD%EB%90%9C-%EB%82%B4%EC%9A%A9.png" alt="Github pages 변경된 내용" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-412d9e129df7806bb796e5ea84956aec"></a>
 
 ## Youtube 변경 된 내용
 
-[![Youtube 변경 된 내용](./2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/02_Youtube-%EB%B3%80%EA%B2%BD-%EB%90%9C-%EB%82%B4%EC%9A%A9.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/02_Youtube-%EB%B3%80%EA%B2%BD-%EB%90%9C-%EB%82%B4%EC%9A%A9.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/02_Youtube-%EB%B3%80%EA%B2%BD-%EB%90%9C-%EB%82%B4%EC%9A%A9.png"><img src="./2026-11-08_Self-Taught_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EA%B0%9C%EC%84%A0_%28%EB%A9%94%EB%AA%A8_%EC%B0%B8%EA%B3%A0%29_assets/02_Youtube-%EB%B3%80%EA%B2%BD-%EB%90%9C-%EB%82%B4%EC%9A%A9.png" alt="Youtube 변경 된 내용" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>

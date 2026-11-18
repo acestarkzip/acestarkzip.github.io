@@ -185,3 +185,7 @@
 <a name="notion-heading-40ad9e129df780988cfcca532526b214"></a>
 
 ### 📃 f. Transformer (Self Attention, Multi-head Attention, BERT)
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>

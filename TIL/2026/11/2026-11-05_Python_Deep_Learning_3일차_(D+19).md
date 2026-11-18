@@ -29,7 +29,7 @@
 
 ### 📃 a. Convolutional Neural Network (합성곱 신경망)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>핵심 개념:</strong> Fully Connected Layer(다층 퍼셉트론)의 한계인 '공간적 정보(Spatial Information) 손실'을 해결하기 위해 등장한 아키텍처. 2D 형태의 입력값을 그대로 유지하면서 공간적/지역적 특징을 추출합니다.</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>핵심 개념:</strong> Fully Connected Layer(다층 퍼셉트론)의 한계인 '공간적 정보(Spatial Information) 손실'을 해결하기 위해 등장한 아키텍처. 2D 형태의 입력값을 그대로 유지하면서 공간적/지역적 특징을 추출합니다.</p></blockquote>
 
 - <strong>왜 CNN을 사용하는가?</strong>
   - 일반적인 DNN은 2차원 이미지를 1차원으로 펴서(Flatten) 입력해야 하므로, 인접한 픽셀 간의 공간적 관계(상하좌우 연관성)가 완전히 무시됩니다. CNN은 필터(Filter)를 이용해 이 공간적 특징을 보존합니다.
@@ -51,7 +51,7 @@
 
 ### 📃 b. LeNet-5 (CNN의 시초)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🏛️ <strong>배경:</strong> 1998년 Yann LeCun이 제안. 우편번호(수표 숫자) 인식을 위해 개발된 모델로, 현대 CNN 아키텍처의 근간(Conv-Pool-FC)을 제시했습니다.</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🏛️ <strong>배경:</strong> 1998년 Yann LeCun이 제안. 우편번호(수표 숫자) 인식을 위해 개발된 모델로, 현대 CNN 아키텍처의 근간(Conv-Pool-FC)을 제시했습니다.</p></blockquote>
 
 - <strong>네트워크 구조 (입력: 32x32 흑백 이미지)</strong>
   1. <strong>C1 (Conv Layer):</strong> 5x5 필터 6개 사용 ➔ 28x28x6 Feature Map 생성
@@ -69,7 +69,7 @@
 
 ### 📃 c. AlexNet (ImageNet 우승 모델)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🏆 <strong>배경:</strong> 2012년 ILSVRC 대회에서 2위와 압도적인 성능 차이(오차율 15.3% vs 26.2%)로 우승하며 딥러닝의 시대를 연 기념비적인 모델입니다.</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🏆 <strong>배경:</strong> 2012년 ILSVRC 대회에서 2위와 압도적인 성능 차이(오차율 15.3% vs 26.2%)로 우승하며 딥러닝의 시대를 연 기념비적인 모델입니다.</p></blockquote>
 
 - <strong>네트워크 구조 (입력: 227x227 RGB 이미지)</strong>
   - 5개의 Convolutional Layer + 3개의 Max Pooling Layer + 3개의 Fully Connected Layer.
@@ -87,7 +87,7 @@
 
 ### 📃 d. Project (Pokemon CNN)
 
-<blockquote class="notion-quote" style="margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🎯 <strong>프로젝트 목표:</strong> 포켓몬스터 이미지 데이터를 입력받아 어떤 포켓몬인지 분류(Multi-class Classification)하는 커스텀 CNN 모델 구현</p></blockquote>
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">🎯 <strong>프로젝트 목표:</strong> 포켓몬스터 이미지 데이터를 입력받아 어떤 포켓몬인지 분류(Multi-class Classification)하는 커스텀 CNN 모델 구현</p></blockquote>
 
 <strong>✅ PyTorch 기반 프로젝트 구현 파이프라인</strong>
 
@@ -173,3 +173,5 @@ for epoch in range(epochs):
 
 - <strong>4. Evaluation (평가)</strong>
   - `torch.no_grad()` 상태에서 Validation/Test 데이터셋으로 모델의 예측 정확도(Accuracy)를 측정하고, 오답 이미지를 분석하여 모델을 개선합니다.
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="- 📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu 2026.10.20 Tue) - 📕 B. Iterables (2026.10.16 Fri) - 📃 a. List (리스트)">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/409d9e129df78029ae58eb88b17aedcb/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="Python : 파이썬 프로그래밍 기초 문법 2일차 (D+5) | S급 로봇 연구소">
+  <meta property="og:description" content="- 📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu 2026.10.20 Tue) - 📕 B. Iterables (2026.10.16 Fri) - 📃 a. List (리스트)">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/409d9e129df78029ae58eb88b17aedcb/">
+  <meta property="article:published_time" content="2026-10-16">
+  <title>Python : 파이썬 프로그래밍 기초 문법 2일차 (D+5) | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/sss-robotics-logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">Python : 파이썬 프로그래밍 기초 문법 2일차 (D+5)</h1>
+      <p class="article-path" id="article-path">2026-10-16 · 파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-10-16</li>
+<li><strong>간단메모 :</strong> 파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/Python-2-D-5-409d9e129df78029ae58eb88b17aedcb">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><a href="#notion-heading-40ad9e129df780858ab4e3ab5541d6da">📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu ~ 2026.10.20 Tue)</a></li>
+<li><a href="#notion-heading-40ad9e129df78063880adde7887c1b4f">📕 B. Iterables (2026.10.16 Fri)</a><ul>
+<li><a href="#notion-heading-40ad9e129df780a6bc00d64509dd04c1">📃 a. List (리스트)</a></li>
+<li><a href="#notion-heading-40ad9e129df780099fe9dc09f2ff6c78">📃 b. Nested Loop (중첩 반복문)</a></li>
+<li><a href="#notion-heading-40ad9e129df7801f96a8cf3c7874a7a9">📃 c. List Comprehension (리스트 컴프리헨션)</a></li>
+<li><a href="#notion-heading-40ad9e129df780b18b47e6633acc53f3">📃 d. String (문자열)</a></li>
+<li><a href="#notion-heading-40ad9e129df780b4ae37d0f048474f90">📃 e. Tuple, Dictionary, Set (튜플, 딕셔너리, 세트)</a></li>
+<li><a href="#notion-heading-40ad9e129df780e2b777e97cef60814b">💡 핵심 요약</a></li>
+</ul>
+</li>
+</ul>
+<p><a></a></p>
+<h1>📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu ~ 2026.10.20 Tue)</h1>
+<p><strong>Total : 4 days</strong></p>
+<p><a></a></p>
+<h2>📕 B. Iterables (2026.10.16 Fri)</h2>
+<p><a></a></p>
+<h3>📃 a. List (리스트)</h3>
+<ul>
+<li><strong>List</strong> : 여러 데이터를 순서대로 저장하는 자료형</li>
+<li>순서가 있고, 수정·추가·삭제 가능 (<strong>Mutable</strong>)</li>
+<li>인덱스는 <code>0</code>부터 시작</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>문법</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list[0]</code></td>
+<td>첫 번째 요소 조회</td>
+</tr>
+<tr>
+<td><code>list.append(x)</code></td>
+<td>요소 추가</td>
+</tr>
+<tr>
+<td><code>list.remove(x)</code></td>
+<td>특정 값 삭제</td>
+</tr>
+<tr>
+<td><code>list.pop()</code></td>
+<td>마지막 요소 삭제 및 반환</td>
+</tr>
+<tr>
+<td><code>len(list)</code></td>
+<td>요소 개수 확인</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text">numbers = [10, 20, 30]
+numbers.append(40)
+print(numbers[0])  # 10
+print(numbers)     # [10, 20, 30, 40]
+</code></pre>
+<p><a></a></p>
+<h3>📃 b. Nested Loop (중첩 반복문)</h3>
+<ul>
+<li><strong>Nested Loop</strong> : 반복문 안에 또 다른 반복문을 작성하는 구조</li>
+<li>바깥쪽 반복이 한 번 실행될 때 안쪽 반복이 모두 실행됨</li>
+<li>표, 좌표, 조합 등 여러 단계의 반복 작업에 활용</li>
+</ul>
+<pre><code class="language-text">for i in range(2):
+    for j in range(3):
+        print(i, j)
+</code></pre>
+<p><strong>출력:</strong> <code>(0,0)</code>, <code>(0,1)</code>, <code>(0,2)</code>, <code>(1,0)</code>, <code>(1,1)</code>, <code>(1,2)</code></p>
+<p><a></a></p>
+<h3>📃 c. List Comprehension (리스트 컴프리헨션)</h3>
+<ul>
+<li>반복문을 활용해 리스트를 <strong>간결하게 생성</strong>하는 문법</li>
+<li>조건을 추가해 특정 데이터만 선택 가능</li>
+</ul>
+<pre><code class="language-text">squares = [x**2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+</code></pre>
+<pre><code class="language-text">even = [x for x in range(10) if x % 2 == 0]
+print(even)  # [0, 2, 4, 6, 8]
+</code></pre>
+<p><strong>기본 구조:</strong> <code>[표현식 for 변수 in 반복가능한객체 if 조건]</code></p>
+<p><a></a></p>
+<h3>📃 d. String (문자열)</h3>
+<ul>
+<li><strong>String (</strong><code>str</code><strong>)</strong> : 문자들의 연속된 데이터</li>
+<li>순서가 있으며, 인덱싱과 슬라이싱 가능</li>
+<li>문자열은 생성 후 개별 문자를 직접 수정할 수 없음 (<strong>Immutable</strong>)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>문법</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text[0]</code></td>
+<td>첫 번째 문자</td>
+</tr>
+<tr>
+<td><code>text[0:3]</code></td>
+<td>0번부터 2번까지 추출</td>
+</tr>
+<tr>
+<td><code>text.lower()</code></td>
+<td>소문자로 변환</td>
+</tr>
+<tr>
+<td><code>text.upper()</code></td>
+<td>대문자로 변환</td>
+</tr>
+<tr>
+<td><code>text.strip()</code></td>
+<td>양끝 공백 제거</td>
+</tr>
+<tr>
+<td><code>text.split()</code></td>
+<td>문자열 분리</td>
+</tr>
+<tr>
+<td><code>"-".join(list)</code></td>
+<td>문자열 연결</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text">text = &quot;Hello Python&quot;
+print(text[0])       # H
+print(text[0:5])     # Hello
+print(text.lower())  # hello python
+</code></pre>
+<p><a></a></p>
+<h3>📃 e. Tuple, Dictionary, Set (튜플, 딕셔너리, 세트)</h3>
+<table>
+<thead>
+<tr>
+<th>자료형</th>
+<th>특징</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tuple (</strong><code>tuple</code><strong>)</strong></td>
+<td>순서 있음, 수정 불가</td>
+<td><code>(10, 20, 30)</code></td>
+</tr>
+<tr>
+<td><strong>Dictionary (</strong><code>dict</code><strong>)</strong></td>
+<td>키와 값으로 데이터 저장</td>
+<td><code>{"name": "Robot", "age": 3}</code></td>
+</tr>
+<tr>
+<td><strong>Set (</strong><code>set</code><strong>)</strong></td>
+<td>중복 제거, 순서 기반 접근 불가</td>
+<td><code>{1, 2, 3}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tuple</strong></p>
+<ul>
+<li>생성 후 요소 변경 불가 (<strong>Immutable</strong>)</li>
+<li>좌표나 변경하지 않을 데이터 저장에 활용</li>
+</ul>
+<pre><code class="language-text">point = (10, 20)
+print(point[0])  # 10
+</code></pre>
+<p><strong>Dictionary</strong></p>
+<ul>
+<li><code>key: value</code> 형태로 데이터 저장</li>
+<li>키를 통해 값을 조회하고 수정 가능</li>
+</ul>
+<pre><code class="language-text">robot = {&quot;name&quot;: &quot;Robot&quot;, &quot;age&quot;: 3}
+robot[&quot;age&quot;] = 4
+print(robot[&quot;name&quot;])  # Robot
+</code></pre>
+<p><strong>Set</strong></p>
+<ul>
+<li>중복된 값을 자동으로 제거</li>
+<li>합집합(<code>|</code>), 교집합(<code>&amp;</code>), 차집합() 연산 가능</li>
+</ul>
+<pre><code class="language-text">numbers = {1, 2, 2, 3}
+print(numbers)  # {1, 2, 3}
+</code></pre>
+<hr>
+<p><a></a></p>
+<h3>💡 핵심 요약</h3>
+<ul>
+<li><strong>List</strong> : 순서가 있고 수정 가능한 데이터 목록</li>
+<li><strong>Nested Loop</strong> : 반복문 안에서 반복문 실행</li>
+<li><strong>List Comprehension</strong> : 짧은 문법으로 리스트 생성</li>
+<li><strong>String</strong> : 문자열 처리와 인덱싱·슬라이싱</li>
+<li><strong>Tuple</strong> : 순서가 있고 수정할 수 없는 데이터</li>
+<li><strong>Dictionary</strong> : 키와 값으로 데이터 관리</li>
+<li><strong>Set</strong> : 중복 제거 및 집합 연산</li>
+</ul>
+<p><strong>🎯 학습 목표:</strong> Python의 주요 자료형과 반복 가능한 객체(Iterable)를 이해하고, 데이터를 효율적으로 저장·조회·처리할 수 있다.</p>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="- 📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu 2026.10.20 Tue) - 📕 A. Python Intro (2026.10.15 Thu) - 📃 a. Python (파이썬 소개 및 IDE 설치)">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/409d9e129df7808c909be8f809f9370e/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="Python : 파이썬 프로그래밍 기초 문법  1일차 (D+4) | S급 로봇 연구소">
+  <meta property="og:description" content="- 📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu 2026.10.20 Tue) - 📕 A. Python Intro (2026.10.15 Thu) - 📃 a. Python (파이썬 소개 및 IDE 설치)">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/409d9e129df7808c909be8f809f9370e/">
+  <meta property="article:published_time" content="2026-10-15">
+  <title>Python : 파이썬 프로그래밍 기초 문법  1일차 (D+4) | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/sss-robotics-logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">Python : 파이썬 프로그래밍 기초 문법  1일차 (D+4)</h1>
+      <p class="article-path" id="article-path">2026-10-15 · 파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-10-15</li>
+<li><strong>간단메모 :</strong> 파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/Python-1-D-4-409d9e129df7808c909be8f809f9370e">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<ul>
+<li><a href="#notion-heading-40ad9e129df7800e949ccb442a4b2334">📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu ~ 2026.10.20 Tue)</a></li>
+<li><a href="#notion-heading-40ad9e129df780c0b839f374fba54ac3">📕 A. Python Intro (2026.10.15 Thu)</a><ul>
+<li><a href="#notion-heading-40ad9e129df780babd4ce8e132fa7ba5">📃 a. Python (파이썬 소개 및 IDE 설치)</a></li>
+<li><a href="#notion-heading-40ad9e129df780719d90cae3319930f3">📃 b. Visual Studio Code (VS Code 설치와 실행법)</a></li>
+<li><a href="#notion-heading-40ad9e129df780489fd7e3a5ab401375">📃 c. Input and Output (입력과 출력, 변수와 데이터 타입)</a></li>
+<li><a href="#notion-heading-40ad9e129df780389657e1facfc7cbb6">📃 d. Operators (산술, 비교, 논리, 멤버십 연산자)</a></li>
+<li><a href="#notion-heading-40ad9e129df780f5a1f1d52db5f72478">📃 e. Conditionals (조건문)</a></li>
+<li><a href="#notion-heading-40ad9e129df78001bdf5d983c6a56849">📃 f. Loops (반복문)</a></li>
+<li><a href="#notion-heading-40ad9e129df780e69d05cb4b09e5ee5c">💡 핵심 요약</a></li>
+</ul>
+</li>
+</ul>
+<p><a></a></p>
+<h1>📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu ~ 2026.10.20 Tue)</h1>
+<p><strong>Total : 4 days</strong></p>
+<p><a></a></p>
+<h2>📕 A. Python Intro (2026.10.15 Thu)</h2>
+<p><a></a></p>
+<h3>📃 a. Python (파이썬 소개 및 IDE 설치)</h3>
+<ul>
+<li><strong>Python</strong> : 문법이 간결하고 AI, 데이터 분석, 자동화 등에 널리 사용되는 프로그래밍 언어</li>
+<li><strong>IDE</strong> : 코드 작성, 실행, 디버깅 등을 지원하는 개발 환경</li>
+<li><strong>주요 활용</strong> : AI·머신러닝, 데이터 분석, 로봇 제어, 업무 자동화</li>
+</ul>
+<p><a></a></p>
+<h3>📃 b. Visual Studio Code (VS Code 설치와 실행법)</h3>
+<ul>
+<li><strong>VS Code</strong> : 확장 기능을 통해 Python 개발 환경을 구성할 수 있는 코드 편집기</li>
+<li><strong>Python Extension</strong> : Python 코드 실행 및 디버깅 지원</li>
+<li><strong>터미널</strong> : 명령어를 입력해 Python 프로그램 실행</li>
+</ul>
+<pre><code class="language-text">python --version
+python main.py
+</code></pre>
+<p><a></a></p>
+<h3>📃 c. Input and Output (입력과 출력, 변수와 데이터 타입)</h3>
+<ul>
+<li><strong>변수(Variable)</strong> : 데이터를 저장하는 이름</li>
+<li><strong>입력(Input)</strong> : <code>input()</code>으로 사용자 입력 받기</li>
+<li><strong>출력(Output)</strong> : <code>print()</code>로 결과 출력</li>
+<li><strong>데이터 타입(Data Type)</strong> : 데이터의 종류</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>타입</th>
+<th>의미</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>정수</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>실수</td>
+<td><code>3.14</code></td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td>문자열</td>
+<td><code>"Robot"</code></td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>참·거짓</td>
+<td><code>True</code>, <code>False</code></td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td>여러 값을 저장하는 목록</td>
+<td><code>[1, 2, 3]</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text">name = input(&quot;이름을 입력하세요: &quot;)
+age = int(input(&quot;나이를 입력하세요: &quot;))
+
+print(name, age)
+print(type(age))
+</code></pre>
+<p>※ <code>input()</code>은 기본적으로 문자열(<code>str</code>)을 반환하므로 숫자로 사용하려면 <code>int()</code> 또는 <code>float()</code>으로 변환해야 합니다.</p>
+<p><a></a></p>
+<h3>📃 d. Operators (산술, 비교, 논리, 멤버십 연산자)</h3>
+<ul>
+<li><strong>산술 연산자</strong> : 수학적 계산</li>
+<li><strong>비교 연산자</strong> : 두 값의 크기나 동일 여부 비교</li>
+<li><strong>논리 연산자</strong> : 여러 조건을 조합</li>
+<li><strong>멤버십 연산자</strong> : 특정 값이 데이터에 포함되어 있는지 확인</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>연산자</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>산술</td>
+<td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, <code>**</code></td>
+<td><code>10 % 3 → 1</code></td>
+</tr>
+<tr>
+<td>비교</td>
+<td><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></td>
+<td><code>10 &gt; 5 → True</code></td>
+</tr>
+<tr>
+<td>논리</td>
+<td><code>and</code>, <code>or</code>, <code>not</code></td>
+<td><code>True and False → False</code></td>
+</tr>
+<tr>
+<td>멤버십</td>
+<td><code>in</code>, <code>not in</code></td>
+<td><code>"a" in "cat" → True</code></td>
+</tr>
+</tbody>
+</table>
+<p><a></a></p>
+<h3>📃 e. Conditionals (조건문)</h3>
+<ul>
+<li><strong>조건문</strong> : 조건의 참·거짓에 따라 실행할 코드를 결정</li>
+<li><code>if</code> : 조건이 참일 때 실행</li>
+<li><code>elif</code> : 다른 조건 추가</li>
+<li><code>else</code> : 앞선 조건이 모두 거짓일 때 실행</li>
+<li>Python은 <strong>들여쓰기(Indentation)</strong> 로 코드 블록을 구분</li>
+</ul>
+<pre><code class="language-text">score = 85
+
+if score &gt;= 90:
+    print(&quot;A&quot;)
+elif score &gt;= 80:
+    print(&quot;B&quot;)
+else:
+    print(&quot;C&quot;)
+</code></pre>
+<p><a></a></p>
+<h3>📃 f. Loops (반복문)</h3>
+<ul>
+<li><strong>반복문</strong> : 동일한 작업을 여러 번 실행</li>
+<li><code>for</code> : 시퀀스의 항목을 순서대로 반복</li>
+<li><code>while</code> : 조건이 참인 동안 반복</li>
+<li><code>range()</code> : 숫자 범위를 생성</li>
+</ul>
+<pre><code class="language-text">for i in range(3):
+    print(i)  # 0, 1, 2
+</code></pre>
+<pre><code class="language-text">count = 0
+
+while count &lt; 3:
+    print(count)
+    count += 1
+</code></pre>
+<ul>
+<li><code>break</code> : 반복문 종료</li>
+<li><code>continue</code> : 현재 반복을 건너뛰고 다음 반복으로 이동</li>
+</ul>
+<hr>
+<p><a></a></p>
+<h3>💡 핵심 요약</h3>
+<ul>
+<li><strong>Python</strong> : AI·데이터 분석·로봇 개발에 활용되는 프로그래밍 언어</li>
+<li><strong>VS Code</strong> : Python 코드 작성 및 실행 환경</li>
+<li><strong>Input / Output &amp; Data Types</strong> : 데이터 입력·출력과 자료형 이해</li>
+<li><strong>Operators</strong> : 계산, 비교, 논리 판단 및 포함 여부 확인</li>
+<li><strong>Conditionals</strong> : 조건에 따라 코드 실행</li>
+<li><strong>Loops</strong> : 반복 작업 자동화</li>
+</ul>
+<p><strong>🎯 학습 목표:</strong> Python의 기본 자료형과 연산자를 이해하고, 조건문과 반복문을 활용해 간단한 프로그램을 작성할 수 있다.</p>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>

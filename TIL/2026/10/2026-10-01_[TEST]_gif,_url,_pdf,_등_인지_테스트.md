@@ -15,7 +15,7 @@
 실습한 코드나 예제가 있다면 여기에 추가하세요.
 
 
-[![3. 코드/예제](./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/01_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.gif)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/01_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.gif)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/01_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.gif"><img src="./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/01_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.gif" alt="3. 코드/예제" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 👆 이건 로봇 핸드 움직임 표현입니다.
 
@@ -23,7 +23,7 @@
 
 - 노션의 URL Bookmark 기능을 통해 ‘샘플 이미지’를 볼 수 있고, 누르면 해당 링크로 이동합니다.  
 
-<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;">샘플입니다. 참고 부탁 드립니다.</div></div></div>
+<div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span aria-hidden="true" style="flex:0 0 auto;line-height:1.55;">💡</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><span style="background-color:rgba(160,160,155,.20);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone">샘플입니다. 참고 부탁 드립니다.</span></div></div></div>
 
 - 노션의 Callout 기능을 통해 강조합니다.  
 
@@ -31,12 +31,12 @@
 
 - 노션의 Embed PDF 기능을 통해, PDF를 이 페이지에서 읽어볼 수 있습니다.    
 
-[![3. 코드/예제](./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/03_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/03_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/03_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg"><img src="./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/03_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg" alt="3. 코드/예제" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 👆 이건 로봇 모임입니다.
 
 
-[![3. 코드/예제](./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/04_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/04_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/04_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg"><img src="./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/04_%EC%BD%94%EB%93%9C%EC%98%88%EC%A0%9C.jpg" alt="3. 코드/예제" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 👆 이건 로봇 경쟁입니다.
 
@@ -44,17 +44,25 @@
 
 - 노션의 사진 중첩 기능 덕분에 두 개를 연속으로 볼 수 있습니다.
 
-<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;"><a href="https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90">샘플입니다. 참고 부탁 드립니다.</a></div></div></div>
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
 
-<div class="notion-callout" style="display:block;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;"><div style="display:flex;align-items:flex-start;gap:.65rem;"><span aria-hidden="true" style="flex:0 0 auto;">💡</span><div style="min-width:0;flex:1;"><a href="https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90">https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-기본-개념</a></div></div></div>
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span aria-hidden="true" style="flex:0 0 auto;line-height:1.55;">💡</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><a href="https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90"><span style="background-color:rgba(160,160,155,.20);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone">샘플입니다. 참고 부탁 드립니다.</span></a></div></div></div>
+
+<div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span aria-hidden="true" style="flex:0 0 auto;line-height:1.55;">💡</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><a href="https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90"><span style="background-color:rgba(160,160,155,.20);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone">https://velog.io/@jiiina/YOLO-Object-Detection-YOLO-기본-개념</span></a></div></div></div>
 
 ### 4. 느낀 점 & 회고
 
 오늘 학습하면서 느낀 점이나 개선할 점을 작성하세요.
 
-ㅅ[셈플링 입니다. 참고
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<span style="background-color:rgba(217,115,13,.22);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone">ㅅ[셈플링 입니다. 참고
 부탁드립니다 
-감샇바니다.
+감샇바니다.</span>
 
 ```html
 <!-- 헤더 영역 -->
@@ -87,17 +95,21 @@
 
 - 참고한 문서나 링크
 
-[![5. 참고 자료](./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/05_%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/05_%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C.png)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/05_%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C.png"><img src="./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/05_%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C.png" alt="5. 참고 자료" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 👆 이 사진은 ‘로봇 강화 학습 과정’ 입니다.
 
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
 # 테스트 사진 입니다.
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
 
 ```html
 hello sir!
 ```
 
-[![테스트 사진 입니다.](./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/06_%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%82%AC%EC%A7%84-%EC%9E%85%EB%8B%88%EB%8B%A4.gif)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/06_%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%82%AC%EC%A7%84-%EC%9E%85%EB%8B%88%EB%8B%A4.gif)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/06_%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%82%AC%EC%A7%84-%EC%9E%85%EB%8B%88%EB%8B%A4.gif"><img src="./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/06_%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%82%AC%EC%A7%84-%EC%9E%85%EB%8B%88%EB%8B%A4.gif" alt="테스트 사진 입니다." style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 👆 한번 더 ‘로봇 핸드 움직임’을 보여드립니다.
 
@@ -140,6 +152,6 @@ print(f"C++ 함수 호출 결과 (10 + 20): {result}")
 
 ## 로봇 손 테스트 입니다. 
 
-[![로봇 손 테스트 입니다.](./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/07_%EB%A1%9C%EB%B4%87-%EC%86%90-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%85%EB%8B%88%EB%8B%A4.gif)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/07_%EB%A1%9C%EB%B4%87-%EC%86%90-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%85%EB%8B%88%EB%8B%A4.gif)
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/10/2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/07_%EB%A1%9C%EB%B4%87-%EC%86%90-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%85%EB%8B%88%EB%8B%A4.gif"><img src="./2026-10-01_%5BTEST%5D_gif%2C_url%2C_pdf%2C_%EB%93%B1_%EC%9D%B8%EC%A7%80_%ED%85%8C%EC%8A%A4%ED%8A%B8_assets/07_%EB%A1%9C%EB%B4%87-%EC%86%90-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%85%EB%8B%88%EB%8B%A4.gif" alt="로봇 손 테스트 입니다." style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 👆 이건 ‘찐 마지막 핸드 움직임’ 입니다.
