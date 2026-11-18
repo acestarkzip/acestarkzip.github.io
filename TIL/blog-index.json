@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-18T05:52:43.125598+00:00",
+  "generated_at": "2026-11-18T06:18:25.739484+00:00",
   "active_notion_page_count": 42,
   "matched_markdown_count": 42,
   "missing_markdown_count": 0,
@@ -11,6 +11,8 @@
     {
       "path": "TIL/2026/11/2026-11-18_C++_2일차_(D+28).md",
       "date": "2026-11-18",
+      "number": 42,
+      "created_time": "2026-11-18T05:31:00.000Z",
       "title": "C++ 2일차 (D+28)",
       "memo": "C++ | 문자열 처리와 함수·포인터를 통한 메모리 제어",
       "tags": [
@@ -29,6 +31,8 @@
     {
       "path": "TIL/2026/11/2026-11-17_C++_1일차_(D+27).md",
       "date": "2026-11-17",
+      "number": 41,
+      "created_time": "2026-11-17T00:59:00.000Z",
       "title": "C++ 1일차 (D+27)",
       "memo": "C++ | 입출력, 변수·배열, 연산자, 조건문·반복문",
       "tags": [
@@ -47,6 +51,8 @@
     {
       "path": "TIL/2026/11/2026-11-16_LLM_프로젝트_진행_5일차_(D+26).md",
       "date": "2026-11-16",
+      "number": 40,
+      "created_time": "2026-11-16T07:49:00.000Z",
       "title": "LLM 프로젝트 진행 5일차 (D+26)",
       "memo": "LLM | 최종 프로젝트 진행",
       "tags": [
@@ -65,6 +71,8 @@
     {
       "path": "TIL/2026/11/2026-11-15_NVIDIA_USD,_USDA,_USDC,_USDZ의_차이점은_무엇인가.md",
       "date": "2026-11-15",
+      "number": 39,
+      "created_time": "2026-11-15T11:51:00.000Z",
       "title": "NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?",
       "memo": "메모 | NVIDIA 기초 EP.02",
       "tags": [
@@ -79,6 +87,8 @@
     {
       "path": "TIL/2026/11/2026-11-15_NVIDIA_OpenUSD_는_무엇인가.md",
       "date": "2026-11-15",
+      "number": 38,
+      "created_time": "2026-11-15T10:52:00.000Z",
       "title": "NVIDIA OpenUSD 는 무엇인가?",
       "memo": "메모 | NVIDIA 기초 EP.01",
       "tags": [
@@ -93,6 +103,8 @@
     {
       "path": "TIL/2026/11/2026-11-14_Self-Taught_블로그_개선.md",
       "date": "2026-11-14",
+      "number": 37,
+      "created_time": "2026-11-15T01:57:00.000Z",
       "title": "Self-Taught : 블로그 개선",
       "memo": "메모 | 메인 페이지 링크 추가, Youtube 영상 업로드",
       "tags": [
@@ -107,6 +119,8 @@
     {
       "path": "TIL/2026/11/2026-11-13_LLM_RAG_4일차_(D+25).md",
       "date": "2026-11-13",
+      "number": 36,
+      "created_time": "2026-11-13T00:33:00.000Z",
       "title": "LLM RAG 4일차 (D+25)",
       "memo": "LLM | MCP",
       "tags": [
@@ -125,6 +139,8 @@
     {
       "path": "TIL/2026/11/2026-11-12_LLM_Tool&MCP_3일차_(D+24).md",
       "date": "2026-11-12",
+      "number": 35,
+      "created_time": "2026-11-12T02:46:00.000Z",
       "title": "LLM Tool&MCP 3일차 (D+24)",
       "memo": "LLM | 도구 호출, 외부 API 호출하기, MCP",
       "tags": [
@@ -143,6 +159,8 @@
     {
       "path": "TIL/2026/11/2026-11-11_LLM_Multimodal_2일차_(D+23).md",
       "date": "2026-11-11",
+      "number": 34,
+      "created_time": "2026-11-10T23:39:00.000Z",
       "title": "LLM Multimodal 2일차 (D+23)",
       "memo": "LLM | 멀티모달 프롬프트 이미지 가공",
       "tags": [
@@ -161,6 +179,8 @@
     {
       "path": "TIL/2026/11/2026-11-10_LLM_OpenAI_API_1일차_(D+22).md",
       "date": "2026-11-10",
+      "number": 33,
+      "created_time": "2026-11-10T00:02:00.000Z",
       "title": "LLM OpenAI API  1일차 (D+22)",
       "memo": "LLM | API 호출 후 반응형 챗봇 만들기 진행",
       "tags": [
@@ -179,6 +199,8 @@
     {
       "path": "TIL/2026/11/2026-11-09_Python_Deep_Learning_5일차_(D+21).md",
       "date": "2026-11-09",
+      "number": 32,
+      "created_time": "2026-11-06T01:10:00.000Z",
       "title": "Python :  Deep Learning 5일차 (D+21)",
       "memo": "딥러닝 | 자연어 처리(NLP) 기초와 트랜스포머(Transformer) 아키텍처 흐름 파악",
       "tags": [
@@ -197,6 +219,8 @@
     {
       "path": "TIL/2026/11/2026-11-08_Self-Taught_블로그_개선_(메모_참고).md",
       "date": "2026-11-08",
+      "number": 31,
+      "created_time": "2026-11-08T06:10:00.000Z",
       "title": "Self-Taught : 블로그 개선 (메모 참고)",
       "memo": "메모 | Github page 검색&태그 추가, 페이지 UI 개선, SNS 연동, 등",
       "tags": [
@@ -211,6 +235,8 @@
     {
       "path": "TIL/2026/11/2026-11-07_Self-Taught_2026_로보월드_방문_후기.md",
       "date": "2026-11-07",
+      "number": 30,
+      "created_time": "2026-11-07T09:26:00.000Z",
       "title": "Self-Taught : 2026 로보월드 방문 후기",
       "memo": "메모 | 각 업체별 인터뷰 및 앞으로의 방향",
       "tags": [
@@ -225,6 +251,8 @@
     {
       "path": "TIL/2026/11/2026-11-06_Python_Deep_Learning_4일차_(D+20).md",
       "date": "2026-11-06",
+      "number": 29,
+      "created_time": "2026-11-06T01:07:00.000Z",
       "title": "Python :  Deep Learning 4일차 (D+20)",
       "memo": "딥러닝 | 시계열 데이터용 RNN 구조와 장기 기억을 위한 LSTM/GRU",
       "tags": [
@@ -243,6 +271,8 @@
     {
       "path": "TIL/2026/11/2026-11-05_Python_Deep_Learning_3일차_(D+19).md",
       "date": "2026-11-05",
+      "number": 28,
+      "created_time": "2026-11-06T01:07:00.000Z",
       "title": "Python :  Deep Learning 3일차 (D+19)",
       "memo": "딥러닝 | 이미지 처리를 위한 CNN 구조와 주요 비전 모델 이해",
       "tags": [
@@ -261,6 +291,8 @@
     {
       "path": "TIL/2026/11/2026-11-04_Python_Deep_Learning_2일차_(D+18).md",
       "date": "2026-11-04",
+      "number": 27,
+      "created_time": "2026-11-06T06:09:00.000Z",
       "title": "Python :  Deep Learning 2일차 (D+18)",
       "memo": "딥러닝 | 이미지 처리를 위한 CNN 구조와 주요 비전 모델 이해",
       "tags": [
@@ -279,6 +311,8 @@
     {
       "path": "TIL/2026/11/2026-11-03_Python_Deep_Learning_1일차_(D+17).md",
       "date": "2026-11-03",
+      "number": 26,
+      "created_time": "2026-11-02T23:37:00.000Z",
       "title": "Python :  Deep Learning 1일차 (D+17)",
       "memo": "딥러닝 | 딥러닝 기본 원리(역전파)와 PyTorch 텐서 기초 다지기",
       "tags": [
@@ -297,6 +331,8 @@
     {
       "path": "TIL/2026/11/2026-11-02_Python_ML_프로젝트_2개_진행_(D+16).md",
       "date": "2026-11-02",
+      "number": 25,
+      "created_time": "2026-11-01T23:49:00.000Z",
       "title": "Python :  ML 프로젝트 2개 진행 (D+16)",
       "memo": "머신러닝 | 타이타닉, 뱅크 프로젝트 진행 및 Pytorch 설치",
       "tags": [
@@ -315,6 +351,8 @@
     {
       "path": "TIL/2026/11/2026-11-01_Self-Taught_블로그_개선_(메모_참고).md",
       "date": "2026-11-01",
+      "number": 24,
+      "created_time": "2026-11-01T02:42:00.000Z",
       "title": "Self-Taught : 블로그 개선 (메모 참고)",
       "memo": "메모 | Notion to Github 연동 작업 진행",
       "tags": [
@@ -327,22 +365,10 @@
       "notion_url": "https://app.notion.com/p/Self-Taught-40bd9e129df78021b9c3fc931c30a161"
     },
     {
-      "path": "TIL/2026/10/2026-10-31_Self-Taught_4주차_진행될_내용_선행학습.md",
-      "date": "2026-10-31",
-      "title": "Self-Taught : 4주차 진행될 내용 선행학습",
-      "memo": "메모 | 딥러닝 간단히 탐색",
-      "tags": [
-        {
-          "name": "자기개발",
-          "color": "orange"
-        }
-      ],
-      "notion_page_id": "40ad9e129df7803999f8fc34404d7760",
-      "notion_url": "https://app.notion.com/p/Self-Taught-4-40ad9e129df7803999f8fc34404d7760"
-    },
-    {
       "path": "TIL/2026/10/2026-10-31_Self-Taught_1주차부터_3주차까지_복습.md",
       "date": "2026-10-31",
+      "number": 23,
+      "created_time": "2026-10-31T04:29:00.000Z",
       "title": "Self-Taught : 1주차부터 3주차까지 복습",
       "memo": "메모 | 리눅스, 파이썬, 데이터분석, 머신러닝 복기",
       "tags": [
@@ -355,8 +381,26 @@
       "notion_url": "https://app.notion.com/p/Self-Taught-1-3-40ad9e129df780d6a5ecf744d584eec3"
     },
     {
+      "path": "TIL/2026/10/2026-10-31_Self-Taught_4주차_진행될_내용_선행학습.md",
+      "date": "2026-10-31",
+      "number": 22,
+      "created_time": "2026-10-31T06:36:00.000Z",
+      "title": "Self-Taught : 4주차 진행될 내용 선행학습",
+      "memo": "메모 | 딥러닝 간단히 탐색",
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
+      "notion_page_id": "40ad9e129df7803999f8fc34404d7760",
+      "notion_url": "https://app.notion.com/p/Self-Taught-4-40ad9e129df7803999f8fc34404d7760"
+    },
+    {
       "path": "TIL/2026/10/2026-10-30_Python_Machine_Learning_5일차_(D+15).md",
       "date": "2026-10-30",
+      "number": 21,
+      "created_time": "2026-10-31T14:06:00.000Z",
       "title": "Python : Machine Learning 5일차 (D+15)",
       "memo": "머신러닝 | Unsupervised Learning",
       "tags": [
@@ -375,6 +419,8 @@
     {
       "path": "TIL/2026/10/2026-10-29_Python_Machine_Learning_4일차_(D+14).md",
       "date": "2026-10-29",
+      "number": 20,
+      "created_time": "2026-10-30T14:35:00.000Z",
       "title": "Python : Machine Learning 4일차 (D+14)",
       "memo": "머신러닝 | Ensemble, Boosting",
       "tags": [
@@ -393,6 +439,8 @@
     {
       "path": "TIL/2026/10/2026-10-28_Python_Machine_Learning_3일차_(D+13).md",
       "date": "2026-10-28",
+      "number": 19,
+      "created_time": "2026-10-30T14:35:00.000Z",
       "title": "Python : Machine Learning 3일차 (D+13)",
       "memo": "머신러닝 | Naive Bayes, Decision Tree",
       "tags": [
@@ -411,6 +459,8 @@
     {
       "path": "TIL/2026/10/2026-10-27_Python_Machine_Learning_2일차_(D+12).md",
       "date": "2026-10-27",
+      "number": 18,
+      "created_time": "2026-10-30T14:35:00.000Z",
       "title": "Python : Machine Learning 2일차 (D+12)",
       "memo": "머신러닝 | Logistic Regression, KNN",
       "tags": [
@@ -429,6 +479,8 @@
     {
       "path": "TIL/2026/10/2026-10-26_Python_Machine_Learning_1일차_(D+11).md",
       "date": "2026-10-26",
+      "number": 17,
+      "created_time": "2026-10-30T14:35:00.000Z",
       "title": "Python : Machine Learning 1일차 (D+11)",
       "memo": "머신러닝 | Maching Learning, Linear Regression",
       "tags": [
@@ -447,6 +499,8 @@
     {
       "path": "TIL/2026/10/2026-10-23_Python_데이터_분석_및_실무_활용_3일차_(D+10).md",
       "date": "2026-10-23",
+      "number": 16,
+      "created_time": "2026-10-30T14:33:00.000Z",
       "title": "Python : 데이터 분석 및 실무 활용 3일차 (D+10)",
       "memo": "데이터분석 | Matplotlib, Seaborn, EDA",
       "tags": [
@@ -465,6 +519,8 @@
     {
       "path": "TIL/2026/10/2026-10-22_Python_데이터_분석_및_실무_활용_2일차_(D+9).md",
       "date": "2026-10-22",
+      "number": 15,
+      "created_time": "2026-10-30T14:46:00.000Z",
       "title": "Python : 데이터 분석 및 실무 활용 2일차 (D+9)",
       "memo": "데이터분석 | Pandas",
       "tags": [
@@ -483,6 +539,8 @@
     {
       "path": "TIL/2026/10/2026-10-21_Python_데이터_분석_및_실무_활용_1일차_(D+8).md",
       "date": "2026-10-21",
+      "number": 14,
+      "created_time": "2026-10-30T14:43:00.000Z",
       "title": "Python : 데이터 분석 및 실무 활용 1일차 (D+8)",
       "memo": "데이터분석 | Numpy",
       "tags": [
@@ -501,6 +559,8 @@
     {
       "path": "TIL/2026/10/2026-10-20_Python_파이썬_프로그래밍_심화_문법_2일차_(D+7).md",
       "date": "2026-10-20",
+      "number": 13,
+      "created_time": "2026-10-30T14:43:00.000Z",
       "title": "Python : 파이썬 프로그래밍 심화 문법 2일차 (D+7)",
       "memo": "파이썬 | 함수 정의, 모듈 활용, 파일 읽고 쓰기, OOP",
       "tags": [
@@ -519,6 +579,8 @@
     {
       "path": "TIL/2026/10/2026-10-19_Python_파이썬_프로그래밍_심화_문법_1일차_(D+6).md",
       "date": "2026-10-19",
+      "number": 12,
+      "created_time": "2026-10-30T15:00:00.000Z",
       "title": "Python : 파이썬 프로그래밍 심화 문법 1일차 (D+6)",
       "memo": "파이썬 | 리스트, 튜플, 딕셔너리, 집합, 반복 가능한 객체 이해",
       "tags": [
@@ -537,6 +599,8 @@
     {
       "path": "TIL/2026/10/2026-10-16_Python_파이썬_프로그래밍_기초_문법_2일차_(D+5).md",
       "date": "2026-10-16",
+      "number": 11,
+      "created_time": "2026-10-30T15:00:00.000Z",
       "title": "Python : 파이썬 프로그래밍 기초 문법 2일차 (D+5)",
       "memo": "파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법",
       "tags": [
@@ -555,6 +619,8 @@
     {
       "path": "TIL/2026/10/2026-10-15_Python_파이썬_프로그래밍_기초_문법_1일차_(D+4).md",
       "date": "2026-10-15",
+      "number": 10,
+      "created_time": "2026-10-30T14:38:00.000Z",
       "title": "Python : 파이썬 프로그래밍 기초 문법  1일차 (D+4)",
       "memo": "파이썬 | 변수, 연산자, 조건문, 반복문 등 기본 문법",
       "tags": [
@@ -573,6 +639,8 @@
     {
       "path": "TIL/2026/10/2026-10-14_Linux_리눅스_기초_3일차_(D+3).md",
       "date": "2026-10-14",
+      "number": 9,
+      "created_time": "2026-10-30T14:44:00.000Z",
       "title": "Linux : 리눅스 기초  3일차 (D+3)",
       "memo": "리눅스 | Shell Script, Network",
       "tags": [
@@ -591,6 +659,8 @@
     {
       "path": "TIL/2026/10/2026-10-13_Linux_리눅스_기초_2일차_(D+2).md",
       "date": "2026-10-13",
+      "number": 8,
+      "created_time": "2026-10-30T14:49:00.000Z",
       "title": "Linux : 리눅스 기초 2일차 (D+2)",
       "memo": "리눅스 | 권한, 프로세스, 패키지",
       "tags": [
@@ -609,6 +679,8 @@
     {
       "path": "TIL/2026/10/2026-10-12_Linux_리눅스_기초_1일차_(D+1).md",
       "date": "2026-10-12",
+      "number": 7,
+      "created_time": "2026-10-30T14:44:00.000Z",
       "title": "Linux : 리눅스 기초 1일차 (D+1)",
       "memo": "리눅스 | 리눅스 기초",
       "tags": [
@@ -625,8 +697,26 @@
       "notion_url": "https://app.notion.com/p/Linux-1-D-1-409d9e129df7805fb6b1e821c5e22c5d"
     },
     {
+      "path": "TIL/2026/10/2026-10-01_[TEST]_노션_기능_테스트_(이미지).md",
+      "date": "2026-10-01",
+      "number": 6,
+      "created_time": "2026-10-30T14:30:00.000Z",
+      "title": "[TEST] 노션 기능 테스트 (이미지)",
+      "memo": "",
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
+      "notion_page_id": "409d9e129df78090b9d3d5835555eb9c",
+      "notion_url": "https://app.notion.com/p/TEST-409d9e129df78090b9d3d5835555eb9c"
+    },
+    {
       "path": "TIL/2026/10/2026-10-01_TEST_페이지_입니다.md",
       "date": "2026-10-01",
+      "number": 5,
+      "created_time": "2026-11-03T00:59:00.000Z",
       "title": "TEST 페이지 입니다.",
       "memo": "",
       "tags": [
@@ -639,8 +729,42 @@
       "notion_url": "https://app.notion.com/p/TEST-40dd9e129df7808b9e85eed110493070"
     },
     {
+      "path": "TIL/2026/10/2026-10-01_[TEST]_교육_테스트.md",
+      "date": "2026-10-01",
+      "number": 4,
+      "created_time": "2026-10-31T12:46:00.000Z",
+      "title": "[TEST]  교육 테스트",
+      "memo": "",
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
+      "notion_page_id": "40ad9e129df780b38c7ae81bb1e89dbd",
+      "notion_url": "https://app.notion.com/p/TEST-40ad9e129df780b38c7ae81bb1e89dbd"
+    },
+    {
+      "path": "TIL/2026/10/2026-10-01_[TEST]_gif,_url,_pdf,_등_인지_테스트.md",
+      "date": "2026-10-01",
+      "number": 3,
+      "created_time": "2026-10-30T06:16:00.000Z",
+      "title": "[TEST] gif, url, pdf, 등 인지 테스트",
+      "memo": "",
+      "tags": [
+        {
+          "name": "테스트",
+          "color": "red"
+        }
+      ],
+      "notion_page_id": "409d9e129df78052b3aee564985e4101",
+      "notion_url": "https://app.notion.com/p/TEST-gif-url-pdf-409d9e129df78052b3aee564985e4101"
+    },
+    {
       "path": "TIL/2026/10/2026-10-01_[TEST]_탭키_기능_작동_여부_테스트.md",
       "date": "2026-10-01",
+      "number": 2,
+      "created_time": "2026-10-31T07:51:00.000Z",
       "title": "[TEST] 탭키 기능 작동 여부 테스트",
       "memo": "",
       "tags": [
@@ -655,6 +779,8 @@
     {
       "path": "TIL/2026/10/2026-10-01_[TEST]_목차,_코드,_등_테스트.md",
       "date": "2026-10-01",
+      "number": 1,
+      "created_time": "2026-10-31T11:30:00.000Z",
       "title": "[TEST] 목차, 코드, 등 테스트",
       "memo": "",
       "tags": [
@@ -665,48 +791,6 @@
       ],
       "notion_page_id": "40ad9e129df7808c8e07c701400a738b",
       "notion_url": "https://app.notion.com/p/TEST-40ad9e129df7808c8e07c701400a738b"
-    },
-    {
-      "path": "TIL/2026/10/2026-10-01_[TEST]_노션_기능_테스트_(이미지).md",
-      "date": "2026-10-01",
-      "title": "[TEST] 노션 기능 테스트 (이미지)",
-      "memo": "",
-      "tags": [
-        {
-          "name": "테스트",
-          "color": "red"
-        }
-      ],
-      "notion_page_id": "409d9e129df78090b9d3d5835555eb9c",
-      "notion_url": "https://app.notion.com/p/TEST-409d9e129df78090b9d3d5835555eb9c"
-    },
-    {
-      "path": "TIL/2026/10/2026-10-01_[TEST]_gif,_url,_pdf,_등_인지_테스트.md",
-      "date": "2026-10-01",
-      "title": "[TEST] gif, url, pdf, 등 인지 테스트",
-      "memo": "",
-      "tags": [
-        {
-          "name": "테스트",
-          "color": "red"
-        }
-      ],
-      "notion_page_id": "409d9e129df78052b3aee564985e4101",
-      "notion_url": "https://app.notion.com/p/TEST-gif-url-pdf-409d9e129df78052b3aee564985e4101"
-    },
-    {
-      "path": "TIL/2026/10/2026-10-01_[TEST]_교육_테스트.md",
-      "date": "2026-10-01",
-      "title": "[TEST]  교육 테스트",
-      "memo": "",
-      "tags": [
-        {
-          "name": "테스트",
-          "color": "red"
-        }
-      ],
-      "notion_page_id": "40ad9e129df780b38c7ae81bb1e89dbd",
-      "notion_url": "https://app.notion.com/p/TEST-40ad9e129df780b38c7ae81bb1e89dbd"
     }
   ]
 }

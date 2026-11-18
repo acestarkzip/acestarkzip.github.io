@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 419d9e129df78035a681c929e6b93ab9 -->
-<!-- notion-last-edited-time: 2026-11-15T12:49:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-18T05:48:00.000Z -->
 
 # NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?
 
