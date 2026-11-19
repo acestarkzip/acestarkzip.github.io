@@ -1,13 +1,49 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-18T22:55:59.790134+00:00",
-  "active_notion_page_count": 42,
-  "matched_markdown_count": 42,
+  "generated_at": "2026-11-19T11:04:20.925404+00:00",
+  "active_notion_page_count": 44,
+  "matched_markdown_count": 44,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 46,
-  "total_count": 42,
+  "scanned_markdown_count": 48,
+  "total_count": 44,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-19_C++_왜_알아야_하고,_어떻게_응용할_수_있는가.md",
+      "date": "2026-11-19",
+      "number": 44,
+      "created_time": "2026-11-19T00:05:00.000Z",
+      "title": "C++ 왜 알아야 하고, 어떻게 응용할 수 있는가?",
+      "memo": "C++ | 왜 C++을 알아야 할까?",
+      "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        }
+      ],
+      "notion_page_id": "41dd9e129df78052b1adcd5832eec025",
+      "notion_url": "https://app.notion.com/p/C-41dd9e129df78052b1adcd5832eec025"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-19_C++_3일차_(D+29).md",
+      "date": "2026-11-19",
+      "number": 43,
+      "created_time": "2026-11-19T05:40:00.000Z",
+      "title": "C++ 3일차 (D+29)",
+      "memo": "C++ | 표준 템플릿 라이브러리(STL)의 핵심 컨테이너",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "C++",
+          "color": "default"
+        }
+      ],
+      "notion_page_id": "41dd9e129df78022bc91f082e1b1832c",
+      "notion_url": "https://app.notion.com/p/C-3-D-29-41dd9e129df78022bc91f082e1b1832c"
+    },
     {
       "path": "TIL/2026/11/2026-11-18_C++_2일차_(D+28).md",
       "date": "2026-11-18",
