@@ -92,13 +92,13 @@
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h1>📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu ~ 2026.10.20 Tue)</h1>
+
+<h1 id="notion-heading-40ad9e129df7806999b3ec2fb9e65fda">📚 2주차 Python 기초&amp;심화 문법 (2026.10.15 Thu ~ 2026.10.20 Tue)</h1>
 <p><strong>Total : 4 days</strong></p>
-<p><a></a></p>
-<h2>📕 D. OOP | Object-Oriented Programming (2026.10.20 Tue)</h2>
-<p><a></a></p>
-<h3>📃 a. OOP (객체지향 프로그래밍)</h3>
+
+<h2 id="notion-heading-40ad9e129df780288f9fcf1ebc272393">📕 D. OOP | Object-Oriented Programming (2026.10.20 Tue)</h2>
+
+<h3 id="notion-heading-40ad9e129df780ecbf75ee6a58c42ede">📃 a. OOP (객체지향 프로그래밍)</h3>
 <ul>
 <li><strong>OOP</strong> : 데이터와 기능을 하나의 객체로 묶어 프로그램을 설계하는 방식</li>
 <li><strong>Class (클래스)</strong> : 객체를 만들기 위한 설계도</li>
@@ -122,8 +122,8 @@ robot.move()  # R1 is moving
 <li><code>self</code> : 메서드가 호출된 인스턴스 자신</li>
 <li><code>robot</code> : <code>Robot</code> 클래스로 생성한 인스턴스</li>
 </ul>
-<p><a></a></p>
-<h3>📃 주요 OOP 개념</h3>
+
+<h3 id="notion-heading-40ad9e129df78045a942e66210a0d3af">📃 주요 OOP 개념</h3>
 <table>
 <thead>
 <tr>
@@ -155,8 +155,8 @@ robot.move()  # R1 is moving
 </tr>
 </tbody>
 </table>
-<p><a></a></p>
-<h3>1. 상속 (Inheritance)</h3>
+
+<h3 id="notion-heading-40ad9e129df7806897b1e05d0d300796">1. 상속 (Inheritance)</h3>
 <p>기존 클래스의 기능을 재사용하고 확장하는 개념</p>
 <pre><code class="language-text">class Animal:
     def speak(self):
@@ -168,8 +168,8 @@ class Dog(Animal):
 dog = Dog()
 dog.speak()
 </code></pre>
-<p><a></a></p>
-<h3>2. 다형성 (Polymorphism)</h3>
+
+<h3 id="notion-heading-40ad9e129df780a693c2c1385e1b4e45">2. 다형성 (Polymorphism)</h3>
 <p>같은 메서드 이름을 사용해도 객체에 따라 다른 결과를 낼 수 있는 개념</p>
 <pre><code class="language-text">class Dog:
     def speak(self):
@@ -182,8 +182,8 @@ class Cat:
 for animal in [Dog(), Cat()]:
     animal.speak()
 </code></pre>
-<p><a></a></p>
-<h3>3. 캡슐화 (Encapsulation)</h3>
+
+<h3 id="notion-heading-40ad9e129df780739fb8d3913108b93e">3. 캡슐화 (Encapsulation)</h3>
 <p>객체 내부의 데이터를 보호하고 정해진 메서드를 통해 접근하도록 설계하는 개념</p>
 <pre><code class="language-text">class Robot:
     def __init__(self):
@@ -196,8 +196,8 @@ robot = Robot()
 print(robot.get_battery())  # 100
 </code></pre>
 <p>※ <code>__battery</code>는 이름 변경(Name Mangling)이 적용되어 직접 접근이 제한되지만, 완전한 보안 기능은 아닙니다.</p>
-<p><a></a></p>
-<h3>4. 추상화 (Abstraction)</h3>
+
+<h3 id="notion-heading-40ad9e129df78087bb82c982fc73a51b">4. 추상화 (Abstraction)</h3>
 <p>공통적으로 필요한 기능의 형태를 정의하고, 실제 동작 방식은 하위 클래스에서 구현하는 개념</p>
 <pre><code class="language-text">from abc import ABC, abstractmethod
 
@@ -218,8 +218,8 @@ robot.move()
 <li><code>@abstractmethod</code> : 하위 클래스에서 구현해야 하는 메서드 지정</li>
 </ul>
 <hr>
-<p><a></a></p>
-<h3>💡 핵심 요약</h3>
+
+<h3 id="notion-heading-40ad9e129df780fd8270dd101f64a341">💡 핵심 요약</h3>
 <ul>
 <li><strong>Class &amp; Instance</strong> : 클래스는 설계도, 인스턴스는 실제 객체</li>
 <li><strong>상속</strong> : 기존 기능을 물려받아 재사용</li>

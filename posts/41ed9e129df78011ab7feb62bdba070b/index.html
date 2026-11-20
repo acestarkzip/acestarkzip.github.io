@@ -95,12 +95,12 @@
 </li>
 <li><a href="#notion-heading-41ed9e129df780188636fbcd18effa50">터틀봇 그리기 실행</a></li>
 </ul>
-<p><a></a></p>
-<h1>ROS 2 기초 정리 (Jazzy &amp; Turtlesim)</h1>
+
+<h1 id="notion-heading-41ed9e129df78034863bc25774ac2caa">ROS 2 기초 정리 (Jazzy &amp; Turtlesim)</h1>
 <blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;"><strong>한 줄 요약:</strong> 하나의 거대한 프로그램 대신 각자 역할을 맡은 <code>Node</code>들이 <code>Topic</code>, <code>Service</code>, <code>Parameter</code>, <code>Action</code>으로 통신하며 시뮬레이터(<code>turtlesim</code>, <code>Isaac Sim</code>)에서 실제 로봇(<code>Nav2</code>, <code>MoveIt 2</code>, <code>ros2_control</code>)까지 일관되게 제어할 수 있게 해주는 오픈 소스 로봇 개발 프레임워크입니다.</p></blockquote>
 
-<p><a></a></p>
-<h2>1. ROS 2란 무엇인가?</h2>
+
+<h2 id="notion-heading-41ed9e129df780c1b2a5ce8218aaab85">1. ROS 2란 무엇인가?</h2>
 <ul>
 <li>운영체제(OS)가 아니라 로봇 애플리케이션 개발을 돕는 <strong>오픈 소스 프레임워크</strong>입니다.</li>
 <li>로봇 시스템 내부 및 여러 장치·로봇 간 <strong>메시징, 표준 인터페이스, 멀티 언어(</strong><code>rclcpp</code><strong> C++, </strong><code>rclpy</code><strong> Python), 멀티 플랫폼</strong>을 지원합니다.</li>
@@ -132,8 +132,8 @@
 </tr>
 </tbody>
 </table>
-<p><a></a></p>
-<h2>2. ROS 2 생태계 및 대표 패키지</h2>
+
+<h2 id="notion-heading-41ed9e129df78028b0beea681b155465">2. ROS 2 생태계 및 대표 패키지</h2>
 <ul>
 <li><strong>생태계 계층:</strong> <code>① OS·HW(Ubuntu, 센서·모터)</code> → <code>② 통신 기반(DDS)</code> → <code>③ 클라이언트 라이브러리(rclcpp, rclpy)</code> → <code>④ 핵심 개념(Node, Topic, Service, Parameter, Action)</code> → <code>⑤ 도구·패키지</code> → <code>⑥ 응용(실제 로봇·시스템)</code>.</li>
 <li><strong>대표 패키지:</strong><ul>
@@ -146,8 +146,8 @@
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h2>3. 설치 및 환경 세팅 (Ubuntu 24.04 / Jazzy)</h2>
+
+<h2 id="notion-heading-41ed9e129df78065b470d9b27ca16dc7">3. 설치 및 환경 세팅 (Ubuntu 24.04 / Jazzy)</h2>
 <ul>
 <li><strong>배포판 매칭:</strong> Ubuntu <code>24.04</code> → <code>ROS 2 Jazzy Jalisco</code> (LTS), Ubuntu <code>26.04</code> → <code>ROS 2 Lyrical Luth</code>.</li>
 <li><strong>필수 세팅:</strong><ul>
@@ -158,46 +158,46 @@
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h2>4. ROS 2 Graph 핵심 5대 요소</h2>
-<p><a></a></p>
-<h3>① Node (노드)</h3>
+
+<h2 id="notion-heading-41ed9e129df78094b6f5cb3d50faf315">4. ROS 2 Graph 핵심 5대 요소</h2>
+
+<h3 id="notion-heading-41ed9e129df7808cba0dcdaa5c6c0b1b">① Node (노드)</h3>
 <ul>
 <li>하나의 독립된 기능을 담당하는 실행 단위(예: <code>/turtlesim</code>, <code>/teleop_turtle</code>).</li>
 <li><code>-ros-args --remap __node:=my_turtle</code>로 노드 이름을 바꿀 수 있습니다.</li>
 <li>주요 CLI: <code>ros2 node list</code>, <code>ros2 node info &lt;node_name&gt;</code>.</li>
 </ul>
-<p><a></a></p>
-<h3>② Topic (토픽)</h3>
+
+<h3 id="notion-heading-41ed9e129df780e880e7f98a43ab1c58">② Topic (토픽)</h3>
 <ul>
 <li><strong>단방향 연속 스트리밍(Publish–Subscribe)</strong> 통신. 응답이 없으며 주기적·연속적 데이터에 적합합니다.</li>
 <li>좌표계 기준: <code>linear.x</code>는 전진(<code>&gt;0</code>)/후진(<code>&lt;0</code>), <code>angular.z</code>는 반시계(<code>&gt;0</code>)/시계(<code>&lt;0</code>) 회전 속도(<code>rad/s</code>).</li>
 <li>주요 토픽: <code>/turtle1/cmd_vel</code> (<code>geometry_msgs/msg/Twist</code>), <code>/turtle1/pose</code> (<code>turtlesim/msg/Pose</code>), <code>/turtle1/color_sensor</code> (<code>turtlesim/msg/Color</code>).</li>
 <li>주요 CLI: <code>ros2 topic list -t</code>, <code>ros2 topic echo &lt;topic_name&gt;</code>, <code>ros2 topic info &lt;topic_name&gt; --verbose</code>, <code>ros2 topic pub</code>.</li>
 </ul>
-<p><a></a></p>
-<h3>③ Service (서비스)</h3>
+
+<h3 id="notion-heading-41ed9e129df780878783e653204a9688">③ Service (서비스)</h3>
 <ul>
 <li><strong>단발성 요청–응답(Request–Response)</strong> 통신. 필요할 때 한 번 호출하고 결과를 받습니다.</li>
 <li>주요 서비스: <code>/clear</code>, <code>/reset</code>, <code>/spawn</code> (<code>turtlesim/srv/Spawn</code>), <code>/turtle1/set_pen</code>, <code>/turtle1/teleport_absolute</code>, 및 노드별 파라미터 서비스 7종.</li>
 <li>주요 CLI: <code>ros2 service list</code>, <code>ros2 service type &lt;service_name&gt;</code>, <code>ros2 interface show &lt;service_type&gt;</code>, <code>ros2 service call</code>.</li>
 </ul>
-<p><a></a></p>
-<h3>④ Parameter (파라미터)</h3>
+
+<h3 id="notion-heading-41ed9e129df78029b575c24248f1c9d4">④ Parameter (파라미터)</h3>
 <ul>
 <li>노드의 <strong>설정 값</strong>(정수, 실수, 불리언, 문자열, 리스트 등)을 런타임에 읽고 바꾸는 기능.</li>
 <li><code>ros2 param set</code> 변경은 재시작 시 유지되지 않으므로 <code>ros2 param dump</code>로 <code>.yaml</code> 파일로 저장하고 <code>ros2 param load</code> 또는 <code>-params-file</code>로 불러옵니다.</li>
 <li>주요 CLI: <code>ros2 param list</code>, <code>ros2 param get</code>, <code>ros2 param set</code>, <code>ros2 param dump</code>, <code>ros2 param load</code>.</li>
 </ul>
-<p><a></a></p>
-<h3>⑤ Action (액션)</h3>
+
+<h3 id="notion-heading-41ed9e129df78014a90cecef812bce4c">⑤ Action (액션)</h3>
 <ul>
 <li>목표(Goal) → 중간 피드백(Feedback) → 최종 결과(Result)로 이어지는 <strong>장시간 작업</strong> 통신. 중간에 취소(Cancel)하거나 새 목표로 선점(Abort)할 수 있습니다.</li>
 <li>주요 액션: <code>/turtle1/rotate_absolute</code> (<code>turtlesim/action/RotateAbsolute</code>) — <code>turtle_teleop_key</code>에서 <code>g, b, v, c, d, e, r, t</code> 키로 호출하고 <code>f</code> 키로 취소 가능.</li>
 <li>주요 CLI: <code>ros2 action list</code>, <code>ros2 action type &lt;action_name&gt;</code>, <code>ros2 action info &lt;action_name&gt;</code>, <code>ros2 action send_goal</code>.</li>
 </ul>
-<p><a></a></p>
-<h2>5. 통신 방식 한눈에 비교</h2>
+
+<h2 id="notion-heading-41ed9e129df7802e93d1d0bb308fc4be">5. 통신 방식 한눈에 비교</h2>
 <table>
 <thead>
 <tr>
@@ -236,8 +236,8 @@
 </table>
 <div class="notion-spacer" style="height:1.5rem;"></div>
 
-<p><a></a></p>
-<h1>터틀봇 그리기 실행</h1>
+
+<h1 id="notion-heading-41ed9e129df780188636fbcd18effa50">터틀봇 그리기 실행</h1>
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-20_ROS_Ubuntu_%EC%84%A4%EC%B9%98_%ED%9B%84_turtlesim_%EA%B7%B8%EB%A6%BC_%EA%B7%B8%EB%A6%AC%EA%B8%B0_assets/01_%ED%84%B0%ED%8B%80%EB%B4%87-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%8B%A4%ED%96%89.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-20_ROS_Ubuntu_%EC%84%A4%EC%B9%98_%ED%9B%84_turtlesim_%EA%B7%B8%EB%A6%BC_%EA%B7%B8%EB%A6%AC%EA%B8%B0_assets/01_%ED%84%B0%ED%8B%80%EB%B4%87-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%8B%A4%ED%96%89.png" alt="터틀봇 그리기 실행" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <div class="notion-spacer" style="height:1.5rem;"></div>

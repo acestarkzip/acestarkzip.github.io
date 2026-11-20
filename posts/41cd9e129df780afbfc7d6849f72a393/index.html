@@ -96,12 +96,12 @@
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h1>🚀 C++ 심화 핵심 정리 (문자열·함수·포인터·객체지향·정렬)</h1>
+
+<h1 id="notion-heading-41cd9e129df780f18c9cf19d205df2b3">🚀 C++ 심화 핵심 정리 (문자열·함수·포인터·객체지향·정렬)</h1>
 <blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>한 줄 요약:</strong> <code>char</code>·<code>string</code> 문자열 처리와 함수·포인터를 통한 메모리 제어부터 <code>struct</code>·<code>class</code> 기반의 객체지향(상속·다형성·캡슐화) 및 사용자 정의 <code>sort</code> 정렬까지 다룬 C++ 심화 핵심 노트</p></blockquote>
 
-<p><a></a></p>
-<h2>1. 문자와 문자열 (<code>char</code>, <code>string</code>)</h2>
+
+<h2 id="notion-heading-41cd9e129df7801ca2e1c995213f419f">1. 문자와 문자열 (<code>char</code>, <code>string</code>)</h2>
 <ul>
 <li><strong>문자(</strong><code>char</code><strong>) 특징:</strong> 1바이트 크기의 문자 1개를 저장하며 홀따옴표(<code>' '</code>)로 감싸서 표현합니다. ASCII 코드표에 따라 고유 숫자와 대응되며, 정수나 다른 <code>char</code>와 <code>+</code> 연산 시 <code>int</code>로 자동 변환됩니다. <code>(char)</code> 또는 <code>(int)</code>로 형변환(type casting)하여 문자와 정수를 오갈 수 있습니다.</li>
 <li><strong>문자열(</strong><code>string</code><strong>) 특징:</strong> 쌍따옴표(<code>" "</code>)로 감싸 표현하며 <code>&lt;string&gt;</code> 헤더를 포함하는 것이 권장됩니다. 문자 배열처럼 인덱싱으로 각 글자에 접근·수정할 수 있고, 끝에는 항상 널 문자(<code>'\0'</code>)가 포함되며 <code>+</code> 연산자로 문자열 결합(concatenation)이 가능합니다.</li>
@@ -114,8 +114,8 @@
 </ul>
 <div class="notion-spacer" style="height:1.5rem;"></div>
 
-<p><a></a></p>
-<h3>C++</h3>
+
+<h3 id="notion-heading-41cd9e129df78086a1d2d4103d55dec3">C++</h3>
 <pre><code class="language-cpp">// find와 substr을 활용한 문자열 파싱(parsing) 예시
 string s = &quot;abc,def,ghi&quot;;
 int idx = 0, pos = -1;
@@ -125,8 +125,8 @@ while ((pos = s.find(&quot;,&quot;, idx)) != string::npos) {
 }
 cout &lt;&lt; s.substr(idx) &lt;&lt; '\n';
 </code></pre>
-<p><a></a></p>
-<h2>2. 함수 (<code>Function</code>)</h2>
+
+<h2 id="notion-heading-41cd9e129df780da9a3bfc6d1fe50fad">2. 함수 (<code>Function</code>)</h2>
 <ul>
 <li><strong>구조와 동작:</strong> <code>반환자료형 함수명(매개변수)</code> 형태로 정의하며, <code>return</code> 문을 만나면 반환값을 가지고 호출되었던 위치로 복귀합니다. 반환값이 없는 경우 <code>void</code>를 사용합니다.</li>
 <li><strong>지역 변수 vs 전역 변수:</strong><ul>
@@ -136,8 +136,8 @@ cout &lt;&lt; s.substr(idx) &lt;&lt; '\n';
 </li>
 <li><strong>함수와 배열:</strong> 배열을 함수에 넘길 때는 배열 이름(첫 번째 요소의 메모리 주소)이 전달되므로 함수 내부에서 요소를 수정하면 원본 배열에도 반영됩니다. C++ 특성상 배열 자체를 직접 반환하는 함수는 만들 수 없습니다.</li>
 </ul>
-<p><a></a></p>
-<h2>3. 포인터 (<code>Pointer</code>)</h2>
+
+<h2 id="notion-heading-41cd9e129df780a99240d8061fb4f724">3. 포인터 (<code>Pointer</code>)</h2>
 <ul>
 <li><strong>개념 및 활용 목적:</strong> 값이 아닌 메모리 주소 자체를 저장하고 다루는 변수로, 대용량 데이터를 복사 없이 전달하거나 원본 값을 직접 수정하고 연결리스트 같은 자료구조를 구현할 때 사용합니다.</li>
 <li><strong>핵심 연산자:</strong><ul>
@@ -152,8 +152,8 @@ cout &lt;&lt; s.substr(idx) &lt;&lt; '\n';
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h3>C++</h3>
+
+<h3 id="notion-heading-41cd9e129df780f98189c8881e62d4bf">C++</h3>
 <pre><code class="language-cpp">// 포인터를 활용한 swap 함수
 void swap(int *a, int *b){
     int temp = *a;
@@ -161,8 +161,8 @@ void swap(int *a, int *b){
     *b = temp;
 }
 </code></pre>
-<p><a></a></p>
-<h2>4. 구조체와 클래스 (<code>struct</code>, <code>class</code>)</h2>
+
+<h2 id="notion-heading-41cd9e129df78082b11ef7cc2a1402ea">4. 구조체와 클래스 (<code>struct</code>, <code>class</code>)</h2>
 <ul>
 <li><strong>사용자 정의 자료형 (</strong><code>struct</code><strong> vs </strong><code>class</code><strong>):</strong> 여러 속성(변수)과 메서드(함수)를 하나로 묶어 관리하기 위해 사용하며, 정의 끝에는 반드시 세미콜론(<code>;</code>)을 붙입니다.</li>
 </ul>
@@ -208,8 +208,8 @@ void swap(int *a, int *b){
 </ul>
 <div class="notion-spacer" style="height:1.5rem;"></div>
 
-<p><a></a></p>
-<h2>5. 정렬 (<code>sort</code>)</h2>
+
+<h2 id="notion-heading-41cd9e129df780199838d5d2ddf97575">5. 정렬 (<code>sort</code>)</h2>
 <ul>
 <li><strong>기본 배열 정렬:</strong> <code>&lt;algorithm&gt;</code> 헤더를 포함하고 <code>sort(시작주소, 끝주소)</code> 형태로 호출합니다.<ul>
 <li>오름차순(기본): <code>sort(arr, arr + 5);</code></li>
@@ -224,8 +224,8 @@ void swap(int *a, int *b){
 </ul>
 <div class="notion-spacer" style="height:1.5rem;"></div>
 
-<p><a></a></p>
-<h3>C++</h3>
+
+<h3 id="notion-heading-41cd9e129df7803789dae1899ed24c75">C++</h3>
 <pre><code class="language-cpp">struct Point {
     int y, x;
     bool operator &lt; (const Point o) const {

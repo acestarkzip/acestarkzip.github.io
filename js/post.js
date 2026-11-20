@@ -16,6 +16,7 @@
   const contentElement = document.getElementById("markdown-content");
   const yearElement = document.getElementById("current-year");
 
+  bindTocNavigation(contentElement);
   if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 
   function showError(message) {
@@ -72,43 +73,91 @@
     return "LEARNING NOTE";
   }
 
-  // Convert Notion's legacy <a name="notion-heading-..."> markers into
-  // modern IDs on the heading they precede. This makes generated TOC links
-  // (href="#notion-heading-...") reliable across browsers.
-  function restoreNotionHeadingAnchors(root) {
-    if (!root) return;
+  // Promote Notion's legacy named anchors to real heading IDs BEFORE DOMPurify.
+  // Some static exporters/sanitizers strip the `name` attribute, which leaves
+  // TOC links pointing at IDs that no longer exist.
+  function promoteNotionHeadingAnchors(markdownHtml) {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = markdownHtml;
 
-    root.querySelectorAll('a[name^="notion-heading-"]').forEach((anchor) => {
+    wrapper.querySelectorAll('a[name^="notion-heading-"]').forEach((anchor) => {
       const anchorId = anchor.getAttribute("name") || "";
       if (!/^notion-heading-[a-z0-9-]+$/i.test(anchorId)) return;
 
-      // Marked may wrap an inline HTML anchor in an otherwise empty paragraph.
-      // Move the ID to the immediately following heading and remove that wrapper.
-      let marker = anchor;
+      let markerBlock = anchor;
       const parent = anchor.parentElement;
       const isAnchorOnlyParagraph = parent &&
         parent.tagName === "P" &&
         parent.children.length === 1 &&
         parent.firstElementChild === anchor &&
         parent.textContent.trim() === "";
+      if (isAnchorOnlyParagraph) markerBlock = parent;
 
-      if (isAnchorOnlyParagraph) marker = parent;
+      // Skip empty paragraph wrappers that a Markdown parser may add around
+      // standalone HTML anchors, then associate the anchor with the next heading.
+      let next = markerBlock.nextElementSibling;
+      while (next && next.tagName === "P" &&
+        next.textContent.trim() === "" &&
+        !next.querySelector("img, video, iframe, table, pre")) {
+        const empty = next;
+        next = next.nextElementSibling;
+        if (empty !== markerBlock) empty.remove();
+      }
 
-      const followingElement = marker.nextElementSibling;
-      if (followingElement && /^H[1-6]$/.test(followingElement.tagName)) {
-        followingElement.id = anchorId;
-        marker.remove();
+      if (next && /^H[1-6]$/.test(next.tagName)) {
+        next.id = anchorId;
+        markerBlock.remove();
         return;
       }
 
-      // Fallback for a marker that is not directly followed by a heading.
-      // Keep it as a modern ID target rather than relying on the deprecated name attribute.
+      // Fallback: keep a real ID target at the original marker location.
       anchor.id = anchorId;
       anchor.removeAttribute("name");
       anchor.setAttribute("aria-hidden", "true");
       anchor.style.display = "block";
       anchor.style.height = "0";
     });
+
+    return wrapper.innerHTML;
+  }
+
+  function bindTocNavigation(root) {
+    if (!root) return;
+
+    root.addEventListener("click", (event) => {
+      const link = event.target.closest('a[href^="#notion-heading-"]');
+      if (!link || !root.contains(link)) return;
+
+      let targetId = link.getAttribute("href").slice(1);
+      try { targetId = decodeURIComponent(targetId); } catch (_) { /* Keep the literal hash. */ }
+      const target = document.getElementById(targetId);
+      if (!target) {
+        console.warn("TOC target not found:", targetId);
+        return;
+      }
+
+      event.preventDefault();
+      const nextHash = `#${encodeURIComponent(targetId)}`;
+      if (window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+      }
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    });
+  }
+
+  function restoreInitialTocPosition() {
+    const rawHash = window.location.hash.slice(1);
+    if (!rawHash.startsWith("notion-heading-")) return;
+
+    let targetId = rawHash;
+    try { targetId = decodeURIComponent(rawHash); } catch (_) { /* Keep the literal hash. */ }
+
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const target = document.getElementById(targetId);
+      if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
+    }));
   }
 
   function resolveMarkdownLinks(markdownHtml, markdownPath) {
@@ -174,12 +223,14 @@
       }
 
       const parsed = window.marked.parse(markdown, { gfm: true, breaks: false });
-      const safeHtml = window.DOMPurify.sanitize(parsed, {
+      // Convert legacy Notion anchors before sanitization so the sanitizer
+      // cannot discard the only copy of each TOC target.
+      const anchoredHtml = promoteNotionHeadingAnchors(parsed);
+      const safeHtml = window.DOMPurify.sanitize(anchoredHtml, {
         USE_PROFILES: { html: true },
-        ADD_ATTR: ["target", "rel"]
+        ADD_ATTR: ["target", "rel", "id"]
       });
       const content = resolveMarkdownLinks(safeHtml, filePath);
-      restoreNotionHeadingAnchors(content);
 
       // Use the first Markdown H1 as the visible page title when one exists.
       // Preserve its fragment target too, in case a TOC item points to the H1.
@@ -193,6 +244,7 @@
         firstH1.remove();
       }
       contentElement.replaceChildren(...Array.from(content.childNodes));
+      restoreInitialTocPosition();
     } catch (error) {
       console.error("Blog article loading failed:", error);
       showError(error instanceof Error ? error.message : "네트워크 연결을 확인해 주세요.");
