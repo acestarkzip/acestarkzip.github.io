@@ -1,13 +1,33 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-19T22:53:37.993153+00:00",
-  "active_notion_page_count": 44,
-  "matched_markdown_count": 44,
+  "generated_at": "2026-11-20T11:04:57.746995+00:00",
+  "active_notion_page_count": 45,
+  "matched_markdown_count": 45,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 48,
-  "total_count": 44,
+  "scanned_markdown_count": 49,
+  "total_count": 45,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-20_ROS_Ubuntu_설치_후_turtlesim_그림_그리기.md",
+      "date": "2026-11-20",
+      "number": 45,
+      "created_time": "2026-11-20T00:06:00.000Z",
+      "title": "ROS Ubuntu 설치 후 turtlesim 그림 그리기",
+      "memo": "ROS | Windows WSL Ubuntu 24.04 설치, turtlesim 사용",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "ROS",
+          "color": "blue"
+        }
+      ],
+      "notion_page_id": "41ed9e129df78011ab7feb62bdba070b",
+      "notion_url": "https://app.notion.com/p/ROS-Ubuntu-turtlesim-41ed9e129df78011ab7feb62bdba070b"
+    },
     {
       "path": "TIL/2026/11/2026-11-19_C++_왜_알아야_하고,_어떻게_응용할_수_있는가.md",
       "date": "2026-11-19",

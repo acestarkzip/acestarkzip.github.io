@@ -7,6 +7,13 @@
     <language>ko-KR</language>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://www.sssrobotics.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ROS Ubuntu 설치 후 turtlesim 그림 그리기</title>
+      <link>https://www.sssrobotics.com/posts/41ed9e129df78011ab7feb62bdba070b/</link>
+      <guid isPermaLink="true">https://www.sssrobotics.com/posts/41ed9e129df78011ab7feb62bdba070b/</guid>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+      <description>ROS | Windows WSL Ubuntu 24.04 설치, turtlesim 사용</description>
+    </item>
+    <item>
       <title>C++ 왜 알아야 하고, 어떻게 응용할 수 있는가?</title>
       <link>https://www.sssrobotics.com/posts/41dd9e129df78052b1adcd5832eec025/</link>
       <guid isPermaLink="true">https://www.sssrobotics.com/posts/41dd9e129df78052b1adcd5832eec025/</guid>
