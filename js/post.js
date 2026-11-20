@@ -72,6 +72,45 @@
     return "LEARNING NOTE";
   }
 
+  // Convert Notion's legacy <a name="notion-heading-..."> markers into
+  // modern IDs on the heading they precede. This makes generated TOC links
+  // (href="#notion-heading-...") reliable across browsers.
+  function restoreNotionHeadingAnchors(root) {
+    if (!root) return;
+
+    root.querySelectorAll('a[name^="notion-heading-"]').forEach((anchor) => {
+      const anchorId = anchor.getAttribute("name") || "";
+      if (!/^notion-heading-[a-z0-9-]+$/i.test(anchorId)) return;
+
+      // Marked may wrap an inline HTML anchor in an otherwise empty paragraph.
+      // Move the ID to the immediately following heading and remove that wrapper.
+      let marker = anchor;
+      const parent = anchor.parentElement;
+      const isAnchorOnlyParagraph = parent &&
+        parent.tagName === "P" &&
+        parent.children.length === 1 &&
+        parent.firstElementChild === anchor &&
+        parent.textContent.trim() === "";
+
+      if (isAnchorOnlyParagraph) marker = parent;
+
+      const followingElement = marker.nextElementSibling;
+      if (followingElement && /^H[1-6]$/.test(followingElement.tagName)) {
+        followingElement.id = anchorId;
+        marker.remove();
+        return;
+      }
+
+      // Fallback for a marker that is not directly followed by a heading.
+      // Keep it as a modern ID target rather than relying on the deprecated name attribute.
+      anchor.id = anchorId;
+      anchor.removeAttribute("name");
+      anchor.setAttribute("aria-hidden", "true");
+      anchor.style.display = "block";
+      anchor.style.height = "0";
+    });
+  }
+
   function resolveMarkdownLinks(markdownHtml, markdownPath) {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = markdownHtml;
@@ -140,12 +179,17 @@
         ADD_ATTR: ["target", "rel"]
       });
       const content = resolveMarkdownLinks(safeHtml, filePath);
+      restoreNotionHeadingAnchors(content);
 
       // Use the first Markdown H1 as the visible page title when one exists.
+      // Preserve its fragment target too, in case a TOC item points to the H1.
       const firstH1 = content.querySelector("h1");
       if (firstH1) {
         const headingTitle = firstH1.textContent.trim();
         if (headingTitle) titleElement.textContent = headingTitle;
+        if (firstH1.id) {
+          titleElement.id = firstH1.id;
+        }
         firstH1.remove();
       }
       contentElement.replaceChildren(...Array.from(content.childNodes));
