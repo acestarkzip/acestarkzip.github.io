@@ -1,20 +1,20 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-21T08:02:48.453823+00:00",
+  "generated_at": "2026-11-21T08:38:37.348390+00:00",
   "active_notion_page_count": 45,
   "matched_markdown_count": 45,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 49,
+  "scanned_markdown_count": 50,
   "total_count": 45,
   "posts": [
     {
-      "path": "TIL/2026/11/2026-11-20_ROS_Ubuntu_설치_후_turtlesim_그림_그리기.md",
+      "path": "TIL/2026/11/2026-11-20_ROS_2_Jazzy_기초_정리_개념·생태계부터_Turtlesim_통신_실습까지.md",
       "date": "2026-11-20",
       "number": 45,
       "created_time": "2026-11-20T00:06:00.000Z",
-      "title": "ROS Ubuntu 설치 후 turtlesim 그림 그리기",
-      "memo": "ROS | Windows WSL Ubuntu 24.04 설치, turtlesim 사용",
+      "title": "ROS 2 Jazzy 기초 정리: 개념·생태계부터 Turtlesim 통신 실습까지",
+      "memo": "중앙 Master 없이 DDS와 QoS 기반으로 동작하는 ROS 2의 핵심 개념과 생태계, 그리고 turtlesim 실습 기준 5대 통신 방식(Node, Topic, Service, Parameter, Action)을 정리",
       "tags": [
         {
           "name": "교육",
@@ -26,7 +26,7 @@
         }
       ],
       "notion_page_id": "41ed9e129df78011ab7feb62bdba070b",
-      "notion_url": "https://app.notion.com/p/ROS-Ubuntu-turtlesim-41ed9e129df78011ab7feb62bdba070b"
+      "notion_url": "https://app.notion.com/p/ROS-2-Jazzy-Turtlesim-41ed9e129df78011ab7feb62bdba070b"
     },
     {
       "path": "TIL/2026/11/2026-11-19_C++_왜_알아야_하고,_어떻게_응용할_수_있는가.md",
