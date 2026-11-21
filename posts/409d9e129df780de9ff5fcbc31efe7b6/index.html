@@ -98,17 +98,17 @@
 </ul>
 </li>
 </ul>
-<h1 id="notion-heading-40ad9e129df780329e7dd4172dbd58c7" style="scroll-margin-top:128px;">📚 2주차 Python 데이터 분석 (2026.10.21 Wed ~ 2026.10.23 Fri)</h1>
+<h1 id="notion-heading-40ad9e129df780329e7dd4172dbd58c7" style="scroll-margin-top:16px;">📚 2주차 Python 데이터 분석 (2026.10.21 Wed ~ 2026.10.23 Fri)</h1>
 <p><strong>Total : 3 days</strong></p>
-<h2 id="notion-heading-40ad9e129df78086b367e86f9fc7a44a" style="scroll-margin-top:128px;">📕 A. NumPy (2026.10.21 Wed)</h2>
-<h3 id="notion-heading-40ad9e129df780abbe95e0a22922a0a4" style="scroll-margin-top:128px;">📃 a. Google Colab (구글 코랩)</h3>
+<h2 id="notion-heading-40ad9e129df78086b367e86f9fc7a44a" style="scroll-margin-top:16px;">📕 A. NumPy (2026.10.21 Wed)</h2>
+<h3 id="notion-heading-40ad9e129df780abbe95e0a22922a0a4" style="scroll-margin-top:16px;">📃 a. Google Colab (구글 코랩)</h3>
 <ul>
 <li><strong>Google Colab</strong> : 웹 브라우저에서 Python 코드를 작성하고 실행할 수 있는 클라우드 기반 환경</li>
 <li>별도의 Python 개발 환경 설치 없이 노트북 형태로 코드 실행 가능</li>
 <li><strong>주요 활용</strong> : 데이터 분석, 머신러닝, 딥러닝 실습</li>
 <li><strong>GPU 런타임</strong> : 지원되는 환경에서 GPU를 활용해 연산 가능</li>
 </ul>
-<h3 id="notion-heading-40ad9e129df780f2b90ad566d1f3adca" style="scroll-margin-top:128px;">📃 b. NumPy (고속 수치 계산의 기반)</h3>
+<h3 id="notion-heading-40ad9e129df780f2b90ad566d1f3adca" style="scroll-margin-top:16px;">📃 b. NumPy (고속 수치 계산의 기반)</h3>
 <ul>
 <li><strong>NumPy</strong> : 배열(Array)을 기반으로 대량의 숫자 데이터를 효율적으로 계산하는 Python 라이브러리</li>
 <li><strong>ndarray</strong> : NumPy의 핵심 자료구조인 다차원 배열</li>
@@ -122,7 +122,7 @@ print(arr * 2)      # [ 2  4  6  8 10]
 print(arr.mean())   # 3.0
 print(arr.sum())    # 15
 </code></pre>
-<h3 id="notion-heading-40ad9e129df780f9b6b7f04867237d60" style="scroll-margin-top:128px;">📃 NumPy 주요 기능</h3>
+<h3 id="notion-heading-40ad9e129df780f9b6b7f04867237d60" style="scroll-margin-top:16px;">📃 NumPy 주요 기능</h3>
 <table>
 <thead>
 <tr>
@@ -173,7 +173,7 @@ print(arr.sum())    # 15
 </tr>
 </tbody>
 </table>
-<h3 id="notion-heading-40ad9e129df780ca9871ea121f61f1f8" style="scroll-margin-top:128px;">📃 배열 연산 (Vectorization)</h3>
+<h3 id="notion-heading-40ad9e129df780ca9871ea121f61f1f8" style="scroll-margin-top:16px;">📃 배열 연산 (Vectorization)</h3>
 <ul>
 <li>반복문 없이 배열의 여러 요소에 연산을 한 번에 적용</li>
 <li>대량의 수치 데이터 처리에 유용</li>
@@ -186,7 +186,7 @@ b = np.array([1, 2, 3])
 print(a + b)  # [11 22 33]
 print(a * b)  # [10 40 90]
 </code></pre>
-<h3 id="notion-heading-40ad9e129df780f7a3d5c83c617aa022" style="scroll-margin-top:128px;">📃 다차원 배열 (Dimensions)</h3>
+<h3 id="notion-heading-40ad9e129df780f7a3d5c83c617aa022" style="scroll-margin-top:16px;">📃 다차원 배열 (Dimensions)</h3>
 <ul>
 <li><strong>1차원 배열</strong> : 숫자가 일렬로 나열된 형태</li>
 <li><strong>2차원 배열</strong> : 행(Row)과 열(Column)로 구성된 형태</li>
@@ -199,7 +199,7 @@ print(arr.shape)  # (2, 3)
 print(arr.ndim)   # 2
 </code></pre>
 <hr>
-<h3 id="notion-heading-40ad9e129df780ceb50ee3d97c223a05" style="scroll-margin-top:128px;">💡 핵심 요약</h3>
+<h3 id="notion-heading-40ad9e129df780ceb50ee3d97c223a05" style="scroll-margin-top:16px;">💡 핵심 요약</h3>
 <ul>
 <li><strong>Google Colab</strong> : 브라우저에서 Python 코드를 실행하는 클라우드 환경</li>
 <li><strong>NumPy</strong> : 대량의 숫자 데이터를 효율적으로 계산하는 라이브러리</li>
@@ -222,5 +222,114 @@ print(arr.ndim)   # 2
   <footer class="site-footer shell">
     <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
   </footer>
+<script>
+(() => {
+  "use strict";
+
+  const root = document.getElementById("markdown-content");
+  if (!root) return;
+
+  const headings = Array.from(root.querySelectorAll("h1, h2, h3, h4, h5, h6"));
+  const usedHeadings = new Set();
+  const tocLinks = Array.from(root.querySelectorAll('a[href^="#"]'));
+
+  const normalize = (value) => String(value || "")
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const comparable = (value) => normalize(value)
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, "");
+
+  function getFragment(link) {
+    const href = link.getAttribute("href") || "";
+    const fragment = href.startsWith("#") ? href.slice(1) : "";
+    if (!fragment) return "";
+    try { return decodeURIComponent(fragment); } catch (_) { return fragment; }
+  }
+
+  function findTarget(link) {
+    const id = getFragment(link);
+    if (!id) return null;
+
+    const existing = document.getElementById(id);
+    if (existing && root.contains(existing)) return existing;
+
+    const label = normalize(link.textContent);
+    const labelKey = comparable(label);
+    if (!labelKey) return null;
+
+    let target = headings.find((heading) =>
+      !usedHeadings.has(heading) && normalize(heading.textContent) === label
+    );
+    if (!target) {
+      target = headings.find((heading) =>
+        !usedHeadings.has(heading) && comparable(heading.textContent) === labelKey
+      );
+    }
+    if (!target) return null;
+
+    target.id = id;
+    usedHeadings.add(target);
+    return target;
+  }
+
+  function prepareTargets() {
+    headings.forEach((heading) => {
+      heading.style.scrollMarginTop = "112px";
+    });
+    tocLinks.forEach(findTarget);
+  }
+
+  function scrollToTarget(target, updateAddress) {
+    if (!target) return;
+    if (updateAddress && target.id) {
+      const nextHash = `#${encodeURIComponent(target.id)}`;
+      if (window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+      }
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start"
+    });
+  }
+
+  root.addEventListener("click", (event) => {
+    const origin = event.target instanceof Element ? event.target : event.target.parentElement;
+    const link = origin && origin.closest('a[href^="#"]');
+    if (!link || !root.contains(link)) return;
+
+    const target = findTarget(link);
+    if (!target) return;
+    event.preventDefault();
+    scrollToTarget(target, true);
+  });
+
+  function restoreHashPosition() {
+    const rawHash = window.location.hash.slice(1);
+    if (!rawHash) return;
+    let id = rawHash;
+    try { id = decodeURIComponent(rawHash); } catch (_) { /* keep raw hash */ }
+
+    let target = document.getElementById(id);
+    if (!target || !root.contains(target)) {
+      const matchingLink = tocLinks.find((link) => getFragment(link) === id);
+      if (matchingLink) target = findTarget(matchingLink);
+    }
+    if (target && root.contains(target)) {
+      requestAnimationFrame(() => requestAnimationFrame(() => scrollToTarget(target, false)));
+    }
+  }
+
+  prepareTargets();
+  window.addEventListener("hashchange", restoreHashPosition);
+  window.addEventListener("load", restoreHashPosition, { once: true });
+  if (window.location.hash) restoreHashPosition();
+})();
+</script>
 </body>
 </html>

@@ -103,10 +103,10 @@
 </ul>
 </li>
 </ul>
-<h1 id="notion-heading-40ad9e129df780db8ed9ee8fb435b060" style="scroll-margin-top:128px;">📚 2주차 Python 데이터 분석 (2026.10.21 Wed ~ 2026.10.23 Fri)</h1>
+<h1 id="notion-heading-40ad9e129df780db8ed9ee8fb435b060" style="scroll-margin-top:16px;">📚 2주차 Python 데이터 분석 (2026.10.21 Wed ~ 2026.10.23 Fri)</h1>
 <p><strong>Total : 3 days</strong></p>
-<h2 id="notion-heading-40ad9e129df78030858acf6815efe246" style="scroll-margin-top:128px;">📕 C. Data Visualization (2026.10.23 Fri)</h2>
-<h3 id="notion-heading-40ad9e129df7805e8ad1d82fc2278cac" style="scroll-margin-top:128px;">📃 a. Matplotlib (기본 그래프 시각화)</h3>
+<h2 id="notion-heading-40ad9e129df78030858acf6815efe246" style="scroll-margin-top:16px;">📕 C. Data Visualization (2026.10.23 Fri)</h2>
+<h3 id="notion-heading-40ad9e129df7805e8ad1d82fc2278cac" style="scroll-margin-top:16px;">📃 a. Matplotlib (기본 그래프 시각화)</h3>
 <ul>
 <li><strong>Matplotlib</strong> : 데이터를 그래프로 표현하는 기본 시각화 라이브러리</li>
 <li><strong>주요 그래프</strong> : 선 그래프(Line), 막대 그래프(Bar), 산점도(Scatter)</li>
@@ -151,7 +151,7 @@ plt.show()
 </tr>
 </tbody>
 </table>
-<h3 id="notion-heading-40ad9e129df780ff81bfc528cd419c6d" style="scroll-margin-top:128px;">📃 b. Matplotlib 통계 시각화 (Histogram, Box Plot, Heatmap)</h3>
+<h3 id="notion-heading-40ad9e129df780ff81bfc528cd419c6d" style="scroll-margin-top:16px;">📃 b. Matplotlib 통계 시각화 (Histogram, Box Plot, Heatmap)</h3>
 <ul>
 <li><strong>Histogram</strong> : 데이터가 구간별로 얼마나 분포하는지 확인</li>
 <li><strong>Box Plot</strong> : 중앙값, 사분위수, 이상치 후보 확인</li>
@@ -168,7 +168,7 @@ plt.show()
 sns.heatmap(df.corr(numeric_only=True), annot=True)
 plt.show()
 </code></pre>
-<h3 id="notion-heading-40ad9e129df7809a8daac2bcce8f2687" style="scroll-margin-top:128px;">📃 c. Seaborn (통계 데이터 시각화)</h3>
+<h3 id="notion-heading-40ad9e129df7809a8daac2bcce8f2687" style="scroll-margin-top:16px;">📃 c. Seaborn (통계 데이터 시각화)</h3>
 <ul>
 <li><strong>Seaborn</strong> : 통계 데이터 시각화를 간결하게 수행할 수 있는 라이브러리</li>
 <li>Matplotlib 기반으로 동작하며, 통계적 관계와 분포를 쉽게 표현</li>
@@ -209,7 +209,7 @@ sns.scatterplot(data=df, x=&quot;age&quot;, y=&quot;price&quot;)
 </tr>
 </tbody>
 </table>
-<h3 id="notion-heading-40ad9e129df780d08308e1ed20ad2260" style="scroll-margin-top:128px;">📃 d. Pandas Plot (DataFrame에서 바로 시각화)</h3>
+<h3 id="notion-heading-40ad9e129df780d08308e1ed20ad2260" style="scroll-margin-top:16px;">📃 d. Pandas Plot (DataFrame에서 바로 시각화)</h3>
 <ul>
 <li><strong>Pandas Plot</strong> : DataFrame이나 Series에서 직접 그래프를 생성하는 기능</li>
 <li>빠른 탐색과 기초적인 데이터 시각화에 적합</li>
@@ -224,32 +224,32 @@ df[&quot;category&quot;].value_counts().plot(kind=&quot;bar&quot;)
 <li><code>kind="box"</code> : 박스 플롯</li>
 </ul>
 <hr>
-<h2 id="notion-heading-40ad9e129df780bf8c74ff48a4965902" style="scroll-margin-top:128px;">📕 D. EDA (Exploratory Data Analysis, 탐색적 데이터 분석)</h2>
+<h2 id="notion-heading-40ad9e129df780bf8c74ff48a4965902" style="scroll-margin-top:16px;">📕 D. EDA (Exploratory Data Analysis, 탐색적 데이터 분석)</h2>
 <ul>
 <li><strong>EDA</strong> : 데이터를 본격적으로 분석하거나 모델링하기 전에 데이터의 구조, 분포, 특징 및 문제점을 탐색하는 과정</li>
 <li><strong>목적</strong> : 데이터의 패턴, 변수 간 관계, 결측치, 이상치 등을 파악</li>
 <li><strong>주요 과정</strong> : 데이터 확인 → 결측치·이상치 점검 → 통계 요약 → 시각화 → 인사이트 도출</li>
 </ul>
-<h3 id="notion-heading-40ad9e129df780dea2c5e2c277f4fc41" style="scroll-margin-top:128px;">📃 a. EDA 실습 1 (Seoul Bike Data)</h3>
+<h3 id="notion-heading-40ad9e129df780dea2c5e2c277f4fc41" style="scroll-margin-top:16px;">📃 a. EDA 실습 1 (Seoul Bike Data)</h3>
 <ul>
 <li><strong>목표</strong> : 서울 자전거 대여량과 시간·날씨 등 환경 변수의 관계 탐색</li>
 <li><strong>분석 항목</strong> : 시간대별 대여량, 기온과 대여량의 관계, 계절별 이용 패턴</li>
 <li><strong>활용</strong> : 시계열 그래프, 산점도, 상관관계 분석</li>
 </ul>
-<h3 id="notion-heading-40ad9e129df7802b9afae23566b69224" style="scroll-margin-top:128px;">📃 b. EDA 실습 2 (Online Shop)</h3>
+<h3 id="notion-heading-40ad9e129df7802b9afae23566b69224" style="scroll-margin-top:16px;">📃 b. EDA 실습 2 (Online Shop)</h3>
 <ul>
 <li><strong>목표</strong> : 온라인 쇼핑 데이터에서 구매 패턴과 매출 특성 탐색</li>
 <li><strong>분석 항목</strong> : 상품별 판매량, 고객별 구매 패턴, 매출 분포, 결측치 및 이상치</li>
 <li><strong>활용</strong> : 그룹별 집계(<code>groupby</code>), 막대 그래프, 히스토그램</li>
 </ul>
-<h3 id="notion-heading-40ad9e129df780f49153c00109a1907c" style="scroll-margin-top:128px;">📃 c. EDA 실습 3 (Video Game Sales)</h3>
+<h3 id="notion-heading-40ad9e129df780f49153c00109a1907c" style="scroll-margin-top:16px;">📃 c. EDA 실습 3 (Video Game Sales)</h3>
 <ul>
 <li><strong>목표</strong> : 비디오 게임 판매 데이터에서 시장 및 판매 특성 탐색</li>
 <li><strong>분석 항목</strong> : 플랫폼별·장르별 판매량, 출시 연도별 변화, 지역별 판매 비교</li>
 <li><strong>활용</strong> : 그룹별 집계, 시계열 그래프, 막대 그래프, 상관관계 분석</li>
 </ul>
 <hr>
-<h3 id="notion-heading-40ad9e129df78080904fecc65185f0a5" style="scroll-margin-top:128px;">💡 핵심 요약</h3>
+<h3 id="notion-heading-40ad9e129df78080904fecc65185f0a5" style="scroll-margin-top:16px;">💡 핵심 요약</h3>
 <ul>
 <li><strong>Matplotlib</strong> : 기본 그래프를 직접 구성하는 시각화 도구</li>
 <li><strong>Seaborn</strong> : 통계적 분포와 변수 간 관계를 쉽게 시각화</li>
@@ -272,5 +272,114 @@ df[&quot;category&quot;].value_counts().plot(kind=&quot;bar&quot;)
   <footer class="site-footer shell">
     <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
   </footer>
+<script>
+(() => {
+  "use strict";
+
+  const root = document.getElementById("markdown-content");
+  if (!root) return;
+
+  const headings = Array.from(root.querySelectorAll("h1, h2, h3, h4, h5, h6"));
+  const usedHeadings = new Set();
+  const tocLinks = Array.from(root.querySelectorAll('a[href^="#"]'));
+
+  const normalize = (value) => String(value || "")
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const comparable = (value) => normalize(value)
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, "");
+
+  function getFragment(link) {
+    const href = link.getAttribute("href") || "";
+    const fragment = href.startsWith("#") ? href.slice(1) : "";
+    if (!fragment) return "";
+    try { return decodeURIComponent(fragment); } catch (_) { return fragment; }
+  }
+
+  function findTarget(link) {
+    const id = getFragment(link);
+    if (!id) return null;
+
+    const existing = document.getElementById(id);
+    if (existing && root.contains(existing)) return existing;
+
+    const label = normalize(link.textContent);
+    const labelKey = comparable(label);
+    if (!labelKey) return null;
+
+    let target = headings.find((heading) =>
+      !usedHeadings.has(heading) && normalize(heading.textContent) === label
+    );
+    if (!target) {
+      target = headings.find((heading) =>
+        !usedHeadings.has(heading) && comparable(heading.textContent) === labelKey
+      );
+    }
+    if (!target) return null;
+
+    target.id = id;
+    usedHeadings.add(target);
+    return target;
+  }
+
+  function prepareTargets() {
+    headings.forEach((heading) => {
+      heading.style.scrollMarginTop = "112px";
+    });
+    tocLinks.forEach(findTarget);
+  }
+
+  function scrollToTarget(target, updateAddress) {
+    if (!target) return;
+    if (updateAddress && target.id) {
+      const nextHash = `#${encodeURIComponent(target.id)}`;
+      if (window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+      }
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start"
+    });
+  }
+
+  root.addEventListener("click", (event) => {
+    const origin = event.target instanceof Element ? event.target : event.target.parentElement;
+    const link = origin && origin.closest('a[href^="#"]');
+    if (!link || !root.contains(link)) return;
+
+    const target = findTarget(link);
+    if (!target) return;
+    event.preventDefault();
+    scrollToTarget(target, true);
+  });
+
+  function restoreHashPosition() {
+    const rawHash = window.location.hash.slice(1);
+    if (!rawHash) return;
+    let id = rawHash;
+    try { id = decodeURIComponent(rawHash); } catch (_) { /* keep raw hash */ }
+
+    let target = document.getElementById(id);
+    if (!target || !root.contains(target)) {
+      const matchingLink = tocLinks.find((link) => getFragment(link) === id);
+      if (matchingLink) target = findTarget(matchingLink);
+    }
+    if (target && root.contains(target)) {
+      requestAnimationFrame(() => requestAnimationFrame(() => scrollToTarget(target, false)));
+    }
+  }
+
+  prepareTargets();
+  window.addEventListener("hashchange", restoreHashPosition);
+  window.addEventListener("load", restoreHashPosition, { once: true });
+  if (window.location.hash) restoreHashPosition();
+})();
+</script>
 </body>
 </html>
