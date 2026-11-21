@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
-  
+  <script src="/js/post.js?v=20261121-toc-fix" defer></script>
 </head>
 <body class="post-page">
   <div class="site-noise" aria-hidden="true"></div>
@@ -100,13 +100,13 @@
 </ul>
 </li>
 </ul>
-
-<h1 id="notion-heading-40ad9e129df7805ab498fa1290c2915e">📚 3주차 Python Machine Learning</h1>
+<p><a></a></p>
+<h1>📚 3주차 Python Machine Learning</h1>
 <p>📅 2026.10.26 (Mon) ~ 2026.10.30 (Fri) | Total : 5 days</p>
-
-<h2 id="notion-heading-40ad9e129df78055819ef3730cd6caa0">📕 E. Unsupervised Learning (2026.10.30 Fri)</h2>
-
-<h3 id="notion-heading-40ad9e129df7809cb3accef0a516be7c">📃 a. Unsupervised Learning (비지도 학습)</h3>
+<p><a></a></p>
+<h2>📕 E. Unsupervised Learning (2026.10.30 Fri)</h2>
+<p><a></a></p>
+<h3>📃 a. Unsupervised Learning (비지도 학습)</h3>
 <p><strong>정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝</strong></p>
 <table>
 <thead>
@@ -138,8 +138,8 @@
 <li><strong>Clustering (군집화)</strong> : 비슷한 데이터끼리 그룹화</li>
 <li><strong>Dimensionality Reduction (차원 축소)</strong> : 데이터의 특성 수를 줄임</li>
 </ul>
-
-<h3 id="notion-heading-40ad9e129df78070812ef237ff11a7fa">📃 b. Clustering (군집화)</h3>
+<p><a></a></p>
+<h3>📃 b. Clustering (군집화)</h3>
 <p><strong>비슷한 특성을 가진 데이터끼리 그룹으로 묶는 방법</strong></p>
 <p>대표 알고리즘:</p>
 <table>
@@ -172,8 +172,8 @@ df['cluster'] = model.fit_predict(X_scaled)
 <li><code>X_scaled</code> : 스케일링한 입력 데이터</li>
 </ul>
 <p>💡 <strong>주의:</strong> K-Means처럼 거리를 사용하는 알고리즘은 <code>StandardScaler</code> 등을 이용한 데이터 스케일링이 중요하다.</p>
-
-<h3 id="notion-heading-40ad9e129df780678982e6d6ada7180e">📃 c. Dimensionality Reduction (차원 축소)</h3>
+<p><a></a></p>
+<h3>📃 c. Dimensionality Reduction (차원 축소)</h3>
 <p><strong>데이터의 특성 수를 줄여 데이터 분석과 시각화를 쉽게 만드는 방법</strong></p>
 <p>대표 알고리즘: <strong>PCA (Principal Component Analysis, 주성분 분석)</strong></p>
 <ul>
@@ -199,8 +199,8 @@ print(pca.explained_variance_ratio_)
 <li>Clustering = 비슷한 데이터끼리 묶기</li>
 <li>PCA = 여러 특성을 적은 수의 특성으로 압축하기</li>
 </ul>
-
-<h3 id="notion-heading-40ad9e129df7802380eff86dd47aeab2">📃 d. Project (프로젝트)</h3>
+<p><a></a></p>
+<h3>📃 d. Project (프로젝트)</h3>
 <p><strong>비지도 학습 프로젝트 기본 순서</strong></p>
 <ol>
 <li>데이터 수집 및 탐색</li>
@@ -216,10 +216,10 @@ print(pca.explained_variance_ratio_)
 <li><code>Explained Variance Ratio</code> : PCA의 주성분이 설명하는 분산의 비율</li>
 </ul>
 <hr>
-
-<h2 id="notion-heading-40ad9e129df7801cb268eccd985e4d9e">📕 F. Project (2026.10.30 Fri)</h2>
-
-<h3 id="notion-heading-40ad9e129df78097aceee8debd222bf6">📃 a. 실습 (타이타닉 생존자)</h3>
+<p><a></a></p>
+<h2>📕 F. Project (2026.10.30 Fri)</h2>
+<p><a></a></p>
+<h3>📃 a. 실습 (타이타닉 생존자)</h3>
 <p><strong>승객 정보를 이용해 생존 여부를 예측하는 머신러닝 프로젝트</strong></p>
 <ul>
 <li>학습 유형: <strong>지도 학습 (Supervised Learning)</strong></li>
@@ -230,8 +230,8 @@ print(pca.explained_variance_ratio_)
 </ul>
 </li>
 </ul>
-
-<h3 id="notion-heading-40ad9e129df780c88db5f0eef69644ba">1. 데이터 확인</h3>
+<p><a></a></p>
+<h3>1. 데이터 확인</h3>
 <pre><code class="language-text">df.head()
 df.info()
 df.describe()
@@ -243,16 +243,16 @@ df.isnull().sum()
 <li><code>describe()</code> : 기초 통계 확인</li>
 <li><code>isnull().sum()</code> : 컬럼별 결측치 개수 확인</li>
 </ul>
-
-<h3 id="notion-heading-40ad9e129df780a79a90d9e1260bb4f7">2. 결측치 처리</h3>
+<p><a></a></p>
+<h3>2. 결측치 처리</h3>
 <pre><code class="language-text">df['Age'] = df['Age'].fillna(df['Age'].median())
 </code></pre>
 <ul>
 <li><code>fillna()</code> : 결측치 대체</li>
 <li><code>median()</code> : 중앙값 계산</li>
 </ul>
-
-<h3 id="notion-heading-40ad9e129df7801aba67cf2425876bc5">3. 독립변수와 종속변수 분리</h3>
+<p><a></a></p>
+<h3>3. 독립변수와 종속변수 분리</h3>
 <pre><code class="language-text">X = df.drop(columns=['Survived'])
 y = df['Survived']
 </code></pre>
@@ -260,8 +260,8 @@ y = df['Survived']
 <li><code>X</code> : 예측에 사용할 특성(독립변수)</li>
 <li><code>y</code> : 예측할 정답(종속변수)</li>
 </ul>
-
-<h3 id="notion-heading-40ad9e129df7807f9613eefd43476aea">4. 학습 데이터와 테스트 데이터 분리</h3>
+<p><a></a></p>
+<h3>4. 학습 데이터와 테스트 데이터 분리</h3>
 <pre><code class="language-text">from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -274,8 +274,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 <li><code>test_size=0.2</code> : 전체 데이터의 20%를 테스트용으로 사용</li>
 <li><code>random_state=42</code> : 데이터 분할 결과의 재현성 확보</li>
 </ul>
-
-<h3 id="notion-heading-40ad9e129df7805fbe30d69d25a8300d">5. 모델 학습 및 예측</h3>
+<p><a></a></p>
+<h3>5. 모델 학습 및 예측</h3>
 <pre><code class="language-text">from sklearn.linear_model import LogisticRegression
 
 model = LogisticRegression(max_iter=1000)
@@ -288,8 +288,8 @@ y_pred = model.predict(X_test)
 <li><code>predict()</code> : 새로운 데이터의 정답 예측</li>
 </ul>
 <p>※ 모델 학습 전에는 결측치 처리와 범주형 변수 인코딩 등 필요한 전처리를 완료해야 한다.</p>
-
-<h3 id="notion-heading-40ad9e129df78065b3abc6067053e059">6. 모델 평가</h3>
+<p><a></a></p>
+<h3>6. 모델 평가</h3>
 <pre><code class="language-text">from sklearn.metrics import accuracy_score
 
 accuracy = accuracy_score(y_test, y_pred)
@@ -300,8 +300,8 @@ print(accuracy)
 <li>추가 지표: <code>Precision</code>, <code>Recall</code>, <code>F1-score</code></li>
 </ul>
 <hr>
-
-<h2 id="notion-heading-40ad9e129df780ebb98ee1ba1cec18dd">📝 핵심 복습</h2>
+<p><a></a></p>
+<h2>📝 핵심 복습</h2>
 <table>
 <thead>
 <tr>

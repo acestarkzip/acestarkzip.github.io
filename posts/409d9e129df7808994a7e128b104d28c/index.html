@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
-  
+  <script src="/js/post.js?v=20261121-toc-fix" defer></script>
 </head>
 <body class="post-page">
   <div class="site-noise" aria-hidden="true"></div>
@@ -91,13 +91,13 @@
 </ul>
 </li>
 </ul>
-
-<h1 id="notion-heading-40ad9e129df780f0b2f5f495dc319e8a">📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed)</h1>
+<p><a></a></p>
+<h1>📚 1주차 Linux (2026.10.12 Mon ~ 2026.10.14 Wed)</h1>
 <p><strong>Total : 3 days</strong></p>
-
-<h2 id="notion-heading-40ad9e129df780cca956d189bd852efc">📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)</h2>
-
-<h3 id="notion-heading-40ad9e129df780c0913ce2fdae104e86">📃 a. User (유저/사용자)</h3>
+<p><a></a></p>
+<h2>📕 B. Linux 권한, 프로세스, 패키지 (2026.10.13 Tue)</h2>
+<p><a></a></p>
+<h3>📃 a. User (유저/사용자)</h3>
 <ul>
 <li><strong>User</strong> : Linux 시스템을 사용하는 개별 사용자 계정</li>
 <li><strong>root</strong> : 시스템의 모든 권한을 가진 관리자 계정</li>
@@ -108,8 +108,8 @@
 <pre><code class="language-text">whoami
 sudo apt update
 </code></pre>
-
-<h3 id="notion-heading-40ad9e129df780cd8351fb8079cdf02e">📃 b. File Permission (파일 권한)</h3>
+<p><a></a></p>
+<h3>📃 b. File Permission (파일 권한)</h3>
 <ul>
 <li>파일과 디렉터리에 대한 <strong>읽기(r), 쓰기(w), 실행(x)</strong> 권한을 설정</li>
 <li>권한은 <strong>소유자(User), 그룹(Group), 기타 사용자(Other)</strong> 기준으로 구분</li>
@@ -150,8 +150,8 @@ chmod 755 script.sh
 chmod +x script.sh
 </code></pre>
 <p><strong>💡 </strong><code>755</code><strong> 의미:</strong> 소유자는 읽기·쓰기·실행, 그룹과 기타 사용자는 읽기·실행 가능</p>
-
-<h3 id="notion-heading-40ad9e129df780cb822afe6a41bd7ef1">📃 c. Group (그룹)</h3>
+<p><a></a></p>
+<h3>📃 c. Group (그룹)</h3>
 <ul>
 <li><strong>Group</strong> : 여러 사용자에게 공통 권한을 부여하기 위한 사용자 집합</li>
 <li>파일과 디렉터리의 권한을 그룹 단위로 관리할 수 있음</li>
@@ -164,8 +164,8 @@ chmod +x script.sh
 id
 sudo chgrp developers file.txt
 </code></pre>
-
-<h3 id="notion-heading-40ad9e129df780f881f8dc7af965d963">📃 d. Processes (프로세스)</h3>
+<p><a></a></p>
+<h3>📃 d. Processes (프로세스)</h3>
 <ul>
 <li><strong>Process</strong> : 실행 중인 프로그램</li>
 <li><strong>PID</strong> : 프로세스를 식별하는 고유 번호</li>
@@ -209,8 +209,8 @@ jobs
 kill 1234
 </code></pre>
 <p>※ <code>1234</code>는 예시 PID입니다. 실제 종료할 프로세스의 PID를 확인해야 합니다.</p>
-
-<h3 id="notion-heading-40ad9e129df780eb9738e67cef0990a9">📃 e. Package (패키지)</h3>
+<p><a></a></p>
+<h3>📃 e. Package (패키지)</h3>
 <ul>
 <li><strong>Package</strong> : 프로그램과 실행에 필요한 파일을 묶어 배포하는 단위</li>
 <li><strong>APT</strong> : Ubuntu에서 패키지를 설치하고 관리하는 도구</li>
@@ -250,8 +250,8 @@ sudo apt install git
 git --version
 </code></pre>
 <hr>
-
-<h3 id="notion-heading-40ad9e129df780a18a24dc40cf89d01c">💡 핵심 요약</h3>
+<p><a></a></p>
+<h3>💡 핵심 요약</h3>
 <ul>
 <li><strong>User</strong> : 사용자 계정과 관리자 권한 이해</li>
 <li><strong>Permission</strong> : 파일 접근 권한(r, w, x) 관리</li>

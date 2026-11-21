@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
-  
+  <script src="/js/post.js?v=20261121-toc-fix" defer></script>
 </head>
 <body class="post-page">
   <div class="site-noise" aria-hidden="true"></div>
@@ -93,12 +93,12 @@
 </ul>
 </li>
 </ul>
-
-<h1 id="notion-heading-41dd9e129df78048a020f9e0375423c5">📦 C++ STL 핵심 정리 (컨테이너부터 반복자·해시테이블까지)</h1>
+<p><a></a></p>
+<h1>📦 C++ STL 핵심 정리 (컨테이너부터 반복자·해시테이블까지)</h1>
 <blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><p style="margin:.25rem 0 .5rem;">💡 <strong>한 줄 요약:</strong> C++ 표준 템플릿 라이브러리(STL)의 핵심 컨테이너(<code>array</code>, <code>vector</code>, <code>stack</code>, <code>queue</code>, <code>deque</code>, <code>unordered_map</code>)와 <code>iterator</code>·<code>auto</code>의 동작 원리 및 ROS 2 실전 활용처를 정리한 핵심 노트</p></blockquote>
 
-
-<h2 id="notion-heading-41dd9e129df780dd8f92fd4840d51da9">1. STL 개요 및 ROS 2 활용</h2>
+<p><a></a></p>
+<h2>1. STL 개요 및 ROS 2 활용</h2>
 <ul>
 <li><strong>STL (Standard Template Library):</strong> 자주 사용하는 자료구조와 알고리즘을 미리 구현해 둔 C++ 표준 라이브러리로, 데이터를 담는 자료구조인 컨테이너(Container)가 가장 널리 활용됩니다.</li>
 <li>주요 STL 컨테이너 요약:<ul>
@@ -166,14 +166,14 @@
 </tr>
 </tbody>
 </table>
-
-<h2 id="notion-heading-41dd9e129df78048ad0ce180f3eefe30">2. 정적 배열 (<code>std::array</code>)</h2>
+<p><a></a></p>
+<h2>2. 정적 배열 (<code>std::array</code>)</h2>
 <ul>
 <li><strong>특징:</strong> <code>&lt;array&gt;</code> 헤더를 사용하며, C 기본 배열과 달리 대입 연산(<code>brr = arr</code>)만으로 손쉽게 배열 전체를 복사할 수 있고 <code>.size()</code>로 크기를 바로 얻을 수 있습니다.</li>
 <li><strong>초기화 주의점:</strong> <code>array&lt;int, 3&gt; arr{};</code>처럼 중괄호(<code>{}</code>)를 붙여야 모든 요소가 <code>0</code>으로 초기화되며, 생략하면 쓰레기값이 채워집니다.</li>
 </ul>
-
-<h2 id="notion-heading-41dd9e129df780169413ec074122ddd7">3. 동적 배열 (<code>std::vector</code>)과 반복자 (<code>iterator</code>)</h2>
+<p><a></a></p>
+<h2>3. 동적 배열 (<code>std::vector</code>)과 반복자 (<code>iterator</code>)</h2>
 <ul>
 <li><strong>동적 메모리 확장 원리:</strong> <code>&lt;vector&gt;</code> 헤더를 사용하며, <code>vector&lt;int&gt; v(4);</code>처럼 크기를 지정하면 기본값(<code>0</code>)으로 초기화됩니다. 내부적으로 <code>capacity</code>만큼 공간을 확보해 두었다가 가득 차면 더 큰 메모리를 할당받아 기존 데이터를 복사한 뒤 이전 메모리를 해제(<code>grow()</code>)합니다.</li>
 <li>주요 멤버 함수:<ul>
@@ -189,8 +189,8 @@
 </ul>
 <div class="notion-spacer" style="height:1.5rem;"></div>
 
-
-<h3 id="notion-heading-41dd9e129df780d090b3e23d9b033ac8">C++</h3>
+<p><a></a></p>
+<h3>C++</h3>
 <pre><code class="language-cpp">vector&lt;int&gt; v = {0, 1, 2, 3, 4};
 auto it = v.begin();
 v.erase(it + 1); // 인덱스 1의 원소(1) 삭제 -&gt; {0, 2, 3, 4}
@@ -199,8 +199,8 @@ for (auto iter = v.begin(); iter != v.end(); iter++) {
     cout &lt;&lt; *iter &lt;&lt; &quot; &quot;; // 역참조(*)로 원소 값 접근
 }
 </code></pre>
-
-<h2 id="notion-heading-41dd9e129df7809f8ea9e34f8f9851f1">4. 스택, 큐, 덱 (<code>stack</code>, <code>queue</code>, <code>deque</code>)</h2>
+<p><a></a></p>
+<h2>4. 스택, 큐, 덱 (<code>stack</code>, <code>queue</code>, <code>deque</code>)</h2>
 <table>
 <thead>
 <tr>
@@ -231,8 +231,8 @@ for (auto iter = v.begin(); iter != v.end(); iter++) {
 </tr>
 </tbody>
 </table>
-
-<h2 id="notion-heading-41dd9e129df780df996cf1c4d4d51635">5. 해시테이블 (<code>std::unordered_map</code>)</h2>
+<p><a></a></p>
+<h2>5. 해시테이블 (<code>std::unordered_map</code>)</h2>
 <ul>
 <li><strong>구조:</strong> <code>&lt;unordered_map&gt;</code> 헤더를 사용하며, 순서가 없는 Key-Value 쌍을 저장하는 해시테이블(배열 + 연결리스트 체이닝 구조)입니다.</li>
 <li><strong>삽입 및 접근 시 핵심 주의사항:</strong><ul>
@@ -250,8 +250,8 @@ for (auto iter = v.begin(); iter != v.end(); iter++) {
 </ul>
 <div class="notion-spacer" style="height:1.5rem;"></div>
 
-
-<h3 id="notion-heading-41dd9e129df780c6bb95ec99cbc78c5b">C++</h3>
+<p><a></a></p>
+<h3>C++</h3>
 <pre><code class="language-cpp">unordered_map&lt;string, string&gt; um;
 um.insert({&quot;apple&quot;, &quot;사과&quot;});
 um[&quot;apple&quot;] = &quot;사과봉봉&quot;; // 기존 값 덮어쓰기
