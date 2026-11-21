@@ -11,7 +11,7 @@
   const CACHE_DURATION = 30 * 1000;
   const MAX_HOME_POSTS = 15;
   const IS_ARCHIVE_PAGE = document.body.classList.contains("archive-page");
-  const CACHE_KEY = `acestarkzip-blog-posts-v11-dynamic-post-renderer-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
+  const CACHE_KEY = `acestarkzip-blog-posts-v10-notion-number-order-${IS_ARCHIVE_PAGE ? "archive" : "home"}`;
 
   const list = document.getElementById("post-list");
   const count = document.getElementById("post-count");
@@ -224,10 +224,9 @@
   function createPostElement(post) {
     const link = document.createElement("a");
     link.className = "post-item";
-    // Always use the Markdown renderer so Notion heading anchors are restored
-    // consistently. Pre-rendered /posts/{id}/ pages may have lost legacy
-    // <a name="notion-heading-..."> attributes during static sanitization.
-    link.href = `./post.html?file=${encodeURIComponent(post.path)}`;
+    link.href = post.notionPageId
+      ? `./posts/${post.notionPageId.replace(/-/g, "").toLowerCase()}/`
+      : `./post.html?file=${encodeURIComponent(post.path)}`;
     link.setAttribute("aria-label", `${post.title}, ${formatDate(post.date)}${post.memo ? `, 간단메모: ${post.memo}` : ""} 게시글 읽기`);
 
     const number = document.createElement("span");
