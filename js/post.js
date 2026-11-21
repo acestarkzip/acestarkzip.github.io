@@ -16,7 +16,6 @@
   const contentElement = document.getElementById("markdown-content");
   const yearElement = document.getElementById("current-year");
 
-  bindTocNavigation(contentElement);
   if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 
   function showError(message) {
@@ -184,30 +183,21 @@
     });
   }
 
-  function bindTocNavigation(root) {
-    if (!root) return;
+  function scrollToHeading(target, behavior = "auto") {
+    if (!target) return;
+    const scroller = document.scrollingElement || document.documentElement;
+    const header = document.querySelector(".site-header");
+    const headerOffset = header ? header.getBoundingClientRect().height + 16 : 16;
+    const top = Math.max(
+      0,
+      target.getBoundingClientRect().top + scroller.scrollTop - headerOffset
+    );
 
-    root.addEventListener("click", (event) => {
-      const link = event.target.closest('a[href^="#notion-heading-"]');
-      if (!link || !root.contains(link)) return;
-
-      let targetId = link.getAttribute("href").slice(1);
-      try { targetId = decodeURIComponent(targetId); } catch (_) { /* Keep the literal hash. */ }
-      const target = document.getElementById(targetId);
-      if (!target) {
-        console.warn("TOC target not found:", targetId);
-        return;
-      }
-
-      event.preventDefault();
-      const nextHash = `#${encodeURIComponent(targetId)}`;
-      if (window.location.hash !== nextHash) {
-        window.history.pushState(null, "", nextHash);
-      }
-
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-    });
+    if (typeof scroller.scrollTo === "function") {
+      scroller.scrollTo({ top, behavior });
+    } else {
+      scroller.scrollTop = top;
+    }
   }
 
   function restoreInitialTocPosition() {
@@ -219,7 +209,7 @@
 
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const target = document.getElementById(targetId);
-      if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
+      if (target) scrollToHeading(target, "auto");
     }));
   }
 

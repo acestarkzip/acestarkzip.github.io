@@ -1182,3 +1182,14 @@ button, input { font: inherit; }
     -webkit-line-clamp: 2;
   }
 }
+
+
+/* Native Notion TOC anchor targets: keep headings clear of the sticky header. */
+.markdown-body h1[id^="notion-heading-"],
+.markdown-body h2[id^="notion-heading-"],
+.markdown-body h3[id^="notion-heading-"],
+.markdown-body h4[id^="notion-heading-"],
+.markdown-body h5[id^="notion-heading-"],
+.markdown-body h6[id^="notion-heading-"] {
+  scroll-margin-top: 128px;
+}
