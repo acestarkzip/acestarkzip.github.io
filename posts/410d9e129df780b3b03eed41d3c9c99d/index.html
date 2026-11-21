@@ -11,21 +11,27 @@
   <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
   <!-- SSS Robotics current brand favicon (cache-busted) -->
   <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
-  <meta name="description" content="- 📚 4주차 Python Deep Learning (2026.11.03 Tue 2026.11.09 Mon) | Total : 5 days - 📕 D. Recurrent Neural Network (2026.11.06 Fri)">
+  <meta name="description" content="Sequence Data (순차 데이터) - 데이터가 특정한 순서에 따라 나열된 형태이다. - 이전 데이터가 현재 데이터에 영향을 줄 수 있다. - 예시: 문장, 음성, 주가, 날씨, 센서 데이터">
   <link rel="canonical" href="https://www.sssrobotics.com/posts/410d9e129df780b3b03eed41d3c9c99d/">
+  <meta name="author" content="S급 로봇 연구소">
+  <meta name="keywords" content="교육, 딥러닝">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="S급 로봇 연구소">
   <meta property="og:title" content="Python :  Deep Learning 4일차 (D+20) | S급 로봇 연구소">
-  <meta property="og:description" content="- 📚 4주차 Python Deep Learning (2026.11.03 Tue 2026.11.09 Mon) | Total : 5 days - 📕 D. Recurrent Neural Network (2026.11.06 Fri)">
+  <meta property="og:description" content="Sequence Data (순차 데이터) - 데이터가 특정한 순서에 따라 나열된 형태이다. - 이전 데이터가 현재 데이터에 영향을 줄 수 있다. - 예시: 문장, 음성, 주가, 날씨, 센서 데이터">
   <meta property="og:url" content="https://www.sssrobotics.com/posts/410d9e129df780b3b03eed41d3c9c99d/">
   <meta property="og:image" content="https://www.sssrobotics.com/images/sss-robotics-logo.png">
-  <meta property="og:image:alt" content="S급 로봇 연구소 공식 로고">
+  <meta property="og:image:alt" content="Python :  Deep Learning 4일차 (D+20) - S급 로봇 연구소">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Python :  Deep Learning 4일차 (D+20) | S급 로봇 연구소">
-  <meta name="twitter:description" content="- 📚 4주차 Python Deep Learning (2026.11.03 Tue 2026.11.09 Mon) | Total : 5 days - 📕 D. Recurrent Neural Network (2026.11.06 Fri)">
+  <meta name="twitter:description" content="Sequence Data (순차 데이터) - 데이터가 특정한 순서에 따라 나열된 형태이다. - 이전 데이터가 현재 데이터에 영향을 줄 수 있다. - 예시: 문장, 음성, 주가, 날씨, 센서 데이터">
   <meta name="twitter:image" content="https://www.sssrobotics.com/images/sss-robotics-logo.png">
   <meta property="article:published_time" content="2026-11-06">
+  <meta property="article:modified_time" content="2026-11-06">
+  <meta property="article:section" content="교육">
+  <meta property="article:tag" content="교육">
+  <meta property="article:tag" content="딥러닝">
   <title>Python :  Deep Learning 4일차 (D+20) | S급 로봇 연구소</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +40,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
   
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.sssrobotics.com/posts/410d9e129df780b3b03eed41d3c9c99d/#blogposting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sssrobotics.com/posts/410d9e129df780b3b03eed41d3c9c99d/"},"headline":"Python :  Deep Learning 4일차 (D+20)","description":"Sequence Data (순차 데이터) - 데이터가 특정한 순서에 따라 나열된 형태이다. - 이전 데이터가 현재 데이터에 영향을 줄 수 있다. - 예시: 문장, 음성, 주가, 날씨, 센서 데이터","image":["https://www.sssrobotics.com/images/sss-robotics-logo.png"],"author":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","url":"https://www.sssrobotics.com/"},"publisher":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","logo":{"@type":"ImageObject","url":"https://www.sssrobotics.com/images/sss-robotics-logo.png"}},"inLanguage":"ko-KR","isAccessibleForFree":true,"datePublished":"2026-11-06","dateModified":"2026-11-06","keywords":["교육","딥러닝"],"articleSection":"교육"}</script>
 </head>
 <body class="post-page">
   <div class="site-noise" aria-hidden="true"></div>
@@ -95,12 +102,9 @@
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h1>📚 4주차 Python Deep Learning (2026.11.03 Tue ~ 2026.11.09 Mon) | Total : 5 days</h1>
-<p><a></a></p>
-<h2>📕 D. Recurrent Neural Network (2026.11.06 Fri)</h2>
-<p><a></a></p>
-<h3>📃 a. Sequence Data (시계열 데이터의 구조와 특징)</h3>
+<h1 id="notion-heading-410d9e129df780a28f6bf55f83b213e8" style="scroll-margin-top:112px;">📚 4주차 Python Deep Learning (2026.11.03 Tue ~ 2026.11.09 Mon) | Total : 5 days</h1>
+<h2 id="notion-heading-410d9e129df7805583f5f3bb4465c7e8" style="scroll-margin-top:112px;">📕 D. Recurrent Neural Network (2026.11.06 Fri)</h2>
+<h3 id="notion-heading-410d9e129df7808597cdfbe090a699bc" style="scroll-margin-top:112px;">📃 a. Sequence Data (시계열 데이터의 구조와 특징)</h3>
 <p><strong>Sequence Data (순차 데이터)</strong></p>
 <ul>
 <li>데이터가 특정한 순서에 따라 나열된 형태이다.</li>
@@ -141,8 +145,7 @@
 </table>
 <p><strong>활용 분야:</strong> 주가 예측, 날씨 예측, 음성 인식, 서버 자원 사용량 예측</p>
 <hr>
-<p><a></a></p>
-<h3>📃 b. Sequence Models의 역사 (시계열 예측 모델들의 역사와 등장이유)</h3>
+<h3 id="notion-heading-410d9e129df7809daf9ed1836c984d46" style="scroll-margin-top:112px;">📃 b. Sequence Models의 역사 (시계열 예측 모델들의 역사와 등장이유)</h3>
 <p>순차 데이터의 관계를 효과적으로 학습하기 위해 다양한 모델이 발전했다.</p>
 <table>
 <thead>
@@ -184,8 +187,7 @@
 </table>
 <p><strong>핵심:</strong> RNN에서 시작하여 LSTM, GRU, Attention, Transformer로 발전했다.</p>
 <hr>
-<p><a></a></p>
-<h3>📃 c. SimpleRNN의 구조와 모델학습</h3>
+<h3 id="notion-heading-410d9e129df780c49595eb0023aa5ad3" style="scroll-margin-top:112px;">📃 c. SimpleRNN의 구조와 모델학습</h3>
 <p><strong>RNN (Recurrent Neural Network)</strong></p>
 <ul>
 <li>이전 시점의 정보를 현재 시점으로 전달하는 순환 신경망이다.</li>
@@ -257,8 +259,7 @@
 </tbody>
 </table>
 <hr>
-<p><a></a></p>
-<h3>📃 d. 장기 문맥과 Gated RNN (장기 의존성 문제와 극복 배경)</h3>
+<h3 id="notion-heading-410d9e129df780af91c5f8b1ea9d2c9f" style="scroll-margin-top:112px;">📃 d. 장기 문맥과 Gated RNN (장기 의존성 문제와 극복 배경)</h3>
 <p><strong>Long-Term Dependency (장기 의존성)</strong></p>
 <ul>
 <li>오래전의 정보가 현재 결과에 영향을 주는 현상이다.</li>
@@ -294,8 +295,7 @@
 <li>대표 모델: LSTM, GRU</li>
 </ul>
 <hr>
-<p><a></a></p>
-<h3>📃 e. LSTM (Long Short-Term Memory)</h3>
+<h3 id="notion-heading-410d9e129df780d1918ee2fac2fcace4" style="scroll-margin-top:112px;">📃 e. LSTM (Long Short-Term Memory)</h3>
 <p><strong>LSTM이란?</strong></p>
 <ul>
 <li>기존 RNN의 장기 의존성 문제를 완화하기 위해 개발된 순환 신경망이다.</li>
@@ -343,8 +343,7 @@
 </ol>
 <p><strong>핵심:</strong> 중요한 정보는 기억하고 불필요한 정보는 잊도록 학습하는 구조이다.</p>
 <hr>
-<p><a></a></p>
-<h3>📃 f. RNN variants (다양한 확장 구조)</h3>
+<h3 id="notion-heading-410d9e129df78030a243d85d57e98056" style="scroll-margin-top:112px;">📃 f. RNN variants (다양한 확장 구조)</h3>
 <p>기본 RNN의 단점을 보완하거나 특정 작업에 적합하도록 발전한 구조이다.</p>
 <table>
 <thead>
@@ -398,8 +397,7 @@
 <li><strong>Transformer:</strong> RNN의 순환 구조 없이 Attention을 중심으로 처리한다.</li>
 </ul>
 <hr>
-<p><a></a></p>
-<h2>📌 D. Recurrent Neural Network 핵심 요약</h2>
+<h2 id="notion-heading-410d9e129df7800b8887c632e554e00a" style="scroll-margin-top:112px;">📌 D. Recurrent Neural Network 핵심 요약</h2>
 <table>
 <thead>
 <tr>
@@ -450,8 +448,7 @@
 </tr>
 </tbody>
 </table>
-<p><a></a></p>
-<h3>💡 오늘의 핵심 학습 포인트</h3>
+<h3 id="notion-heading-410d9e129df780c78406fea8241276a2" style="scroll-margin-top:112px;">💡 오늘의 핵심 학습 포인트</h3>
 <ol>
 <li>RNN은 이전 정보를 기억하여 다음 데이터 처리에 활용한다.</li>
 <li>기존 RNN은 긴 시퀀스에서 기울기 소실 문제가 발생할 수 있다.</li>
@@ -473,5 +470,114 @@
   <footer class="site-footer shell">
     <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
   </footer>
+<script>
+(() => {
+  "use strict";
+
+  const root = document.getElementById("markdown-content");
+  if (!root) return;
+
+  const headings = Array.from(root.querySelectorAll("h1, h2, h3, h4, h5, h6"));
+  const usedHeadings = new Set();
+  const tocLinks = Array.from(root.querySelectorAll('a[href^="#"]'));
+
+  const normalize = (value) => String(value || "")
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const comparable = (value) => normalize(value)
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, "");
+
+  function getFragment(link) {
+    const href = link.getAttribute("href") || "";
+    const fragment = href.startsWith("#") ? href.slice(1) : "";
+    if (!fragment) return "";
+    try { return decodeURIComponent(fragment); } catch (_) { return fragment; }
+  }
+
+  function findTarget(link) {
+    const id = getFragment(link);
+    if (!id) return null;
+
+    const existing = document.getElementById(id);
+    if (existing && root.contains(existing)) return existing;
+
+    const label = normalize(link.textContent);
+    const labelKey = comparable(label);
+    if (!labelKey) return null;
+
+    let target = headings.find((heading) =>
+      !usedHeadings.has(heading) && normalize(heading.textContent) === label
+    );
+    if (!target) {
+      target = headings.find((heading) =>
+        !usedHeadings.has(heading) && comparable(heading.textContent) === labelKey
+      );
+    }
+    if (!target) return null;
+
+    target.id = id;
+    usedHeadings.add(target);
+    return target;
+  }
+
+  function prepareTargets() {
+    headings.forEach((heading) => {
+      heading.style.scrollMarginTop = "112px";
+    });
+    tocLinks.forEach(findTarget);
+  }
+
+  function scrollToTarget(target, updateAddress) {
+    if (!target) return;
+    if (updateAddress && target.id) {
+      const nextHash = `#${encodeURIComponent(target.id)}`;
+      if (window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+      }
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start"
+    });
+  }
+
+  root.addEventListener("click", (event) => {
+    const origin = event.target instanceof Element ? event.target : event.target.parentElement;
+    const link = origin && origin.closest('a[href^="#"]');
+    if (!link || !root.contains(link)) return;
+
+    const target = findTarget(link);
+    if (!target) return;
+    event.preventDefault();
+    scrollToTarget(target, true);
+  });
+
+  function restoreHashPosition() {
+    const rawHash = window.location.hash.slice(1);
+    if (!rawHash) return;
+    let id = rawHash;
+    try { id = decodeURIComponent(rawHash); } catch (_) { /* keep raw hash */ }
+
+    let target = document.getElementById(id);
+    if (!target || !root.contains(target)) {
+      const matchingLink = tocLinks.find((link) => getFragment(link) === id);
+      if (matchingLink) target = findTarget(matchingLink);
+    }
+    if (target && root.contains(target)) {
+      requestAnimationFrame(() => requestAnimationFrame(() => scrollToTarget(target, false)));
+    }
+  }
+
+  prepareTargets();
+  window.addEventListener("hashchange", restoreHashPosition);
+  window.addEventListener("load", restoreHashPosition, { once: true });
+  if (window.location.hash) restoreHashPosition();
+})();
+</script>
 </body>
 </html>

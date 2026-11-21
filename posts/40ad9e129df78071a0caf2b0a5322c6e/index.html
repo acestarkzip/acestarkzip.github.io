@@ -11,21 +11,27 @@
   <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
   <!-- SSS Robotics current brand favicon (cache-busted) -->
   <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
-  <meta name="description" content="- 📚 3주차 Python Machine Learning - 📕 E. Unsupervised Learning (2026.10.30 Fri) - 📃 a. Unsupervised Learning (비지도 학습)">
+  <meta name="description" content="📅 2026.10.26 (Mon) 2026.10.30 (Fri) | Total : 5 days 정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝 - Clustering (군집화) : 비슷한 데이터끼리 그룹화">
   <link rel="canonical" href="https://www.sssrobotics.com/posts/40ad9e129df78071a0caf2b0a5322c6e/">
+  <meta name="author" content="S급 로봇 연구소">
+  <meta name="keywords" content="교육, 머신러닝">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="S급 로봇 연구소">
   <meta property="og:title" content="Python : Machine Learning 5일차 (D+15) | S급 로봇 연구소">
-  <meta property="og:description" content="- 📚 3주차 Python Machine Learning - 📕 E. Unsupervised Learning (2026.10.30 Fri) - 📃 a. Unsupervised Learning (비지도 학습)">
+  <meta property="og:description" content="📅 2026.10.26 (Mon) 2026.10.30 (Fri) | Total : 5 days 정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝 - Clustering (군집화) : 비슷한 데이터끼리 그룹화">
   <meta property="og:url" content="https://www.sssrobotics.com/posts/40ad9e129df78071a0caf2b0a5322c6e/">
   <meta property="og:image" content="https://www.sssrobotics.com/images/sss-robotics-logo.png">
-  <meta property="og:image:alt" content="S급 로봇 연구소 공식 로고">
+  <meta property="og:image:alt" content="Python : Machine Learning 5일차 (D+15) - S급 로봇 연구소">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Python : Machine Learning 5일차 (D+15) | S급 로봇 연구소">
-  <meta name="twitter:description" content="- 📚 3주차 Python Machine Learning - 📕 E. Unsupervised Learning (2026.10.30 Fri) - 📃 a. Unsupervised Learning (비지도 학습)">
+  <meta name="twitter:description" content="📅 2026.10.26 (Mon) 2026.10.30 (Fri) | Total : 5 days 정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝 - Clustering (군집화) : 비슷한 데이터끼리 그룹화">
   <meta name="twitter:image" content="https://www.sssrobotics.com/images/sss-robotics-logo.png">
   <meta property="article:published_time" content="2026-10-30">
+  <meta property="article:modified_time" content="2026-10-30">
+  <meta property="article:section" content="교육">
+  <meta property="article:tag" content="교육">
+  <meta property="article:tag" content="머신러닝">
   <title>Python : Machine Learning 5일차 (D+15) | S급 로봇 연구소</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +40,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
   
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.sssrobotics.com/posts/40ad9e129df78071a0caf2b0a5322c6e/#blogposting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sssrobotics.com/posts/40ad9e129df78071a0caf2b0a5322c6e/"},"headline":"Python : Machine Learning 5일차 (D+15)","description":"📅 2026.10.26 (Mon) 2026.10.30 (Fri) | Total : 5 days 정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝 - Clustering (군집화) : 비슷한 데이터끼리 그룹화","image":["https://www.sssrobotics.com/images/sss-robotics-logo.png"],"author":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","url":"https://www.sssrobotics.com/"},"publisher":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","logo":{"@type":"ImageObject","url":"https://www.sssrobotics.com/images/sss-robotics-logo.png"}},"inLanguage":"ko-KR","isAccessibleForFree":true,"datePublished":"2026-10-30","dateModified":"2026-10-30","keywords":["교육","머신러닝"],"articleSection":"교육"}</script>
 </head>
 <body class="post-page">
   <div class="site-noise" aria-hidden="true"></div>
@@ -100,13 +107,10 @@
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h1>📚 3주차 Python Machine Learning</h1>
+<h1 id="notion-heading-40ad9e129df7805ab498fa1290c2915e" style="scroll-margin-top:112px;">📚 3주차 Python Machine Learning</h1>
 <p>📅 2026.10.26 (Mon) ~ 2026.10.30 (Fri) | Total : 5 days</p>
-<p><a></a></p>
-<h2>📕 E. Unsupervised Learning (2026.10.30 Fri)</h2>
-<p><a></a></p>
-<h3>📃 a. Unsupervised Learning (비지도 학습)</h3>
+<h2 id="notion-heading-40ad9e129df78055819ef3730cd6caa0" style="scroll-margin-top:112px;">📕 E. Unsupervised Learning (2026.10.30 Fri)</h2>
+<h3 id="notion-heading-40ad9e129df7809cb3accef0a516be7c" style="scroll-margin-top:112px;">📃 a. Unsupervised Learning (비지도 학습)</h3>
 <p><strong>정답이 없는 데이터에서 패턴이나 특징을 찾아내는 머신러닝</strong></p>
 <table>
 <thead>
@@ -138,8 +142,7 @@
 <li><strong>Clustering (군집화)</strong> : 비슷한 데이터끼리 그룹화</li>
 <li><strong>Dimensionality Reduction (차원 축소)</strong> : 데이터의 특성 수를 줄임</li>
 </ul>
-<p><a></a></p>
-<h3>📃 b. Clustering (군집화)</h3>
+<h3 id="notion-heading-40ad9e129df78070812ef237ff11a7fa" style="scroll-margin-top:112px;">📃 b. Clustering (군집화)</h3>
 <p><strong>비슷한 특성을 가진 데이터끼리 그룹으로 묶는 방법</strong></p>
 <p>대표 알고리즘:</p>
 <table>
@@ -172,8 +175,7 @@ df['cluster'] = model.fit_predict(X_scaled)
 <li><code>X_scaled</code> : 스케일링한 입력 데이터</li>
 </ul>
 <p>💡 <strong>주의:</strong> K-Means처럼 거리를 사용하는 알고리즘은 <code>StandardScaler</code> 등을 이용한 데이터 스케일링이 중요하다.</p>
-<p><a></a></p>
-<h3>📃 c. Dimensionality Reduction (차원 축소)</h3>
+<h3 id="notion-heading-40ad9e129df780678982e6d6ada7180e" style="scroll-margin-top:112px;">📃 c. Dimensionality Reduction (차원 축소)</h3>
 <p><strong>데이터의 특성 수를 줄여 데이터 분석과 시각화를 쉽게 만드는 방법</strong></p>
 <p>대표 알고리즘: <strong>PCA (Principal Component Analysis, 주성분 분석)</strong></p>
 <ul>
@@ -199,8 +201,7 @@ print(pca.explained_variance_ratio_)
 <li>Clustering = 비슷한 데이터끼리 묶기</li>
 <li>PCA = 여러 특성을 적은 수의 특성으로 압축하기</li>
 </ul>
-<p><a></a></p>
-<h3>📃 d. Project (프로젝트)</h3>
+<h3 id="notion-heading-40ad9e129df7802380eff86dd47aeab2" style="scroll-margin-top:112px;">📃 d. Project (프로젝트)</h3>
 <p><strong>비지도 학습 프로젝트 기본 순서</strong></p>
 <ol>
 <li>데이터 수집 및 탐색</li>
@@ -216,10 +217,8 @@ print(pca.explained_variance_ratio_)
 <li><code>Explained Variance Ratio</code> : PCA의 주성분이 설명하는 분산의 비율</li>
 </ul>
 <hr>
-<p><a></a></p>
-<h2>📕 F. Project (2026.10.30 Fri)</h2>
-<p><a></a></p>
-<h3>📃 a. 실습 (타이타닉 생존자)</h3>
+<h2 id="notion-heading-40ad9e129df7801cb268eccd985e4d9e" style="scroll-margin-top:112px;">📕 F. Project (2026.10.30 Fri)</h2>
+<h3 id="notion-heading-40ad9e129df78097aceee8debd222bf6" style="scroll-margin-top:112px;">📃 a. 실습 (타이타닉 생존자)</h3>
 <p><strong>승객 정보를 이용해 생존 여부를 예측하는 머신러닝 프로젝트</strong></p>
 <ul>
 <li>학습 유형: <strong>지도 학습 (Supervised Learning)</strong></li>
@@ -230,8 +229,7 @@ print(pca.explained_variance_ratio_)
 </ul>
 </li>
 </ul>
-<p><a></a></p>
-<h3>1. 데이터 확인</h3>
+<h3 id="notion-heading-40ad9e129df780c88db5f0eef69644ba" style="scroll-margin-top:112px;">1. 데이터 확인</h3>
 <pre><code class="language-text">df.head()
 df.info()
 df.describe()
@@ -243,16 +241,14 @@ df.isnull().sum()
 <li><code>describe()</code> : 기초 통계 확인</li>
 <li><code>isnull().sum()</code> : 컬럼별 결측치 개수 확인</li>
 </ul>
-<p><a></a></p>
-<h3>2. 결측치 처리</h3>
+<h3 id="notion-heading-40ad9e129df780a79a90d9e1260bb4f7" style="scroll-margin-top:112px;">2. 결측치 처리</h3>
 <pre><code class="language-text">df['Age'] = df['Age'].fillna(df['Age'].median())
 </code></pre>
 <ul>
 <li><code>fillna()</code> : 결측치 대체</li>
 <li><code>median()</code> : 중앙값 계산</li>
 </ul>
-<p><a></a></p>
-<h3>3. 독립변수와 종속변수 분리</h3>
+<h3 id="notion-heading-40ad9e129df7801aba67cf2425876bc5" style="scroll-margin-top:112px;">3. 독립변수와 종속변수 분리</h3>
 <pre><code class="language-text">X = df.drop(columns=['Survived'])
 y = df['Survived']
 </code></pre>
@@ -260,8 +256,7 @@ y = df['Survived']
 <li><code>X</code> : 예측에 사용할 특성(독립변수)</li>
 <li><code>y</code> : 예측할 정답(종속변수)</li>
 </ul>
-<p><a></a></p>
-<h3>4. 학습 데이터와 테스트 데이터 분리</h3>
+<h3 id="notion-heading-40ad9e129df7807f9613eefd43476aea" style="scroll-margin-top:112px;">4. 학습 데이터와 테스트 데이터 분리</h3>
 <pre><code class="language-text">from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -274,8 +269,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 <li><code>test_size=0.2</code> : 전체 데이터의 20%를 테스트용으로 사용</li>
 <li><code>random_state=42</code> : 데이터 분할 결과의 재현성 확보</li>
 </ul>
-<p><a></a></p>
-<h3>5. 모델 학습 및 예측</h3>
+<h3 id="notion-heading-40ad9e129df7805fbe30d69d25a8300d" style="scroll-margin-top:112px;">5. 모델 학습 및 예측</h3>
 <pre><code class="language-text">from sklearn.linear_model import LogisticRegression
 
 model = LogisticRegression(max_iter=1000)
@@ -288,8 +282,7 @@ y_pred = model.predict(X_test)
 <li><code>predict()</code> : 새로운 데이터의 정답 예측</li>
 </ul>
 <p>※ 모델 학습 전에는 결측치 처리와 범주형 변수 인코딩 등 필요한 전처리를 완료해야 한다.</p>
-<p><a></a></p>
-<h3>6. 모델 평가</h3>
+<h3 id="notion-heading-40ad9e129df78065b3abc6067053e059" style="scroll-margin-top:112px;">6. 모델 평가</h3>
 <pre><code class="language-text">from sklearn.metrics import accuracy_score
 
 accuracy = accuracy_score(y_test, y_pred)
@@ -300,8 +293,7 @@ print(accuracy)
 <li>추가 지표: <code>Precision</code>, <code>Recall</code>, <code>F1-score</code></li>
 </ul>
 <hr>
-<p><a></a></p>
-<h2>📝 핵심 복습</h2>
+<h2 id="notion-heading-40ad9e129df780ebb98ee1ba1cec18dd" style="scroll-margin-top:112px;">📝 핵심 복습</h2>
 <table>
 <thead>
 <tr>
@@ -371,5 +363,114 @@ print(accuracy)
   <footer class="site-footer shell">
     <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
   </footer>
+<script>
+(() => {
+  "use strict";
+
+  const root = document.getElementById("markdown-content");
+  if (!root) return;
+
+  const headings = Array.from(root.querySelectorAll("h1, h2, h3, h4, h5, h6"));
+  const usedHeadings = new Set();
+  const tocLinks = Array.from(root.querySelectorAll('a[href^="#"]'));
+
+  const normalize = (value) => String(value || "")
+    .normalize("NFKC")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const comparable = (value) => normalize(value)
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, "");
+
+  function getFragment(link) {
+    const href = link.getAttribute("href") || "";
+    const fragment = href.startsWith("#") ? href.slice(1) : "";
+    if (!fragment) return "";
+    try { return decodeURIComponent(fragment); } catch (_) { return fragment; }
+  }
+
+  function findTarget(link) {
+    const id = getFragment(link);
+    if (!id) return null;
+
+    const existing = document.getElementById(id);
+    if (existing && root.contains(existing)) return existing;
+
+    const label = normalize(link.textContent);
+    const labelKey = comparable(label);
+    if (!labelKey) return null;
+
+    let target = headings.find((heading) =>
+      !usedHeadings.has(heading) && normalize(heading.textContent) === label
+    );
+    if (!target) {
+      target = headings.find((heading) =>
+        !usedHeadings.has(heading) && comparable(heading.textContent) === labelKey
+      );
+    }
+    if (!target) return null;
+
+    target.id = id;
+    usedHeadings.add(target);
+    return target;
+  }
+
+  function prepareTargets() {
+    headings.forEach((heading) => {
+      heading.style.scrollMarginTop = "112px";
+    });
+    tocLinks.forEach(findTarget);
+  }
+
+  function scrollToTarget(target, updateAddress) {
+    if (!target) return;
+    if (updateAddress && target.id) {
+      const nextHash = `#${encodeURIComponent(target.id)}`;
+      if (window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+      }
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start"
+    });
+  }
+
+  root.addEventListener("click", (event) => {
+    const origin = event.target instanceof Element ? event.target : event.target.parentElement;
+    const link = origin && origin.closest('a[href^="#"]');
+    if (!link || !root.contains(link)) return;
+
+    const target = findTarget(link);
+    if (!target) return;
+    event.preventDefault();
+    scrollToTarget(target, true);
+  });
+
+  function restoreHashPosition() {
+    const rawHash = window.location.hash.slice(1);
+    if (!rawHash) return;
+    let id = rawHash;
+    try { id = decodeURIComponent(rawHash); } catch (_) { /* keep raw hash */ }
+
+    let target = document.getElementById(id);
+    if (!target || !root.contains(target)) {
+      const matchingLink = tocLinks.find((link) => getFragment(link) === id);
+      if (matchingLink) target = findTarget(matchingLink);
+    }
+    if (target && root.contains(target)) {
+      requestAnimationFrame(() => requestAnimationFrame(() => scrollToTarget(target, false)));
+    }
+  }
+
+  prepareTargets();
+  window.addEventListener("hashchange", restoreHashPosition);
+  window.addEventListener("load", restoreHashPosition, { once: true });
+  if (window.location.hash) restoreHashPosition();
+})();
+</script>
 </body>
 </html>
