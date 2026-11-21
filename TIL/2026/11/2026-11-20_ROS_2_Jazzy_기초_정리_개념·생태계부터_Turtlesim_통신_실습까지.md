@@ -1,11 +1,11 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 41ed9e129df78011ab7feb62bdba070b -->
-<!-- notion-last-edited-time: 2026-11-21T09:14:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-21T09:41:00.000Z -->
 
 # ROS 2 Jazzy 기초 정리: 개념·생태계부터 Turtlesim 통신 실습까지
 
 > - **날짜 :** 2026-11-20
-> - **간단메모 :** ROS 2 Jazzy 핵심 개념과 Turtlesim 5대 통신(Node·Topic·Service·Parameter·Action) 정리.
+> - **간단메모 :** ROS 2 Jazzy 핵심 개념과 Turtlesim 5대 통신(Node·Topic·Service·Parameter·Action) 정리
 > - **원본 노션 :** [바로가기 링크](https://app.notion.com/p/ROS-2-Jazzy-Turtlesim-41ed9e129df78011ab7feb62bdba070b)
 
 ---
