@@ -6,7 +6,7 @@
     <description>S급 로봇 연구소의 로봇, 인공지능, 시뮬레이션 기술 학습 기록입니다.</description>
     <language>ko-KR</language>
     <atom:link href="https://www.sssrobotics.com/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sat, 21 Nov 2026 09:51:52 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 09:59:09 GMT</lastBuildDate>
     <item>
       <title>ROS 2 Jazzy 기초 정리: 개념·생태계부터 Turtlesim 통신 실습까지</title>
       <link>https://www.sssrobotics.com/posts/41ed9e129df78011ab7feb62bdba070b/</link>
@@ -240,6 +240,7 @@
 
 &lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;</content:encoded>
       <category>자기개발</category>
+      <category>C++</category>
     </item>
     <item>
       <title>C++ 3일차 (D+29)</title>
@@ -1093,6 +1094,7 @@ int main(){
 &lt;h1&gt;S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #로봇시뮬레이션 #robot #simulation #엔비디아&lt;/h1&gt;
 &lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;</content:encoded>
       <category>자기개발</category>
+      <category>OpenUSD</category>
     </item>
     <item>
       <title>NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?</title>
@@ -1390,6 +1392,7 @@ def Xform &amp;quot;Robot&amp;quot;
 &lt;h1&gt;S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #피지컬AI #로봇 #시뮬레이션 #AI #AX #robot #simulation #엔비디아&lt;/h1&gt;
 &lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;</content:encoded>
       <category>자기개발</category>
+      <category>OpenUSD</category>
     </item>
     <item>
       <title>Self-Taught : 블로그 개선</title>
@@ -3152,6 +3155,7 @@ $$&lt;/p&gt;
 &lt;p&gt;특히 피지컬 AI 시대에는 로봇이 현실 세계를 이해하고 스스로 작업을 수행할 수 있도록 만드는 기술이 더욱 중요해질 것이라고 생각한다.&lt;/p&gt;
 &lt;p&gt;이번 전시회는 앞으로 공부할 NVIDIA Isaac Sim, Isaac Lab, OpenUSD와 피지컬 AI 기술들이 실제 산업 현장에서 어떻게 활용될 수 있는지 확인할 수 있었던 좋은 기회였다.&lt;/p&gt;</content:encoded>
       <category>자기개발</category>
+      <category>일상</category>
     </item>
     <item>
       <title>Python :  Deep Learning 4일차 (D+20)</title>
