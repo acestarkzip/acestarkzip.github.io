@@ -174,12 +174,17 @@
       }
 
       const parsed = window.marked.parse(markdown, { gfm: true, breaks: false });
-      const safeHtml = window.DOMPurify.sanitize(parsed, {
+
+      // Restore Notion's name-based heading anchors before DOMPurify runs.
+      // DOMPurify may remove legacy <a name="..."> markers, so doing this
+      // after sanitization loses the target IDs required by the table of contents.
+      const parsedDocument = new DOMParser().parseFromString(parsed, "text/html");
+      restoreNotionHeadingAnchors(parsedDocument.body);
+      const safeHtml = window.DOMPurify.sanitize(parsedDocument.body.innerHTML, {
         USE_PROFILES: { html: true },
         ADD_ATTR: ["target", "rel"]
       });
       const content = resolveMarkdownLinks(safeHtml, filePath);
-      restoreNotionHeadingAnchors(content);
 
       // Use the first Markdown H1 as the visible page title when one exists.
       // Preserve its fragment target too, in case a TOC item points to the H1.
