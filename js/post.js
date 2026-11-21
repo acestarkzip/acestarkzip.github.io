@@ -16,6 +16,7 @@
   const contentElement = document.getElementById("markdown-content");
   const yearElement = document.getElementById("current-year");
 
+  bindTocNavigation(contentElement);
   if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 
   function showError(message) {
@@ -72,43 +73,154 @@
     return "LEARNING NOTE";
   }
 
-  // Convert Notion's legacy <a name="notion-heading-..."> markers into
-  // modern IDs on the heading they precede. This makes generated TOC links
-  // (href="#notion-heading-...") reliable across browsers.
-  function restoreNotionHeadingAnchors(root) {
-    if (!root) return;
+  // Promote Notion's legacy named anchors to real heading IDs BEFORE DOMPurify.
+  // Some static exporters/sanitizers strip the `name` attribute, which leaves
+  // TOC links pointing at IDs that no longer exist.
+  function promoteNotionHeadingAnchors(markdownHtml) {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = markdownHtml;
 
-    root.querySelectorAll('a[name^="notion-heading-"]').forEach((anchor) => {
+    wrapper.querySelectorAll('a[name^="notion-heading-"]').forEach((anchor) => {
       const anchorId = anchor.getAttribute("name") || "";
       if (!/^notion-heading-[a-z0-9-]+$/i.test(anchorId)) return;
 
-      // Marked may wrap an inline HTML anchor in an otherwise empty paragraph.
-      // Move the ID to the immediately following heading and remove that wrapper.
-      let marker = anchor;
+      let markerBlock = anchor;
       const parent = anchor.parentElement;
       const isAnchorOnlyParagraph = parent &&
         parent.tagName === "P" &&
         parent.children.length === 1 &&
         parent.firstElementChild === anchor &&
         parent.textContent.trim() === "";
+      if (isAnchorOnlyParagraph) markerBlock = parent;
 
-      if (isAnchorOnlyParagraph) marker = parent;
+      // Skip empty paragraph wrappers that a Markdown parser may add around
+      // standalone HTML anchors, then associate the anchor with the next heading.
+      let next = markerBlock.nextElementSibling;
+      while (next && next.tagName === "P" &&
+        next.textContent.trim() === "" &&
+        !next.querySelector("img, video, iframe, table, pre")) {
+        const empty = next;
+        next = next.nextElementSibling;
+        if (empty !== markerBlock) empty.remove();
+      }
 
-      const followingElement = marker.nextElementSibling;
-      if (followingElement && /^H[1-6]$/.test(followingElement.tagName)) {
-        followingElement.id = anchorId;
-        marker.remove();
+      if (next && /^H[1-6]$/.test(next.tagName)) {
+        next.id = anchorId;
+        markerBlock.remove();
         return;
       }
 
-      // Fallback for a marker that is not directly followed by a heading.
-      // Keep it as a modern ID target rather than relying on the deprecated name attribute.
+      // Fallback: keep a real ID target at the original marker location.
       anchor.id = anchorId;
       anchor.removeAttribute("name");
       anchor.setAttribute("aria-hidden", "true");
       anchor.style.display = "block";
       anchor.style.height = "0";
     });
+
+    return wrapper.innerHTML;
+  }
+
+  // Normalize the Notion-generated contents list before it is inserted.
+  // The exported Markdown can contain a parent TOC item followed by child
+  // links rendered as `<br> - <a>` instead of a real nested list. Convert
+  // those links into semantic <ul>/<li> elements so their hierarchy survives.
+  function normalizeTableOfContents(root) {
+    if (!root) return;
+
+    const tocHeading = Array.from(root.querySelectorAll("h1, h2, h3, h4"))
+      .find((heading) => /목차|contents/i.test(heading.textContent || ""));
+    if (!tocHeading) return;
+
+    let tocList = tocHeading.nextElementSibling;
+    while (tocList && tocList.tagName === "P" && !tocList.textContent.trim()) {
+      tocList = tocList.nextElementSibling;
+    }
+    if (!tocList || tocList.tagName !== "UL") return;
+
+    tocList.classList.add("toc-list");
+
+    // Only inspect direct children of each list item. This prevents links in
+    // the article body from being mistaken for contents sub-items.
+    tocList.querySelectorAll("li").forEach((item) => {
+      const nodes = Array.from(item.childNodes);
+      const keptNodes = [];
+      const childLinks = [];
+
+      for (let index = 0; index < nodes.length; index += 1) {
+        const node = nodes[index];
+        if (node.nodeName !== "BR") {
+          keptNodes.push(node);
+          continue;
+        }
+
+        const dashNode = nodes[index + 1];
+        const nextNode = nodes[index + 2];
+        const isDashText = dashNode && dashNode.nodeType === Node.TEXT_NODE &&
+          /^\s*-\s*$/.test(dashNode.textContent || "");
+
+        if (isDashText && nextNode && nextNode.nodeName === "A") {
+          childLinks.push(nextNode);
+          index += 2;
+          continue;
+        }
+
+        keptNodes.push(node);
+      }
+
+      if (!childLinks.length) return;
+
+      item.replaceChildren(...keptNodes);
+      const nestedList = document.createElement("ul");
+      nestedList.className = "toc-sublist";
+
+      childLinks.forEach((link) => {
+        const childItem = document.createElement("li");
+        childItem.appendChild(link);
+        nestedList.appendChild(childItem);
+      });
+
+      item.appendChild(nestedList);
+    });
+  }
+
+  function bindTocNavigation(root) {
+    if (!root) return;
+
+    root.addEventListener("click", (event) => {
+      const link = event.target.closest('a[href^="#notion-heading-"]');
+      if (!link || !root.contains(link)) return;
+
+      let targetId = link.getAttribute("href").slice(1);
+      try { targetId = decodeURIComponent(targetId); } catch (_) { /* Keep the literal hash. */ }
+      const target = document.getElementById(targetId);
+      if (!target) {
+        console.warn("TOC target not found:", targetId);
+        return;
+      }
+
+      event.preventDefault();
+      const nextHash = `#${encodeURIComponent(targetId)}`;
+      if (window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+      }
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    });
+  }
+
+  function restoreInitialTocPosition() {
+    const rawHash = window.location.hash.slice(1);
+    if (!rawHash.startsWith("notion-heading-")) return;
+
+    let targetId = rawHash;
+    try { targetId = decodeURIComponent(rawHash); } catch (_) { /* Keep the literal hash. */ }
+
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const target = document.getElementById(targetId);
+      if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
+    }));
   }
 
   function resolveMarkdownLinks(markdownHtml, markdownPath) {
@@ -174,15 +286,15 @@
       }
 
       const parsed = window.marked.parse(markdown, { gfm: true, breaks: false });
-
-      // Restore Notion's name-based heading anchors before DOMPurify runs.
-      // DOMPurify may remove legacy <a name="..."> markers, so doing this
-      // after sanitization loses the target IDs required by the table of contents.
-      const parsedDocument = new DOMParser().parseFromString(parsed, "text/html");
-      restoreNotionHeadingAnchors(parsedDocument.body);
-      const safeHtml = window.DOMPurify.sanitize(parsedDocument.body.innerHTML, {
+      // Convert legacy Notion anchors before sanitization so the sanitizer
+      // cannot discard the only copy of each TOC target.
+      const anchoredHtml = promoteNotionHeadingAnchors(parsed);
+      const normalizedHtml = document.createElement("div");
+      normalizedHtml.innerHTML = anchoredHtml;
+      normalizeTableOfContents(normalizedHtml);
+      const safeHtml = window.DOMPurify.sanitize(normalizedHtml.innerHTML, {
         USE_PROFILES: { html: true },
-        ADD_ATTR: ["target", "rel"]
+        ADD_ATTR: ["target", "rel", "id"]
       });
       const content = resolveMarkdownLinks(safeHtml, filePath);
 
@@ -198,6 +310,7 @@
         firstH1.remove();
       }
       contentElement.replaceChildren(...Array.from(content.childNodes));
+      restoreInitialTocPosition();
     } catch (error) {
       console.error("Blog article loading failed:", error);
       showError(error instanceof Error ? error.message : "네트워크 연결을 확인해 주세요.");
