@@ -101,10 +101,10 @@
 </ul>
 </li>
 </ul>
-<h1 id="notion-heading-40ad9e129df7807fbcd5e58387b8c27c" style="scroll-margin-top:16px;">📚 3주차 Python Machine Learning</h1>
+<h1 id="notion-heading-40ad9e129df7807fbcd5e58387b8c27c" style="scroll-margin-top:0px;">📚 3주차 Python Machine Learning</h1>
 <p><strong>2026.10.26 Mon ~ 2026.10.30 Fri | Total: 5 days</strong></p>
-<h2 id="notion-heading-40ad9e129df780fe8633c0bd9113418e" style="scroll-margin-top:16px;">📕 C. Naive Bayes, Decision Tree (2026.10.28 Wed)</h2>
-<h3 id="notion-heading-40ad9e129df78089a585d9a2f0db2991" style="scroll-margin-top:16px;">📃 a. Naïve Bayes (나이브 베이즈)</h3>
+<h2 id="notion-heading-40ad9e129df780fe8633c0bd9113418e" style="scroll-margin-top:0px;">📕 C. Naive Bayes, Decision Tree (2026.10.28 Wed)</h2>
+<h3 id="notion-heading-40ad9e129df78089a585d9a2f0db2991" style="scroll-margin-top:0px;">📃 a. Naïve Bayes (나이브 베이즈)</h3>
 <p><strong>나이브 베이즈(Naive Bayes)</strong> 는 베이즈 정리를 기반으로 데이터를 특정 클래스에 속할 확률을 계산하여 분류하는 알고리즘이다.</p>
 <p>특성들이 서로 <strong>조건부 독립</strong>이라고 가정한다는 점이 특징이다. 실제 데이터에서 특성들이 완전히 독립적이지 않더라도 이 가정을 사용해 계산을 단순화한다.</p>
 <p><strong>베이즈 정리</strong></p>
@@ -166,7 +166,7 @@ y_pred = model.predict(X_test)
 <li>특성 간 조건부 독립 가정이 실제 데이터와 맞지 않을 수 있다.</li>
 <li>모델별로 적합한 데이터 형태가 다르다.</li>
 </ul>
-<h3 id="notion-heading-40ad9e129df780f3853ec698e1bb2545" style="scroll-margin-top:16px;">📃 b. Decision Tree (결정 트리)</h3>
+<h3 id="notion-heading-40ad9e129df780f3853ec698e1bb2545" style="scroll-margin-top:0px;">📃 b. Decision Tree (결정 트리)</h3>
 <p><strong>결정 트리(Decision Tree)</strong> 는 데이터를 여러 조건으로 나누면서 최종 클래스를 예측하는 알고리즘이다.</p>
 <p>쉽게 말해, 질문에 답하면서 정답을 찾아가는 의사결정 과정과 비슷하다.</p>
 <p><strong>예시: 서버 고장 여부 예측</strong></p>
@@ -239,7 +239,7 @@ y_pred = model.predict(X_test)
 <li>트리가 너무 깊으면 과적합이 발생할 수 있다.</li>
 <li>데이터가 조금 바뀌어도 트리 구조가 달라질 수 있다.</li>
 </ul>
-<h3 id="notion-heading-40ad9e129df780a19eb3dfaf938eca37" style="scroll-margin-top:16px;">📃 c. Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)</h3>
+<h3 id="notion-heading-40ad9e129df780a19eb3dfaf938eca37" style="scroll-margin-top:0px;">📃 c. Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV)</h3>
 <p><strong>하이퍼파라미터(Hyperparameter)</strong> 는 모델이 학습을 시작하기 전에 사용자가 설정하는 값이다.</p>
 <p>예를 들어, 결정 트리의 최대 깊이인 <code>max_depth</code>나 KNN의 이웃 수인 <code>n_neighbors</code>가 있다.</p>
 <ul>
@@ -247,7 +247,7 @@ y_pred = model.predict(X_test)
 <li><strong>Hyperparameter(하이퍼파라미터)</strong>: 사용자가 학습 전에 설정하거나 탐색하는 값</li>
 </ul>
 <p><strong>하이퍼파라미터 튜닝(Hyperparameter Tuning)</strong> 은 여러 설정을 비교해 성능이 좋은 조합을 찾는 과정이다.</p>
-<h4 id="notion-heading-40ad9e129df780429c36ff38add9a51c" style="scroll-margin-top:16px;">1. GridSearchCV</h4>
+<h4 id="notion-heading-40ad9e129df780429c36ff38add9a51c" style="scroll-margin-top:0px;">1. GridSearchCV</h4>
 <p>사용자가 지정한 하이퍼파라미터 조합을 <strong>모두 탐색</strong>한다.</p>
 <pre><code class="language-text">from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
@@ -274,7 +274,7 @@ print(&quot;최고 CV 점수:&quot;, grid_search.best_score_)
 best_model = grid_search.best_estimator_
 </code></pre>
 <p>위 예제는 <code>max_depth</code> 4개와 <code>min_samples_split</code> 3개를 조합하므로 총 12개 조합을 탐색한다. <code>cv=5</code>는 각 조합을 5개 폴드로 나누어 교차 검증한다는 뜻이다.</p>
-<h4 id="notion-heading-40ad9e129df780318907da2bf15f94b5" style="scroll-margin-top:16px;">2. RandomizedSearchCV</h4>
+<h4 id="notion-heading-40ad9e129df780318907da2bf15f94b5" style="scroll-margin-top:0px;">2. RandomizedSearchCV</h4>
 <p>지정한 후보 범위에서 <strong>일정 횟수만큼 조합을 무작위로 탐색</strong>한다.</p>
 <pre><code class="language-text">from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import RandomizedSearchCV
@@ -339,7 +339,7 @@ print(&quot;최고 CV 점수:&quot;, random_search.best_score_)
 <li>테스트 데이터 성능을 반복해서 확인하며 모델을 조정하면 테스트 데이터에 과도하게 맞출 위험이 있다.</li>
 <li><code>best_score_</code>는 교차 검증 점수이며, 최종 테스트 점수와 같지는 않다.</li>
 </ul>
-<h3 id="notion-heading-40ad9e129df78051b5cfd9bf2ed79807" style="scroll-margin-top:16px;">📃 d. Project (프로젝트)</h3>
+<h3 id="notion-heading-40ad9e129df78051b5cfd9bf2ed79807" style="scroll-margin-top:0px;">📃 d. Project (프로젝트)</h3>
 <p>나이브 베이즈와 결정 트리를 사용해 분류 모델을 만들고, 하이퍼파라미터 튜닝으로 성능을 비교한다.</p>
 <p><strong>기본 진행 순서</strong></p>
 <ol>
@@ -380,7 +380,7 @@ print(classification_report(y_test, tree_pred))
 </code></pre>
 <p>※ <code>X_train</code>, <code>X_test</code>, <code>y_train</code>, <code>y_test</code>는 미리 분리한 데이터다. 클래스 불균형이 있다면 Accuracy뿐 아니라 Precision, Recall, F1-score도 함께 비교한다.</p>
 <hr>
-<h2 id="notion-heading-40ad9e129df780179deaf6a3e9836b49" style="scroll-margin-top:16px;">✅ 핵심 요약</h2>
+<h2 id="notion-heading-40ad9e129df780179deaf6a3e9836b49" style="scroll-margin-top:0px;">✅ 핵심 요약</h2>
 <ul>
 <li><strong>Naive Bayes</strong>: 베이즈 정리와 조건부 독립 가정을 이용해 확률 기반으로 분류한다.</li>
 <li><strong>Decision Tree</strong>: 조건에 따라 데이터를 분할해 예측하며, 해석하기 쉽지만 과적합에 주의해야 한다.</li>
