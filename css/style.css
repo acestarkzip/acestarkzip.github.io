@@ -1183,13 +1183,31 @@ button, input { font: inherit; }
   }
 }
 
+/* ==========================================================
+   SSS ROBOTICS — mobile focus-card text / divider overlap fix
+   Keep the existing desktop and tablet card layout unchanged.
+   ========================================================== */
+@media (max-width: 680px) {
+  .focus-card {
+    min-height: 225px;
+    height: auto;
+  }
 
-/* Native Notion TOC anchor targets: keep headings clear of the sticky header. */
-.markdown-body h1[id^="notion-heading-"],
-.markdown-body h2[id^="notion-heading-"],
-.markdown-body h3[id^="notion-heading-"],
-.markdown-body h4[id^="notion-heading-"],
-.markdown-body h5[id^="notion-heading-"],
-.markdown-body h6[id^="notion-heading-"] {
-  scroll-margin-top: 128px;
+  .focus-card p {
+    max-width: 100%;
+  }
+
+  /* Put the footer divider/tagline back into normal document flow.
+     The card can now grow when the title or description wraps. */
+  .focus-card-foot {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    display: block;
+    margin-top: 14px;
+    padding-top: 10px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
 }
