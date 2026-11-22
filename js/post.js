@@ -99,6 +99,20 @@
 
       if (activeFenceCharacter) continue;
 
+      // Standard Markdown heading syntax: "# heading text".
+      // If the heading text is actually a hashtag row, remove only the
+      // heading marker so Marked renders it as an ordinary paragraph.
+      const markdownHeading = line.match(/^([ \t]{0,3})(#{1,6})[ \t]+(.+)$/);
+      if (markdownHeading) {
+        const hashtagCount = markdownHeading[3].match(/(?:^|\s)#[^\s#]+/g) || [];
+        if (hashtagCount.length >= 3) {
+          parts[index] = `${markdownHeading[1]}${markdownHeading[3]}`;
+        }
+        continue;
+      }
+
+      // Notion exports may also create a heading from a row beginning with
+      // "#Tag" (without a space). Escape that first hash when it is a tag row.
       const hashtagLine = line.match(/^([ \t]{0,3})(#\S.*)$/);
       if (!hashtagLine) continue;
 
@@ -288,6 +302,32 @@
     return wrapper;
   }
 
+  // Static article pages are generated at /posts/<notion-page-id>/ and
+  // already contain rendered HTML. They do not have a ?file=... parameter.
+  // Demote the final hashtag-only heading to a paragraph so it is displayed
+  // with normal body typography rather than as a large H1.
+  function normalizePreRenderedHashtagHeading(root) {
+    if (!root) return;
+
+    const lastContentElement = Array.from(root.children).reverse().find((element) => {
+      if (element.matches(".notion-spacer")) return false;
+      return Boolean((element.textContent || "").trim());
+    });
+
+    if (!lastContentElement || !/^H[1-6]$/.test(lastContentElement.tagName)) return;
+
+    const headingText = (lastContentElement.textContent || "").trim();
+    const hashtagCount = headingText.match(/(?:^|\s)#[^\s#]+/g) || [];
+    if (hashtagCount.length < 3) return;
+
+    const paragraph = document.createElement("p");
+    paragraph.className = "post-hashtag-line";
+    while (lastContentElement.firstChild) {
+      paragraph.appendChild(lastContentElement.firstChild);
+    }
+    lastContentElement.replaceWith(paragraph);
+  }
+
   async function loadPost() {
     if (!safeFilePath(filePath)) {
       showError("올바른 게시글 주소가 아닙니다. 블로그 목록에서 게시글을 선택해 주세요.");
@@ -345,6 +385,18 @@
       console.error("Blog article loading failed:", error);
       showError(error instanceof Error ? error.message : "네트워크 연결을 확인해 주세요.");
     }
+  }
+
+  // Do not run the Markdown-file loader on pre-rendered /posts/<id>/ pages.
+  // These pages have no ?file= parameter, but their article HTML is already
+  // present. The old behavior replaced the real article title with an error.
+  const hasPreRenderedArticle = !filePath && contentElement &&
+    contentElement.children.length > 0 &&
+    !contentElement.querySelector(".loading-state");
+
+  if (hasPreRenderedArticle) {
+    normalizePreRenderedHashtagHeading(contentElement);
+    return;
   }
 
   loadPost();
