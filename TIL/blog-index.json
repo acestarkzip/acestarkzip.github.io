@@ -1,13 +1,45 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-21T22:45:36.452316+00:00",
-  "active_notion_page_count": 45,
-  "matched_markdown_count": 45,
+  "generated_at": "2026-11-22T04:07:46.748309+00:00",
+  "active_notion_page_count": 47,
+  "matched_markdown_count": 47,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 50,
-  "total_count": 45,
+  "scanned_markdown_count": 52,
+  "total_count": 47,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-22_EP.02_-_OpenUSD의_Stage란_무엇일까요_(What_Is_a_Stage).md",
+      "date": "2026-11-22",
+      "number": 47,
+      "created_time": "2026-11-22T03:52:00.000Z",
+      "title": "EP.02 - OpenUSD의 Stage란 무엇일까요? (What Is a Stage?)",
+      "memo": "OpenUSD Stage, USD Stage, OpenUSD란, NVIDIA Omniverse, Stage란 무엇인가, 3D Scene Graph, Scene Graph, USD Layer, USD Composition, Isaac Sim, 로봇 시뮬레이션, Physical AI, 3D 시뮬레이션",
+      "tags": [
+        {
+          "name": "OpenUSD",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "420d9e129df78066b41fe79f70458698",
+      "notion_url": "https://app.notion.com/p/EP-02-OpenUSD-Stage-What-Is-a-Stage-420d9e129df78066b41fe79f70458698"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-21_EP.01_-_왜_OpenUSD를_사용해야_할까요_NVIDIA_Omniverse와_3D_시뮬레이션의_핵심_기술.md",
+      "date": "2026-11-21",
+      "number": 46,
+      "created_time": "2026-11-22T03:11:00.000Z",
+      "title": "EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술",
+      "memo": "OpenUSD, NVIDIA Omniverse, 3D 시뮬레이션, Physical AI, 디지털 트윈",
+      "tags": [
+        {
+          "name": "OpenUSD",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "420d9e129df780a9bd2dd0d943ef5000",
+      "notion_url": "https://app.notion.com/p/EP-01-OpenUSD-NVIDIA-Omniverse-3D-420d9e129df780a9bd2dd0d943ef5000"
+    },
     {
       "path": "TIL/2026/11/2026-11-20_ROS_2_Jazzy_기초_정리_개념·생태계부터_Turtlesim_통신_실습까지.md",
       "date": "2026-11-20",
