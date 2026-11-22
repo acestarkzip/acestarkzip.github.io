@@ -246,16 +246,30 @@ button, input { font: inherit; }
   gap: .85rem;
 }
 
-.markdown-body .notion-callout-layout > span:first-child {
-  display: inline-grid;
+/* Match Notion's native callout icon: no badge, border, tile, or glow. */
+.markdown-body .notion-callout-layout > .notion-callout-icon {
+  display: inline-block;
   flex: 0 0 auto;
-  place-items: center;
-  min-width: 1.9rem;
-  min-height: 1.9rem;
-  border: 1px solid rgba(154, 230, 0, .25);
-  border-radius: 8px;
-  background: linear-gradient(145deg, rgba(118, 185, 0, .17), rgba(118, 185, 0, .055));
-  box-shadow: inset 0 1px 0 rgba(230, 255, 210, .06), 0 0 14px rgba(118, 185, 0, .08);
+  min-width: 0;
+  min-height: 0;
+  margin-top: .08em;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 1.55;
+  font-size: 1.12em;
+}
+.markdown-body .notion-callout-icon-image {
+  display: block;
+  width: 1.35em;
+  height: 1.35em;
+  margin: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  object-fit: contain;
 }
 
 .markdown-body .notion-callout-content {
@@ -269,6 +283,11 @@ button, input { font: inherit; }
 .markdown-body .notion-callout-content > :last-child { margin-bottom: 0; }
 .markdown-body .notion-callout-content p { color: #d0ddcc; }
 .markdown-body .notion-callout-content strong { color: #f2ffe7; }
+/* Vivid yellow Notion highlights need dark text, including nested bold text. */
+.markdown-body span[style*="#FFE600"] strong,
+.markdown-body span[style*="#ffe600"] strong {
+  color: #111827 !important;
+}
 .markdown-body .notion-callout-content a {
   color: var(--green-bright);
   text-decoration-color: rgba(154, 230, 0, .48);
@@ -277,9 +296,14 @@ button, input { font: inherit; }
 @media (max-width: 680px) {
   .markdown-body .notion-callout { border-radius: 10px; }
   .markdown-body .notion-callout-layout { gap: .65rem; }
-  .markdown-body .notion-callout-layout > span:first-child {
-    min-width: 1.7rem;
-    min-height: 1.7rem;
+  .markdown-body .notion-callout-layout > .notion-callout-icon {
+    min-width: 0;
+    min-height: 0;
+    font-size: 1.08em;
+  }
+  .markdown-body .notion-callout-icon-image {
+    width: 1.25em;
+    height: 1.25em;
   }
 }
 
