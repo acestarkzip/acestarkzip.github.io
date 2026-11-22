@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 40bd9e129df78021b9c3fc931c30a161 -->
-<!-- notion-last-edited-time: 2026-11-08T06:14:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-22T12:34:00.000Z -->
 
 # Self-Taught : 블로그 개선 (메모 참고)
 

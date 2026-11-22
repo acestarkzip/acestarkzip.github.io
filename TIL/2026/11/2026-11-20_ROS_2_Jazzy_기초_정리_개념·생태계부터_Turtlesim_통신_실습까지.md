@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 41ed9e129df78011ab7feb62bdba070b -->
-<!-- notion-last-edited-time: 2026-11-21T09:41:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-22T12:33:00.000Z -->
 
 # ROS 2 Jazzy 기초 정리: 개념·생태계부터 Turtlesim 통신 실습까지
 
