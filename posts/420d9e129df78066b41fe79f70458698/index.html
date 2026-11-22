@@ -93,9 +93,9 @@
 
 <div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;width:100%;"><span class="notion-callout-icon">📌</span><div class="notion-callout-content" style="box-sizing:border-box;width:100%;"><strong>안녕하세요!<br>
 S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;">지난 EP.01에서는 OpenUSD를 사용하는 이유와 주요 장점에 대해 알아보았습니다.<br>
-이번 EP.02에서는 <span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;">OpenUSD의 가장 기본적인 구성 요소 중 하나인 <strong>Stage(스테이지) </strong>에 대해 살펴보겠습니다.</span></p>
+이번 EP.02에서는 OpenUSD의 가장 기본적인 구성 요소 중 하나인 <strong>Stage(스테이지) </strong>에 대해 살펴보겠습니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">3D 환경에서 여러 모델과 오브젝트, 조명, 카메라 등을 하나의 장면으로 구성하려면 어떻게 해야 할까요?</p>
-<p style="margin:.35rem 0 .75rem;line-height:1.55;"><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>OpenUSD에서는 이러한 장면을 구성하고 관리하는 중심 역할을 Stage가 담당</strong></span>합니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;"><strong>OpenUSD에서는 이러한 장면을 구성하고 관리하는 중심 역할을 Stage가 담당</strong>합니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">이번 글에서는 Stage의 개념부터 작동 방식, 실제 활용 사례까지 차근차근 알아보겠습니다.</p>
 </div></div></div>
 
@@ -140,7 +140,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-22_EP.02_-_OpenUSD%EC%9D%98_Stage%EB%9E%80_%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94_%28What_Is_a_Stage%29_assets/04_1-OpenUSD%EC%9D%98-Stage%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-22_EP.02_-_OpenUSD%EC%9D%98_Stage%EB%9E%80_%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94_%28What_Is_a_Stage%29_assets/04_1-OpenUSD%EC%9D%98-Stage%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94.png" alt="📕 1. OpenUSD의 Stage란 무엇일까요?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <p>Stage(스테이지)는 OpenUSD에서 3D 장면(Scene)을 구성하고 관리하는 핵심 개념입니다.</p>
-<p>쉽게 설명하면, <span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>여러 3D 객체와 데이터를 하나의 장면으로 모아 보여주는 통합된 공간</strong></span>이라고 이해할 수 있습니다.</p>
+<p>쉽게 설명하면, <strong>여러 3D 객체와 데이터를 하나의 장면으로 모아 보여주는 통합된 공간</strong>이라고 이해할 수 있습니다.</p>
 <p>예를 들어 로봇이 공장 내부에서 작업하는 시뮬레이션 환경을 만든다고 가정해 보겠습니다.</p>
 <p>이 환경에는 다음과 같은 요소들이 필요합니다.</p>
 <ul>
@@ -150,33 +150,33 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <li>조명 및 카메라</li>
 <li>시뮬레이션 관련 데이터</li>
 </ul>
-<p><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>Stage는 이러한 요소들을 하나의 장면 구조 안에서 통합하여 관리할 수 있도록 지원</strong></span>합니다.</p>
+<p><strong>Stage는 이러한 요소들을 하나의 장면 구조 안에서 통합하여 관리할 수 있도록 지원</strong>합니다.</p>
 <p>여기서 중요한 점은 <strong>Stage 자체가 단순한 USD 파일을 의미하는 것은 아니라는 것</strong>입니다.</p>
 <p>Stage는 하나의 Root Layer를 기반으로 여러 USD Layer와 참조된 데이터를 결합하여 최종적으로 구성된 장면(Scene Graph)을 표현합니다.</p>
 <h3 id="notion-heading-420d9e129df780f99d49c52c39ad0927" style="scroll-margin-top:112px;">📄 1-1. Stage와 USD 파일의 관계</h3>
 <p>OpenUSD를 처음 접할 때 혼동하기 쉬운 부분이 바로 Stage와 USD 파일의 차이입니다.</p>
-<p>USD 파일은 3D 장면을 구성하는 데이터를 저장하는 역할을 합니다.</p>
-<p>반면 <span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>Stage는 해당 데이터를 불러오고 여러 요소를 조합하여 실제 작업할 수 있는 통합된 장면으로 표현</strong></span>합니다.</p>
+<p><strong>USD 파일은 3D 장면을 구성하는 데이터를 저장하는 역할</strong>을 합니다.</p>
+<p>반면 <strong>Stage는 해당 데이터를 불러오고 여러 요소를 조합하여 실제 작업할 수 있는 통합된 장면으로 표현</strong>합니다.</p>
 <p>예를 들어 다음과 같은 구조를 생각할 수 있습니다.</p>
 <ul>
-<li>Robot.usd : 로봇 모델 데이터</li>
-<li>Environment.usd : 공장 환경 데이터</li>
-<li>Lighting.usd : 조명 데이터</li>
-<li>Camera.usd : 카메라 데이터</li>
+<li><strong>Robot.usd : 로봇 모델 데이터</strong></li>
+<li><strong>Environment.usd : 공장 환경 데이터</strong></li>
+<li><strong>Lighting.usd : 조명 데이터</strong></li>
+<li><strong>Camera.usd : 카메라 데이터</strong></li>
 </ul>
 <p>이러한 여러 USD 데이터를 하나의 Stage에서 조합하면 완성된 공장 시뮬레이션 환경을 구성할 수 있습니다.</p>
-<p><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>즉, 여러 개의 USD 자산을 하나의 통합된 3D 장면으로 관리할 수 있다는 것이 핵심</strong></span>입니다.</p>
+<p><strong>즉, 여러 개의 USD 자산을 하나의 통합된 3D 장면으로 관리할 수 있다는 것이 핵심</strong>입니다.</p>
 <h2 id="notion-heading-420d9e129df780f5aaa3fa700e91a43f" style="scroll-margin-top:112px;">📕 2. Stage는 어떻게 작동할까요?</h2>
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-22_EP.02_-_OpenUSD%EC%9D%98_Stage%EB%9E%80_%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94_%28What_Is_a_Stage%29_assets/05_2-Stage%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%A0%EA%B9%8C%EC%9A%94.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-22_EP.02_-_OpenUSD%EC%9D%98_Stage%EB%9E%80_%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94_%28What_Is_a_Stage%29_assets/05_2-Stage%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%A0%EA%B9%8C%EC%9A%94.png" alt="📕 2. Stage는 어떻게 작동할까요?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <p>Stage는 단순히 3D 객체를 모아놓는 공간이 아닙니다.</p>
-<p><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>여러 USD 데이터를 읽어 들이고, 각 데이터의 관계와 우선순위를 계산하여 하나의 최종 장면을 구성</strong></span>합니다.</p>
+<p><strong>여러 USD 데이터를 읽어 들이고, 각 데이터의 관계와 우선순위를 계산하여 하나의 최종 장면을 구성</strong>합니다.</p>
 <p>이러한 과정을 Composition(컴포지션)이라고 합니다.</p>
 <h3 id="notion-heading-420d9e129df780579b50df0a95783222" style="scroll-margin-top:112px;">📄 2-1. Scene Graph와 Prim의 구성</h3>
 <p>Stage 내부에는 Scene Graph(씬 그래프)라는 계층적 구조가 존재합니다.</p>
-<p>Scene Graph는 3D 장면에 포함된 다양한 객체와 요소들을 계층적으로 구성하는 데이터 구조입니다.</p>
+<p><strong>Scene Graph는 3D 장면에 포함된 다양한 객체와 요소들을 계층적으로 구성하는 데이터 구조</strong>입니다.</p>
 <p>이 구조를 구성하는 기본 단위가 바로 Prim(프림)입니다.</p>
-<p><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>Prim은 로봇, 건물, 카메라, 조명 등 장면을 구성하는 개별 요소를 나타냅니다.</strong></span></p>
+<p><strong>Prim은 로봇, 건물, 카메라, 조명 등 장면을 구성하는 개별 요소를 나타냅니다.</strong></p>
 <p>예를 들어 다음과 같은 구조를 만들 수 있습니다.</p>
 <ul>
 <li>Stage<ul>
@@ -203,11 +203,11 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <p>이처럼 Stage는 여러 Prim을 계층적으로 관리하면서 전체 장면의 구조를 표현합니다.</p>
 <p>※ Prim의 정확한 개념과 역할은 EP.05에서 더 자세히 다루겠습니다.</p>
 <h3 id="notion-heading-420d9e129df780578424c2a5301636bb" style="scroll-margin-top:112px;">📄 2-2. Composition을 통한 데이터 통합</h3>
-<p><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>OpenUSD의 중요한 특징 중 하나는 여러 데이터를 조합하여 하나의 장면을 구성할 수 있다는 점</strong></span>입니다.</p>
+<p><strong>OpenUSD의 중요한 특징 중 하나는 여러 데이터를 조합하여 하나의 장면을 구성할 수 있다는 점</strong>입니다.</p>
 <p>예를 들어 로봇 모델과 공장 환경을 각각 별도의 USD 자산으로 제작했다고 가정해 보겠습니다.</p>
 <p>기존 방식에서는 데이터를 하나의 장면으로 통합하기 위해 별도의 병합이나 변환 작업이 필요할 수 있습니다.</p>
 <p>하지만 OpenUSD에서는 Layer, Reference 등의 기능을 활용하여 각 자산을 독립적으로 유지하면서 하나의 Stage에 통합할 수 있습니다.</p>
-<p>이러한 방식은 <span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>다음과 같은 장점을 제공</strong></span>합니다.</p>
+<p>이러한 방식은 <strong>다음과 같은 장점을 제공</strong>합니다.</p>
 <ul>
 <li>기존 3D 자산의 재사용</li>
 <li>여러 데이터의 유연한 조합</li>
@@ -215,7 +215,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <li>비파괴적인 협업 환경</li>
 <li>대규모 3D 장면의 효율적인 구성</li>
 </ul>
-<p><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>즉, 하나의 거대한 3D 파일을 만드는 대신 여러 개의 독립적인 자산을 조합하여 복잡한 환경을 구성</strong></span>할 수 있습니다.</p>
+<p><strong>즉, 하나의 거대한 3D 파일을 만드는 대신 여러 개의 독립적인 자산을 조합하여 복잡한 환경을 구성</strong>할 수 있습니다.</p>
 <h2 id="notion-heading-420d9e129df780e8a5d4e839948cf332" style="scroll-margin-top:112px;">📕 3. Stage의 주요 기능</h2>
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-22_EP.02_-_OpenUSD%EC%9D%98_Stage%EB%9E%80_%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94_%28What_Is_a_Stage%29_assets/06_3-Stage%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-22_EP.02_-_OpenUSD%EC%9D%98_Stage%EB%9E%80_%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94_%28What_Is_a_Stage%29_assets/06_3-Stage%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5.png" alt="📕 3. Stage의 주요 기능" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
@@ -227,7 +227,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <li>기존 USD 파일 열기</li>
 <li>여러 USD 데이터 통합</li>
 </ul>
-<p>Python에서는 다음과 같은 API를 사용할 수 있습니다.</p>
+<p><strong>Python에서는 다음과 같은 API를 사용할 수 있습니다.</strong></p>
 <pre><code class="language-python">from pxr import Usd
 
 # 새로운 Stage 생성
@@ -254,7 +254,7 @@ stage = Usd.Stage.Open(&quot;robot_scene.usda&quot;)
 
 <p>Stage는 다양한 산업 분야에서 복잡한 3D 환경을 구성하고 관리하는 데 활용됩니다.</p>
 <h3 id="notion-heading-420d9e129df78046b1f1dbbaae678e50" style="scroll-margin-top:112px;">📄 4-1. 로보틱스 및 Physical AI</h3>
-<p><span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;"><strong>로봇 시뮬레이션 환경을 구성하는 경우 Stage를 활용하여 로봇과 주변 환경을 하나의 장면으로 통합할 수 있습니다.</strong></span></p>
+<p><strong>로봇 시뮬레이션 환경을 구성하는 경우 Stage를 활용하여 로봇과 주변 환경을 하나의 장면으로 통합할 수 있습니다.</strong></p>
 <p>예를 들어 Isaac Sim에서 다음과 같은 요소를 구성할 수 있습니다.</p>
 <ul>
 <li>로봇 모델 및 관절 구조</li>
