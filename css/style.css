@@ -283,9 +283,11 @@ button, input { font: inherit; }
 .markdown-body .notion-callout-content > :last-child { margin-bottom: 0; }
 .markdown-body .notion-callout-content p { color: #d0ddcc; }
 .markdown-body .notion-callout-content strong { color: #f2ffe7; }
-/* Vivid yellow Notion highlights need dark text, including nested bold text. */
+/* Vivid yellow/green Notion highlights need dark text, including nested bold text. */
 .markdown-body span[style*="#FFE600"] strong,
-.markdown-body span[style*="#ffe600"] strong {
+.markdown-body span[style*="#ffe600"] strong,
+.markdown-body span[style*="#76B900"] strong,
+.markdown-body span[style*="#76b900"] strong {
   color: #111827 !important;
 }
 .markdown-body .notion-callout-content a {
