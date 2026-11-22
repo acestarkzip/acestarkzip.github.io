@@ -100,14 +100,14 @@
 </ul>
 </li>
 </ul>
-<h1 id="notion-heading-417d9e129df780648b5dc1eae64f2f4d" style="scroll-margin-top:0px;">📖 1. RAG 개념</h1>
-<h2 id="notion-heading-417d9e129df780faa35ddcabe9e039a6" style="scroll-margin-top:0px;">A. LLM과 외부 지식의 한계 🧠</h2>
+<h1 id="notion-heading-417d9e129df780648b5dc1eae64f2f4d" style="scroll-margin-top:112px;">📖 1. RAG 개념</h1>
+<h2 id="notion-heading-417d9e129df780faa35ddcabe9e039a6" style="scroll-margin-top:112px;">A. LLM과 외부 지식의 한계 🧠</h2>
 <ul>
 <li><strong>Knowledge Cutoff (지식 마감일):</strong> LLM 모델 자체는 사전에 학습된 데이터까지만 알고 있기 때문에 최신 뉴스나 날씨에 대답할 수 없습니다.</li>
 <li><strong>사</strong>내 데이터 접근 불가: 보안이 걸린 우리 회사만의 고유한 정보나 일반적이지 않은 비밀 데이터는 웹 검색으로도 알 수 없습니다.</li>
 <li><strong>Long-context Prompting의 한계:</strong> 문서를 검색 과정 없이 통째로 프롬프트에 넣어 LLM에 전달하는 방법이 있습니다. 하지만 이 방식은 문서를 통째로 넣기 때문에 토큰(비용) 낭비가 심하고, 모델이 한 번에 처리할 수 있는 <code>Context Window</code> 용량을 초과하면 호출 자체가 불가능해진다는 치명적인 단점이 있습니다.</li>
 </ul>
-<h2 id="notion-heading-417d9e129df780c9869bd4058c3eb745" style="scroll-margin-top:0px;">B. RAG Workflow (검색 증강 생성) 🔄</h2>
+<h2 id="notion-heading-417d9e129df780c9869bd4058c3eb745" style="scroll-margin-top:112px;">B. RAG Workflow (검색 증강 생성) 🔄</h2>
 <p>긴 문서를 통째로 넣는 대신, 사용자의 질문과 <strong>관련된 부분(조각)만 검색해서 LLM에게 넘겨주는 방식</strong>입니다. 짧고 핵심적인 Context만 전달하여 효율을 높입니다.</p>
 <p><strong>Step 1: Indexing (문서를 검색 가능하게 준비하는 과정)</strong></p>
 <ul>
@@ -121,13 +121,13 @@
 <li>사용자가 질문하면, 질문 역시 벡터로 변환한 뒤 Vector Store에서 가장 의미가 비슷한 문서 조각(<code>Chunk</code>)을 검색해서 가져옵니다.</li>
 <li>가져온 내용만 바탕으로 LLM이 최종 답변을 생성합니다.</li>
 </ul>
-<h2 id="notion-heading-417d9e129df780e3b729f10b3f4386bc" style="scroll-margin-top:0px;">C. Data Loader &amp; Text Splitter 🛠️</h2>
+<h2 id="notion-heading-417d9e129df780e3b729f10b3f4386bc" style="scroll-margin-top:112px;">C. Data Loader &amp; Text Splitter 🛠️</h2>
 <ul>
 <li><strong>Document Loader:</strong> .txt, .pdf, .docx, .csv 등 형식이 제각각인 파일들에서 텍스트와 메타데이터(페이지 번호 등 부가 정보)를 뽑아내어 일관된 <code>Document</code> 객체 형태로 만들어주는 도구입니다.</li>
 <li><strong>LangChain Community:</strong> 다양한 로더들을 직접 구현할 필요 없이 통일된 파이썬 문법으로 쉽게 사용할 수 있도록 도와주는 SDK 모음입니다. <code>TextLoader</code>, <code>PyPDFLoader</code>, <code>CSVLoader</code> 등을 제공합니다.</li>
 <li><strong>Text Splitter:</strong> 로더가 읽어온 문서를 쪼개는 도구입니다. 대표적으로 <code>RecursiveCharacterTextSplitter</code>는 문단(엔터 두 번) ➔ 줄바꿈 ➔ 문장 끝 ➔ 공백 순서로 우선순위를 두어, 최대한 문맥이 깨지지 않게 영리하게 텍스트를 분할합니다.</li>
 </ul>
-<h2 id="notion-heading-417d9e129df78025a0b5e27a18c1369b" style="scroll-margin-top:0px;">D. 고급 RAG 기술 (Improving Retrieval) 🚀</h2>
+<h2 id="notion-heading-417d9e129df78025a0b5e27a18c1369b" style="scroll-margin-top:112px;">D. 고급 RAG 기술 (Improving Retrieval) 🚀</h2>
 <p>기본적인 벡터 검색은 '의미' 기반이라 뉘앙스를 파악하는 데는 좋지만, <strong>정확한 키워드나 부품 번호, 고유 명사 매칭에는 취약</strong>합니다.</p>
 <ul>
 <li><strong>BM25 검색 알고리즘:</strong> 단어가 문서에 얼마나 자주 등장하는지(<code>TF</code>), 그 단어가 전체 문서들 사이에서 얼마나 희귀한 핵심어인지(<code>IDF</code>), 그리고 문서의 길이까지 모두 계산하여 <strong>키워드가 정확히 일치하는 문서</strong>를 찾는 전통적이고 강력한 검색 방식입니다.</li>
@@ -138,17 +138,17 @@
 </li>
 <li><strong>Hybrid Search (하이브리드 검색):</strong> 의미 기반의 <code>Vector Search</code>와 정확한 키워드 기반의 <code>BM25 검색</code>을 동시에 진행한 뒤, 두 결과를 병합하여 상호 단점을 보완하는 최고 성능의 검색 기법입니다.</li>
 </ul>
-<h1 id="notion-heading-417d9e129df780b791acd61551c52cb2" style="scroll-margin-top:0px;">2. 실습</h1>
-<h2 id="notion-heading-417d9e129df7802db414f701af8fd910" style="scroll-margin-top:0px;">A. 환경설정</h2>
+<h1 id="notion-heading-417d9e129df780b791acd61551c52cb2" style="scroll-margin-top:112px;">2. 실습</h1>
+<h2 id="notion-heading-417d9e129df7802db414f701af8fd910" style="scroll-margin-top:112px;">A. 환경설정</h2>
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/01_A-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/01_A-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95.png" alt="A. 환경설정" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-<h2 id="notion-heading-417d9e129df78066bcf5c3e77ac14ea4" style="scroll-margin-top:0px;">B. OpenAI API Client 구성</h2>
+<h2 id="notion-heading-417d9e129df78066bcf5c3e77ac14ea4" style="scroll-margin-top:112px;">B. OpenAI API Client 구성</h2>
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/02_B-OpenAI-API-Client-%EA%B5%AC%EC%84%B1.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/02_B-OpenAI-API-Client-%EA%B5%AC%EC%84%B1.png" alt="B. OpenAI API Client 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-<h2 id="notion-heading-417d9e129df780efbf7cf675ccf96e44" style="scroll-margin-top:0px;">C. Long term Context 방식</h2>
+<h2 id="notion-heading-417d9e129df780efbf7cf675ccf96e44" style="scroll-margin-top:112px;">C. Long term Context 방식</h2>
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/03_C-Long-term-Context-%EB%B0%A9%EC%8B%9D.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/03_C-Long-term-Context-%EB%B0%A9%EC%8B%9D.png" alt="C. Long term Context 방식" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-<h2 id="notion-heading-417d9e129df780f681b9cb3a800e68f0" style="scroll-margin-top:0px;">D. 문서를 전달 후 질문에 답변</h2>
+<h2 id="notion-heading-417d9e129df780f681b9cb3a800e68f0" style="scroll-margin-top:112px;">D. 문서를 전달 후 질문에 답변</h2>
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/04_D-%EB%AC%B8%EC%84%9C%EB%A5%BC-%EC%A0%84%EB%8B%AC-%ED%9B%84-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8B%B5%EB%B3%80.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-13_LLM_RAG_4%EC%9D%BC%EC%B0%A8_%28D%2B25%29_assets/04_D-%EB%AC%B8%EC%84%9C%EB%A5%BC-%EC%A0%84%EB%8B%AC-%ED%9B%84-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8B%B5%EB%B3%80.png" alt="D. 문서를 전달 후 질문에 답변" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
       </article>
       <aside class="article-aside">
@@ -164,114 +164,5 @@
   <footer class="site-footer shell">
     <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
   </footer>
-<script>
-(() => {
-  "use strict";
-
-  const root = document.getElementById("markdown-content");
-  if (!root) return;
-
-  const headings = Array.from(root.querySelectorAll("h1, h2, h3, h4, h5, h6"));
-  const usedHeadings = new Set();
-  const tocLinks = Array.from(root.querySelectorAll('a[href^="#"]'));
-
-  const normalize = (value) => String(value || "")
-    .normalize("NFKC")
-    .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  const comparable = (value) => normalize(value)
-    .toLocaleLowerCase()
-    .replace(/[^\p{L}\p{N}]+/gu, "");
-
-  function getFragment(link) {
-    const href = link.getAttribute("href") || "";
-    const fragment = href.startsWith("#") ? href.slice(1) : "";
-    if (!fragment) return "";
-    try { return decodeURIComponent(fragment); } catch (_) { return fragment; }
-  }
-
-  function findTarget(link) {
-    const id = getFragment(link);
-    if (!id) return null;
-
-    const existing = document.getElementById(id);
-    if (existing && root.contains(existing)) return existing;
-
-    const label = normalize(link.textContent);
-    const labelKey = comparable(label);
-    if (!labelKey) return null;
-
-    let target = headings.find((heading) =>
-      !usedHeadings.has(heading) && normalize(heading.textContent) === label
-    );
-    if (!target) {
-      target = headings.find((heading) =>
-        !usedHeadings.has(heading) && comparable(heading.textContent) === labelKey
-      );
-    }
-    if (!target) return null;
-
-    target.id = id;
-    usedHeadings.add(target);
-    return target;
-  }
-
-  function prepareTargets() {
-    headings.forEach((heading) => {
-      heading.style.scrollMarginTop = "112px";
-    });
-    tocLinks.forEach(findTarget);
-  }
-
-  function scrollToTarget(target, updateAddress) {
-    if (!target) return;
-    if (updateAddress && target.id) {
-      const nextHash = `#${encodeURIComponent(target.id)}`;
-      if (window.location.hash !== nextHash) {
-        window.history.pushState(null, "", nextHash);
-      }
-    }
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({
-      behavior: reduceMotion ? "auto" : "smooth",
-      block: "start"
-    });
-  }
-
-  root.addEventListener("click", (event) => {
-    const origin = event.target instanceof Element ? event.target : event.target.parentElement;
-    const link = origin && origin.closest('a[href^="#"]');
-    if (!link || !root.contains(link)) return;
-
-    const target = findTarget(link);
-    if (!target) return;
-    event.preventDefault();
-    scrollToTarget(target, true);
-  });
-
-  function restoreHashPosition() {
-    const rawHash = window.location.hash.slice(1);
-    if (!rawHash) return;
-    let id = rawHash;
-    try { id = decodeURIComponent(rawHash); } catch (_) { /* keep raw hash */ }
-
-    let target = document.getElementById(id);
-    if (!target || !root.contains(target)) {
-      const matchingLink = tocLinks.find((link) => getFragment(link) === id);
-      if (matchingLink) target = findTarget(matchingLink);
-    }
-    if (target && root.contains(target)) {
-      requestAnimationFrame(() => requestAnimationFrame(() => scrollToTarget(target, false)));
-    }
-  }
-
-  prepareTargets();
-  window.addEventListener("hashchange", restoreHashPosition);
-  window.addEventListener("load", restoreHashPosition, { once: true });
-  if (window.location.hash) restoreHashPosition();
-})();
-</script>
 </body>
 </html>
