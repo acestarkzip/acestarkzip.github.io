@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 419d9e129df780b9ba8dfb888755bacf -->
-<!-- notion-last-edited-time: 2026-11-21T09:50:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-22T03:16:00.000Z -->
 
 # NVIDIA OpenUSD 는 무엇인가?
 
