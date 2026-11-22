@@ -16,7 +16,7 @@
 
 <div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span class="notion-callout-icon" aria-hidden="true">📌</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><strong>안녕하세요, ‘S급 로봇 연구소’ 입니다.<br>
 오늘의 주제는 [   NVIDIA USD, USDA, USDC, USDZ의 차이점은 무엇인가?   ] 입니다.</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;"><strong><br>
-</strong><span style="background-color:rgba(68,131,97,.25);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>오늘의 핵심 세 가지</strong></span><strong> :</strong></p>
+</strong><span style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>오늘의 핵심 세 가지</strong></span><strong> :</strong></p>
 <ol style="list-style-position:outside;margin:.5rem 0 .75rem;padding-left:1.5rem;"><li style="margin:.30rem 0;line-height:1.5;"><strong>USD</strong> : 3D 장면과 데이터를 표현하고 관리하는 기본 기술입니다.</li><li style="margin:.30rem 0;line-height:1.5;"><strong>USDA / USDC</strong> : USD 데이터를 저장하는 두 가지 방식으로, 하나는 텍스트이고 다른 하나는 바이너리입니다.</li><li style="margin:.30rem 0;line-height:1.5;"><strong>USDZ</strong> : 3D 모델과 텍스처 등의 관련 파일을 하나로 묶어 전달하는 패키지 형식입니다.</li></ol>
 </div></div></div>
 

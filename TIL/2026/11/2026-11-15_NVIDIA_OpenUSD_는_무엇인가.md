@@ -16,7 +16,7 @@
 
 <div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span class="notion-callout-icon" aria-hidden="true">📌</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><strong>안녕하세요, ‘S급 로봇 연구소’ 입니다.<br>
 오늘의 기술 블로그 주제는 [   </strong>NVIDIA OpenUSD 는 무엇인가?<strong>   ] 입니다</strong><div class="notion-spacer" aria-hidden="true" style="display:block;width:100%;height:1.5rem;min-height:1.5rem;"></div>
-<p style="margin:.35rem 0 .75rem;line-height:1.55;"><span style="background-color:rgba(68,131,97,.25);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>오늘의 핵심 세 가지</strong></span><strong> :</strong></p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;"><span style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>오늘의 핵심 세 가지</strong></span><strong> :</strong></p>
 <ol style="list-style-position:outside;margin:.5rem 0 .75rem;padding-left:1.5rem;"><li style="margin:.30rem 0;line-height:1.5;">OpenUSD가 무엇인지 이해하기</li><li style="margin:.30rem 0;line-height:1.5;">OpenUSD의 주요 특징 알아보기</li><li style="margin:.30rem 0;line-height:1.5;">NVIDIA Omniverse와 Isaac Sim에서 어떻게 활용되는지 알아보기</li></ol>
 </div></div></div>
 
