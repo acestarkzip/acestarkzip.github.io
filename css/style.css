@@ -283,11 +283,38 @@ button, input { font: inherit; }
 .markdown-body .notion-callout-content > :last-child { margin-bottom: 0; }
 .markdown-body .notion-callout-content p { color: #d0ddcc; }
 .markdown-body .notion-callout-content strong { color: #f2ffe7; }
-/* Vivid yellow/green Notion highlights need dark text, including nested bold text. */
+/*
+   Notion inline highlights: normalize the painted band across mixed font weights.
+   The exporter wraps adjacent runs of the same background in one shared span.
+   A fixed em-based line-height and vertical padding prevent bold glyph metrics
+   from making the top/bottom edge appear to jump at formatting boundaries.
+*/
+.markdown-body .notion-inline-highlight {
+  display: inline;
+  line-height: 1.65em !important;
+  vertical-align: baseline !important;
+  padding: .12em .16em !important;
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.markdown-body .notion-inline-highlight *,
+.markdown-body .notion-inline-highlight a,
+.markdown-body .notion-inline-highlight strong,
+.markdown-body .notion-inline-highlight em,
+.markdown-body .notion-inline-highlight code,
+.markdown-body .notion-inline-highlight u,
+.markdown-body .notion-inline-highlight del {
+  line-height: inherit !important;
+  vertical-align: baseline !important;
+}
+.markdown-body .notion-inline-highlight strong {
+  color: #111827 !important;
+}
+
+/* Vivid yellow Notion highlights need dark text, including nested bold text. */
 .markdown-body span[style*="#FFE600"] strong,
-.markdown-body span[style*="#ffe600"] strong,
-.markdown-body span[style*="#76B900"] strong,
-.markdown-body span[style*="#76b900"] strong {
+.markdown-body span[style*="#ffe600"] strong {
   color: #111827 !important;
 }
 .markdown-body .notion-callout-content a {
