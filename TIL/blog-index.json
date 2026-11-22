@@ -1,11 +1,11 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-22T12:39:31.138432+00:00",
+  "generated_at": "2026-11-22T22:47:47.757146+00:00",
   "active_notion_page_count": 41,
   "matched_markdown_count": 41,
   "missing_markdown_count": 0,
-  "scanned_markdown_count": 52,
+  "scanned_markdown_count": 46,
   "total_count": 41,
   "posts": [
     {
