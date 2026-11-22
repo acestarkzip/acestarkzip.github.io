@@ -60,7 +60,7 @@
 
 <div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
 
-<span style="background-color:rgba(217,115,13,.22);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone">ㅅ[셈플링 입니다. 참고
+<span class="notion-inline-highlight" style="background-color:rgba(217,115,13,.22);border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone">ㅅ[셈플링 입니다. 참고
 부탁드립니다 
 감샇바니다.</span>
 
