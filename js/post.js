@@ -72,6 +72,45 @@
     return "LEARNING NOTE";
   }
 
+  // Keep standalone hashtag rows as normal paragraphs instead of letting a
+  // Markdown parser interpret the leading # as a heading marker.
+  // Notion exports commonly store these rows without a space after the first #.
+  // Fenced code blocks are skipped so code examples remain unchanged.
+  function protectStandaloneHashtagLines(markdown) {
+    const parts = markdown.split(/(\r\n|\n|\r)/);
+    let activeFenceCharacter = "";
+    let activeFenceLength = 0;
+
+    for (let index = 0; index < parts.length; index += 2) {
+      const line = parts[index];
+      const fence = line.match(/^ {0,3}(`{3,}|~{3,})/);
+
+      if (fence) {
+        const marker = fence[1];
+        if (!activeFenceCharacter) {
+          activeFenceCharacter = marker[0];
+          activeFenceLength = marker.length;
+        } else if (marker[0] === activeFenceCharacter && marker.length >= activeFenceLength) {
+          activeFenceCharacter = "";
+          activeFenceLength = 0;
+        }
+        continue;
+      }
+
+      if (activeFenceCharacter) continue;
+
+      const hashtagLine = line.match(/^([ \t]{0,3})(#\S.*)$/);
+      if (!hashtagLine) continue;
+
+      const hashtagCount = hashtagLine[2].match(/(?:^|\s)#[^\s#]+/g) || [];
+      if (hashtagCount.length >= 3) {
+        parts[index] = `${hashtagLine[1]}\\${hashtagLine[2]}`;
+      }
+    }
+
+    return parts.join("");
+  }
+
   // Promote Notion's legacy named anchors to real heading IDs BEFORE DOMPurify.
   // Some static exporters/sanitizers strip the `name` attribute, which leaves
   // TOC links pointing at IDs that no longer exist.
@@ -275,7 +314,8 @@
         throw new Error("Markdown 표시 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인해 주세요.");
       }
 
-      const parsed = window.marked.parse(markdown, { gfm: true, breaks: false });
+      const markdownForRendering = protectStandaloneHashtagLines(markdown);
+      const parsed = window.marked.parse(markdownForRendering, { gfm: true, breaks: false });
       // Convert legacy Notion anchors before sanitization so the sanitizer
       // cannot discard the only copy of each TOC target.
       const anchoredHtml = promoteNotionHeadingAnchors(parsed);
