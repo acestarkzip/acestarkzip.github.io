@@ -5,6 +5,12 @@
 
 ## DLI DAY 01 Robotics Foundation
 
+[![DLI DAY 01 Robotics Foundation](./01_DLI-DAY-01-Robotics-Foundation.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/01_DLI-DAY-01-Robotics-Foundation.png)
+
+`01_DLI-DAY-01-Robotics-Foundation.png`
+
+## DLI DAY 01 Robotics Foundation
+
 [![DLI DAY 01 Robotics Foundation](./02_DLI-DAY-01-Robotics-Foundation.png)](https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/02_DLI-DAY-01-Robotics-Foundation.png)
 
 `02_DLI-DAY-01-Robotics-Foundation.png`
