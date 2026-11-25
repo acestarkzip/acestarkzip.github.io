@@ -6,7 +6,965 @@
     <description>S급 로봇 연구소의 로봇, 인공지능, 시뮬레이션 기술 학습 기록입니다.</description>
     <language>ko-KR</language>
     <atom:link href="https://www.sssrobotics.com/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 25 Nov 2026 04:52:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 14:31:14 GMT</lastBuildDate>
+    <item>
+      <title>DLI DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)</title>
+      <link>https://www.sssrobotics.com/posts/422d9e129df780f584bae0693319b79e/</link>
+      <guid isPermaLink="true">https://www.sssrobotics.com/posts/422d9e129df780f584bae0693319b79e/</guid>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+      <description>• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 지난 시간에는 Isaac Sim에서 기본 도형을 이용하여 로봇의 몸체와 바퀴, 관절을 제작하고 키보드로 직접 조종하는 과정을 학습했습니다.</description>
+      <content:encoded>
+
+
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;날짜 :&lt;/strong&gt; 2026-11-25&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; Simple 로봇 만들기, 로봇 조종, 센서 달기, ROS로 데이터 보내기&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-ROS-2-2-2-422d9e129df780f584bae0693319b79e"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/01_DLI-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1%EA%B3%BC.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/01_DLI-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1%EA%B3%BC.png" alt="DLI DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;• Youtube :&lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;&lt;u&gt;https://www.youtube.com/@sssrobotics&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/02_DLI-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1%EA%B3%BC.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/02_DLI-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1%EA%B3%BC.png" alt="DLI DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"&gt;&lt;div class="notion-callout-layout" style="display:flex;width:100%;"&gt;&lt;span class="notion-callout-icon"&gt;📌&lt;/span&gt;&lt;div class="notion-callout-content" style="box-sizing:border-box;width:100%;"&gt;&lt;strong&gt;안녕하세요!&lt;br&gt;
+S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;지난 시간에는 Isaac Sim에서 기본 도형을 이용하여 로봇의 몸체와 바퀴, 관절을 제작하고 키보드로 직접 조종하는 과정을 학습했습니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;오늘은 제작한 로봇에 RGB 카메라와 2D LiDAR 센서를 장착하고, 주변 환경을 인식하는 과정을 알아보겠습니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;또한 NVIDIA Isaac Sim의 ROS 2 Bridge와 OmniGraph를 활용하여 센서 데이터를 ROS 2 Topic으로 전달하고, RViz2에서 실제 데이터를 확인합니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;이를 통해 시뮬레이션 로봇이 단순히 움직이는 것을 넘어 주변 환경을 인식하고 외부 시스템과 데이터를 주고받는 구조를 이해합니다.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/03_DLI-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1%EA%B3%BC.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/03_DLI-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1%EA%B3%BC.png" alt="DLI DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="notion-heading-423d9e129df780e88732efa6c6b65381" style="scroll-margin-top:112px;"&gt;📚 목차 (Contents)&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e88732efa6c6b65381"&gt;📚 목차 (Contents)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780149eb0d5e62bc6b444"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78033ba85c9a1f69f6c72"&gt;📕 1. 로봇 센서와 Sensor Mount 구성&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78074acbde2587e554461"&gt;📄 1-1. 센서를 장착하는 이유&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7800ca2c0d579ef8a1299"&gt;📄 1-2. Front_Sensor 구성&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7809ab47ed25ae066eb62"&gt;📕 2. RGB Camera 장착 및 영상 확인&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78057aa5cec4a049280d8"&gt;📄 2-1. RGB Camera란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780988227f6cb2e2b1c09"&gt;📄 2-2. Robot_Camera 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7800fbddffb071ca91e7e"&gt;📄 2-3. 카메라 화면 확인&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780be9eeac8af5c6fbbd7"&gt;📕 3. 2D LiDAR 장착 및 거리 측정&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780b2b7a5f3e5281d1ab9"&gt;📄 3-1. LiDAR란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e5b85cceca87304d6a"&gt;📄 3-2. PhysX LiDAR 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78059a77bdb55c118557b"&gt;📄 3-3. Collider와 장애물 인식&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780c8b5c5f52a6bdbb517"&gt;📕 4. ROS 2 통신 구조 이해&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780009d41e9cd8db21113"&gt;📄 4-1. ROS 2의 기본 용어&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780adad3fcb9228a8af9e"&gt;📄 4-2. ROS 2 Bridge&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780c190b9ff4e4f061958"&gt;📕 5. OmniGraph를 활용한 센서 데이터 발행&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780fc87f9d1f711207c40"&gt;📄 5-1. LiDAR 데이터 발행&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780cd8444d2de7fb533e3"&gt;📄 5-2. Camera 데이터 발행&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78045b518db12d9284e63"&gt;📄 5-3. ROS 2 Topic 확인&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780ef8bdec9889ca0d9de"&gt;📕 6. RViz2를 활용한 센서 데이터 시각화&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780cbbac1fdb6a6f68ff6"&gt;📄 6-1. RViz2란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78026b06af66cf9d0f55f"&gt;📄 6-2. LiDAR 데이터 확인&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780a6a2c5da12fe7f4e67"&gt;📄 6-3. Camera 영상 확인&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780038ed3e259c4c02b64"&gt;📕 7. Isaac Sim 5.1 주요 설정 주의사항&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78064809bd57172b30f8e"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e79b26f52b5531e519"&gt;👥 참고 문헌 (References)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78009ae68e5188576f1bf"&gt;📨 문의하기 (Contact us)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df780149eb0d5e62bc6b444" style="scroll-margin-top:112px;"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/h1&gt;
+&lt;h2 id="notion-heading-423d9e129df78033ba85c9a1f69f6c72" style="scroll-margin-top:112px;"&gt;📕 1. 로봇 센서와 Sensor Mount 구성&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df78074acbde2587e554461" style="scroll-margin-top:112px;"&gt;📄 1-1. 센서를 장착하는 이유&lt;/h3&gt;
+&lt;p&gt;로봇이 자율적으로 움직이려면 주변 환경을 인식할 수 있어야 합니다.&lt;/p&gt;
+&lt;p&gt;이를 위해 카메라와 LiDAR 등의 센서를 장착하여 주변 물체의 영상 및 거리 정보를 수집합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df7800ca2c0d579ef8a1299" style="scroll-margin-top:112px;"&gt;📄 1-2. Front_Sensor 구성&lt;/h3&gt;
+&lt;p&gt;SimpleRobot의 앞쪽에 Xform 객체를 생성하고 Front_Sensor라는 이름으로 구성합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Front_Sensor: 센서들을 묶는 공간입니다.&lt;/li&gt;
+&lt;li&gt;Fixed Joint: 센서 구조물을 로봇 몸체에 고정합니다.&lt;/li&gt;
+&lt;li&gt;Sensor_Mount: 카메라와 센서를 장착하는 구조물입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;센서는 로봇이 움직이더라도 일정한 위치와 방향을 유지하도록 구성합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df7809ab47ed25ae066eb62" style="scroll-margin-top:112px;"&gt;📕 2. RGB Camera 장착 및 영상 확인&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df78057aa5cec4a049280d8" style="scroll-margin-top:112px;"&gt;📄 2-1. RGB Camera란?&lt;/h3&gt;
+&lt;p&gt;RGB Camera는 주변 환경을 색상 정보가 포함된 영상으로 수집하는 센서입니다.&lt;/p&gt;
+&lt;p&gt;물체의 형태와 색상, 주변 환경을 시각적으로 확인하는 데 활용합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780988227f6cb2e2b1c09" style="scroll-margin-top:112px;"&gt;📄 2-2. Robot_Camera 구성&lt;/h3&gt;
+&lt;p&gt;Sensor_Mount 아래에 Camera 객체를 생성하고 Robot_Camera라는 이름으로 지정합니다.&lt;/p&gt;
+&lt;p&gt;카메라의 위치와 회전값을 조정하여 로봇의 전방을 바라보도록 설정합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df7800fbddffb071ca91e7e" style="scroll-margin-top:112px;"&gt;📄 2-3. 카메라 화면 확인&lt;/h3&gt;
+&lt;p&gt;Isaac Sim의 Viewport를 활용하여 로봇 전체 장면과 카메라가 바라보는 화면을 비교합니다.&lt;/p&gt;
+&lt;p&gt;이를 통해 로봇의 실제 시점에서 장애물이 어떻게 보이는지 확인합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780be9eeac8af5c6fbbd7" style="scroll-margin-top:112px;"&gt;📕 3. 2D LiDAR 장착 및 거리 측정&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780b2b7a5f3e5281d1ab9" style="scroll-margin-top:112px;"&gt;📄 3-1. LiDAR란?&lt;/h3&gt;
+&lt;p&gt;LiDAR(Light Detection and Ranging)는 레이저를 이용하여 주변 물체까지의 거리를 측정하는 센서입니다.&lt;/p&gt;
+&lt;p&gt;측정한 거리 정보를 활용하여 주변 장애물과 공간 구조를 파악할 수 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780e5b85cceca87304d6a" style="scroll-margin-top:112px;"&gt;📄 3-2. PhysX LiDAR 구성&lt;/h3&gt;
+&lt;p&gt;Front_Sensor에 PhysX LiDAR를 추가하고 회전형(Rotating) 센서를 구성합니다.&lt;/p&gt;
+&lt;p&gt;센서의 높이와 측정 설정을 조정하여 주변 장애물을 탐지할 수 있도록 합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df78059a77bdb55c118557b" style="scroll-margin-top:112px;"&gt;📄 3-3. Collider와 장애물 인식&lt;/h3&gt;
+&lt;p&gt;PhysX LiDAR는 물체의 시각적인 모양이 아니라 물리적인 충돌 형상을 기준으로 측정합니다.&lt;/p&gt;
+&lt;p&gt;따라서 장애물이 화면에 보이더라도 Collider가 설정되어 있지 않으면 LiDAR가 정상적으로 감지하지 못할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;장애물에 Rigid Body와 Collider를 설정한 뒤 LiDAR의 측정 결과를 비교합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780c8b5c5f52a6bdbb517" style="scroll-margin-top:112px;"&gt;📕 4. ROS 2 통신 구조 이해&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780009d41e9cd8db21113" style="scroll-margin-top:112px;"&gt;📄 4-1. ROS 2의 기본 용어&lt;/h3&gt;
+&lt;p&gt;ROS 2는 로봇의 여러 기능이 데이터를 주고받을 수 있도록 지원하는 통신 프레임워크입니다.&lt;/p&gt;
+&lt;p&gt;이번 실습에서 알아야 할 주요 용어는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Node: 특정 기능을 수행하는 ROS 2 실행 단위입니다.&lt;/li&gt;
+&lt;li&gt;Topic: 노드 간 데이터를 주고받는 통신 경로입니다.&lt;/li&gt;
+&lt;li&gt;Message: Topic을 통해 전달되는 데이터 형식입니다.&lt;/li&gt;
+&lt;li&gt;Frame ID: 데이터가 기준으로 삼는 좌표 프레임을 나타냅니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780adad3fcb9228a8af9e" style="scroll-margin-top:112px;"&gt;📄 4-2. ROS 2 Bridge&lt;/h3&gt;
+&lt;p&gt;Isaac Sim은 ROS 2 Bridge Extension을 통해 ROS 2와 통신할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;OmniGraph에 ROS 2 관련 노드를 추가하면 시뮬레이션에서 생성한 센서 데이터를 ROS 2 Topic으로 발행할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780c190b9ff4e4f061958" style="scroll-margin-top:112px;"&gt;📕 5. OmniGraph를 활용한 센서 데이터 발행&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780fc87f9d1f711207c40" style="scroll-margin-top:112px;"&gt;📄 5-1. LiDAR 데이터 발행&lt;/h3&gt;
+&lt;p&gt;Action Graph를 생성하고 LiDAR 데이터를 ROS 2 LaserScan 메시지로 변환하는 노드들을 연결합니다.&lt;/p&gt;
+&lt;p&gt;주요 구성요소는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Playback Tick: 시뮬레이션 실행 시 그래프를 동작시킵니다.&lt;/li&gt;
+&lt;li&gt;Isaac Read Lidar Beams: LiDAR 측정 데이터를 읽습니다.&lt;/li&gt;
+&lt;li&gt;ROS2 Publish Laser Scan: 측정 데이터를 ROS 2 Topic으로 발행합니다.&lt;/li&gt;
+&lt;li&gt;Isaac Read Simulation Time: 시뮬레이션 시간을 가져옵니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Topic Name은 &lt;code&gt;scan_lidar&lt;/code&gt;로 설정하며, Frame ID는 &lt;code&gt;sim_lidar&lt;/code&gt;를 사용합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780cd8444d2de7fb533e3" style="scroll-margin-top:112px;"&gt;📄 5-2. Camera 데이터 발행&lt;/h3&gt;
+&lt;p&gt;카메라 데이터는 Render Product와 ROS2 Camera Helper 노드를 활용하여 발행합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isaac Create Render Product: 카메라의 렌더링 결과를 생성합니다.&lt;/li&gt;
+&lt;li&gt;ROS2 Camera Helper: 카메라 영상을 ROS 2 메시지로 발행합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Topic Name은 &lt;code&gt;rgb&lt;/code&gt;로 설정하며 Frame ID는 &lt;code&gt;sim_camera&lt;/code&gt;를 사용합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df78045b518db12d9284e63" style="scroll-margin-top:112px;"&gt;📄 5-3. ROS 2 Topic 확인&lt;/h3&gt;
+&lt;p&gt;터미널에서 ROS 2 명령어를 사용하여 센서 데이터가 정상적으로 발행되는지 확인합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;ros2 topic list | grep -E 'scan_lidar|rgb'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;LiDAR Topic의 데이터 발행 주기도 확인할 수 있습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;ros2 topic hz /scan_lidar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;메시지 내용을 확인하려면 다음 명령어를 사용합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;ros2 topic echo /scan_lidar --once
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780ef8bdec9889ca0d9de" style="scroll-margin-top:112px;"&gt;📕 6. RViz2를 활용한 센서 데이터 시각화&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780cbbac1fdb6a6f68ff6" style="scroll-margin-top:112px;"&gt;📄 6-1. RViz2란?&lt;/h3&gt;
+&lt;p&gt;RViz2는 ROS 2에서 전달되는 로봇과 센서 데이터를 시각적으로 확인할 수 있는 3D 시각화 도구입니다.&lt;/p&gt;
+&lt;p&gt;로봇의 센서 정보와 좌표계, 주변 환경 등을 확인하는 데 활용합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df78026b06af66cf9d0f55f" style="scroll-margin-top:112px;"&gt;📄 6-2. LiDAR 데이터 확인&lt;/h3&gt;
+&lt;p&gt;RViz2를 실행하고 Global Options의 Fixed Frame을 &lt;code&gt;sim_lidar&lt;/code&gt;로 설정합니다.&lt;/p&gt;
+&lt;p&gt;이후 &lt;code&gt;/scan_lidar&lt;/code&gt; Topic을 LaserScan Display로 추가하여 LiDAR 측정 결과를 확인합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780a6a2c5da12fe7f4e67" style="scroll-margin-top:112px;"&gt;📄 6-3. Camera 영상 확인&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;/rgb&lt;/code&gt; Topic을 Image Display로 추가하여 Isaac Sim의 Robot_Camera에서 전달되는 영상을 확인합니다.&lt;/p&gt;
+&lt;p&gt;이를 통해 시뮬레이터에서 생성한 영상 및 거리 정보가 ROS 2를 통해 RViz2까지 전달되는 것을 확인합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780038ed3e259c4c02b64" style="scroll-margin-top:112px;"&gt;📕 7. Isaac Sim 5.1 주요 설정 주의사항&lt;/h2&gt;
+&lt;p&gt;이번 교육은 Isaac Sim 5.1과 ROS 2 Jazzy를 기준으로 진행합니다.&lt;/p&gt;
+&lt;p&gt;공식 교육 자료의 Isaac Sim 4.5 및 ROS 2 Humble 설정과 다른 부분은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sensor_Mount: Rigid Body를 중복으로 설정하지 않고 Colliders Preset만 적용합니다.&lt;/li&gt;
+&lt;li&gt;Robot_Camera: Orient 값을 &lt;code&gt;(90, -90, 0)&lt;/code&gt;으로 설정합니다.&lt;/li&gt;
+&lt;li&gt;ROS 2: Humble 대신 Jazzy 환경을 사용합니다.&lt;/li&gt;
+&lt;li&gt;LiDAR: 충돌 형상이 설정된 장애물만 정상적으로 탐지합니다.&lt;/li&gt;
+&lt;li&gt;RViz2: Fixed Frame을 센서의 Frame ID와 일치시켜야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df78064809bd57172b30f8e" style="scroll-margin-top:112px;"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;💡 오늘 배운 핵심 내용&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RGB Camera는 주변 환경의 영상 정보를 수집합니다.&lt;/li&gt;
+&lt;li&gt;LiDAR는 레이저를 활용하여 주변 물체까지의 거리를 측정합니다.&lt;/li&gt;
+&lt;li&gt;PhysX LiDAR는 물체의 Collider를 기준으로 장애물을 인식합니다.&lt;/li&gt;
+&lt;li&gt;ROS 2 Bridge를 통해 Isaac Sim과 ROS 2를 연결합니다.&lt;/li&gt;
+&lt;li&gt;OmniGraph의 ROS 2 노드를 활용하여 카메라와 LiDAR 데이터를 Topic으로 발행합니다.&lt;/li&gt;
+&lt;li&gt;RViz2에서는 Fixed Frame과 Topic을 설정하여 센서 데이터를 시각화합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;📝 실습 미션: 장애물 코스 주행&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이번 실습에서는 직접 제작한 로봇을 활용하여 장애물 코스를 주행합니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;로봇 전방에 장애물 5개 이상을 배치하고 폭 약 2.5m의 좁은 길을 구성합니다.&lt;/li&gt;
+&lt;li&gt;키보드를 사용하여 목표 상자 앞 1m 이내에 도착합니다.&lt;/li&gt;
+&lt;li&gt;Isaac Sim 화면을 가리고 RViz2만 확인하면서 동일한 코스를 다시 주행합니다.&lt;/li&gt;
+&lt;li&gt;두 번의 주행 시간과 RViz2의 카메라 및 LiDAR 화면을 기록합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;💡 생각해 볼 내용&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isaac Sim 화면을 보면서 조종할 때와 RViz2만 보고 조종할 때 어떤 차이가 있었나요?&lt;/li&gt;
+&lt;li&gt;센서 데이터만으로 장애물의 위치와 거리를 파악하는 데 어려움은 없었나요?&lt;/li&gt;
+&lt;li&gt;ScaleLinear와 ScaleAngular 값을 변경하면 로봇의 조종 특성이 어떻게 달라지나요?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;📋 공식 퀴즈&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Google Classroom에서 해당 교육 범위의 공식 퀴즈를 진행합니다.&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;🚀 다음 시간 (3일차)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ingesting Robot Assets&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이번 시간에는 기본 도형을 이용하여 로봇을 직접 제작했습니다.&lt;/p&gt;
+&lt;p&gt;다음 시간에는 이미 제작된 로봇 설계 파일인 URDF와 3D 모델을 Isaac Sim으로 가져오는 방법을 학습합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URDF 구조 이해&lt;/li&gt;
+&lt;li&gt;기존 로봇 모델 Import&lt;/li&gt;
+&lt;li&gt;관절과 물리 속성 확인&lt;/li&gt;
+&lt;li&gt;기존 로봇 에셋과 직접 제작한 로봇 구조 비교&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;특히 이번 실습에서 직접 구성한 Rigid Body, Joint, Angular Drive 및 Articulation Root가 URDF Importer를 통해 어떻게 구성되는지 비교합니다.&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df780e79b26f52b5531e519" style="scroll-margin-top:112px;"&gt;👥 참고 문헌 (References)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA DLI – Building Your First Robot in Isaac Sim&lt;br&gt;
+&lt;a href="https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/"&gt;https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA Isaac Sim Documentation&lt;br&gt;
+&lt;a href="https://docs.isaacsim.omniverse.nvidia.com/"&gt;https://docs.isaacsim.omniverse.nvidia.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ROS 2 Documentation&lt;br&gt;
+&lt;a href="https://docs.ros.org/en/jazzy/"&gt;https://docs.ros.org/en/jazzy/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RViz2 Documentation&lt;br&gt;
+&lt;a href="https://docs.ros.org/en/jazzy/p/rviz2/"&gt;https://docs.ros.org/en/jazzy/p/rviz2/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;교육 참고 자료&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;센서 달기 – 카메라, 2D LiDAR&lt;/li&gt;
+&lt;li&gt;ROS 2로 데이터 보내기 – LaserScan, 카메라, RViz2&lt;/li&gt;
+&lt;li&gt;정리 및 미션&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df78009ae68e5188576f1bf" style="scroll-margin-top:112px;"&gt;📨 문의하기 (Contact us)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"&gt;&lt;ul style="list-style-position:outside;margin:.5rem 0 .75rem;"&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Youtube : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;https://www.youtube.com/@sssrobotics&lt;/a&gt;&lt;/li&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Blog : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.sssrobotics.com/"&gt;https://www.sssrobotics.com&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p&gt;#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #피지컬AI #로봇 #시뮬레이션 #AI #AX #robot #simulation #엔비디아&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;</content:encoded>
+      <category>교육</category>
+      <category>DLI</category>
+    </item>
+    <item>
+      <title>DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)</title>
+      <link>https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/</link>
+      <guid isPermaLink="true">https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.</description>
+      <content:encoded>
+
+
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;날짜 :&lt;/strong&gt; 2026-11-24&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; Isaac Sim 시작, Simple 로봇 만들기&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;• Youtube :&lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;&lt;u&gt;https://www.youtube.com/@sssrobotics&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"&gt;&lt;div class="notion-callout-layout" style="display:flex;width:100%;"&gt;&lt;span class="notion-callout-icon"&gt;📌&lt;/span&gt;&lt;div class="notion-callout-content" style="box-sizing:border-box;width:100%;"&gt;&lt;strong&gt;안녕하세요!&lt;br&gt;
+S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;지난 시간에는 자율로봇의 기본 구조와 차동구동, PID 제어 및 경로탐색 알고리즘을 학습했습니다.&lt;br&gt;
+이번 시간에는 이러한 개념을 실제 3D 시뮬레이션 환경에 적용해 보겠습니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;Isaac Sim의 화면 구성과 물리 엔진의 기본 원리를 이해하고, 기본 도형을 활용하여 로봇의 몸체와 바퀴, 관절을 직접 구성합니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;마지막으로 Differential Controller와 OmniGraph를 활용하여 로봇을 움직이는 과정까지 알아보겠습니다.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="notion-heading-423d9e129df7805d99e5ee4e0d01a190" style="scroll-margin-top:112px;"&gt;📚 목차 (Contents)&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7805d99e5ee4e0d01a190"&gt;📚 목차 (Contents)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7800d8047fd54890f67aa"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780caa5dde6694b43ae03"&gt;📕 1. NVIDIA Isaac Sim 시작하기&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7803abfaad3ac5657abe9"&gt;📄 1-1. Isaac Sim이란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e28ab9cffdb39ca39f"&gt;📄 1-2. 공식 교육 목표&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780508c58e9bfc722a426"&gt;📕 2. Isaac Sim 화면 구성 및 기본 조작&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780779060effc519b67e1"&gt;📄 2-1. 주요 인터페이스&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780288c17d0c028bb51da"&gt;📄 2-2. Stage, Prim, Xform 이해&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7809287ade32c3d336cbc"&gt;📄 2-3. 좌표계와 Viewport 조작&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78011adbeebb9db9e0d14"&gt;📕 3. Physics 기초와 물리 엔진 이해&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780c7b736d759b74c4e8e"&gt;📄 3-1. 물리 시뮬레이션의 기본 구성요소&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7806aa998eeae0320f846"&gt;📄 3-2. Cube 낙하 실습&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7801f8f78f2ce2e2caf67"&gt;📕 4. 기본 도형으로 로봇 제작하기&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e5bde3d04a8523d0c0"&gt;📄 4-1. 로봇 몸체 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780759885d8245924c564"&gt;📄 4-2. 바퀴 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78034aac2e933b9bdd370"&gt;📄 4-3. Revolute Joint 설정&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780c89792d90c96fb7b76"&gt;📄 4-4. Angular Drive 설정&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7805ea178e814b7f891a6"&gt;📕 5. Articulation Root와 Differential Controller&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78075aa12d16de5d41ec0"&gt;📄 5-1. Articulation Root란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780b5b846d838e5749cf8"&gt;📄 5-2. Differential Controller란?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78074b44cfe04b4eec253"&gt;📕 6. OmniGraph를 활용한 로봇 조종&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780779f75de620ffc0a98"&gt;📄 6-1. OmniGraph란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e0bc7eccd752f947ef"&gt;📄 6-2. 키보드 조종 실습&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780468071fc3439a070c8"&gt;📕 7. Isaac Sim 5.1 주요 설정 주의사항&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7800aa39ccf026df04d19"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780709940ca03bfb1cbb8"&gt;👥 참고 문헌 (References)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780d985c4ce2cfbf35d63"&gt;📨 문의하기 (Contact us)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df7800d8047fd54890f67aa" style="scroll-margin-top:112px;"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/h1&gt;
+&lt;h2 id="notion-heading-423d9e129df780caa5dde6694b43ae03" style="scroll-margin-top:112px;"&gt;📕 1. NVIDIA Isaac Sim 시작하기&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df7803abfaad3ac5657abe9" style="scroll-margin-top:112px;"&gt;📄 1-1. Isaac Sim이란?&lt;/h3&gt;
+&lt;p&gt;NVIDIA Isaac Sim은 로봇의 동작과 물리적 환경을 가상 공간에서 구현하고 검증할 수 있는 로봇 시뮬레이션 플랫폼입니다.&lt;/p&gt;
+&lt;p&gt;로봇의 형태와 관절, 센서 및 주변 환경을 구성하고 실제 물리 법칙을 적용하여 다양한 상황을 테스트할 수 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780e28ab9cffdb39ca39f" style="scroll-margin-top:112px;"&gt;📄 1-2. 공식 교육 목표&lt;/h3&gt;
+&lt;p&gt;이번 실습의 핵심 목표는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isaac Sim의 인터페이스와 기본 조작 방법을 이해합니다.&lt;/li&gt;
+&lt;li&gt;기본 도형으로 로봇의 몸체와 바퀴를 제작합니다.&lt;/li&gt;
+&lt;li&gt;관절과 물리 속성을 설정합니다.&lt;/li&gt;
+&lt;li&gt;OmniGraph를 활용하여 로봇을 조종합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780508c58e9bfc722a426" style="scroll-margin-top:112px;"&gt;📕 2. Isaac Sim 화면 구성 및 기본 조작&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780779060effc519b67e1" style="scroll-margin-top:112px;"&gt;📄 2-1. 주요 인터페이스&lt;/h3&gt;
+&lt;p&gt;Isaac Sim은 여러 영역으로 구성되어 있으며, 각각의 기능을 이해하는 것이 중요합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Viewport: 3D 장면을 확인하고 편집하는 공간입니다.&lt;/li&gt;
+&lt;li&gt;Stage: 장면에 포함된 객체와 계층 구조를 관리합니다.&lt;/li&gt;
+&lt;li&gt;Property: 선택한 객체의 위치, 회전, 크기 및 물리 속성을 설정합니다.&lt;/li&gt;
+&lt;li&gt;Content: 로봇과 환경 등의 에셋을 확인합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780288c17d0c028bb51da" style="scroll-margin-top:112px;"&gt;📄 2-2. Stage, Prim, Xform 이해&lt;/h3&gt;
+&lt;p&gt;Isaac Sim의 장면은 OpenUSD 기반으로 구성됩니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stage: 전체 3D 장면을 의미합니다.&lt;/li&gt;
+&lt;li&gt;Prim: 장면을 구성하는 개별 객체입니다.&lt;/li&gt;
+&lt;li&gt;Xform: 위치, 회전, 크기 정보를 관리하는 객체로, 여러 객체를 계층 구조로 묶을 때 활용합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df7809287ade32c3d336cbc" style="scroll-margin-top:112px;"&gt;📄 2-3. 좌표계와 Viewport 조작&lt;/h3&gt;
+&lt;p&gt;Isaac Sim은 미터(m)를 기본 단위로 사용하며 Z축이 위쪽 방향입니다.&lt;/p&gt;
+&lt;p&gt;마우스와 키보드를 활용하여 3D 공간을 이동하고 객체를 다양한 각도에서 확인할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df78011adbeebb9db9e0d14" style="scroll-margin-top:112px;"&gt;📕 3. Physics 기초와 물리 엔진 이해&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780c7b736d759b74c4e8e" style="scroll-margin-top:112px;"&gt;📄 3-1. 물리 시뮬레이션의 기본 구성요소&lt;/h3&gt;
+&lt;p&gt;로봇과 물체가 실제 물리 법칙에 따라 움직이려면 다음 요소가 필요합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Physics Scene: 중력 등 물리 시뮬레이션 환경을 설정합니다.&lt;/li&gt;
+&lt;li&gt;Rigid Body: 물체의 질량과 운동 등 강체 물리를 적용합니다.&lt;/li&gt;
+&lt;li&gt;Collider: 물체 간 충돌을 계산할 수 있도록 설정합니다.&lt;/li&gt;
+&lt;li&gt;Ground Plane: 물체가 떨어지지 않도록 바닥을 구성합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df7806aa998eeae0320f846" style="scroll-margin-top:112px;"&gt;📄 3-2. Cube 낙하 실습&lt;/h3&gt;
+&lt;p&gt;기본 Cube를 생성하고 물리 속성을 적용하여 중력에 따른 움직임을 확인합니다.&lt;/p&gt;
+&lt;p&gt;Physics Scene만 생성한 상태에서는 Cube가 물리적인 강체로 동작하지 않습니다.&lt;/p&gt;
+&lt;p&gt;Rigid Body와 Collider를 추가한 후에는 중력의 영향을 받아 떨어지며, Ground Plane을 추가하면 바닥에서 정지하는 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df7801f8f78f2ce2e2caf67" style="scroll-margin-top:112px;"&gt;📕 4. 기본 도형으로 로봇 제작하기&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780e5bde3d04a8523d0c0" style="scroll-margin-top:112px;"&gt;📄 4-1. 로봇 몸체 구성&lt;/h3&gt;
+&lt;p&gt;기본 Cube를 활용하여 로봇의 섀시(Chassis)를 제작합니다.&lt;/p&gt;
+&lt;p&gt;Xform 객체를 생성하고 이름을 SimpleRobot으로 변경한 뒤, 몸체와 바퀴를 하나의 계층 구조로 구성합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780759885d8245924c564" style="scroll-margin-top:112px;"&gt;📄 4-2. 바퀴 구성&lt;/h3&gt;
+&lt;p&gt;원기둥(Cylinder)을 활용하여 로봇의 바퀴 4개를 제작합니다.&lt;/p&gt;
+&lt;p&gt;각 바퀴의 위치와 크기를 설정하고 물리적 충돌 속성을 적용합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df78034aac2e933b9bdd370" style="scroll-margin-top:112px;"&gt;📄 4-3. Revolute Joint 설정&lt;/h3&gt;
+&lt;p&gt;Revolute Joint는 두 강체가 특정 축을 중심으로 회전할 수 있도록 연결하는 관절입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Body 0: 로봇 몸체&lt;/li&gt;
+&lt;li&gt;Body 1: 바퀴&lt;/li&gt;
+&lt;li&gt;Axis: 바퀴의 회전축(Y축)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;관절을 구성하면 바퀴가 몸체에 연결된 상태에서 회전할 수 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780c89792d90c96fb7b76" style="scroll-margin-top:112px;"&gt;📄 4-4. Angular Drive 설정&lt;/h3&gt;
+&lt;p&gt;Angular Drive는 관절의 회전 속도를 제어하는 기능입니다.&lt;/p&gt;
+&lt;p&gt;뒷바퀴에 Angular Drive를 적용하고 목표 회전 속도를 설정하여 로봇의 전진과 회전을 확인합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;좌우 바퀴가 같은 방향으로 회전하면 직진합니다.&lt;/li&gt;
+&lt;li&gt;좌우 바퀴가 반대 방향으로 회전하면 회전합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df7805ea178e814b7f891a6" style="scroll-margin-top:112px;"&gt;📕 5. Articulation Root와 Differential Controller&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df78075aa12d16de5d41ec0" style="scroll-margin-top:112px;"&gt;📄 5-1. Articulation Root란?&lt;/h3&gt;
+&lt;p&gt;Articulation Root는 관절로 연결된 여러 강체를 하나의 로봇 구조로 관리하기 위한 설정입니다.&lt;/p&gt;
+&lt;p&gt;이를 통해 물리 엔진이 관절 관계를 고려하여 로봇을 계산하고 제어기가 각 관절을 식별할 수 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780b5b846d838e5749cf8" style="scroll-margin-top:112px;"&gt;📄 5-2. Differential Controller란?&lt;/h3&gt;
+&lt;p&gt;Differential Controller는 로봇의 선속도와 각속도를 좌우 바퀴의 회전 속도로 변환하는 제어기입니다.&lt;/p&gt;
+&lt;p&gt;1일차에 학습한 차동구동 기구학을 Isaac Sim에서 실제로 적용하는 단계입니다.&lt;/p&gt;
+&lt;p&gt;주요 설정값은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Robot Prim: /World/SimpleRobot&lt;/li&gt;
+&lt;li&gt;Wheel Radius: 0.375m&lt;/li&gt;
+&lt;li&gt;Distance Between Wheels: 1.5m&lt;/li&gt;
+&lt;li&gt;Rear Wheel Joint: 좌우 바퀴 관절 지정&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df78074b44cfe04b4eec253" style="scroll-margin-top:112px;"&gt;📕 6. OmniGraph를 활용한 로봇 조종&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780779f75de620ffc0a98" style="scroll-margin-top:112px;"&gt;📄 6-1. OmniGraph란?&lt;/h3&gt;
+&lt;p&gt;OmniGraph는 노드(Node)를 연결하여 데이터 흐름과 실행 순서를 구성하는 비주얼 스크립팅 도구입니다.&lt;/p&gt;
+&lt;p&gt;이번 실습에서는 Differential Controller와 관절 제어 노드를 연결하여 로봇의 움직임을 구현합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780e0bc7eccd752f947ef" style="scroll-margin-top:112px;"&gt;📄 6-2. 키보드 조종 실습&lt;/h3&gt;
+&lt;p&gt;WASD 키 입력을 활용하여 로봇을 직접 움직입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;W: 전진&lt;/li&gt;
+&lt;li&gt;S: 후진&lt;/li&gt;
+&lt;li&gt;A: 좌회전&lt;/li&gt;
+&lt;li&gt;D: 우회전&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;키보드 입력이 OmniGraph를 통해 속도 명령으로 변환되고, Differential Controller가 좌우 바퀴의 속도를 계산하여 로봇을 움직입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780468071fc3439a070c8" style="scroll-margin-top:112px;"&gt;📕 7. Isaac Sim 5.1 주요 설정 주의사항&lt;/h2&gt;
+&lt;p&gt;공식 교육 자료는 Isaac Sim 4.5 및 ROS 2 Humble을 기준으로 작성되었으므로, 이번 실습 환경인 Isaac Sim 5.1과 ROS 2 Jazzy에서는 일부 설정을 다르게 적용합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Differential Controller의 Right Joint Name과 Left Joint Name에 지정하는 관절 이름을 서로 바꿔 입력합니다.&lt;/li&gt;
+&lt;li&gt;Isaac Sim 5.1에서는 Joint 회전축과 Property의 Orient 항목을 정확하게 확인합니다.&lt;/li&gt;
+&lt;li&gt;로봇의 바퀴 관절과 Body 0, Body 1의 연결 순서를 확인합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df7800aa39ccf026df04d19" style="scroll-margin-top:112px;"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;💡 오늘 배운 핵심 내용&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isaac Sim은 로봇의 물리적 움직임을 가상 환경에서 구현하고 검증하는 플랫폼입니다.&lt;/li&gt;
+&lt;li&gt;Stage와 Prim, Xform은 3D 장면을 구성하는 기본 요소입니다.&lt;/li&gt;
+&lt;li&gt;Physics Scene, Rigid Body, Collider를 통해 물리 시뮬레이션을 구현합니다.&lt;/li&gt;
+&lt;li&gt;Revolute Joint와 Angular Drive를 활용하여 바퀴의 회전을 제어합니다.&lt;/li&gt;
+&lt;li&gt;Articulation Root는 관절로 연결된 로봇 구조를 통합적으로 관리합니다.&lt;/li&gt;
+&lt;li&gt;Differential Controller와 OmniGraph를 활용하면 키보드 입력으로 로봇을 조종할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;📝 추가 실습 과제&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Physics Scene의 중력 방향을 변경하면 물체의 움직임이 어떻게 달라지는지 확인합니다.&lt;/li&gt;
+&lt;li&gt;좌우 바퀴의 회전 속도를 다르게 설정하여 주행 방향을 비교합니다.&lt;/li&gt;
+&lt;li&gt;Differential Controller의 선속도와 각속도를 변경하여 로봇의 움직임을 확인합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;🚀 다음 시간 (수요일)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sensors and ROS 2 Integration&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;다음 시간에는 직접 제작한 로봇에 RGB 카메라와 2D LiDAR 센서를 장착합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;로봇에 센서 마운트 구성&lt;/li&gt;
+&lt;li&gt;RGB 카메라 연결 및 영상 확인&lt;/li&gt;
+&lt;li&gt;PhysX LiDAR를 활용한 거리 측정&lt;/li&gt;
+&lt;li&gt;ROS 2 Bridge 및 OmniGraph 연결&lt;/li&gt;
+&lt;li&gt;센서 데이터를 ROS 2 Topic으로 발행&lt;/li&gt;
+&lt;li&gt;RViz2를 활용한 센서 데이터 시각화&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;가상 로봇을 직접 제작하는 단계를 넘어, 로봇이 주변 환경을 인식하고 센서 데이터를 외부 시스템으로 전달하는 과정을 학습합니다.&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df780709940ca03bfb1cbb8" style="scroll-margin-top:112px;"&gt;👥 참고 문헌 (References)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA DLI – Building Your First Robot in Isaac Sim&lt;br&gt;
+&lt;a href="https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/"&gt;https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA Isaac Sim Documentation&lt;br&gt;
+&lt;a href="https://docs.isaacsim.omniverse.nvidia.com/"&gt;https://docs.isaacsim.omniverse.nvidia.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;교육 참고 자료&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isaac Sim 시작 – 화면 구성과 물리 기초&lt;/li&gt;
+&lt;li&gt;로봇 만들기 – 몸체, 바퀴, 회전 관절, 구동&lt;/li&gt;
+&lt;li&gt;로봇 조종 – Articulation Root, Differential Controller, 키보드&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df780d985c4ce2cfbf35d63" style="scroll-margin-top:112px;"&gt;📨 문의하기 (Contact us)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"&gt;&lt;ul style="list-style-position:outside;margin:.5rem 0 .75rem;"&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Youtube : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;https://www.youtube.com/@sssrobotics&lt;/a&gt;&lt;/li&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Blog : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.sssrobotics.com/"&gt;https://www.sssrobotics.com&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p&gt;#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #피지컬AI #로봇 #시뮬레이션 #AI #AX #robot #simulation #엔비디아&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;</content:encoded>
+      <category>교육</category>
+      <category>DLI</category>
+    </item>
+    <item>
+      <title>DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습</title>
+      <link>https://www.sssrobotics.com/posts/422d9e129df780268df4c40f38b8a032/</link>
+      <guid isPermaLink="true">https://www.sssrobotics.com/posts/422d9e129df780268df4c40f38b8a032/</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+      <description>• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 오늘은 NVIDIA DLI Robotics 교육의 첫 번째 시간으로, 자율로봇의 기본 구조와 핵심 기술을 알아보겠습니다.</description>
+      <content:encoded>
+
+
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;날짜 :&lt;/strong&gt; 2026-11-23&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; 오리엔테이션, 우분투 OS설치, Isaac Sim 시작&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-DAY-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/053a3902-4b0e-4c75-b020-20b08f181a9d/2b487992-2066-420e-bfd5-b141fe58470e/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;amp;X-Amz-Credential=ASIAZI2LB46655ND2CHX%2F20261125%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20261125T143042Z&amp;amp;X-Amz-Expires=3600&amp;amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjENz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIGhmln6LoZ6wsn353i2kHMn7veFHkMt4WOlp3J%2BZ7F9QAiEAy%2BIpp2K1OYzGAWpp73OjuV9GJ21bknuBIWvXfI4P%2FjAqiAQIpf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDF9hiu7iA2mpMzb0MSrcA97U75jXB2RPZ%2FsJQdzx4FRpT6luDmMrBMguvl%2B6VoSKyMCfZMdCm8HeeAxLufo%2B9xoCDqtJrZCHOh68XGU9SYRvOzrUIJSw4n2zySfkV8xBtnpJNmY9vAxB%2FTey8t0ZaC0c3XjYhmEUe%2FvTJusEA6kn7oMTWJknC14zcHxgejDT4hE2ZHtXHBTlS4Sv330155wrXg7DVxf%2BBQ4%2BDvSb2sdbwZS9kBRUbYwAyy%2Fw8Xeyx5AoaCwmYTNxwASGKrNq2Rk%2BJUOQpq1GRB0IkmS1Lh2KiKtloLFPgd%2BxhgjvfIOTV4A%2Fwn9CVnITyBEDtkfMX%2B2lCx%2B3CateVegam0oGICr%2B8JJi6kAPeOjRjHCPrYyAhuQ9%2Fb6QkAK%2FHKUV71TS2fEWzwpqWb99NbeHqLP%2Bv2RjEk2FG0apmlgPCliktg7N0zcmdpMzO%2Bc%2BFARUguPCcyq%2FmVUPLZQRlKQQ5UiR6nxc6GA4%2BsqrhnfJarV1%2BNA265WhvTDlMYyDUJzCs2iwCbLOPef4RC7cS3LjrZCHgm3wsOKdtKjO9UlDkviYh9f1zdHDZ7SC3VRzUhyklQ%2F%2FIakT5Vn4q07M%2FK7PgiTmfcdiplkrVA0FKtuMGfGf68vIYQF04lNsqOxmJc%2F3MMGem9gGOqUBN1t3HUIuv1L7dFi%2BLcH3zSuDZGX3zu3EUKfakHg4IcYUhecTlSbTvJtnPlBstDgyMtqsqjYEMd1GNa39ohLZma1MwGjeZX2%2Bb3aLTBAid3klM652%2F3XdR%2BoDkDDVjbnjbTSscPDLqrCrdqKLDqVEbA%2FHa%2BIwxjoWU7WtNR4%2BMmKT9GP4e5kwHBB6KwElAuXJGSsjmJQhnZhqS6u0w0JPZc1TY2Ga&amp;amp;X-Amz-Signature=b664f40a9ce54951bc2ed8f2132a80b5371ebe3f5edd3e2f9cec2346c59a7863&amp;amp;X-Amz-SignedHeaders=host&amp;amp;x-amz-checksum-mode=ENABLED&amp;amp;x-id=GetObject"&gt;&lt;img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/053a3902-4b0e-4c75-b020-20b08f181a9d/2b487992-2066-420e-bfd5-b141fe58470e/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;amp;X-Amz-Credential=ASIAZI2LB46655ND2CHX%2F20261125%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20261125T143042Z&amp;amp;X-Amz-Expires=3600&amp;amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjENz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIGhmln6LoZ6wsn353i2kHMn7veFHkMt4WOlp3J%2BZ7F9QAiEAy%2BIpp2K1OYzGAWpp73OjuV9GJ21bknuBIWvXfI4P%2FjAqiAQIpf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDF9hiu7iA2mpMzb0MSrcA97U75jXB2RPZ%2FsJQdzx4FRpT6luDmMrBMguvl%2B6VoSKyMCfZMdCm8HeeAxLufo%2B9xoCDqtJrZCHOh68XGU9SYRvOzrUIJSw4n2zySfkV8xBtnpJNmY9vAxB%2FTey8t0ZaC0c3XjYhmEUe%2FvTJusEA6kn7oMTWJknC14zcHxgejDT4hE2ZHtXHBTlS4Sv330155wrXg7DVxf%2BBQ4%2BDvSb2sdbwZS9kBRUbYwAyy%2Fw8Xeyx5AoaCwmYTNxwASGKrNq2Rk%2BJUOQpq1GRB0IkmS1Lh2KiKtloLFPgd%2BxhgjvfIOTV4A%2Fwn9CVnITyBEDtkfMX%2B2lCx%2B3CateVegam0oGICr%2B8JJi6kAPeOjRjHCPrYyAhuQ9%2Fb6QkAK%2FHKUV71TS2fEWzwpqWb99NbeHqLP%2Bv2RjEk2FG0apmlgPCliktg7N0zcmdpMzO%2Bc%2BFARUguPCcyq%2FmVUPLZQRlKQQ5UiR6nxc6GA4%2BsqrhnfJarV1%2BNA265WhvTDlMYyDUJzCs2iwCbLOPef4RC7cS3LjrZCHgm3wsOKdtKjO9UlDkviYh9f1zdHDZ7SC3VRzUhyklQ%2F%2FIakT5Vn4q07M%2FK7PgiTmfcdiplkrVA0FKtuMGfGf68vIYQF04lNsqOxmJc%2F3MMGem9gGOqUBN1t3HUIuv1L7dFi%2BLcH3zSuDZGX3zu3EUKfakHg4IcYUhecTlSbTvJtnPlBstDgyMtqsqjYEMd1GNa39ohLZma1MwGjeZX2%2Bb3aLTBAid3klM652%2F3XdR%2BoDkDDVjbnjbTSscPDLqrCrdqKLDqVEbA%2FHa%2BIwxjoWU7WtNR4%2BMmKT9GP4e5kwHBB6KwElAuXJGSsjmJQhnZhqS6u0w0JPZc1TY2Ga&amp;amp;X-Amz-Signature=b664f40a9ce54951bc2ed8f2132a80b5371ebe3f5edd3e2f9cec2346c59a7863&amp;amp;X-Amz-SignedHeaders=host&amp;amp;x-amz-checksum-mode=ENABLED&amp;amp;x-id=GetObject" alt="DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;• Youtube :&lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;&lt;u&gt;https://www.youtube.com/@sssrobotics&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/02_DLI-DAY-01-Robotics-Foundation.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/02_DLI-DAY-01-Robotics-Foundation.png" alt="DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"&gt;&lt;div class="notion-callout-layout" style="display:flex;width:100%;"&gt;&lt;span class="notion-callout-icon"&gt;📌&lt;/span&gt;&lt;div class="notion-callout-content" style="box-sizing:border-box;width:100%;"&gt;&lt;strong&gt;안녕하세요!&lt;br&gt;
+S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;오늘은 NVIDIA DLI Robotics 교육의 첫 번째 시간으로, 자율로봇의 기본 구조와 핵심 기술을 알아보겠습니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;로봇이 주변 환경을 인식하고, 자신의 위치를 파악하며, 목적지까지 이동하는 과정에는 다양한 센서와 알고리즘이 사용됩니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;이번 교육에서는 자율로봇의 동작 원리를 이해하고, 차동구동 기구학과 PID 제어, 경로탐색 알고리즘을 직접 실습합니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;또한 Ubuntu 24.04 환경에서 NVIDIA Isaac Sim 5.1과 ROS 2 개발환경을 구축하고, 시뮬레이터와 로봇 소프트웨어가 함께 동작하는 과정까지 확인합니다.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/03_DLI-DAY-01-Robotics-Foundation.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/03_DLI-DAY-01-Robotics-Foundation.png" alt="DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="notion-heading-423d9e129df7801faf95d44e56c4319f" style="scroll-margin-top:112px;"&gt;📚 목차 (Contents)&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7801faf95d44e56c4319f"&gt;📚 목차 (Contents)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780ef8524ca1173b35a2e"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780c3aedfdf27f6d5ce1e"&gt;📕 1. NVIDIA DLI Robotics 교육 소개&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780d09ad2e5394fd5b3df"&gt;📄 1-1. NVIDIA DLI Robotics 교육 로드맵&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7807bbb62d9d57210c7c9"&gt;📄 1-2. 개발환경 구성&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7803189ccf30e683138bb"&gt;📕 2. 자율로봇과 Embodied AI의 이해&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7803a863ef959a29cd1d0"&gt;📄 2-1. 자율로봇(Autonomous Robot)이란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780269fcce7e69ab6bd9e"&gt;📄 2-2. Embodied AI와 HRI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780d78a47e54b6f20ddc6"&gt;📄 2-3. 로봇 시스템 통합&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78060a33ed5e76b8c4a82"&gt;📕 3. 자율화 기술의 핵심 구성요소&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e185cdfa4e3b41beb5"&gt;📄 3-1. 센싱(Sensing)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e4812bedf02bdfaee9"&gt;📄 3-2. 인지(Perception)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780ecbeb0cd5c90516b1a"&gt;📄 3-3. 위치추정과 지도(Localization and Mapping)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78032b1a2e371a6ed0a3c"&gt;📄 3-4. 경로계획과 내비게이션(Navigation)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7802ca1f0f99ca6078d32"&gt;📄 3-5. 제어(Control Systems)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780e3a2f7ddc2655e41e4"&gt;📕 4. 로보틱스 기초 알고리즘 실습&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780c69f09e7a71ae48bfa"&gt;📄 4-1. 차동구동 기구학(Differential Drive Kinematics)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78074a180f1cd9bdd1a25"&gt;📄 4-2. 오도메트리(Odometry)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780eea29cd41be0efba5f"&gt;📄 4-3. PID 제어 실습&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780668ca8ce9bd8dd5618"&gt;📄 4-4. 경로탐색 알고리즘 비교&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78097a347d72d5ff11e1f"&gt;📕 5. Physical AI와 최신 로봇 AI 기술&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7806d8019d2ec3ce1df66"&gt;📄 5-1. 파운데이션 모델(Foundation Model)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7801aa8a6cc08e2e524d5"&gt;📄 5-2. Physical AI와 시뮬레이션&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780bfbeaff6c2789f0209"&gt;📄 5-3. NVIDIA Cosmos와 World Foundation Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780d1b451cb254e56b058"&gt;📄 5-4. LLM · VLM · RAG · VLA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78083a7b8e59ea7f998c2"&gt;📕 6. NVIDIA Isaac ROS와 NITROS&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7800fbbe8f7fb1f5e4f17"&gt;📄 6-1. NVIDIA Isaac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7807cb709d72f178ee527"&gt;📄 6-2. ROS 2란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7803293d1cd1cd4947c7e"&gt;📄 6-3. Isaac ROS란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780acb5d9c805f5b6ed08"&gt;📄 6-4. NITROS란?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7806bac80f5b3faa22aea"&gt;📕 7. 실습환경 구축 및 동작 점검&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780a99222eb88b77a9c15"&gt;📄 7-1. Ubuntu 및 개발 도구 설치&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780478ebfe788e950b608"&gt;📄 7-2. NVIDIA DLI Workspace 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df78041b6e8dc200c2855c8"&gt;📄 7-3. Isaac Sim 및 ROS 2 연동 확인&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780ec825ac0b6e9c7fe41"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df780c9b3a6fdaa2cabea1b"&gt;👥 참고 문헌 (References)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-423d9e129df7807e86eddd06203db2d0"&gt;📨 문의하기 (Contact us)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df780ef8524ca1173b35a2e" style="scroll-margin-top:112px;"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/h1&gt;
+&lt;h2 id="notion-heading-423d9e129df780c3aedfdf27f6d5ce1e" style="scroll-margin-top:112px;"&gt;📕 1. NVIDIA DLI Robotics 교육 소개&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780d09ad2e5394fd5b3df" style="scroll-margin-top:112px;"&gt;📄 1-1. NVIDIA DLI Robotics 교육 로드맵&lt;/h3&gt;
+&lt;p&gt;NVIDIA DLI Robotics 교육은 로봇 시뮬레이션부터 AI 학습, ROS 2 가속, 디지털 트윈 및 OpenUSD 인증까지 단계적으로 학습하는 과정입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DLI 1: Robotics Foundations&lt;/li&gt;
+&lt;li&gt;DLI 2: Getting Started with Isaac Sim&lt;/li&gt;
+&lt;li&gt;DLI 3: Getting Started with Isaac Lab&lt;/li&gt;
+&lt;li&gt;DLI 4: Getting Started with Isaac ROS&lt;/li&gt;
+&lt;li&gt;DLI 5~6: Robotics 및 Digital Twins&lt;/li&gt;
+&lt;li&gt;DLI 7~8: Simulation, Synthetic Data 및 OpenUSD Certification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df7807bbb62d9d57210c7c9" style="scroll-margin-top:112px;"&gt;📄 1-2. 개발환경 구성&lt;/h3&gt;
+&lt;p&gt;로보틱스 시뮬레이션을 위한 기본 개발환경을 구축합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS: Ubuntu 24.04 LTS&lt;/li&gt;
+&lt;li&gt;Simulation: NVIDIA Isaac Sim 5.1&lt;/li&gt;
+&lt;li&gt;Robotics Framework: ROS 2 Jazzy&lt;/li&gt;
+&lt;li&gt;Navigation: Nav2&lt;/li&gt;
+&lt;li&gt;Development Tool: VS Code, Terminator&lt;/li&gt;
+&lt;li&gt;Python: venv 기반 가상환경&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;모든 교육 자료와 실습 파일은 &lt;code&gt;~/nvidia_dli&lt;/code&gt; 작업 폴더를 중심으로 관리합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df7803189ccf30e683138bb" style="scroll-margin-top:112px;"&gt;📕 2. 자율로봇과 Embodied AI의 이해&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df7803a863ef959a29cd1d0" style="scroll-margin-top:112px;"&gt;📄 2-1. 자율로봇(Autonomous Robot)이란?&lt;/h3&gt;
+&lt;p&gt;자율로봇은 사람이 모든 동작을 직접 조종하지 않아도 주변 환경을 감지하고, 상황을 판단하며, 스스로 움직이는 로봇입니다.&lt;/p&gt;
+&lt;p&gt;기본적인 동작 과정은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sense: 주변 환경 감지&lt;/li&gt;
+&lt;li&gt;Plan: 상황 판단 및 행동 계획&lt;/li&gt;
+&lt;li&gt;Act: 실제 동작 수행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;대표적인 자율로봇 종류는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;자율이동로봇(AMR)&lt;/li&gt;
+&lt;li&gt;로봇팔(Manipulator)&lt;/li&gt;
+&lt;li&gt;4족 보행 로봇&lt;/li&gt;
+&lt;li&gt;휴머노이드(Humanoid)&lt;/li&gt;
+&lt;li&gt;자율주행차&lt;/li&gt;
+&lt;li&gt;드론 및 수중 로봇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780269fcce7e69ab6bd9e" style="scroll-margin-top:112px;"&gt;📄 2-2. Embodied AI와 HRI&lt;/h3&gt;
+&lt;p&gt;Embodied AI는 센서와 모터 등 물리적인 신체를 통해 실제 환경과 상호작용하고 학습하며 행동하는 AI를 의미합니다.&lt;/p&gt;
+&lt;p&gt;HRI(Human-Robot Interaction)는 사람과 로봇이 서로 소통하고 협력하는 기술입니다.&lt;/p&gt;
+&lt;p&gt;주요 고려사항은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;안전성: 사람을 감지하고 상황에 따라 속도와 힘을 제한합니다.&lt;/li&gt;
+&lt;li&gt;의도 전달: 로봇의 움직임과 상태를 사람에게 전달합니다.&lt;/li&gt;
+&lt;li&gt;상호작용: 음성 및 몸짓 등을 통해 사람의 지시를 이해합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780d78a47e54b6f20ddc6" style="scroll-margin-top:112px;"&gt;📄 2-3. 로봇 시스템 통합&lt;/h3&gt;
+&lt;p&gt;로봇 시스템은 하드웨어와 소프트웨어, 주변 환경이 하나의 시스템으로 동작하도록 통합해야 합니다.&lt;/p&gt;
+&lt;p&gt;주요 구성요소는 센서, 제어기, 액추에이터 및 통신 시스템입니다.&lt;/p&gt;
+&lt;p&gt;특히 센서 간 시간 동기화, 좌표계(TF), 통신 지연 등의 문제를 함께 고려해야 합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df78060a33ed5e76b8c4a82" style="scroll-margin-top:112px;"&gt;📕 3. 자율화 기술의 핵심 구성요소&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780e185cdfa4e3b41beb5" style="scroll-margin-top:112px;"&gt;📄 3-1. 센싱(Sensing)&lt;/h3&gt;
+&lt;p&gt;센싱은 로봇이 주변 환경과 자신의 상태를 파악하기 위해 센서 데이터를 수집하는 과정입니다.&lt;/p&gt;
+&lt;p&gt;대표적인 센서는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RGB Camera: 색상 및 영상 정보 수집&lt;/li&gt;
+&lt;li&gt;Stereo Camera: 거리 및 깊이 정보 측정&lt;/li&gt;
+&lt;li&gt;LiDAR: 주변 환경의 거리와 3D 공간 정보 측정&lt;/li&gt;
+&lt;li&gt;IMU: 가속도와 각속도 측정&lt;/li&gt;
+&lt;li&gt;Wheel Encoder: 바퀴 회전량 측정&lt;/li&gt;
+&lt;li&gt;Force / Touch Sensor: 접촉 및 힘 감지&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;하나의 센서만으로 모든 환경을 파악하기는 어렵기 때문에 여러 센서의 장점을 결합하는 센서 융합(Sensor Fusion)이 중요합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780e4812bedf02bdfaee9" style="scroll-margin-top:112px;"&gt;📄 3-2. 인지(Perception)&lt;/h3&gt;
+&lt;p&gt;인지 기술은 수집한 센서 데이터를 분석하여 주변 환경의 의미를 이해하는 과정입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Detection: 물체의 종류와 위치 검출&lt;/li&gt;
+&lt;li&gt;Segmentation: 이미지의 픽셀 단위로 객체 구분&lt;/li&gt;
+&lt;li&gt;Depth Estimation: 물체까지의 거리 추정&lt;/li&gt;
+&lt;li&gt;Pose Estimation: 물체의 위치와 방향 추정&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780ecbeb0cd5c90516b1a" style="scroll-margin-top:112px;"&gt;📄 3-3. 위치추정과 지도(Localization and Mapping)&lt;/h3&gt;
+&lt;p&gt;로봇이 현재 자신의 위치를 파악하고 주변 환경의 지도를 활용하는 기술입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Odometry: 바퀴 회전량 등을 기반으로 이동 거리와 위치 추정&lt;/li&gt;
+&lt;li&gt;Localization: 지도 안에서 현재 로봇의 위치 추정&lt;/li&gt;
+&lt;li&gt;SLAM: 위치추정과 지도 생성을 동시에 수행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;바퀴 회전량만으로 위치를 계산하면 미끄러짐이나 바퀴 마모 등으로 오차가 누적됩니다.&lt;/p&gt;
+&lt;p&gt;따라서 카메라와 LiDAR 등의 센서 정보를 활용하여 위치를 지속적으로 보정해야 합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df78032b1a2e371a6ed0a3c" style="scroll-margin-top:112px;"&gt;📄 3-4. 경로계획과 내비게이션(Navigation)&lt;/h3&gt;
+&lt;p&gt;로봇이 출발지에서 목적지까지 안전하게 이동하기 위한 경로를 계산하는 기술입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Global Planning: 전체 지도에서 목적지까지의 경로 계획&lt;/li&gt;
+&lt;li&gt;Local Planning: 주변 장애물과 환경 변화에 대응하며 이동 경로 조정&lt;/li&gt;
+&lt;li&gt;Navigation: 위치추정, 경로계획 및 주행을 통합한 이동 과정&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;대표적인 경로탐색 알고리즘에는 A*와 Dijkstra가 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df7802ca1f0f99ca6078d32" style="scroll-margin-top:112px;"&gt;📄 3-5. 제어(Control Systems)&lt;/h3&gt;
+&lt;p&gt;제어는 계획된 움직임을 실제 모터와 액추에이터에 전달하여 로봇을 움직이는 기술입니다.&lt;/p&gt;
+&lt;p&gt;대표적인 제어 알고리즘인 PID는 다음 세 가지 요소로 구성됩니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;P(Proportional): 현재 오차에 비례하여 제어합니다.&lt;/li&gt;
+&lt;li&gt;I(Integral): 누적된 오차를 보정합니다.&lt;/li&gt;
+&lt;li&gt;D(Derivative): 오차 변화율을 활용하여 오버슈트를 줄입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;제어기의 각 이득값(Kp, Ki, Kd)에 따라 로봇의 응답 속도와 안정성이 달라집니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df780e3a2f7ddc2655e41e4" style="scroll-margin-top:112px;"&gt;📕 4. 로보틱스 기초 알고리즘 실습&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780c69f09e7a71ae48bfa" style="scroll-margin-top:112px;"&gt;📄 4-1. 차동구동 기구학(Differential Drive Kinematics)&lt;/h3&gt;
+&lt;p&gt;차동구동은 좌우 두 바퀴의 회전 속도 차이를 이용하여 로봇의 이동과 회전을 제어하는 방식입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;좌우 바퀴가 같은 방향과 속도로 회전하면 직진합니다.&lt;/li&gt;
+&lt;li&gt;좌우 바퀴의 속도가 다르면 회전합니다.&lt;/li&gt;
+&lt;li&gt;좌우 바퀴가 반대 방향으로 회전하면 제자리 회전합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;바퀴 반지름(r)과 바퀴 간격(L)을 기반으로 로봇의 선속도와 각속도를 계산합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df78074a180f1cd9bdd1a25" style="scroll-margin-top:112px;"&gt;📄 4-2. 오도메트리(Odometry)&lt;/h3&gt;
+&lt;p&gt;오도메트리는 바퀴의 회전량을 이용하여 로봇의 이동 거리와 위치를 추정하는 기술입니다.&lt;/p&gt;
+&lt;p&gt;실습에서는 바퀴 미끄러짐과 마모에 따른 오차 누적 현상을 확인합니다.&lt;/p&gt;
+&lt;p&gt;이를 통해 오도메트리만으로는 정확한 위치추정에 한계가 있으며, 추가 센서를 활용한 위치 보정이 필요하다는 점을 학습합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780eea29cd41be0efba5f" style="scroll-margin-top:112px;"&gt;📄 4-3. PID 제어 실습&lt;/h3&gt;
+&lt;p&gt;PID 제어를 활용하여 로봇이 제자리에서 목표 각도인 90°만큼 회전하도록 구현합니다.&lt;/p&gt;
+&lt;p&gt;Kp, Ki, Kd 값을 변경하면서 다음 현상을 확인합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;제어 응답 속도 변화&lt;/li&gt;
+&lt;li&gt;목표 각도를 초과하는 오버슈트&lt;/li&gt;
+&lt;li&gt;목표 지점에 도달한 후 남는 정상상태 오차&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780668ca8ce9bd8dd5618" style="scroll-margin-top:112px;"&gt;📄 4-4. 경로탐색 알고리즘 비교&lt;/h3&gt;
+&lt;p&gt;창고 지도에서 출발지와 목적지를 설정하고 Dijkstra와 A* 알고리즘을 비교합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dijkstra: 출발지를 기준으로 주변 노드를 고르게 탐색합니다.&lt;/li&gt;
+&lt;li&gt;A*: 목표 지점까지의 예상 거리를 활용하여 목표 방향으로 탐색합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;실습 결과 두 알고리즘 모두 동일한 최단 거리인 29.2m의 경로를 찾았으며, A*는 탐색한 영역을 줄여 더 효율적으로 경로를 계산했습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df78097a347d72d5ff11e1f" style="scroll-margin-top:112px;"&gt;📕 5. Physical AI와 최신 로봇 AI 기술&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df7806d8019d2ec3ce1df66" style="scroll-margin-top:112px;"&gt;📄 5-1. 파운데이션 모델(Foundation Model)&lt;/h3&gt;
+&lt;p&gt;파운데이션 모델은 대규모 데이터를 이용하여 사전 학습한 뒤 다양한 작업에 활용하는 모델입니다.&lt;/p&gt;
+&lt;p&gt;로보틱스 분야에서는 시각 정보를 이해하고, 언어를 해석하며, 실제 행동까지 수행하는 방향으로 발전하고 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df7801aa8a6cc08e2e524d5" style="scroll-margin-top:112px;"&gt;📄 5-2. Physical AI와 시뮬레이션&lt;/h3&gt;
+&lt;p&gt;Physical AI는 물리적인 환경을 이해하고 실제 행동을 수행하는 AI 기술입니다.&lt;/p&gt;
+&lt;p&gt;실제 로봇만으로 학습 데이터를 수집하면 시간과 비용이 많이 들고 안전 문제도 발생할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;따라서 시뮬레이터를 활용하여 대량의 합성 데이터를 생성하고 학습 및 검증에 활용합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780bfbeaff6c2789f0209" style="scroll-margin-top:112px;"&gt;📄 5-3. NVIDIA Cosmos와 World Foundation Model&lt;/h3&gt;
+&lt;p&gt;NVIDIA Cosmos는 물리적 환경을 이해하고 예측하는 월드 파운데이션 모델과 관련된 기술입니다.&lt;/p&gt;
+&lt;p&gt;월드 모델은 현재 장면을 바탕으로 이후에 발생할 상황을 예측하거나 생성하는 데 활용됩니다.&lt;/p&gt;
+&lt;p&gt;대표적인 활용 방향은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Transfer: 시뮬레이션 데이터를 다양한 환경으로 확장합니다.&lt;/li&gt;
+&lt;li&gt;Predict: 행동 수행 이후의 결과를 예측합니다.&lt;/li&gt;
+&lt;li&gt;Reason: 영상 속 상황을 물리적 맥락에서 이해합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780d1b451cb254e56b058" style="scroll-margin-top:112px;"&gt;📄 5-4. LLM · VLM · RAG · VLA&lt;/h3&gt;
+&lt;p&gt;로봇과 AI 모델의 상호작용을 위한 주요 기술입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LLM: 언어를 이해하고 작업을 단계별로 구성합니다.&lt;/li&gt;
+&lt;li&gt;VLM: 언어와 영상 정보를 함께 이해합니다.&lt;/li&gt;
+&lt;li&gt;RAG: 외부 문서와 정보를 검색하여 응답에 활용합니다.&lt;/li&gt;
+&lt;li&gt;VLA: 영상과 언어를 바탕으로 로봇의 행동을 생성합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df78083a7b8e59ea7f998c2" style="scroll-margin-top:112px;"&gt;📕 6. NVIDIA Isaac ROS와 NITROS&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df7800fbbe8f7fb1f5e4f17" style="scroll-margin-top:112px;"&gt;📄 6-1. NVIDIA Isaac&lt;/h3&gt;
+&lt;p&gt;NVIDIA Isaac은 로봇 개발을 위한 CUDA 가속 라이브러리, 애플리케이션 프레임워크 및 AI 모델을 포함하는 기술 생태계입니다.&lt;/p&gt;
+&lt;p&gt;대표적인 구성요소는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isaac Sim: 로봇 시뮬레이션&lt;/li&gt;
+&lt;li&gt;Isaac Lab: 로봇 학습 및 강화학습&lt;/li&gt;
+&lt;li&gt;Isaac ROS: CUDA 가속 ROS 2 패키지&lt;/li&gt;
+&lt;li&gt;Cosmos: 월드 파운데이션 모델&lt;/li&gt;
+&lt;li&gt;GR00T: 휴머노이드 로봇 관련 파운데이션 모델&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df7807cb709d72f178ee527" style="scroll-margin-top:112px;"&gt;📄 6-2. ROS 2란?&lt;/h3&gt;
+&lt;p&gt;ROS 2는 로봇 애플리케이션 개발을 위한 오픈소스 프레임워크입니다.&lt;/p&gt;
+&lt;p&gt;운영체제 자체가 아니라 로봇의 여러 기능과 프로세스가 통신할 수 있도록 지원하는 미들웨어입니다.&lt;/p&gt;
+&lt;p&gt;대표적인 패키지에는 다음이 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nav2: 이동로봇 내비게이션&lt;/li&gt;
+&lt;li&gt;MoveIt: 로봇팔의 경로계획 및 모션 계획&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df7803293d1cd1cd4947c7e" style="scroll-margin-top:112px;"&gt;📄 6-3. Isaac ROS란?&lt;/h3&gt;
+&lt;p&gt;Isaac ROS는 NVIDIA의 GPU 가속 기술을 활용하는 ROS 2 패키지 및 AI 모델 모음입니다.&lt;/p&gt;
+&lt;p&gt;기존 ROS 2 생태계와 호환되며, 로봇의 인지 및 센서 데이터 처리 등을 가속할 수 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-423d9e129df780acb5d9c805f5b6ed08" style="scroll-margin-top:112px;"&gt;📄 6-4. NITROS란?&lt;/h3&gt;
+&lt;p&gt;NITROS(NVIDIA Isaac Transport for ROS)는 ROS 2 노드 간 데이터 전달 과정에서 불필요한 CPU와 GPU 메모리 복사를 줄이는 기술입니다.&lt;/p&gt;
+&lt;p&gt;주요 기능은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Type Adaptation: GPU 버퍼 등 가속기에 적합한 데이터 형식을 활용합니다.&lt;/li&gt;
+&lt;li&gt;Type Negotiation: 노드 간 지원하는 데이터 형식을 협의하여 적절한 전달 방식을 선택합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이를 통해 대용량 영상이나 점군 데이터를 효율적으로 처리하면서 기존 ROS 2 도구와의 호환성을 유지할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-423d9e129df7806bac80f5b3faa22aea" style="scroll-margin-top:112px;"&gt;📕 7. 실습환경 구축 및 동작 점검&lt;/h2&gt;
+&lt;h3 id="notion-heading-423d9e129df780a99222eb88b77a9c15" style="scroll-margin-top:112px;"&gt;📄 7-1. Ubuntu 및 개발 도구 설치&lt;/h3&gt;
+&lt;p&gt;Ubuntu 24.04 환경을 구축하고 기본 개발 도구를 설치합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Terminator: 터미널 관리 및 분할 실행&lt;/li&gt;
+&lt;li&gt;Google Chrome: 개발 문서 및 웹 자료 확인&lt;/li&gt;
+&lt;li&gt;VS Code: Python 코드 작성 및 실행&lt;/li&gt;
+&lt;li&gt;Slack: 교육 관련 공지 및 커뮤니케이션&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df780478ebfe788e950b608" style="scroll-margin-top:112px;"&gt;📄 7-2. NVIDIA DLI Workspace 구성&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;~/nvidia_dli&lt;/code&gt;를 기준으로 실습 파일과 설치 프로그램을 관리합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;downloads: 다운로드 파일 관리&lt;/li&gt;
+&lt;li&gt;venv: Python 가상환경&lt;/li&gt;
+&lt;li&gt;isaacsim: Isaac Sim 5.1&lt;/li&gt;
+&lt;li&gt;IsaacSim-ros_workspaces: ROS 2 예제 워크스페이스&lt;/li&gt;
+&lt;li&gt;day01/labs: 1일차 실습 파일&lt;/li&gt;
+&lt;li&gt;work: 개인 작업 결과물&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-423d9e129df78041b6e8dc200c2855c8" style="scroll-margin-top:112px;"&gt;📄 7-3. Isaac Sim 및 ROS 2 연동 확인&lt;/h3&gt;
+&lt;p&gt;Isaac Sim 5.1에서 Nova Carter 창고 시뮬레이션을 실행하고 ROS 2와의 데이터 연동을 확인합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isaac Sim에서 로봇 및 창고 환경 실행&lt;/li&gt;
+&lt;li&gt;ROS 2 Topic을 통한 센서 데이터 확인&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/clock&lt;/code&gt;, &lt;code&gt;/cmd_vel&lt;/code&gt; 등 주요 토픽 확인&lt;/li&gt;
+&lt;li&gt;Nav2 및 RViz를 활용한 위치추정과 경로계획 확인&lt;/li&gt;
+&lt;li&gt;목표 지점을 설정하여 시뮬레이션 로봇의 자율주행 확인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이를 통해 시뮬레이터 안의 로봇이 실제 로봇처럼 ROS 2 메시지를 주고받으며 동작하는 과정을 학습합니다.&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df780ec825ac0b6e9c7fe41" style="scroll-margin-top:112px;"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;💡 오늘 배운 핵심 내용&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;자율로봇은 센싱 → 인지 → 위치추정 → 경로계획 → 제어 과정을 반복합니다.&lt;/li&gt;
+&lt;li&gt;오도메트리는 바퀴 미끄러짐과 마모로 인해 오차가 누적될 수 있습니다.&lt;/li&gt;
+&lt;li&gt;PID 제어는 목표값과 현재 상태의 오차를 보정하는 핵심 제어 기술입니다.&lt;/li&gt;
+&lt;li&gt;A*는 목표까지의 예상 거리를 활용하여 효율적으로 경로를 탐색합니다.&lt;/li&gt;
+&lt;li&gt;Physical AI 개발에서는 시뮬레이션과 합성 데이터가 중요한 역할을 합니다.&lt;/li&gt;
+&lt;li&gt;Isaac ROS는 CUDA 가속 ROS 2 기술이며, NITROS는 노드 간 GPU 데이터 전달을 효율화합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;📝 추가 실습 과제&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;차동구동 실습에서 바퀴 마모와 미끄러짐 값을 변경하여 오차를 비교합니다.&lt;/li&gt;
+&lt;li&gt;PID의 Kp, Ki, Kd 값을 변경하여 제어 성능을 비교합니다.&lt;/li&gt;
+&lt;li&gt;A*의 장애물 확장 범위를 변경하여 경로 차이를 확인합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;🚀 다음 시간 (DAY 02)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Simulating Your First Robot in Isaac Sim&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;다음 시간에는 Isaac Sim에서 기본 도형을 이용하여 2륜 차동구동 로봇을 직접 제작합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;로봇 섀시와 바퀴 구성&lt;/li&gt;
+&lt;li&gt;Joint 및 물리 속성 설정&lt;/li&gt;
+&lt;li&gt;OmniGraph를 활용한 키보드 조작&lt;/li&gt;
+&lt;li&gt;카메라 및 LiDAR 센서 연결&lt;/li&gt;
+&lt;li&gt;ROS 2와 RViz를 통한 데이터 확인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;1일차에 학습한 차동구동 기구학의 바퀴 반지름(r)과 바퀴 간격(L)을 실제 로봇의 치수에 적용하여 움직임을 구현합니다.&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df780c9b3a6fdaa2cabea1b" style="scroll-margin-top:112px;"&gt;👥 참고 문헌 (References)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;NVIDIA DLI – A Beginner's Guide to Autonomous Robots&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA DLI – An Introduction to AI-Based Robot Development With Isaac ROS&lt;br&gt;
+&lt;a href="https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-ros/latest/an-introduction-to-ai-based-robot-development-with-isaac-ros/"&gt;https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-ros/latest/an-introduction-to-ai-based-robot-development-with-isaac-ros/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA Isaac ROS Documentation&lt;br&gt;
+&lt;a href="https://nvidia-isaac-ros.github.io/"&gt;https://nvidia-isaac-ros.github.io/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA Isaac ROS GitHub&lt;br&gt;
+&lt;a href="https://github.com/NVIDIA-ISAAC-ROS"&gt;https://github.com/NVIDIA-ISAAC-ROS&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA Physical AI Learning&lt;br&gt;
+&lt;a href="https://docs.nvidia.com/learning/physical-ai/"&gt;https://docs.nvidia.com/learning/physical-ai/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu 24.04 설치 참고 자료&lt;br&gt;
+&lt;a href="https://youtu.be/J80WHupqb2Q"&gt;https://youtu.be/J80WHupqb2Q&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;교육 참고 자료&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;오리엔테이션&lt;/li&gt;
+&lt;li&gt;Ubuntu 24.04 설치&lt;/li&gt;
+&lt;li&gt;강의 환경 설정&lt;/li&gt;
+&lt;li&gt;자율로봇이란&lt;/li&gt;
+&lt;li&gt;자율화 기술 소개 및 실습&lt;/li&gt;
+&lt;li&gt;최근 흐름 – Foundation Model, Physical AI, Cosmos&lt;/li&gt;
+&lt;li&gt;Isaac ROS 소개&lt;/li&gt;
+&lt;li&gt;실습환경 점검&lt;/li&gt;
+&lt;li&gt;정리 및 퀴즈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-423d9e129df7807e86eddd06203db2d0" style="scroll-margin-top:112px;"&gt;📨 문의하기 (Contact us)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"&gt;&lt;ul style="list-style-position:outside;margin:.5rem 0 .75rem;"&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Youtube : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;https://www.youtube.com/@sssrobotics&lt;/a&gt;&lt;/li&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Blog : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.sssrobotics.com/"&gt;https://www.sssrobotics.com&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p&gt;#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #피지컬AI #로봇 #시뮬레이션 #AI #AX #robot #simulation #엔비디아&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;</content:encoded>
+      <category>교육</category>
+      <category>DLI</category>
+    </item>
     <item>
       <title>EP.02 - OpenUSD의 Stage란 무엇일까요? (What Is a Stage?)</title>
       <link>https://www.sssrobotics.com/posts/420d9e129df78066b41fe79f70458698/</link>

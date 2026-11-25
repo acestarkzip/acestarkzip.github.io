@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <!-- SSS Robotics current brand favicon (cache-busted) -->
+  <link rel="icon" href="/favicon.ico?v=20261118" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png?v=20261118">
+  <link rel="shortcut icon" href="/favicon.ico?v=20261118">
+  <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
+  <!-- SSS Robotics current brand favicon (cache-busted) -->
+  <link rel="apple-touch-icon" href="/favicon.png?v=20261118">
+  <meta name="description" content="• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/">
+  <meta name="author" content="S급 로봇 연구소">
+  <meta name="keywords" content="교육, DLI">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2) | S급 로봇 연구소">
+  <meta property="og:description" content="• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png">
+  <meta property="og:image:alt" content="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2) | S급 로봇 연구소">
+  <meta name="twitter:description" content="• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png">
+  <meta property="article:published_time" content="2026-11-24">
+  <meta property="article:modified_time" content="2026-11-24">
+  <meta property="article:section" content="교육">
+  <meta property="article:tag" content="교육">
+  <meta property="article:tag" content="DLI">
+  <title>DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2) | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=20261122-highlight-linebox-v5">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/#blogposting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/"},"headline":"DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)","description":"• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.","image":["https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"],"author":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","url":"https://www.sssrobotics.com/"},"publisher":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","logo":{"@type":"ImageObject","url":"https://www.sssrobotics.com/images/sss-robotics-logo.png"}},"inLanguage":"ko-KR","isAccessibleForFree":true,"datePublished":"2026-11-24","dateModified":"2026-11-24","keywords":["교육","DLI"],"articleSection":"교육"}</script>
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)</h1>
+      <p class="article-path" id="article-path">2026-11-24 · Isaac Sim 시작, Simple 로봇 만들기</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-11-24</li>
+<li><strong>간단메모 :</strong> Isaac Sim 시작, Simple 로봇 만들기</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<p><strong>• Youtube :</strong><br>
+<a href="https://www.youtube.com/@sssrobotics"><u>https://www.youtube.com/@sssrobotics</u></a></p>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;width:100%;"><span class="notion-callout-icon">📌</span><div class="notion-callout-content" style="box-sizing:border-box;width:100%;"><strong>안녕하세요!<br>
+S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;">오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">지난 시간에는 자율로봇의 기본 구조와 차동구동, PID 제어 및 경로탐색 알고리즘을 학습했습니다.<br>
+이번 시간에는 이러한 개념을 실제 3D 시뮬레이션 환경에 적용해 보겠습니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">Isaac Sim의 화면 구성과 물리 엔진의 기본 원리를 이해하고, 기본 도형을 활용하여 로봇의 몸체와 바퀴, 관절을 직접 구성합니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">마지막으로 Differential Controller와 OmniGraph를 활용하여 로봇을 움직이는 과정까지 알아보겠습니다.</p>
+</div></div></div>
+
+<hr>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<h1 id="notion-heading-423d9e129df7805d99e5ee4e0d01a190" style="scroll-margin-top:112px;">📚 목차 (Contents)</h1>
+<ul>
+<li><a href="#notion-heading-423d9e129df7805d99e5ee4e0d01a190">📚 목차 (Contents)</a></li>
+<li><a href="#notion-heading-423d9e129df7800d8047fd54890f67aa">📖 오늘의 진행 내용 (Today's Topics)</a><ul>
+<li><a href="#notion-heading-423d9e129df780caa5dde6694b43ae03">📕 1. NVIDIA Isaac Sim 시작하기</a><ul>
+<li><a href="#notion-heading-423d9e129df7803abfaad3ac5657abe9">📄 1-1. Isaac Sim이란?</a></li>
+<li><a href="#notion-heading-423d9e129df780e28ab9cffdb39ca39f">📄 1-2. 공식 교육 목표</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-423d9e129df780508c58e9bfc722a426">📕 2. Isaac Sim 화면 구성 및 기본 조작</a><ul>
+<li><a href="#notion-heading-423d9e129df780779060effc519b67e1">📄 2-1. 주요 인터페이스</a></li>
+<li><a href="#notion-heading-423d9e129df780288c17d0c028bb51da">📄 2-2. Stage, Prim, Xform 이해</a></li>
+<li><a href="#notion-heading-423d9e129df7809287ade32c3d336cbc">📄 2-3. 좌표계와 Viewport 조작</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-423d9e129df78011adbeebb9db9e0d14">📕 3. Physics 기초와 물리 엔진 이해</a><ul>
+<li><a href="#notion-heading-423d9e129df780c7b736d759b74c4e8e">📄 3-1. 물리 시뮬레이션의 기본 구성요소</a></li>
+<li><a href="#notion-heading-423d9e129df7806aa998eeae0320f846">📄 3-2. Cube 낙하 실습</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-423d9e129df7801f8f78f2ce2e2caf67">📕 4. 기본 도형으로 로봇 제작하기</a><ul>
+<li><a href="#notion-heading-423d9e129df780e5bde3d04a8523d0c0">📄 4-1. 로봇 몸체 구성</a></li>
+<li><a href="#notion-heading-423d9e129df780759885d8245924c564">📄 4-2. 바퀴 구성</a></li>
+<li><a href="#notion-heading-423d9e129df78034aac2e933b9bdd370">📄 4-3. Revolute Joint 설정</a></li>
+<li><a href="#notion-heading-423d9e129df780c89792d90c96fb7b76">📄 4-4. Angular Drive 설정</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-423d9e129df7805ea178e814b7f891a6">📕 5. Articulation Root와 Differential Controller</a><ul>
+<li><a href="#notion-heading-423d9e129df78075aa12d16de5d41ec0">📄 5-1. Articulation Root란?</a></li>
+<li><a href="#notion-heading-423d9e129df780b5b846d838e5749cf8">📄 5-2. Differential Controller란?</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-423d9e129df78074b44cfe04b4eec253">📕 6. OmniGraph를 활용한 로봇 조종</a><ul>
+<li><a href="#notion-heading-423d9e129df780779f75de620ffc0a98">📄 6-1. OmniGraph란?</a></li>
+<li><a href="#notion-heading-423d9e129df780e0bc7eccd752f947ef">📄 6-2. 키보드 조종 실습</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-423d9e129df780468071fc3439a070c8">📕 7. Isaac Sim 5.1 주요 설정 주의사항</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-423d9e129df7800aa39ccf026df04d19">📜 회고 및 다음 과제 (Retropective&amp;Next Steps)</a></li>
+<li><a href="#notion-heading-423d9e129df780709940ca03bfb1cbb8">👥 참고 문헌 (References)</a></li>
+<li><a href="#notion-heading-423d9e129df780d985c4ce2cfbf35d63">📨 문의하기 (Contact us)</a></li>
+</ul>
+<hr>
+<h1 id="notion-heading-423d9e129df7800d8047fd54890f67aa" style="scroll-margin-top:112px;">📖 오늘의 진행 내용 (Today's Topics)</h1>
+<h2 id="notion-heading-423d9e129df780caa5dde6694b43ae03" style="scroll-margin-top:112px;">📕 1. NVIDIA Isaac Sim 시작하기</h2>
+<h3 id="notion-heading-423d9e129df7803abfaad3ac5657abe9" style="scroll-margin-top:112px;">📄 1-1. Isaac Sim이란?</h3>
+<p>NVIDIA Isaac Sim은 로봇의 동작과 물리적 환경을 가상 공간에서 구현하고 검증할 수 있는 로봇 시뮬레이션 플랫폼입니다.</p>
+<p>로봇의 형태와 관절, 센서 및 주변 환경을 구성하고 실제 물리 법칙을 적용하여 다양한 상황을 테스트할 수 있습니다.</p>
+<h3 id="notion-heading-423d9e129df780e28ab9cffdb39ca39f" style="scroll-margin-top:112px;">📄 1-2. 공식 교육 목표</h3>
+<p>이번 실습의 핵심 목표는 다음과 같습니다.</p>
+<ul>
+<li>Isaac Sim의 인터페이스와 기본 조작 방법을 이해합니다.</li>
+<li>기본 도형으로 로봇의 몸체와 바퀴를 제작합니다.</li>
+<li>관절과 물리 속성을 설정합니다.</li>
+<li>OmniGraph를 활용하여 로봇을 조종합니다.</li>
+</ul>
+<hr>
+<h2 id="notion-heading-423d9e129df780508c58e9bfc722a426" style="scroll-margin-top:112px;">📕 2. Isaac Sim 화면 구성 및 기본 조작</h2>
+<h3 id="notion-heading-423d9e129df780779060effc519b67e1" style="scroll-margin-top:112px;">📄 2-1. 주요 인터페이스</h3>
+<p>Isaac Sim은 여러 영역으로 구성되어 있으며, 각각의 기능을 이해하는 것이 중요합니다.</p>
+<ul>
+<li>Viewport: 3D 장면을 확인하고 편집하는 공간입니다.</li>
+<li>Stage: 장면에 포함된 객체와 계층 구조를 관리합니다.</li>
+<li>Property: 선택한 객체의 위치, 회전, 크기 및 물리 속성을 설정합니다.</li>
+<li>Content: 로봇과 환경 등의 에셋을 확인합니다.</li>
+</ul>
+<h3 id="notion-heading-423d9e129df780288c17d0c028bb51da" style="scroll-margin-top:112px;">📄 2-2. Stage, Prim, Xform 이해</h3>
+<p>Isaac Sim의 장면은 OpenUSD 기반으로 구성됩니다.</p>
+<ul>
+<li>Stage: 전체 3D 장면을 의미합니다.</li>
+<li>Prim: 장면을 구성하는 개별 객체입니다.</li>
+<li>Xform: 위치, 회전, 크기 정보를 관리하는 객체로, 여러 객체를 계층 구조로 묶을 때 활용합니다.</li>
+</ul>
+<h3 id="notion-heading-423d9e129df7809287ade32c3d336cbc" style="scroll-margin-top:112px;">📄 2-3. 좌표계와 Viewport 조작</h3>
+<p>Isaac Sim은 미터(m)를 기본 단위로 사용하며 Z축이 위쪽 방향입니다.</p>
+<p>마우스와 키보드를 활용하여 3D 공간을 이동하고 객체를 다양한 각도에서 확인할 수 있습니다.</p>
+<hr>
+<h2 id="notion-heading-423d9e129df78011adbeebb9db9e0d14" style="scroll-margin-top:112px;">📕 3. Physics 기초와 물리 엔진 이해</h2>
+<h3 id="notion-heading-423d9e129df780c7b736d759b74c4e8e" style="scroll-margin-top:112px;">📄 3-1. 물리 시뮬레이션의 기본 구성요소</h3>
+<p>로봇과 물체가 실제 물리 법칙에 따라 움직이려면 다음 요소가 필요합니다.</p>
+<ul>
+<li>Physics Scene: 중력 등 물리 시뮬레이션 환경을 설정합니다.</li>
+<li>Rigid Body: 물체의 질량과 운동 등 강체 물리를 적용합니다.</li>
+<li>Collider: 물체 간 충돌을 계산할 수 있도록 설정합니다.</li>
+<li>Ground Plane: 물체가 떨어지지 않도록 바닥을 구성합니다.</li>
+</ul>
+<h3 id="notion-heading-423d9e129df7806aa998eeae0320f846" style="scroll-margin-top:112px;">📄 3-2. Cube 낙하 실습</h3>
+<p>기본 Cube를 생성하고 물리 속성을 적용하여 중력에 따른 움직임을 확인합니다.</p>
+<p>Physics Scene만 생성한 상태에서는 Cube가 물리적인 강체로 동작하지 않습니다.</p>
+<p>Rigid Body와 Collider를 추가한 후에는 중력의 영향을 받아 떨어지며, Ground Plane을 추가하면 바닥에서 정지하는 것을 확인할 수 있습니다.</p>
+<hr>
+<h2 id="notion-heading-423d9e129df7801f8f78f2ce2e2caf67" style="scroll-margin-top:112px;">📕 4. 기본 도형으로 로봇 제작하기</h2>
+<h3 id="notion-heading-423d9e129df780e5bde3d04a8523d0c0" style="scroll-margin-top:112px;">📄 4-1. 로봇 몸체 구성</h3>
+<p>기본 Cube를 활용하여 로봇의 섀시(Chassis)를 제작합니다.</p>
+<p>Xform 객체를 생성하고 이름을 SimpleRobot으로 변경한 뒤, 몸체와 바퀴를 하나의 계층 구조로 구성합니다.</p>
+<h3 id="notion-heading-423d9e129df780759885d8245924c564" style="scroll-margin-top:112px;">📄 4-2. 바퀴 구성</h3>
+<p>원기둥(Cylinder)을 활용하여 로봇의 바퀴 4개를 제작합니다.</p>
+<p>각 바퀴의 위치와 크기를 설정하고 물리적 충돌 속성을 적용합니다.</p>
+<h3 id="notion-heading-423d9e129df78034aac2e933b9bdd370" style="scroll-margin-top:112px;">📄 4-3. Revolute Joint 설정</h3>
+<p>Revolute Joint는 두 강체가 특정 축을 중심으로 회전할 수 있도록 연결하는 관절입니다.</p>
+<ul>
+<li>Body 0: 로봇 몸체</li>
+<li>Body 1: 바퀴</li>
+<li>Axis: 바퀴의 회전축(Y축)</li>
+</ul>
+<p>관절을 구성하면 바퀴가 몸체에 연결된 상태에서 회전할 수 있습니다.</p>
+<h3 id="notion-heading-423d9e129df780c89792d90c96fb7b76" style="scroll-margin-top:112px;">📄 4-4. Angular Drive 설정</h3>
+<p>Angular Drive는 관절의 회전 속도를 제어하는 기능입니다.</p>
+<p>뒷바퀴에 Angular Drive를 적용하고 목표 회전 속도를 설정하여 로봇의 전진과 회전을 확인합니다.</p>
+<ul>
+<li>좌우 바퀴가 같은 방향으로 회전하면 직진합니다.</li>
+<li>좌우 바퀴가 반대 방향으로 회전하면 회전합니다.</li>
+</ul>
+<hr>
+<h2 id="notion-heading-423d9e129df7805ea178e814b7f891a6" style="scroll-margin-top:112px;">📕 5. Articulation Root와 Differential Controller</h2>
+<h3 id="notion-heading-423d9e129df78075aa12d16de5d41ec0" style="scroll-margin-top:112px;">📄 5-1. Articulation Root란?</h3>
+<p>Articulation Root는 관절로 연결된 여러 강체를 하나의 로봇 구조로 관리하기 위한 설정입니다.</p>
+<p>이를 통해 물리 엔진이 관절 관계를 고려하여 로봇을 계산하고 제어기가 각 관절을 식별할 수 있습니다.</p>
+<h3 id="notion-heading-423d9e129df780b5b846d838e5749cf8" style="scroll-margin-top:112px;">📄 5-2. Differential Controller란?</h3>
+<p>Differential Controller는 로봇의 선속도와 각속도를 좌우 바퀴의 회전 속도로 변환하는 제어기입니다.</p>
+<p>1일차에 학습한 차동구동 기구학을 Isaac Sim에서 실제로 적용하는 단계입니다.</p>
+<p>주요 설정값은 다음과 같습니다.</p>
+<ul>
+<li>Robot Prim: /World/SimpleRobot</li>
+<li>Wheel Radius: 0.375m</li>
+<li>Distance Between Wheels: 1.5m</li>
+<li>Rear Wheel Joint: 좌우 바퀴 관절 지정</li>
+</ul>
+<hr>
+<h2 id="notion-heading-423d9e129df78074b44cfe04b4eec253" style="scroll-margin-top:112px;">📕 6. OmniGraph를 활용한 로봇 조종</h2>
+<h3 id="notion-heading-423d9e129df780779f75de620ffc0a98" style="scroll-margin-top:112px;">📄 6-1. OmniGraph란?</h3>
+<p>OmniGraph는 노드(Node)를 연결하여 데이터 흐름과 실행 순서를 구성하는 비주얼 스크립팅 도구입니다.</p>
+<p>이번 실습에서는 Differential Controller와 관절 제어 노드를 연결하여 로봇의 움직임을 구현합니다.</p>
+<h3 id="notion-heading-423d9e129df780e0bc7eccd752f947ef" style="scroll-margin-top:112px;">📄 6-2. 키보드 조종 실습</h3>
+<p>WASD 키 입력을 활용하여 로봇을 직접 움직입니다.</p>
+<ul>
+<li>W: 전진</li>
+<li>S: 후진</li>
+<li>A: 좌회전</li>
+<li>D: 우회전</li>
+</ul>
+<p>키보드 입력이 OmniGraph를 통해 속도 명령으로 변환되고, Differential Controller가 좌우 바퀴의 속도를 계산하여 로봇을 움직입니다.</p>
+<hr>
+<h2 id="notion-heading-423d9e129df780468071fc3439a070c8" style="scroll-margin-top:112px;">📕 7. Isaac Sim 5.1 주요 설정 주의사항</h2>
+<p>공식 교육 자료는 Isaac Sim 4.5 및 ROS 2 Humble을 기준으로 작성되었으므로, 이번 실습 환경인 Isaac Sim 5.1과 ROS 2 Jazzy에서는 일부 설정을 다르게 적용합니다.</p>
+<ul>
+<li>Differential Controller의 Right Joint Name과 Left Joint Name에 지정하는 관절 이름을 서로 바꿔 입력합니다.</li>
+<li>Isaac Sim 5.1에서는 Joint 회전축과 Property의 Orient 항목을 정확하게 확인합니다.</li>
+<li>로봇의 바퀴 관절과 Body 0, Body 1의 연결 순서를 확인합니다.</li>
+</ul>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<hr>
+<h1 id="notion-heading-423d9e129df7800aa39ccf026df04d19" style="scroll-margin-top:112px;">📜 회고 및 다음 과제 (Retropective&amp;Next Steps)</h1>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<p><strong>💡 오늘 배운 핵심 내용</strong></p>
+<ul>
+<li>Isaac Sim은 로봇의 물리적 움직임을 가상 환경에서 구현하고 검증하는 플랫폼입니다.</li>
+<li>Stage와 Prim, Xform은 3D 장면을 구성하는 기본 요소입니다.</li>
+<li>Physics Scene, Rigid Body, Collider를 통해 물리 시뮬레이션을 구현합니다.</li>
+<li>Revolute Joint와 Angular Drive를 활용하여 바퀴의 회전을 제어합니다.</li>
+<li>Articulation Root는 관절로 연결된 로봇 구조를 통합적으로 관리합니다.</li>
+<li>Differential Controller와 OmniGraph를 활용하면 키보드 입력으로 로봇을 조종할 수 있습니다.</li>
+</ul>
+<p><strong>📝 추가 실습 과제</strong></p>
+<ul>
+<li>Physics Scene의 중력 방향을 변경하면 물체의 움직임이 어떻게 달라지는지 확인합니다.</li>
+<li>좌우 바퀴의 회전 속도를 다르게 설정하여 주행 방향을 비교합니다.</li>
+<li>Differential Controller의 선속도와 각속도를 변경하여 로봇의 움직임을 확인합니다.</li>
+</ul>
+<p><strong>🚀 다음 시간 (수요일)</strong></p>
+<p><strong>Sensors and ROS 2 Integration</strong></p>
+<p>다음 시간에는 직접 제작한 로봇에 RGB 카메라와 2D LiDAR 센서를 장착합니다.</p>
+<ul>
+<li>로봇에 센서 마운트 구성</li>
+<li>RGB 카메라 연결 및 영상 확인</li>
+<li>PhysX LiDAR를 활용한 거리 측정</li>
+<li>ROS 2 Bridge 및 OmniGraph 연결</li>
+<li>센서 데이터를 ROS 2 Topic으로 발행</li>
+<li>RViz2를 활용한 센서 데이터 시각화</li>
+</ul>
+<p>가상 로봇을 직접 제작하는 단계를 넘어, 로봇이 주변 환경을 인식하고 센서 데이터를 외부 시스템으로 전달하는 과정을 학습합니다.</p>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<hr>
+<h1 id="notion-heading-423d9e129df780709940ca03bfb1cbb8" style="scroll-margin-top:112px;">👥 참고 문헌 (References)</h1>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<ol>
+<li>
+<p>NVIDIA DLI – Building Your First Robot in Isaac Sim<br>
+<a href="https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/">https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/</a></p>
+</li>
+<li>
+<p>NVIDIA Isaac Sim Documentation<br>
+<a href="https://docs.isaacsim.omniverse.nvidia.com/">https://docs.isaacsim.omniverse.nvidia.com/</a></p>
+</li>
+<li>
+<p>교육 참고 자료</p>
+<ul>
+<li>Isaac Sim 시작 – 화면 구성과 물리 기초</li>
+<li>로봇 만들기 – 몸체, 바퀴, 회전 관절, 구동</li>
+<li>로봇 조종 – Articulation Root, Differential Controller, 키보드</li>
+</ul>
+</li>
+</ol>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<hr>
+<h1 id="notion-heading-423d9e129df780d985c4ce2cfbf35d63" style="scroll-margin-top:112px;">📨 문의하기 (Contact us)</h1>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><ul style="list-style-position:outside;margin:.5rem 0 .75rem;"><li style="margin:.30rem 0;line-height:1.5;"><strong>Youtube : </strong><br>
+<a href="https://www.youtube.com/@sssrobotics">https://www.youtube.com/@sssrobotics</a></li><li style="margin:.30rem 0;line-height:1.5;"><strong>Blog : </strong><br>
+<a href="https://www.sssrobotics.com/">https://www.sssrobotics.com</a></li></ul>
+</blockquote>
+
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<p>#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #피지컬AI #로봇 #시뮬레이션 #AI #AX #robot #simulation #엔비디아</p>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>

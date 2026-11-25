@@ -1,13 +1,73 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-25T04:52:36.078057+00:00",
+  "generated_at": "2026-11-25T14:31:12.830704+00:00",
   "active_notion_page_count": 44,
-  "matched_markdown_count": 41,
-  "missing_markdown_count": 3,
-  "scanned_markdown_count": 46,
-  "total_count": 41,
+  "matched_markdown_count": 44,
+  "missing_markdown_count": 0,
+  "scanned_markdown_count": 49,
+  "total_count": 44,
   "posts": [
+    {
+      "path": "TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_로봇_센서_구성과_ROS_2_연동_(22).md",
+      "date": "2026-11-25",
+      "number": 44,
+      "created_time": "2026-11-24T23:38:00.000Z",
+      "title": "DLI DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)",
+      "memo": "Simple 로봇 만들기, 로봇 조종, 센서 달기, ROS로 데이터 보내기",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "DLI",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "422d9e129df780f584bae0693319b79e",
+      "notion_url": "https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-ROS-2-2-2-422d9e129df780f584bae0693319b79e"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim으로_첫_번째_로봇_만들기_–_기초와_물리_엔진_(12).md",
+      "date": "2026-11-24",
+      "number": 43,
+      "created_time": "2026-11-24T23:36:00.000Z",
+      "title": "DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)",
+      "memo": "Isaac Sim 시작, Simple 로봇 만들기",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "DLI",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "422d9e129df7808f8087f1468f2d3f27",
+      "notion_url": "https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_–_자율로봇의_이해와_기초_실습.md",
+      "date": "2026-11-23",
+      "number": 42,
+      "created_time": "2026-11-24T23:35:00.000Z",
+      "title": "DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습",
+      "memo": "오리엔테이션, 우분투 OS설치, Isaac Sim 시작",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "DLI",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "422d9e129df780268df4c40f38b8a032",
+      "notion_url": "https://app.notion.com/p/DLI-DAY-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"
+    },
     {
       "path": "TIL/2026/11/2026-11-22_EP.02_-_OpenUSD의_Stage란_무엇일까요_(What_Is_a_Stage).md",
       "date": "2026-11-22",
