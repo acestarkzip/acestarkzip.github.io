@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-25T14:32:58.858584+00:00",
+  "generated_at": "2026-11-25T19:53:08.310852+00:00",
   "active_notion_page_count": 44,
   "matched_markdown_count": 44,
   "missing_markdown_count": 0,
@@ -14,7 +14,7 @@
       "number": 44,
       "created_time": "2026-11-24T23:38:00.000Z",
       "title": "DLI DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)",
-      "memo": "Simple 로봇 만들기, 로봇 조종, 센서 달기, ROS로 데이터 보내기",
+      "memo": "로봇에 카메라와 LiDAR를 장착하고 ROS 2 및 RViz2를 연동하여 센서 데이터를 확인합니다.",
       "tags": [
         {
           "name": "교육",
@@ -34,7 +34,7 @@
       "number": 43,
       "created_time": "2026-11-24T23:36:00.000Z",
       "title": "DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)",
-      "memo": "Isaac Sim 시작, Simple 로봇 만들기",
+      "memo": "NVIDIA Isaac Sim에서 4륜 로봇을 직접 제작하고 물리 엔진과 제어기를 활용하여 움직입니다.",
       "tags": [
         {
           "name": "교육",
@@ -54,7 +54,7 @@
       "number": 42,
       "created_time": "2026-11-24T23:35:00.000Z",
       "title": "DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습",
-      "memo": "오리엔테이션, 우분투 OS설치, Isaac Sim 시작",
+      "memo": "자율로봇의 기본 원리와 핵심 알고리즘을 학습하고 로보틱스 개발환경을 구축합니다.",
       "tags": [
         {
           "name": "교육",
