@@ -6,9 +6,379 @@
     <description>S급 로봇 연구소의 로봇, 인공지능, 시뮬레이션 기술 학습 기록입니다.</description>
     <language>ko-KR</language>
     <atom:link href="https://www.sssrobotics.com/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 26 Nov 2026 04:07:04 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 06:29:07 GMT</lastBuildDate>
     <item>
-      <title>DLI 3일차 | DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)</title>
+      <title>DLI 4일차 | DAY 03. Ingesting Robot Assets – URDF 기반 로봇 가져오기와 시뮬레이션</title>
+      <link>https://www.sssrobotics.com/posts/424d9e129df780df8a5def6ac34ae47f/</link>
+      <guid isPermaLink="true">https://www.sssrobotics.com/posts/424d9e129df780df8a5def6ac34ae47f/</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 GMT</pubDate>
+      <description>• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 오늘은 NVIDIA Isaac Sim에서 기존에 설계된 로봇 모델을 가져와 시뮬레이션하는 방법 을 알아보겠습니다.</description>
+      <content:encoded>
+
+
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;날짜 :&lt;/strong&gt; 2026-11-26&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; URDF Importer를 활용해 Carter 로봇을 Isaac Sim으로 가져오고, 물리·관절·주행 제어를 설정한 뒤 카메라와 LiDAR를 장착하여 Nova Carter와 비교합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-4-DAY-03-Ingesting-Robot-Assets-URDF-424d9e129df780df8a5def6ac34ae47f"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/01_DLI-4%EC%9D%BC%EC%B0%A8-DAY-03-Ingesting-Robot.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/01_DLI-4%EC%9D%BC%EC%B0%A8-DAY-03-Ingesting-Robot.png" alt="DLI 4일차 | DAY 03. Ingesting Robot Assets – URDF 기반 로봇 가져오기와 시뮬레이션" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;• Youtube :&lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;&lt;u&gt;https://www.youtube.com/@sssrobotics&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/02_DLI-4%EC%9D%BC%EC%B0%A8-DAY-03-Ingesting-Robot.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/02_DLI-4%EC%9D%BC%EC%B0%A8-DAY-03-Ingesting-Robot.png" alt="DLI 4일차 | DAY 03. Ingesting Robot Assets – URDF 기반 로봇 가져오기와 시뮬레이션" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"&gt;&lt;div class="notion-callout-layout" style="display:flex;width:100%;"&gt;&lt;span class="notion-callout-icon"&gt;📌&lt;/span&gt;&lt;div class="notion-callout-content" style="box-sizing:border-box;width:100%;"&gt;&lt;strong&gt;안녕하세요!&lt;br&gt;
+S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;오늘은 &lt;strong&gt;NVIDIA Isaac Sim에서 기존에 설계된 로봇 모델을 가져와 시뮬레이션하는 방법&lt;/strong&gt;을 알아보겠습니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;지난 시간에는 기본 도형을 활용하여 로봇의 몸체와 바퀴, 관절을 직접 제작하고 카메라와 LiDAR를 장착했습니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;&lt;strong&gt;이번 시간에는 ROS에서 널리 사용되는 로봇 설계 파일인 URDF를 활용하여 실제 로봇의 구조를 Isaac Sim에 가져오는 과정을 학습&lt;/strong&gt;합니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;URDF Importer를 통해 로봇의 링크와 관절을 변환하고, 물리 속성과 차동 제어기를 설정합니다.&lt;/p&gt;
+&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;또한 RGB 카메라와 LiDAR를 추가하고, NVIDIA에서 제공하는 Nova Carter 모델과 비교하면서 로봇 에셋의 구성과 활용 방법을 알아보겠습니다.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/03_DLI-4%EC%9D%BC%EC%B0%A8-DAY-03-Ingesting-Robot.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/03_DLI-4%EC%9D%BC%EC%B0%A8-DAY-03-Ingesting-Robot.png" alt="DLI 4일차 | DAY 03. Ingesting Robot Assets – URDF 기반 로봇 가져오기와 시뮬레이션" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="notion-heading-424d9e129df780f2bff3c612653f737e" style="scroll-margin-top:112px;"&gt;📚 목차 (Contents)&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780f2bff3c612653f737e"&gt;📚 목차 (Contents)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780bea3ebda19dc701d68"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780f8bbb6d62785e9f347"&gt;📕 1. URDF의 개념과 로봇 구조 이해&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7800299abde2a0a97585f"&gt;📄 1-1. URDF(Unified Robot Description Format)란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7808b9742d748cc7d3d48"&gt;📄 1-2. URDF와 USD의 관계&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780178192db2c621aaf8d"&gt;📄 1-3. Carter URDF 구조 살펴보기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7805d8576ff68802fefea"&gt;📕 2. URDF Importer를 활용한 Carter 로봇 가져오기&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780139f6ff84ac0a99514"&gt;📄 2-1. URDF Importer란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780ecb651f33a1f4117a9"&gt;📄 2-2. Carter 로봇 가져오기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780aa9d9ee52e866e4c47"&gt;📄 2-3. USD 변환 결과 확인&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df78029ae76f75e1141fc9c"&gt;📕 3. Isaac Sim에서 로봇 시뮬레이션 준비&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7808da903d804258a797f"&gt;📄 3-1. 바닥 환경 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df78049aa3ee14e984e6a90"&gt;📄 3-2. 관절 구조 확인&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7808b9cf4ee753c5f5709"&gt;📄 3-3. 바퀴 회전 실습&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7809da94be0cfccf8bbde"&gt;📕 4. 차동 제어기와 로봇 주행&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7809eba13c9bd9b8ee03d"&gt;📄 4-1. Differential Controller 설정&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780e589b7ed68629804e8"&gt;📄 4-2. OmniGraph와 키보드 조종&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780a3b50bf7c5403b7c79"&gt;📄 4-3. 주행 속도 제한&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780a682f3fc3f89e29384"&gt;📕 5. 가져온 로봇에 RGB 카메라와 LiDAR 장착&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780f8b460caed4d6617a4"&gt;📄 5-1. URDF와 센서 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780ad852ef56c28b7c57a"&gt;📄 5-2. RGB Camera 장착&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780f7a8a0d8681385aa8d"&gt;📄 5-3. 장애물 환경 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780ea9d62d9597c1b5152"&gt;📄 5-4. 2D LiDAR 장착&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780ea83f3e6d68027ed70"&gt;📄 5-5. 카메라와 LiDAR의 역할 비교&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df78082aaacf49b9830b13b"&gt;📕 6. NVIDIA Nova Carter 살펴보기&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7806fa899fdb68dbf1439"&gt;📄 6-1. Nova Carter란?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7801e87f8c6e747d96007"&gt;📄 6-2. Nova Carter의 센서 구성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df78049ae35f156bc77b311"&gt;📄 6-3. Carter와 Nova Carter 비교&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7803a9d85e1765ea8a2bd"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7805499b7c4965dfb3f0b"&gt;💡 오늘 배운 핵심 내용&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780659eaac8631c631872"&gt;📝 추가 실습 미션&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780ca8b82e37a5848d42e"&gt;A. 장애물 코스 주행&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7809488f1da12f40990d5"&gt;B. 로봇 구조 비교&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df7809f8967feb1bd16b140"&gt;📋 공식 퀴즈&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780d390ddced69cbc1416"&gt;🚀 다음 시간&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780c38599c47428a2df2f"&gt;DLI 1. Robotics Foundations – 통합 실습&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df78082abcaeb58f7fe87a3"&gt;👥 참고 문헌 (References)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#notion-heading-424d9e129df780d08b38e73e64c4356f"&gt;📨 문의하기 (Contact us)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="notion-heading-424d9e129df780bea3ebda19dc701d68" style="scroll-margin-top:112px;"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/h1&gt;
+&lt;h2 id="notion-heading-424d9e129df780f8bbb6d62785e9f347" style="scroll-margin-top:112px;"&gt;📕 1. URDF의 개념과 로봇 구조 이해&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df7800299abde2a0a97585f" style="scroll-margin-top:112px;"&gt;📄 1-1. URDF(Unified Robot Description Format)란?&lt;/h3&gt;
+&lt;p&gt;URDF는 로봇의 물리적인 구조와 구성요소를 XML 형식으로 표현하는 로봇 설계 파일입니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/04_1-1-URDFUnified-Robot-Descript.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/04_1-1-URDFUnified-Robot-Descript.png" alt="📄 1-1. URDF(Unified Robot Description Format)란?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;로봇의 각 부품과 연결 관계를 정의하여 ROS 기반의 로봇 시스템에서 활용합니다.&lt;/p&gt;
+&lt;p&gt;주요 구성요소는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Link: 로봇을 구성하는 개별적인 강체 부품입니다.&lt;/li&gt;
+&lt;li&gt;Joint: 링크와 링크를 연결하는 관절입니다.&lt;/li&gt;
+&lt;li&gt;Visual: 로봇의 외형을 표현하는 모델입니다.&lt;/li&gt;
+&lt;li&gt;Collision: 물체 간 충돌을 계산하기 위한 형상입니다.&lt;/li&gt;
+&lt;li&gt;Inertial: 질량과 관성 정보를 정의합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;일반적으로 URDF에는 센서와 제어기, 재질의 세부 물리 특성이 포함되지 않으므로 Isaac Sim에서 추가로 구성할 수 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-424d9e129df7808b9742d748cc7d3d48" style="scroll-margin-top:112px;"&gt;📄 1-2. URDF와 USD의 관계&lt;/h3&gt;
+&lt;p&gt;URDF는 로봇의 구조를 정의하는 XML 설계 파일이며, USD는 Isaac Sim에서 3D 장면과 객체, 물리 속성을 표현하는 데 사용됩니다.&lt;/p&gt;
+&lt;p&gt;URDF Importer는 URDF에 정의된 로봇 구조를 Isaac Sim에서 사용할 수 있는 USD 기반 에셋으로 변환합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-424d9e129df780178192db2c621aaf8d" style="scroll-margin-top:112px;"&gt;📄 1-3. Carter URDF 구조 살펴보기&lt;/h3&gt;
+&lt;p&gt;이번 실습에서는 NVIDIA에서 제공하는 Carter 로봇의 &lt;code&gt;carter.urdf&lt;/code&gt; 파일을 확인합니다.&lt;/p&gt;
+&lt;p&gt;주요 링크와 관절 구조는 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;chassis_link: 로봇의 중심 몸체입니다.&lt;/li&gt;
+&lt;li&gt;left_wheel / right_wheel: 좌우 구동 바퀴입니다.&lt;/li&gt;
+&lt;li&gt;rear_pivot: 후방 캐스터의 방향을 변경하는 관절입니다.&lt;/li&gt;
+&lt;li&gt;rear_axle: 후방 캐스터 바퀴의 회전 관절입니다.&lt;/li&gt;
+&lt;li&gt;com_offset / imu: 고정 링크로 구성된 보조 구조입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;특히 캐스터(Caster)는 모터 없이 로봇의 이동 방향에 따라 자연스럽게 방향을 변경하는 보조 바퀴입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-424d9e129df7805d8576ff68802fefea" style="scroll-margin-top:112px;"&gt;📕 2. URDF Importer를 활용한 Carter 로봇 가져오기&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df780139f6ff84ac0a99514" style="scroll-margin-top:112px;"&gt;📄 2-1. URDF Importer란?&lt;/h3&gt;
+&lt;p&gt;URDF Importer는 URDF 파일을 Isaac Sim으로 가져와 로봇의 링크와 관절, 물리 구조를 자동으로 변환하는 도구입니다.&lt;/p&gt;
+&lt;p&gt;지난 실습에서는 몸체와 바퀴, 관절 및 물리 속성을 직접 구성했지만, URDF Importer를 활용하면 기존에 정의된 로봇 구조를 효율적으로 가져올 수 있습니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-424d9e129df780ecb651f33a1f4117a9" style="scroll-margin-top:112px;"&gt;📄 2-2. Carter 로봇 가져오기&lt;/h3&gt;
+&lt;p&gt;Isaac Sim의 File &amp;gt; Import 메뉴에서 &lt;code&gt;carter.urdf&lt;/code&gt;를 선택하여 가져옵니다.&lt;/p&gt;
+&lt;p&gt;주요 설정은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Links: Moveable Base&lt;/li&gt;
+&lt;li&gt;Joint Configuration: Natural Frequency&lt;/li&gt;
+&lt;li&gt;left_wheel / right_wheel: Velocity&lt;/li&gt;
+&lt;li&gt;rear_axle / rear_pivot: None&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Moveable Base는 이동로봇처럼 바닥에 고정하지 않는 로봇에 사용하며, Velocity는 바퀴의 회전 속도를 제어할 때 사용합니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/05_2-2-Carter-%EB%A1%9C%EB%B4%87-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/05_2-2-Carter-%EB%A1%9C%EB%B4%87-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png" alt="📄 2-2. Carter 로봇 가져오기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="notion-heading-424d9e129df780aa9d9ee52e866e4c47" style="scroll-margin-top:112px;"&gt;📄 2-3. USD 변환 결과 확인&lt;/h3&gt;
+&lt;p&gt;Import가 완료되면 Stage에 &lt;code&gt;/World/carter&lt;/code&gt;가 생성됩니다.&lt;/p&gt;
+&lt;p&gt;가져온 로봇에는 다음 구조가 포함됩니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;로봇의 개별 링크를 나타내는 Xform&lt;/li&gt;
+&lt;li&gt;로봇 관절을 관리하는 joints&lt;/li&gt;
+&lt;li&gt;물리적 속성과 관절 연결 정보&lt;/li&gt;
+&lt;li&gt;Articulation Root&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이를 통해 URDF의 링크와 관절 구조가 Isaac Sim의 USD 객체로 변환되는 과정을 확인합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-424d9e129df78029ae76f75e1141fc9c" style="scroll-margin-top:112px;"&gt;📕 3. Isaac Sim에서 로봇 시뮬레이션 준비&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df7808da903d804258a797f" style="scroll-margin-top:112px;"&gt;📄 3-1. 바닥 환경 구성&lt;/h3&gt;
+&lt;p&gt;가져온 Carter 로봇은 처음에는 바닥이 없는 상태로 배치됩니다.&lt;/p&gt;
+&lt;p&gt;Create &amp;gt; Environments &amp;gt; Flat Grid를 활용하여 바닥 환경을 구성하고 로봇의 위치를 조정합니다.&lt;/p&gt;
+&lt;p&gt;Play를 실행하여 로봇이 바닥에 정상적으로 안착하는지 확인합니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/06_3-1-%EB%B0%94%EB%8B%A5-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/06_3-1-%EB%B0%94%EB%8B%A5-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1.png" alt="📄 3-1. 바닥 환경 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="notion-heading-424d9e129df78049aa3ee14e984e6a90" style="scroll-margin-top:112px;"&gt;📄 3-2. 관절 구조 확인&lt;/h3&gt;
+&lt;p&gt;Stage에서 joints 폴더를 펼쳐 각 관절의 연결 관계와 회전축을 확인합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;left_wheel / right_wheel: Y축 회전, 구동 관절&lt;/li&gt;
+&lt;li&gt;rear_pivot: Z축 회전, 캐스터 방향 전환&lt;/li&gt;
+&lt;li&gt;rear_axle: Y축 회전, 캐스터 바퀴 회전&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;구동 바퀴와 수동 바퀴가 서로 다른 역할을 수행한다는 점을 이해합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-424d9e129df7808b9cf4ee753c5f5709" style="scroll-margin-top:112px;"&gt;📄 3-3. 바퀴 회전 실습&lt;/h3&gt;
+&lt;p&gt;좌우 바퀴의 Target Velocity를 설정하여 로봇의 움직임을 확인합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;좌우 바퀴가 같은 속도로 회전하면 직진합니다.&lt;/li&gt;
+&lt;li&gt;한쪽 바퀴의 속도를 변경하면 회전합니다.&lt;/li&gt;
+&lt;li&gt;후방 캐스터는 로봇의 움직임에 따라 방향을 자연스럽게 변경합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/07_3-3-%EB%B0%94%ED%80%B4-%ED%9A%8C%EC%A0%84-%EC%8B%A4%EC%8A%B5.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/07_3-3-%EB%B0%94%ED%80%B4-%ED%9A%8C%EC%A0%84-%EC%8B%A4%EC%8A%B5.png" alt="📄 3-3. 바퀴 회전 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h2 id="notion-heading-424d9e129df7809da94be0cfccf8bbde" style="scroll-margin-top:112px;"&gt;📕 4. 차동 제어기와 로봇 주행&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df7809eba13c9bd9b8ee03d" style="scroll-margin-top:112px;"&gt;📄 4-1. Differential Controller 설정&lt;/h3&gt;
+&lt;p&gt;Differential Controller는 로봇의 선속도와 각속도를 좌우 바퀴의 회전 속도로 변환하는 제어기입니다.&lt;/p&gt;
+&lt;p&gt;이번 Carter 실습에서는 URDF에서 가져온 바퀴의 실제 치수를 적용합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Robot Prim: &lt;code&gt;/World/carter&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Wheel Radius: 0.24m&lt;/li&gt;
+&lt;li&gt;Distance Between Wheels: 0.62m&lt;/li&gt;
+&lt;li&gt;Right Joint Name: left_wheel&lt;/li&gt;
+&lt;li&gt;Left Joint Name: right_wheel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-424d9e129df780e589b7ed68629804e8" style="scroll-margin-top:112px;"&gt;📄 4-2. OmniGraph와 키보드 조종&lt;/h3&gt;
+&lt;p&gt;Differential Controller를 생성하면 OmniGraph에 키보드 입력과 차동 제어를 위한 노드가 구성됩니다.&lt;/p&gt;
+&lt;p&gt;WASD 키 입력을 통해 로봇의 선속도와 각속도를 제어합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;W: 전진&lt;/li&gt;
+&lt;li&gt;S: 후진&lt;/li&gt;
+&lt;li&gt;A: 좌회전&lt;/li&gt;
+&lt;li&gt;D: 우회전&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="notion-heading-424d9e129df780a3b50bf7c5403b7c79" style="scroll-margin-top:112px;"&gt;📄 4-3. 주행 속도 제한&lt;/h3&gt;
+&lt;p&gt;처음 생성된 제어기는 키보드 입력에 비해 Carter 로봇의 크기와 바퀴 특성에 맞지 않는 빠른 속도를 만들 수 있습니다.&lt;/p&gt;
+&lt;p&gt;따라서 DifferentialController의 속도 제한값을 조정합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;maxLinearSpeed: 0.5m/s&lt;/li&gt;
+&lt;li&gt;maxAngularSpeed: 0.5rad/s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;속도 제한을 적용한 뒤 로봇이 안정적으로 직진하고 회전하는지 확인합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-424d9e129df780a682f3fc3f89e29384" style="scroll-margin-top:112px;"&gt;📕 5. 가져온 로봇에 RGB 카메라와 LiDAR 장착&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df780f8b460caed4d6617a4" style="scroll-margin-top:112px;"&gt;📄 5-1. URDF와 센서 구성&lt;/h3&gt;
+&lt;p&gt;URDF는 일반적으로 로봇의 몸체 구조와 관절을 정의하며 센서는 별도로 추가해야 합니다.&lt;/p&gt;
+&lt;p&gt;이번 실습에서는 Carter의 &lt;code&gt;chassis_link&lt;/code&gt; 아래에 센서를 직접 추가하여 로봇의 움직임에 따라 함께 움직이도록 구성합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-424d9e129df780ad852ef56c28b7c57a" style="scroll-margin-top:112px;"&gt;📄 5-2. RGB Camera 장착&lt;/h3&gt;
+&lt;p&gt;로봇의 전방을 바라보도록 RGB 카메라를 추가합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이름: RGB_Sensor&lt;/li&gt;
+&lt;li&gt;위치(Translate): (0.1, 0, 0.33)&lt;/li&gt;
+&lt;li&gt;회전(Orient): (90, -90, 0)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Viewport 2를 활용하여 전체 장면과 로봇 카메라의 시점을 동시에 확인합니다.&lt;/p&gt;
+&lt;h3 id="notion-heading-424d9e129df780f7a8a0d8681385aa8d" style="scroll-margin-top:112px;"&gt;📄 5-3. 장애물 환경 구성&lt;/h3&gt;
+&lt;p&gt;로봇 주변에 Cube, Cylinder, Cone 등의 기본 도형을 배치하여 장애물 환경을 만듭니다.&lt;/p&gt;
+&lt;p&gt;카메라 시점에서 장애물의 형태와 위치가 어떻게 보이는지 확인합니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/08_5-3-%EC%9E%A5%EC%95%A0%EB%AC%BC-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/08_5-3-%EC%9E%A5%EC%95%A0%EB%AC%BC-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1.png" alt="📄 5-3. 장애물 환경 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="notion-heading-424d9e129df780ea9d62d9597c1b5152" style="scroll-margin-top:112px;"&gt;📄 5-4. 2D LiDAR 장착&lt;/h3&gt;
+&lt;p&gt;PhysX LiDAR를 추가하여 주변 장애물까지의 거리 정보를 측정합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;센서 종류: PhysX LiDAR&lt;/li&gt;
+&lt;li&gt;방식: Rotating&lt;/li&gt;
+&lt;li&gt;위치(Translate): (-0.05, 0, 0.42)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Raw USD Properties에서 drawLines를 활성화하면 LiDAR의 측정 결과를 시각적으로 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;PhysX LiDAR는 물리적인 충돌 형상을 기준으로 측정하기 때문에 장애물에 Collider가 설정되어 있어야 정상적으로 감지합니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/09_5-4-2D-LiDAR-%EC%9E%A5%EC%B0%A9.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/09_5-4-2D-LiDAR-%EC%9E%A5%EC%B0%A9.png" alt="📄 5-4. 2D LiDAR 장착" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="notion-heading-424d9e129df780ea83f3e6d68027ed70" style="scroll-margin-top:112px;"&gt;📄 5-5. 카메라와 LiDAR의 역할 비교&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;RGB Camera: 주변에 무엇이 있는지 영상으로 확인합니다.&lt;/li&gt;
+&lt;li&gt;LiDAR: 주변 물체까지의 거리와 공간 정보를 측정합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;두 센서는 서로 다른 정보를 제공하며, 함께 활용하면 로봇의 주변 환경을 보다 효과적으로 파악할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-424d9e129df78082aaacf49b9830b13b" style="scroll-margin-top:112px;"&gt;📕 6. NVIDIA Nova Carter 살펴보기&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df7806fa899fdb68dbf1439" style="scroll-margin-top:112px;"&gt;📄 6-1. Nova Carter란?&lt;/h3&gt;
+&lt;p&gt;Nova Carter는 NVIDIA Isaac Sim에서 제공하는 자율이동로봇 참조 플랫폼입니다.&lt;/p&gt;
+&lt;p&gt;실제 Jetson AGX Orin 기반 자율이동로봇 플랫폼을 시뮬레이션 환경에 구현한 모델로, Isaac ROS와 Nav2 등의 예제에서 활용됩니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/10_6-1-Nova-Carter%EB%9E%80.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/10_6-1-Nova-Carter%EB%9E%80.png" alt="📄 6-1. Nova Carter란?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="notion-heading-424d9e129df7801e87f8c6e747d96007" style="scroll-margin-top:112px;"&gt;📄 6-2. Nova Carter의 센서 구성&lt;/h3&gt;
+&lt;p&gt;Create &amp;gt; Robots &amp;gt; Nova Carter with Sensors 메뉴를 통해 사전 구성된 로봇을 불러올 수 있습니다.&lt;/p&gt;
+&lt;p&gt;Nova Carter는 센서와 재질, 물리 속성이 이미 구성되어 있어 별도의 URDF Import나 센서 장착 과정 없이 사용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;주요 센서 구성은 다음과 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stereo Camera: 전방 및 좌우, 후방 카메라 구성&lt;/li&gt;
+&lt;li&gt;Fisheye Camera: 어안 카메라&lt;/li&gt;
+&lt;li&gt;RTX 2D LiDAR: 전방 및 후방 거리 측정&lt;/li&gt;
+&lt;li&gt;RTX 3D LiDAR: 3차원 공간 정보 측정&lt;/li&gt;
+&lt;li&gt;IMU: 로봇의 움직임 및 자세 정보 측정&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/11_6-2-Nova-Carter%EC%9D%98-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/11_6-2-Nova-Carter%EC%9D%98-%EC%84%BC%EC%84%9C-%EA%B5%AC%EC%84%B1.png" alt="📄 6-2. Nova Carter의 센서 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="notion-heading-424d9e129df78049ae35f156bc77b311" style="scroll-margin-top:112px;"&gt;📄 6-3. Carter와 Nova Carter 비교&lt;/h3&gt;
+&lt;p&gt;Carter는 URDF Importer를 통해 로봇 구조를 직접 가져오고 센서와 제어기를 추가하는 실습용 모델입니다.&lt;/p&gt;
+&lt;p&gt;Nova Carter는 센서와 물리 속성이 사전에 구성된 참조 로봇입니다.&lt;/p&gt;
+&lt;p&gt;두 모델을 비교하면서 로봇의 기본 구조와 센서 구성, 시뮬레이션 준비 과정의 차이를 이해합니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/12_6-3-Carter%EC%99%80-Nova-Carter-%EB%B9%84%EA%B5%90.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/12_6-3-Carter%EC%99%80-Nova-Carter-%EB%B9%84%EA%B5%90.png" alt="📄 6-3. Carter와 Nova Carter 비교" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/13_6-3-Carter%EC%99%80-Nova-Carter-%EB%B9%84%EA%B5%90.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/13_6-3-Carter%EC%99%80-Nova-Carter-%EB%B9%84%EA%B5%90.png" alt="📄 6-3. Carter와 Nova Carter 비교" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/14_6-3-Carter%EC%99%80-Nova-Carter-%EB%B9%84%EA%B5%90.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/14_6-3-Carter%EC%99%80-Nova-Carter-%EB%B9%84%EA%B5%90.png" alt="📄 6-3. Carter와 Nova Carter 비교" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-424d9e129df7803a9d85e1765ea8a2bd" style="scroll-margin-top:112px;"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/15_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/15_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="notion-heading-424d9e129df7805499b7c4965dfb3f0b" style="scroll-margin-top:112px;"&gt;💡 오늘 배운 핵심 내용&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;URDF는 로봇의 링크, 관절, 형상 및 질량 정보를 정의하는 XML 설계 파일입니다.&lt;/li&gt;
+&lt;li&gt;URDF Importer를 활용하면 기존 로봇 구조를 Isaac Sim의 USD 에셋으로 변환할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;이동로봇의 구동 관절과 수동 관절은 서로 다른 방식으로 설정합니다.&lt;/li&gt;
+&lt;li&gt;Differential Controller를 활용하여 로봇의 속도와 방향을 제어합니다.&lt;/li&gt;
+&lt;li&gt;RGB Camera와 LiDAR를 통해 주변 환경의 영상 및 거리 정보를 수집합니다.&lt;/li&gt;
+&lt;li&gt;Nova Carter는 다양한 센서와 물리 속성이 사전 구성된 자율이동로봇 참조 플랫폼입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="notion-heading-424d9e129df780659eaac8631c631872" style="scroll-margin-top:112px;"&gt;📝 추가 실습 미션&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df780ca8b82e37a5848d42e" style="scroll-margin-top:112px;"&gt;A. 장애물 코스 주행&lt;/h3&gt;
+&lt;p&gt;장애물로 S자 형태의 좁은 주행 경로를 구성하고 로봇을 직접 조종합니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;장애물 간격을 약 1.2m로 설정합니다.&lt;/li&gt;
+&lt;li&gt;RGB 카메라와 LiDAR 시점만 확인하면서 코스를 통과합니다.&lt;/li&gt;
+&lt;li&gt;주행 시간과 충돌 횟수를 기록합니다.&lt;/li&gt;
+&lt;li&gt;maxLinearSpeed를 0.3과 0.8로 변경하여 주행 성능을 비교합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="notion-heading-424d9e129df7809488f1da12f40990d5" style="scroll-margin-top:112px;"&gt;B. 로봇 구조 비교&lt;/h3&gt;
+&lt;p&gt;다음 세 가지 로봇의 Stage 계층 구조를 비교합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DAY 02: SimpleRobot&lt;/li&gt;
+&lt;li&gt;DAY 04: Carter&lt;/li&gt;
+&lt;li&gt;DAY 04: Nova Carter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;비교 항목은 링크 수, 구동 관절, 수동 관절, 센서 구성 및 Articulation Root 위치입니다.&lt;/p&gt;
+&lt;h2 id="notion-heading-424d9e129df7809f8967feb1bd16b140" style="scroll-margin-top:112px;"&gt;📋 공식 퀴즈&lt;/h2&gt;
+&lt;p&gt;Google Classroom에서 해당 교육 범위의 공식 퀴즈를 진행합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="notion-heading-424d9e129df780d390ddced69cbc1416" style="scroll-margin-top:112px;"&gt;🚀 다음 시간&lt;/h2&gt;
+&lt;h3 id="notion-heading-424d9e129df780c38599c47428a2df2f" style="scroll-margin-top:112px;"&gt;DLI 1. Robotics Foundations – 통합 실습&lt;/h3&gt;
+&lt;p&gt;다음 과정에서는 이동로봇에서 로봇팔로 학습 범위를 확장합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UR10e 로봇 모델 가져오기&lt;/li&gt;
+&lt;li&gt;ROS 2 로봇 설명을 활용한 에셋 구성&lt;/li&gt;
+&lt;li&gt;그리퍼 장착 및 Variant 구성&lt;/li&gt;
+&lt;li&gt;창고 시뮬레이션 환경 배치&lt;/li&gt;
+&lt;li&gt;IK(Inverse Kinematics)를 활용한 로봇팔 동작 구현&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이번 시간에 학습한 URDF Importer를 로봇팔에도 적용하여 이동로봇과 매니퓰레이터의 구조적 차이를 이해합니다.&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-424d9e129df78082abcaeb58f7fe87a3" style="scroll-margin-top:112px;"&gt;👥 참고 문헌 (References)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/16_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/16_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA DLI – Ingesting Robot Assets and Simulating Your Robot in Isaac Sim&lt;br&gt;
+&lt;a href="https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/ingesting-robot-assets-and-simulating-your-robot-in-isaac-sim/"&gt;https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/ingesting-robot-assets-and-simulating-your-robot-in-isaac-sim/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NVIDIA Isaac Sim Documentation&lt;br&gt;
+&lt;a href="https://docs.isaacsim.omniverse.nvidia.com/"&gt;https://docs.isaacsim.omniverse.nvidia.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ROS 2 Documentation&lt;br&gt;
+&lt;a href="https://docs.ros.org/en/jazzy/"&gt;https://docs.ros.org/en/jazzy/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;교육 참고 자료&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URDF 로봇 가져오기 – carter.urdf 읽기&lt;/li&gt;
+&lt;li&gt;URDF Importer로 가져오기&lt;/li&gt;
+&lt;li&gt;시뮬레이션 준비 – 바닥, 관절, 주행, 차동 제어기&lt;/li&gt;
+&lt;li&gt;가져온 로봇에 센서 달기&lt;/li&gt;
+&lt;li&gt;준비된 로봇 – Nova Carter&lt;/li&gt;
+&lt;li&gt;정리 및 미션&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1 id="notion-heading-424d9e129df780d08b38e73e64c4356f" style="scroll-margin-top:112px;"&gt;📨 문의하기 (Contact us)&lt;/h1&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/17_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/17_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/18_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-26_DLI_4%EC%9D%BC%EC%B0%A8_DAY_03._Ingesting_Robot_Assets_%E2%80%93_URDF_%EA%B8%B0%EB%B0%98_%EB%A1%9C%EB%B4%87_%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%EC%99%80_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98_assets/18_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"&gt;&lt;ul style="list-style-position:outside;margin:.5rem 0 .75rem;"&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Youtube : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.youtube.com/@sssrobotics"&gt;https://www.youtube.com/@sssrobotics&lt;/a&gt;&lt;/li&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Blog : &lt;/strong&gt;&lt;br&gt;
+&lt;a href="https://www.sssrobotics.com/"&gt;https://www.sssrobotics.com&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
+&lt;p&gt;#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #피지컬AI #로봇 #시뮬레이션 #AI #AX #robot #simulation #엔비디아&lt;/p&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;</content:encoded>
+      <category>교육</category>
+      <category>DLI</category>
+    </item>
+    <item>
+      <title>DLI 3일차 | DAY 02. Sensors &amp; ROS 2 Integration – 로봇 센서 구성과 ROS 2 연동 (2/2)</title>
       <link>https://www.sssrobotics.com/posts/422d9e129df780f584bae0693319b79e/</link>
       <guid isPermaLink="true">https://www.sssrobotics.com/posts/422d9e129df780f584bae0693319b79e/</guid>
       <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
@@ -21,17 +391,17 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;날짜 :&lt;/strong&gt; 2026-11-25&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; 로봇에 카메라와 LiDAR를 장착하고 ROS 2 및 RViz2를 연동하여 센서 데이터를 확인합니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-3-DAY-02-Isaac-Sim-ROS-2-2-2-422d9e129df780f584bae0693319b79e"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-3-DAY-02-Sensors-ROS-2-Integration-ROS-2-2-2-422d9e129df780f584bae0693319b79e"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/01_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/01_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C.png" alt="DLI 3일차 | DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/01_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Sensors-ROS-2-I.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/01_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Sensors-ROS-2-I.png" alt="DLI 3일차 | DAY 02. Sensors &amp;amp; ROS 2 Integration – 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;• Youtube :&lt;/strong&gt;&lt;br&gt;
 &lt;a href="https://www.youtube.com/@sssrobotics"&gt;&lt;u&gt;https://www.youtube.com/@sssrobotics&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
 
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/02_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/02_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C.png" alt="DLI 3일차 | DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/02_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Sensors-ROS-2-I.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/02_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Sensors-ROS-2-I.png" alt="DLI 3일차 | DAY 02. Sensors &amp;amp; ROS 2 Integration – 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"&gt;&lt;div class="notion-callout-layout" style="display:flex;width:100%;"&gt;&lt;span class="notion-callout-icon"&gt;📌&lt;/span&gt;&lt;div class="notion-callout-content" style="box-sizing:border-box;width:100%;"&gt;&lt;strong&gt;안녕하세요!&lt;br&gt;
 S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;지난 시간에는 Isaac Sim에서 기본 도형을 이용하여 로봇의 몸체와 바퀴, 관절을 제작하고 키보드로 직접 조종하는 과정을 학습했습니다.&lt;/p&gt;
@@ -41,7 +411,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/03_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/03_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Isaac-Sim-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C.png" alt="DLI 3일차 | DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/03_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Sensors-ROS-2-I.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/03_DLI-3%EC%9D%BC%EC%B0%A8-DAY-02-Sensors-ROS-2-I.png" alt="DLI 3일차 | DAY 02. Sensors &amp;amp; ROS 2 Integration – 로봇 센서 구성과 ROS 2 연동 (2/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id="notion-heading-423d9e129df780e88732efa6c6b65381" style="scroll-margin-top:112px;"&gt;📚 목차 (Contents)&lt;/h1&gt;
 &lt;ul&gt;
@@ -91,7 +461,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df780149eb0d5e62bc6b444" style="scroll-margin-top:112px;"&gt;📖 오늘의 진행 내용 (Today's Topics)&lt;/h1&gt;
 &lt;h2 id="notion-heading-423d9e129df78033ba85c9a1f69f6c72" style="scroll-margin-top:112px;"&gt;📕 1. 로봇 센서와 Sensor Mount 구성&lt;/h2&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/04_1-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C%EC%99%80-Sensor-Mount-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/04_1-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C%EC%99%80-Sensor-Mount-%EA%B5%AC%EC%84%B1.png" alt="📕 1. 로봇 센서와 Sensor Mount 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/04_1-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C%EC%99%80-Sensor-Mount-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/04_1-%EB%A1%9C%EB%B4%87-%EC%84%BC%EC%84%9C%EC%99%80-Sensor-Mount-%EA%B5%AC%EC%84%B1.png" alt="📕 1. 로봇 센서와 Sensor Mount 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id="notion-heading-423d9e129df78074acbde2587e554461" style="scroll-margin-top:112px;"&gt;📄 1-1. 센서를 장착하는 이유&lt;/h3&gt;
 &lt;p&gt;로봇이 자율적으로 움직이려면 주변 환경을 인식할 수 있어야 합니다.&lt;/p&gt;
@@ -104,7 +474,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;li&gt;Sensor_Mount: 카메라와 센서를 장착하는 구조물입니다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;센서는 로봇이 움직이더라도 일정한 위치와 방향을 유지하도록 구성합니다.&lt;/p&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/05_1-2-Front-Sensor-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/05_1-2-Front-Sensor-%EA%B5%AC%EC%84%B1.png" alt="📄 1-2. Front_Sensor 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/05_1-2-Front-Sensor-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/05_1-2-Front-Sensor-%EA%B5%AC%EC%84%B1.png" alt="📄 1-2. Front_Sensor 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 &lt;h2 id="notion-heading-423d9e129df7809ab47ed25ae066eb62" style="scroll-margin-top:112px;"&gt;📕 2. RGB Camera 장착 및 영상 확인&lt;/h2&gt;
@@ -117,7 +487,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;h3 id="notion-heading-423d9e129df7800fbddffb071ca91e7e" style="scroll-margin-top:112px;"&gt;📄 2-3. 카메라 화면 확인&lt;/h3&gt;
 &lt;p&gt;Isaac Sim의 Viewport를 활용하여 로봇 전체 장면과 카메라가 바라보는 화면을 비교합니다.&lt;/p&gt;
 &lt;p&gt;이를 통해 로봇의 실제 시점에서 장애물이 어떻게 보이는지 확인합니다.&lt;/p&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/06_2-3-%EC%B9%B4%EB%A9%94%EB%9D%BC-%ED%99%94%EB%A9%B4-%ED%99%95%EC%9D%B8.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/06_2-3-%EC%B9%B4%EB%A9%94%EB%9D%BC-%ED%99%94%EB%A9%B4-%ED%99%95%EC%9D%B8.png" alt="📄 2-3. 카메라 화면 확인" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/06_2-3-%EC%B9%B4%EB%A9%94%EB%9D%BC-%ED%99%94%EB%A9%B4-%ED%99%95%EC%9D%B8.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/06_2-3-%EC%B9%B4%EB%A9%94%EB%9D%BC-%ED%99%94%EB%A9%B4-%ED%99%95%EC%9D%B8.png" alt="📄 2-3. 카메라 화면 확인" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 &lt;h2 id="notion-heading-423d9e129df780be9eeac8af5c6fbbd7" style="scroll-margin-top:112px;"&gt;📕 3. 2D LiDAR 장착 및 거리 측정&lt;/h2&gt;
@@ -131,7 +501,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;p&gt;PhysX LiDAR는 물체의 시각적인 모양이 아니라 물리적인 충돌 형상을 기준으로 측정합니다.&lt;/p&gt;
 &lt;p&gt;따라서 장애물이 화면에 보이더라도 Collider가 설정되어 있지 않으면 LiDAR가 정상적으로 감지하지 못할 수 있습니다.&lt;/p&gt;
 &lt;p&gt;장애물에 Rigid Body와 Collider를 설정한 뒤 LiDAR의 측정 결과를 비교합니다.&lt;/p&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/07_3-3-Collider%EC%99%80-%EC%9E%A5%EC%95%A0%EB%AC%BC-%EC%9D%B8%EC%8B%9D.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/07_3-3-Collider%EC%99%80-%EC%9E%A5%EC%95%A0%EB%AC%BC-%EC%9D%B8%EC%8B%9D.png" alt="📄 3-3. Collider와 장애물 인식" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/07_3-3-Collider%EC%99%80-%EC%9E%A5%EC%95%A0%EB%AC%BC-%EC%9D%B8%EC%8B%9D.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/07_3-3-Collider%EC%99%80-%EC%9E%A5%EC%95%A0%EB%AC%BC-%EC%9D%B8%EC%8B%9D.png" alt="📄 3-3. Collider와 장애물 인식" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 &lt;h2 id="notion-heading-423d9e129df780c8b5c5f52a6bdbb517" style="scroll-margin-top:112px;"&gt;📕 4. ROS 2 통신 구조 이해&lt;/h2&gt;
@@ -202,7 +572,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df78064809bd57172b30f8e" style="scroll-margin-top:112px;"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/08_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/08_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/08_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/08_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;💡 오늘 배운 핵심 내용&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -246,7 +616,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df780e79b26f52b5531e519" style="scroll-margin-top:112px;"&gt;👥 참고 문헌 (References)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/09_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/09_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/09_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/09_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;
@@ -280,9 +650,9 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df78009ae68e5188576f1bf" style="scroll-margin-top:112px;"&gt;📨 문의하기 (Contact us)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/10_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/10_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/10_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/10_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_3%EC%9D%BC%EC%B0%A8_DAY_02._Sensors_%26_ROS_2_Integration_%E2%80%93_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_%2822%29_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"&gt;&lt;ul style="list-style-position:outside;margin:.5rem 0 .75rem;"&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Youtube : &lt;/strong&gt;&lt;br&gt;
 &lt;a href="https://www.youtube.com/@sssrobotics"&gt;https://www.youtube.com/@sssrobotics&lt;/a&gt;&lt;/li&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Blog : &lt;/strong&gt;&lt;br&gt;
@@ -297,7 +667,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
       <category>DLI</category>
     </item>
     <item>
-      <title>DLI 2일차 | DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)</title>
+      <title>DLI 2일차 | DAY 02. Building Your First Robot – Isaac Sim 로봇 제작과 물리 엔진 (1/2)</title>
       <link>https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/</link>
       <guid isPermaLink="true">https://www.sssrobotics.com/posts/422d9e129df7808f8087f1468f2d3f27/</guid>
       <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
@@ -309,18 +679,18 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;날짜 :&lt;/strong&gt; 2026-11-24&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; Isaac Sim 시작, Simple 로봇 만들기&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; NVIDIA Isaac Sim에서 4륜 로봇을 직접 제작하고 물리 엔진과 제어기를 활용하여 움직입니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-2-DAY-02-Building-Your-First-Robot-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-2%EC%9D%BC%EC%B0%A8-DAY-02-Building-Your-F.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/01_DLI-2%EC%9D%BC%EC%B0%A8-DAY-02-Building-Your-F.png" alt="DLI 2일차 | DAY 02. Building Your First Robot – Isaac Sim 로봇 제작과 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;• Youtube :&lt;/strong&gt;&lt;br&gt;
 &lt;a href="https://www.youtube.com/@sssrobotics"&gt;&lt;u&gt;https://www.youtube.com/@sssrobotics&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
 
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-2%EC%9D%BC%EC%B0%A8-DAY-02-Building-Your-F.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/02_DLI-2%EC%9D%BC%EC%B0%A8-DAY-02-Building-Your-F.png" alt="DLI 2일차 | DAY 02. Building Your First Robot – Isaac Sim 로봇 제작과 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"&gt;&lt;div class="notion-callout-layout" style="display:flex;width:100%;"&gt;&lt;span class="notion-callout-icon"&gt;📌&lt;/span&gt;&lt;div class="notion-callout-content" style="box-sizing:border-box;width:100%;"&gt;&lt;strong&gt;안녕하세요!&lt;br&gt;
 S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.&lt;/p&gt;
@@ -331,7 +701,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-DAY-02-Isaac-Sim%EC%9C%BC%EB%A1%9C-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%A1%9C%EB%B4%87.png" alt="DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-2%EC%9D%BC%EC%B0%A8-DAY-02-Building-Your-F.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/03_DLI-2%EC%9D%BC%EC%B0%A8-DAY-02-Building-Your-F.png" alt="DLI 2일차 | DAY 02. Building Your First Robot – Isaac Sim 로봇 제작과 물리 엔진 (1/2)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id="notion-heading-423d9e129df7805d99e5ee4e0d01a190" style="scroll-margin-top:112px;"&gt;📚 목차 (Contents)&lt;/h1&gt;
 &lt;ul&gt;
@@ -422,17 +792,25 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;li&gt;Ground Plane: 물체가 떨어지지 않도록 바닥을 구성합니다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="notion-heading-423d9e129df7806aa998eeae0320f846" style="scroll-margin-top:112px;"&gt;📄 3-2. Cube 낙하 실습&lt;/h3&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_3-2-Cube-%EB%82%99%ED%95%98-%EC%8B%A4%EC%8A%B5.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_3-2-Cube-%EB%82%99%ED%95%98-%EC%8B%A4%EC%8A%B5.png" alt="📄 3-2. Cube 낙하 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;기본 Cube를 생성하고 물리 속성을 적용하여 중력에 따른 움직임을 확인합니다.&lt;/p&gt;
 &lt;p&gt;Physics Scene만 생성한 상태에서는 Cube가 물리적인 강체로 동작하지 않습니다.&lt;/p&gt;
 &lt;p&gt;Rigid Body와 Collider를 추가한 후에는 중력의 영향을 받아 떨어지며, Ground Plane을 추가하면 바닥에서 정지하는 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_3-2-Cube-%EB%82%99%ED%95%98-%EC%8B%A4%EC%8A%B5.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_3-2-Cube-%EB%82%99%ED%95%98-%EC%8B%A4%EC%8A%B5.png" alt="📄 3-2. Cube 낙하 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;hr&gt;
 &lt;h2 id="notion-heading-423d9e129df7801f8f78f2ce2e2caf67" style="scroll-margin-top:112px;"&gt;📕 4. 기본 도형으로 로봇 제작하기&lt;/h2&gt;
 &lt;h3 id="notion-heading-423d9e129df780e5bde3d04a8523d0c0" style="scroll-margin-top:112px;"&gt;📄 4-1. 로봇 몸체 구성&lt;/h3&gt;
 &lt;p&gt;기본 Cube를 활용하여 로봇의 섀시(Chassis)를 제작합니다.&lt;/p&gt;
 &lt;p&gt;Xform 객체를 생성하고 이름을 SimpleRobot으로 변경한 뒤, 몸체와 바퀴를 하나의 계층 구조로 구성합니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_4-1-%EB%A1%9C%EB%B4%87-%EB%AA%B8%EC%B2%B4-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_4-1-%EB%A1%9C%EB%B4%87-%EB%AA%B8%EC%B2%B4-%EA%B5%AC%EC%84%B1.png" alt="📄 4-1. 로봇 몸체 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id="notion-heading-423d9e129df780759885d8245924c564" style="scroll-margin-top:112px;"&gt;📄 4-2. 바퀴 구성&lt;/h3&gt;
 &lt;p&gt;원기둥(Cylinder)을 활용하여 로봇의 바퀴 4개를 제작합니다.&lt;/p&gt;
 &lt;p&gt;각 바퀴의 위치와 크기를 설정하고 물리적 충돌 속성을 적용합니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_4-2-%EB%B0%94%ED%80%B4-%EA%B5%AC%EC%84%B1.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_4-2-%EB%B0%94%ED%80%B4-%EA%B5%AC%EC%84%B1.png" alt="📄 4-2. 바퀴 구성" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id="notion-heading-423d9e129df78034aac2e933b9bdd370" style="scroll-margin-top:112px;"&gt;📄 4-3. Revolute Joint 설정&lt;/h3&gt;
 &lt;p&gt;Revolute Joint는 두 강체가 특정 축을 중심으로 회전할 수 있도록 연결하는 관절입니다.&lt;/p&gt;
 &lt;ul&gt;
@@ -463,6 +841,8 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;li&gt;Distance Between Wheels: 1.5m&lt;/li&gt;
 &lt;li&gt;Rear Wheel Joint: 좌우 바퀴 관절 지정&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/08_5-2-Differential-Controller%EB%9E%80.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/08_5-2-Differential-Controller%EB%9E%80.png" alt="📄 5-2. Differential Controller란?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;hr&gt;
 &lt;h2 id="notion-heading-423d9e129df78074b44cfe04b4eec253" style="scroll-margin-top:112px;"&gt;📕 6. OmniGraph를 활용한 로봇 조종&lt;/h2&gt;
 &lt;h3 id="notion-heading-423d9e129df780779f75de620ffc0a98" style="scroll-margin-top:112px;"&gt;📄 6-1. OmniGraph란?&lt;/h3&gt;
@@ -477,6 +857,8 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;li&gt;D: 우회전&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;키보드 입력이 OmniGraph를 통해 속도 명령으로 변환되고, Differential Controller가 좌우 바퀴의 속도를 계산하여 로봇을 움직입니다.&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/09_6-2-%ED%82%A4%EB%B3%B4%EB%93%9C-%EC%A1%B0%EC%A2%85-%EC%8B%A4%EC%8A%B5.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/09_6-2-%ED%82%A4%EB%B3%B4%EB%93%9C-%EC%A1%B0%EC%A2%85-%EC%8B%A4%EC%8A%B5.png" alt="📄 6-2. 키보드 조종 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;hr&gt;
 &lt;h2 id="notion-heading-423d9e129df780468071fc3439a070c8" style="scroll-margin-top:112px;"&gt;📕 7. Isaac Sim 5.1 주요 설정 주의사항&lt;/h2&gt;
 &lt;p&gt;공식 교육 자료는 Isaac Sim 4.5 및 ROS 2 Humble을 기준으로 작성되었으므로, 이번 실습 환경인 Isaac Sim 5.1과 ROS 2 Jazzy에서는 일부 설정을 다르게 적용합니다.&lt;/p&gt;
@@ -489,7 +871,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df7800aa39ccf026df04d19" style="scroll-margin-top:112px;"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/10_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/10_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;💡 오늘 배운 핵심 내용&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -522,7 +904,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df780709940ca03bfb1cbb8" style="scroll-margin-top:112px;"&gt;👥 참고 문헌 (References)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/11_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/11_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;
@@ -546,9 +928,9 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df780d985c4ce2cfbf35d63" style="scroll-margin-top:112px;"&gt;📨 문의하기 (Contact us)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/12_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/12_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim%EC%9C%BC%EB%A1%9C_%EC%B2%AB_%EB%B2%88%EC%A7%B8_%EB%A1%9C%EB%B4%87_%EB%A7%8C%EB%93%A4%EA%B8%B0_%E2%80%93_%EA%B8%B0%EC%B4%88%EC%99%80_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/13_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-24_DLI_2%EC%9D%BC%EC%B0%A8_DAY_02._Building_Your_First_Robot_%E2%80%93_Isaac_Sim_%EB%A1%9C%EB%B4%87_%EC%A0%9C%EC%9E%91%EA%B3%BC_%EB%AC%BC%EB%A6%AC_%EC%97%94%EC%A7%84_%2812%29_assets/13_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"&gt;&lt;ul style="list-style-position:outside;margin:.5rem 0 .75rem;"&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Youtube : &lt;/strong&gt;&lt;br&gt;
 &lt;a href="https://www.youtube.com/@sssrobotics"&gt;https://www.youtube.com/@sssrobotics&lt;/a&gt;&lt;/li&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Blog : &lt;/strong&gt;&lt;br&gt;
@@ -575,18 +957,18 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;날짜 :&lt;/strong&gt; 2026-11-23&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; 오리엔테이션, 우분투 OS설치, Isaac Sim 시작&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-DAY-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;간단메모 :&lt;/strong&gt; 자율로봇의 기본 원리와 핵심 알고리즘을 학습하고 로보틱스 개발환경을 구축합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;원본 노션 :&lt;/strong&gt; &lt;a href="https://app.notion.com/p/DLI-1-DAY-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"&gt;바로가기 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/01_DLI-DAY-01-Robotics-Foundation.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/01_DLI-DAY-01-Robotics-Foundation.png" alt="DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/01_DLI-1%EC%9D%BC%EC%B0%A8-DAY-01-Robotics-Founda.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/01_DLI-1%EC%9D%BC%EC%B0%A8-DAY-01-Robotics-Founda.png" alt="DLI 1일차 | DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;• Youtube :&lt;/strong&gt;&lt;br&gt;
 &lt;a href="https://www.youtube.com/@sssrobotics"&gt;&lt;u&gt;https://www.youtube.com/@sssrobotics&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
 
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/02_DLI-DAY-01-Robotics-Foundation.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/02_DLI-DAY-01-Robotics-Foundation.png" alt="DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/02_DLI-1%EC%9D%BC%EC%B0%A8-DAY-01-Robotics-Founda.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/02_DLI-1%EC%9D%BC%EC%B0%A8-DAY-01-Robotics-Founda.png" alt="DLI 1일차 | DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"&gt;&lt;div class="notion-callout-layout" style="display:flex;width:100%;"&gt;&lt;span class="notion-callout-icon"&gt;📌&lt;/span&gt;&lt;div class="notion-callout-content" style="box-sizing:border-box;width:100%;"&gt;&lt;strong&gt;안녕하세요!&lt;br&gt;
 S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="margin:.35rem 0 .75rem;line-height:1.55;"&gt;오늘은 NVIDIA DLI Robotics 교육의 첫 번째 시간으로, 자율로봇의 기본 구조와 핵심 기술을 알아보겠습니다.&lt;/p&gt;
@@ -596,7 +978,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/03_DLI-DAY-01-Robotics-Foundation.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/03_DLI-DAY-01-Robotics-Foundation.png" alt="DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/03_DLI-1%EC%9D%BC%EC%B0%A8-DAY-01-Robotics-Founda.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/03_DLI-1%EC%9D%BC%EC%B0%A8-DAY-01-Robotics-Founda.png" alt="DLI 1일차 | DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id="notion-heading-423d9e129df7801faf95d44e56c4319f" style="scroll-margin-top:112px;"&gt;📚 목차 (Contents)&lt;/h1&gt;
 &lt;ul&gt;
@@ -880,7 +1262,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df780ec825ac0b6e9c7fe41" style="scroll-margin-top:112px;"&gt;📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;💡 오늘 배운 핵심 내용&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -897,6 +1279,8 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;li&gt;PID의 Kp, Ki, Kd 값을 변경하여 제어 성능을 비교합니다.&lt;/li&gt;
 &lt;li&gt;A*의 장애물 확장 범위를 변경하여 경로 차이를 확인합니다.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
+
 &lt;p&gt;&lt;strong&gt;🚀 다음 시간 (DAY 02)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Simulating Your First Robot in Isaac Sim&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;다음 시간에는 Isaac Sim에서 기본 도형을 이용하여 2륜 차동구동 로봇을 직접 제작합니다.&lt;/p&gt;
@@ -910,11 +1294,9 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 &lt;p&gt;1일차에 학습한 차동구동 기구학의 바퀴 반지름(r)과 바퀴 간격(L)을 실제 로봇의 치수에 적용하여 움직임을 구현합니다.&lt;/p&gt;
 &lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
 
-&lt;div class="notion-spacer" style="height:1.5rem;"&gt;&lt;/div&gt;
-
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df780c9b3a6fdaa2cabea1b" style="scroll-margin-top:112px;"&gt;👥 참고 문헌 (References)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;NVIDIA DLI – A Beginner's Guide to Autonomous Robots&lt;/li&gt;
@@ -957,9 +1339,9 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖&lt;/strong&gt;&lt;p style="ma
 
 &lt;hr&gt;
 &lt;h1 id="notion-heading-423d9e129df7807e86eddd06203db2d0" style="scroll-margin-top:112px;"&gt;📨 문의하기 (Contact us)&lt;/h1&gt;
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"&gt;&lt;a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"&gt;&lt;img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-23_DLI_1%EC%9D%BC%EC%B0%A8_DAY_01._Robotics_Foundations_%E2%80%93_%EC%9E%90%EC%9C%A8%EB%A1%9C%EB%B4%87%EC%9D%98_%EC%9D%B4%ED%95%B4%EC%99%80_%EA%B8%B0%EC%B4%88_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"&gt;&lt;ul style="list-style-position:outside;margin:.5rem 0 .75rem;"&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Youtube : &lt;/strong&gt;&lt;br&gt;
 &lt;a href="https://www.youtube.com/@sssrobotics"&gt;https://www.youtube.com/@sssrobotics&lt;/a&gt;&lt;/li&gt;&lt;li style="margin:.30rem 0;line-height:1.5;"&gt;&lt;strong&gt;Blog : &lt;/strong&gt;&lt;br&gt;

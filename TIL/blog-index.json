@@ -1,19 +1,39 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-26T04:07:02.756499+00:00",
+  "generated_at": "2026-11-26T06:29:06.478599+00:00",
   "active_notion_page_count": 45,
-  "matched_markdown_count": 44,
-  "missing_markdown_count": 1,
-  "scanned_markdown_count": 50,
-  "total_count": 44,
+  "matched_markdown_count": 45,
+  "missing_markdown_count": 0,
+  "scanned_markdown_count": 54,
+  "total_count": 45,
   "posts": [
     {
-      "path": "TIL/2026/11/2026-11-25_DLI_3일차_DAY_02._Isaac_Sim_로봇_센서_구성과_ROS_2_연동_(22).md",
+      "path": "TIL/2026/11/2026-11-26_DLI_4일차_DAY_03._Ingesting_Robot_Assets_–_URDF_기반_로봇_가져오기와_시뮬레이션.md",
+      "date": "2026-11-26",
+      "number": 45,
+      "created_time": "2026-11-26T01:35:00.000Z",
+      "title": "DLI 4일차 | DAY 03. Ingesting Robot Assets – URDF 기반 로봇 가져오기와 시뮬레이션",
+      "memo": "URDF Importer를 활용해 Carter 로봇을 Isaac Sim으로 가져오고, 물리·관절·주행 제어를 설정한 뒤 카메라와 LiDAR를 장착하여 Nova Carter와 비교합니다.",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "DLI",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "424d9e129df780df8a5def6ac34ae47f",
+      "notion_url": "https://app.notion.com/p/DLI-4-DAY-03-Ingesting-Robot-Assets-URDF-424d9e129df780df8a5def6ac34ae47f"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-25_DLI_3일차_DAY_02._Sensors_&_ROS_2_Integration_–_로봇_센서_구성과_ROS_2_연동_(22).md",
       "date": "2026-11-25",
       "number": 44,
       "created_time": "2026-11-24T23:38:00.000Z",
-      "title": "DLI 3일차 | DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)",
+      "title": "DLI 3일차 | DAY 02. Sensors & ROS 2 Integration – 로봇 센서 구성과 ROS 2 연동 (2/2)",
       "memo": "로봇에 카메라와 LiDAR를 장착하고 ROS 2 및 RViz2를 연동하여 센서 데이터를 확인합니다.",
       "tags": [
         {
@@ -26,14 +46,14 @@
         }
       ],
       "notion_page_id": "422d9e129df780f584bae0693319b79e",
-      "notion_url": "https://app.notion.com/p/DLI-3-DAY-02-Isaac-Sim-ROS-2-2-2-422d9e129df780f584bae0693319b79e"
+      "notion_url": "https://app.notion.com/p/DLI-3-DAY-02-Sensors-ROS-2-Integration-ROS-2-2-2-422d9e129df780f584bae0693319b79e"
     },
     {
-      "path": "TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim으로_첫_번째_로봇_만들기_–_기초와_물리_엔진_(12).md",
+      "path": "TIL/2026/11/2026-11-24_DLI_2일차_DAY_02._Building_Your_First_Robot_–_Isaac_Sim_로봇_제작과_물리_엔진_(12).md",
       "date": "2026-11-24",
       "number": 43,
       "created_time": "2026-11-24T23:36:00.000Z",
-      "title": "DLI 2일차 | DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)",
+      "title": "DLI 2일차 | DAY 02. Building Your First Robot – Isaac Sim 로봇 제작과 물리 엔진 (1/2)",
       "memo": "NVIDIA Isaac Sim에서 4륜 로봇을 직접 제작하고 물리 엔진과 제어기를 활용하여 움직입니다.",
       "tags": [
         {
@@ -46,10 +66,10 @@
         }
       ],
       "notion_page_id": "422d9e129df7808f8087f1468f2d3f27",
-      "notion_url": "https://app.notion.com/p/DLI-2-DAY-02-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"
+      "notion_url": "https://app.notion.com/p/DLI-2-DAY-02-Building-Your-First-Robot-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"
     },
     {
-      "path": "TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_–_자율로봇의_이해와_기초_실습.md",
+      "path": "TIL/2026/11/2026-11-23_DLI_1일차_DAY_01._Robotics_Foundations_–_자율로봇의_이해와_기초_실습.md",
       "date": "2026-11-23",
       "number": 42,
       "created_time": "2026-11-24T23:35:00.000Z",
