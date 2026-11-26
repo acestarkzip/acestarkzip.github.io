@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-25T19:53:08.310852+00:00",
-  "active_notion_page_count": 44,
+  "generated_at": "2026-11-26T04:07:02.756499+00:00",
+  "active_notion_page_count": 45,
   "matched_markdown_count": 44,
-  "missing_markdown_count": 0,
-  "scanned_markdown_count": 49,
+  "missing_markdown_count": 1,
+  "scanned_markdown_count": 50,
   "total_count": 44,
   "posts": [
     {
-      "path": "TIL/2026/11/2026-11-25_DLI_DAY_02._Isaac_Sim_로봇_센서_구성과_ROS_2_연동_(22).md",
+      "path": "TIL/2026/11/2026-11-25_DLI_3일차_DAY_02._Isaac_Sim_로봇_센서_구성과_ROS_2_연동_(22).md",
       "date": "2026-11-25",
       "number": 44,
       "created_time": "2026-11-24T23:38:00.000Z",
-      "title": "DLI DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)",
+      "title": "DLI 3일차 | DAY 02. Isaac Sim 로봇 센서 구성과 ROS 2 연동 (2/2)",
       "memo": "로봇에 카메라와 LiDAR를 장착하고 ROS 2 및 RViz2를 연동하여 센서 데이터를 확인합니다.",
       "tags": [
         {
@@ -26,14 +26,14 @@
         }
       ],
       "notion_page_id": "422d9e129df780f584bae0693319b79e",
-      "notion_url": "https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-ROS-2-2-2-422d9e129df780f584bae0693319b79e"
+      "notion_url": "https://app.notion.com/p/DLI-3-DAY-02-Isaac-Sim-ROS-2-2-2-422d9e129df780f584bae0693319b79e"
     },
     {
       "path": "TIL/2026/11/2026-11-24_DLI_DAY_02._Isaac_Sim으로_첫_번째_로봇_만들기_–_기초와_물리_엔진_(12).md",
       "date": "2026-11-24",
       "number": 43,
       "created_time": "2026-11-24T23:36:00.000Z",
-      "title": "DLI DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)",
+      "title": "DLI 2일차 | DAY 02. Isaac Sim으로 첫 번째 로봇 만들기 – 기초와 물리 엔진 (1/2)",
       "memo": "NVIDIA Isaac Sim에서 4륜 로봇을 직접 제작하고 물리 엔진과 제어기를 활용하여 움직입니다.",
       "tags": [
         {
@@ -46,14 +46,14 @@
         }
       ],
       "notion_page_id": "422d9e129df7808f8087f1468f2d3f27",
-      "notion_url": "https://app.notion.com/p/DLI-DAY-02-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"
+      "notion_url": "https://app.notion.com/p/DLI-2-DAY-02-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"
     },
     {
       "path": "TIL/2026/11/2026-11-23_DLI_DAY_01._Robotics_Foundations_–_자율로봇의_이해와_기초_실습.md",
       "date": "2026-11-23",
       "number": 42,
       "created_time": "2026-11-24T23:35:00.000Z",
-      "title": "DLI DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습",
+      "title": "DLI 1일차 | DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습",
       "memo": "자율로봇의 기본 원리와 핵심 알고리즘을 학습하고 로보틱스 개발환경을 구축합니다.",
       "tags": [
         {
@@ -66,7 +66,7 @@
         }
       ],
       "notion_page_id": "422d9e129df780268df4c40f38b8a032",
-      "notion_url": "https://app.notion.com/p/DLI-DAY-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"
+      "notion_url": "https://app.notion.com/p/DLI-1-DAY-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"
     },
     {
       "path": "TIL/2026/11/2026-11-22_EP.02_-_OpenUSD의_Stage란_무엇일까요_(What_Is_a_Stage).md",
@@ -76,6 +76,10 @@
       "title": "EP.02 - OpenUSD의 Stage란 무엇일까요? (What Is a Stage?)",
       "memo": "OpenUSD Stage, USD Stage, OpenUSD란, NVIDIA Omniverse, Stage란 무엇인가, 3D Scene Graph, Scene Graph, USD Layer, USD Composition, Isaac Sim, 로봇 시뮬레이션, Physical AI, 3D 시뮬레이션",
       "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        },
         {
           "name": "OpenUSD",
           "color": "green"
@@ -92,6 +96,10 @@
       "title": "EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술",
       "memo": "OpenUSD, NVIDIA Omniverse, 3D 시뮬레이션, Physical AI, 디지털 트윈",
       "tags": [
+        {
+          "name": "자기개발",
+          "color": "orange"
+        },
         {
           "name": "OpenUSD",
           "color": "green"
