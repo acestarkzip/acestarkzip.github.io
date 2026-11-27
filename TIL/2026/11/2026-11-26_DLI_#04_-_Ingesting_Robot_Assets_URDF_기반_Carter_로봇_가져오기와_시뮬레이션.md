@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 424d9e129df780df8a5def6ac34ae47f -->
-<!-- notion-last-edited-time: 2026-11-27T13:21:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-27T13:34:00.000Z -->
 
 # DLI #04 - Ingesting Robot Assets | URDF 기반 Carter 로봇 가져오기와 시뮬레이션
 
@@ -21,8 +21,7 @@
 
 <div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span class="notion-callout-icon" aria-hidden="true">📌</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><strong>안녕하세요!<br>
 S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;">오늘은 <strong>NVIDIA Isaac Sim에서 기존에 설계된 로봇 모델을 가져와 시뮬레이션하는 방법</strong>을 알아보겠습니다.</p>
-<p style="margin:.35rem 0 .75rem;line-height:1.55;">지난 시간에는 기본 도형을 활용하여 로봇의 몸체와 바퀴, 관절을 직접 제작하고 카메라와 LiDAR를 장착했습니다.</p>
-<p style="margin:.35rem 0 .75rem;line-height:1.55;"><strong>이번 시간에는 ROS에서 널리 사용되는 로봇 설계 파일인 URDF를 활용하여 실제 로봇의 구조를 Isaac Sim에 가져오는 과정을 학습</strong>합니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;"><strong>ROS에서 널리 사용되는 로봇 설계 파일인 URDF를 활용하여 실제 로봇의 구조를 Isaac Sim에 가져오는 과정을 학습</strong>합니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">URDF Importer를 통해 로봇의 링크와 관절을 변환하고, 물리 속성과 차동 제어기를 설정합니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">또한 RGB 카메라와 LiDAR를 추가하고, NVIDIA에서 제공하는 Nova Carter 모델과 비교하면서 로봇 에셋의 구성과 활용 방법을 알아보겠습니다.</p>
 </div></div></div>

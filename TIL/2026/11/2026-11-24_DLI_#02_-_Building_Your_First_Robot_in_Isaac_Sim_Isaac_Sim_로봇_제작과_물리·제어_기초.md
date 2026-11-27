@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 422d9e129df7808f8087f1468f2d3f27 -->
-<!-- notion-last-edited-time: 2026-11-27T13:20:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-27T13:34:00.000Z -->
 
 # DLI #02 - Building Your First Robot in Isaac Sim | Isaac Sim 로봇 제작과 물리·제어 기초
 
@@ -21,8 +21,6 @@
 
 <div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span class="notion-callout-icon" aria-hidden="true">📌</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><strong>안녕하세요!<br>
 S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;">오늘은 NVIDIA Isaac Sim을 활용하여 가상의 로봇을 직접 제작하는 첫 번째 단계입니다.</p>
-<p style="margin:.35rem 0 .75rem;line-height:1.55;">지난 시간에는 자율로봇의 기본 구조와 차동구동, PID 제어 및 경로탐색 알고리즘을 학습했습니다.<br>
-이번 시간에는 이러한 개념을 실제 3D 시뮬레이션 환경에 적용해 보겠습니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">Isaac Sim의 화면 구성과 물리 엔진의 기본 원리를 이해하고, 기본 도형을 활용하여 로봇의 몸체와 바퀴, 관절을 직접 구성합니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">마지막으로 Differential Controller와 OmniGraph를 활용하여 로봇을 움직이는 과정까지 알아보겠습니다.</p>
 </div></div></div>
