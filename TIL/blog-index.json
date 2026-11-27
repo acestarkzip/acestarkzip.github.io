@@ -1,33 +1,13 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-27T13:35:55.981004+00:00",
-  "active_notion_page_count": 47,
-  "matched_markdown_count": 47,
+  "generated_at": "2026-11-27T13:53:47.934142+00:00",
+  "active_notion_page_count": 46,
+  "matched_markdown_count": 46,
   "missing_markdown_count": 0,
   "scanned_markdown_count": 62,
-  "total_count": 47,
+  "total_count": 46,
   "posts": [
-    {
-      "path": "TIL/2026/11/2026-11-27_DLI_#05_-_실습_사진_자료.md",
-      "date": "2026-11-27",
-      "number": 47,
-      "created_time": "2026-11-27T00:17:00.000Z",
-      "title": "DLI #05 - 실습 사진 자료",
-      "memo": "",
-      "tags": [
-        {
-          "name": "교육",
-          "color": "purple"
-        },
-        {
-          "name": "DLI",
-          "color": "green"
-        }
-      ],
-      "notion_page_id": "425d9e129df7807f8884ea0929dec193",
-      "notion_url": "https://app.notion.com/p/DLI-05-425d9e129df7807f8884ea0929dec193"
-    },
     {
       "path": "TIL/2026/11/2026-11-27_DLI_#05_-_Best_Practices_for_Robotics_and_OpenUSD_로봇_에셋_구성·최적화와_IK_통합_실습.md",
       "date": "2026-11-27",

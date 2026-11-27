@@ -112,14 +112,24 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 </li>
 <li><a href="#notion-heading-425d9e129df78026b152d6ac14b33814">📕 2. Mesh Merge Tool을 활용한 에셋 최적화</a><ul>
 <li><a href="#notion-heading-425d9e129df780f5ab58f8a21d11a86a">📄 2-1. Mesh Merge Tool이란?</a></li>
-<li><a href="#notion-heading-425d9e129df78033a4aff0536dfa7a4d">📄 2-2. 메시 통합 실습</a></li>
+<li><a href="#notion-heading-425d9e129df78033a4aff0536dfa7a4d">📄 2-2. 메시 통합 실습</a><ul>
+<li><a href="#notion-heading-425d9e129df780bc853bd364a12ba6ae">로봇 핸드 불러오기</a></li>
+</ul>
+</li>
 <li><a href="#notion-heading-425d9e129df780a0af19c74d44a7c0e9">📄 2-3. 메시 정리와 위치 조정</a></li>
-<li><a href="#notion-heading-425d9e129df78033964fe61cf8eafa0b">📄 2-4. 충돌체 설정</a></li>
+<li><a href="#notion-heading-425d9e129df78033964fe61cf8eafa0b">📄 2-4. 충돌체 설정</a><ul>
+<li><a href="#notion-heading-425d9e129df780c5bfa1c6b9e377787a">로봇 핸드 옵티마이즈 작업 진행 중</a></li>
+</ul>
+</li>
 <li><a href="#notion-heading-425d9e129df78038982cd4d965e39023">📄 2-5. 최적화 결과 확인</a></li>
 </ul>
 </li>
 <li><a href="#notion-heading-425d9e129df78093a243fa5286fb814f">📕 3. ROS 2를 활용한 UR10e 가져오기</a><ul>
-<li><a href="#notion-heading-425d9e129df78051b90ec08bc779de9f">📄 3-1. ROS 2 robot_description이란?</a></li>
+<li><a href="#notion-heading-425d9e129df78051b90ec08bc779de9f">📄 3-1. ROS 2 robot_description이란?</a><ul>
+<li><a href="#notion-heading-425d9e129df780ffbd1bcd2c8f6e01c7">사용하려는 로봇은 Universal Robots UR10e</a></li>
+<li><a href="#notion-heading-425d9e129df7801282e2d44e4592d949">지금 진행하는 작업의 핵심은 ROS 2에 등록된 로봇의 설계 정보를 Isaac Sim으로 가져와서 가상 로봇을 만드는 것</a></li>
+</ul>
+</li>
 <li><a href="#notion-heading-425d9e129df78051afe8fbbc68fd45ac">📄 3-2. UR10e 패키지 준비</a></li>
 <li><a href="#notion-heading-425d9e129df780a79a27ef4b25a96685">📄 3-3. Isaac Sim에서 UR10e 가져오기</a></li>
 <li><a href="#notion-heading-425d9e129df7808aa693ec2030e0f7ce">📄 3-4. URDF Import 결과 확인</a></li>
@@ -214,26 +224,44 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <li>Combine Materials 옵션을 활성화합니다.</li>
 <li>MERGE를 실행하여 하나의 메시로 통합합니다.</li>
 </ol>
+<h4 id="notion-heading-425d9e129df780bc853bd364a12ba6ae" style="scroll-margin-top:112px;">로봇 핸드 불러오기</h4>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/04_%EB%A1%9C%EB%B4%87-%ED%95%B8%EB%93%9C-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/04_%EB%A1%9C%EB%B4%87-%ED%95%B8%EB%93%9C-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0.png" alt="로봇 핸드 불러오기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df780a0af19c74d44a7c0e9" style="scroll-margin-top:112px;">📄 2-3. 메시 정리와 위치 조정</h3>
 <p>합쳐진 메시를 기존 손가락 구조에 배치하고 위치를 조정합니다.</p>
 <p>이후 기존에 사용하던 중복 메시를 삭제하여 불필요한 데이터를 정리합니다.</p>
 <p>이번 실습에서는 손가락 메시를 2개에서 1개로 통합하는 과정을 진행합니다.</p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/05_2-3-%EB%A9%94%EC%8B%9C-%EC%A0%95%EB%A6%AC%EC%99%80-%EC%9C%84%EC%B9%98-%EC%A1%B0%EC%A0%95.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/05_2-3-%EB%A9%94%EC%8B%9C-%EC%A0%95%EB%A6%AC%EC%99%80-%EC%9C%84%EC%B9%98-%EC%A1%B0%EC%A0%95.png" alt="📄 2-3. 메시 정리와 위치 조정" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df78033964fe61cf8eafa0b" style="scroll-margin-top:112px;">📄 2-4. 충돌체 설정</h3>
 <p>메시를 합치는 것만으로는 물리적인 충돌 계산이 완성되지 않습니다.</p>
 <p>새롭게 생성된 메시에도 충돌체를 설정해야 합니다.</p>
 <p>Property &gt; Physics &gt; Collider에서 Approximation을 Convex Hull로 변경합니다.</p>
 <p>Convex Hull은 물체의 외형을 감싸는 볼록한 형태로 충돌 영역을 근사하는 방식입니다.</p>
 <p>이를 통해 로봇 손가락과 주변 물체 사이의 충돌을 시뮬레이션할 수 있습니다.</p>
+<h4 id="notion-heading-425d9e129df780c5bfa1c6b9e377787a" style="scroll-margin-top:112px;">로봇 핸드 옵티마이즈 작업 진행 중</h4>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/06_%EB%A1%9C%EB%B4%87-%ED%95%B8%EB%93%9C-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A6%88-%EC%9E%91%EC%97%85-%EC%A7%84%ED%96%89-%EC%A4%91.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/06_%EB%A1%9C%EB%B4%87-%ED%95%B8%EB%93%9C-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A6%88-%EC%9E%91%EC%97%85-%EC%A7%84%ED%96%89-%EC%A4%91.png" alt="로봇 핸드 옵티마이즈 작업 진행 중" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df78038982cd4d965e39023" style="scroll-margin-top:112px;">📄 2-5. 최적화 결과 확인</h3>
 <p>최적화된 그리퍼를 다시 열어 충돌체와 관절을 확인합니다.</p>
 <p><code>finger_joint</code>의 Target Position을 35로 설정하여 손가락이 정상적으로 움직이는지 확인합니다.</p>
 <p>하나의 관절을 변경했을 때 나머지 손가락도 함께 움직이면 Mimic 관절이 정상적으로 동작하는 것입니다.</p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/07_2-5-%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B2%B0%EA%B3%BC-%ED%99%95%EC%9D%B8.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/07_2-5-%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B2%B0%EA%B3%BC-%ED%99%95%EC%9D%B8.png" alt="📄 2-5. 최적화 결과 확인" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/08_2-5-%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B2%B0%EA%B3%BC-%ED%99%95%EC%9D%B8.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/08_2-5-%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B2%B0%EA%B3%BC-%ED%99%95%EC%9D%B8.png" alt="📄 2-5. 최적화 결과 확인" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <hr>
 <h2 id="notion-heading-425d9e129df78093a243fa5286fb814f" style="scroll-margin-top:112px;">📕 3. ROS 2를 활용한 UR10e 가져오기</h2>
 <h3 id="notion-heading-425d9e129df78051b90ec08bc779de9f" style="scroll-margin-top:112px;">📄 3-1. ROS 2 robot_description이란?</h3>
 <p>로봇 제조사에서는 일반적으로 로봇의 구조를 URDF 또는 Xacro 형식으로 제공합니다.</p>
 <p>ROS 2에서는 <code>robot_state_publisher</code>가 로봇의 설명 정보를 관리하고, Isaac Sim은 해당 정보를 전달받아 로봇을 가져올 수 있습니다.</p>
 <p>이번 실습에서는 Universal Robots의 UR10e 모델을 사용합니다.</p>
+<h4 id="notion-heading-425d9e129df780ffbd1bcd2c8f6e01c7" style="scroll-margin-top:112px;">사용하려는 로봇은 Universal Robots UR10e</h4>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/09_%EC%82%AC%EC%9A%A9%ED%95%98%EB%A0%A4%EB%8A%94-%EB%A1%9C%EB%B4%87%EC%9D%80-Universal-Robots-UR1.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/09_%EC%82%AC%EC%9A%A9%ED%95%98%EB%A0%A4%EB%8A%94-%EB%A1%9C%EB%B4%87%EC%9D%80-Universal-Robots-UR1.png" alt="사용하려는 로봇은 Universal Robots UR10e" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<h4 id="notion-heading-425d9e129df7801282e2d44e4592d949" style="scroll-margin-top:112px;">지금 진행하는 작업의 핵심은 ROS 2에 등록된 로봇의 설계 정보를 Isaac Sim으로 가져와서 가상 로봇을 만드는 것</h4>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/10_%EC%A7%80%EA%B8%88-%EC%A7%84%ED%96%89%ED%95%98%EB%8A%94-%EC%9E%91%EC%97%85%EC%9D%98-%ED%95%B5%EC%8B%AC%EC%9D%80-ROS-2%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%9C-%EB%A1%9C%EB%B4%87%EC%9D%98.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/10_%EC%A7%80%EA%B8%88-%EC%A7%84%ED%96%89%ED%95%98%EB%8A%94-%EC%9E%91%EC%97%85%EC%9D%98-%ED%95%B5%EC%8B%AC%EC%9D%80-ROS-2%EC%97%90-%EB%93%B1%EB%A1%9D%EB%90%9C-%EB%A1%9C%EB%B4%87%EC%9D%98.png" alt="지금 진행하는 작업의 핵심은 ROS 2에 등록된 로봇의 설계 정보를 Isaac Sim으로 가져와서 가상 로봇을 만드는 것" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df78051afe8fbbc68fd45ac" style="scroll-margin-top:112px;">📄 3-2. UR10e 패키지 준비</h3>
 <p>ROS 2 워크스페이스에서 Universal Robots의 로봇 설명 패키지를 준비합니다.</p>
 <p><code>ur_description</code> 패키지를 빌드하고 실행하여 UR10e의 로봇 설명 정보를 제공합니다.</p>
@@ -256,10 +284,14 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <li>Natural Frequency: 관절 6개 모두 300</li>
 </ul>
 <p>IMPORT를 실행하면 Stage에 <code>/World/ur</code>가 생성됩니다.</p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/11_3-3-Isaac-Sim%EC%97%90%EC%84%9C-UR10e-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/11_3-3-Isaac-Sim%EC%97%90%EC%84%9C-UR10e-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png" alt="📄 3-3. Isaac Sim에서 UR10e 가져오기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df7808aa693ec2030e0f7ce" style="scroll-margin-top:112px;">📄 3-4. URDF Import 결과 확인</h3>
 <p>가져온 UR10e의 링크와 관절 구조를 확인합니다.</p>
 <p>UR10e는 총 6개의 회전 관절을 가지고 있으며, 각 관절의 위치와 움직임을 Isaac Sim에서 확인할 수 있습니다.</p>
 <p>이를 통해 ROS 2에서 관리하는 로봇 정보를 Isaac Sim으로 가져오는 과정을 이해합니다.</p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/12_3-4-URDF-Import-%EA%B2%B0%EA%B3%BC-%ED%99%95%EC%9D%B8.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/12_3-4-URDF-Import-%EA%B2%B0%EA%B3%BC-%ED%99%95%EC%9D%B8.png" alt="📄 3-4. URDF Import 결과 확인" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <hr>
 <h2 id="notion-heading-425d9e129df780ad9dc6d1138321f3ab" style="scroll-margin-top:112px;">📕 4. Robot Assembler와 Variant로 그리퍼 장착</h2>
 <h3 id="notion-heading-425d9e129df7805186a4cb5cf7fc17e9" style="scroll-margin-top:112px;">📄 4-1. Robot Assembler란?</h3>
@@ -274,6 +306,12 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <li>그리퍼: <code>robotiq_2f_140.usd</code></li>
 </ul>
 <p>그리퍼를 UR10e 아래에 추가한 후 Stage에서 구조를 확인합니다.</p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/13_4-2-%EA%B7%B8%EB%A6%AC%ED%8D%BC-%EC%97%90%EC%85%8B-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/13_4-2-%EA%B7%B8%EB%A6%AC%ED%8D%BC-%EC%97%90%EC%85%8B-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png" alt="📄 4-2. 그리퍼 에셋 가져오기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/14_4-2-%EA%B7%B8%EB%A6%AC%ED%8D%BC-%EC%97%90%EC%85%8B-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/14_4-2-%EA%B7%B8%EB%A6%AC%ED%8D%BC-%EC%97%90%EC%85%8B-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png" alt="📄 4-2. 그리퍼 에셋 가져오기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df7803fafcad22a7d4cd815" style="scroll-margin-top:112px;">📄 4-3. Robot Assembler 설정</h3>
 <p>Tools &gt; Robotics &gt; Asset Editors &gt; Robot Assembler를 실행합니다.</p>
 <p>다음 항목을 설정합니다.</p>
@@ -308,6 +346,8 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <li>UR10e + Gripper: 작업을 수행할 로봇팔입니다.</li>
 <li>Toolbox: 로봇이 집어 올릴 작업 대상입니다.</li>
 </ul>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/15_5-1-%ED%95%99%EC%8A%B5-%EC%9E%A5%EB%A9%B4-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/15_5-1-%ED%95%99%EC%8A%B5-%EC%9E%A5%EB%A9%B4-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0.png" alt="📄 5-1. 학습 장면 구성하기" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df78028ae15f54f25ed7513" style="scroll-margin-top:112px;">📄 5-2. Reference와 Payload의 차이</h3>
 <p>OpenUSD에서는 외부 에셋을 현재 장면에 연결하는 여러 방법을 제공합니다.</p>
 <ul>
@@ -320,6 +360,8 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <p>창고 환경에 로봇팔과 Toolbox를 배치하고 위치를 조정합니다.</p>
 <p>로봇팔이 작업물을 집을 수 있도록 위치와 높이를 확인합니다.</p>
 <p>완성된 장면은 <code>warehouse_scene.usd</code>로 저장합니다.</p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/16_5-3-%EB%A1%9C%EB%B4%87%EA%B3%BC-%EC%9E%91%EC%97%85%EB%AC%BC-%EB%B0%B0%EC%B9%98.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/16_5-3-%EB%A1%9C%EB%B4%87%EA%B3%BC-%EC%9E%91%EC%97%85%EB%AC%BC-%EB%B0%B0%EC%B9%98.png" alt="📄 5-3. 로봇과 작업물 배치" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df780f4b0d6e310df293c79" style="scroll-margin-top:112px;">📄 5-4. Physics Inspector로 물리 확인</h3>
 <p>Tools &gt; Physics &gt; Physics Inspector를 실행합니다.</p>
 <p>로봇을 선택한 후 각 관절의 Drive Target과 Joint State를 확인합니다.</p>
@@ -332,6 +374,8 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 <p>일반적인 로봇팔은 여러 개의 관절로 연결되어 있습니다.</p>
 <p>목표 위치가 주어지면 IK는 해당 위치에 도달하기 위한 관절의 움직임을 계산합니다.</p>
 <p>예를 들어 로봇팔이 특정 위치에 있는 상자를 집으려면 각 관절이 어느 정도 회전해야 하는지 계산해야 합니다.</p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/17_6-1-IK%EB%9E%80.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/17_6-1-IK%EB%9E%80.png" alt="📄 6-1. IK란?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <h3 id="notion-heading-425d9e129df7800dab1cd13f91d45776" style="scroll-margin-top:112px;">📄 6-2. IK 동작 과정</h3>
 <p>이번 실습에서는 다음과 같은 흐름으로 로봇팔을 제어합니다.</p>
 <ol>
@@ -360,7 +404,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 
 <hr>
 <h1 id="notion-heading-425d9e129df780c1aad6f8c6aa0c774a" style="scroll-margin-top:112px;">📜 회고 및 다음 과제 (Retropective&amp;Next Steps)</h1>
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/18_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/18_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <h2 id="notion-heading-425d9e129df7808ea8a1d7fc5a33b2fc" style="scroll-margin-top:112px;">💡 오늘 배운 핵심 내용</h2>
 <ul>
@@ -396,7 +440,7 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 
 <hr>
 <h1 id="notion-heading-425d9e129df78078b2d0c10af11dffd3" style="scroll-margin-top:112px;">👥 참고 문헌 (References)</h1>
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/19_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/19_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <ol>
 <li>
@@ -432,9 +476,9 @@ S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35r
 
 <hr>
 <h1 id="notion-heading-425d9e129df78076a147ccba81705aab" style="scroll-margin-top:112px;">📨 문의하기 (Contact us)</h1>
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/20_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/20_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/21_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/21_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><ul style="list-style-position:outside;margin:.5rem 0 .75rem;"><li style="margin:.30rem 0;line-height:1.5;"><strong>Youtube : </strong><br>
 <a href="https://www.youtube.com/@sssrobotics">https://www.youtube.com/@sssrobotics</a></li><li style="margin:.30rem 0;line-height:1.5;"><strong>Blog : </strong><br>

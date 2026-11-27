@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 422d9e129df780f584bae0693319b79e -->
-<!-- notion-last-edited-time: 2026-11-27T13:21:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-27T13:51:00.000Z -->
 
 # DLI #03 - Robot Sensors & ROS 2 Integration | 로봇 센서 구성과 ROS 2 연동
 
@@ -20,8 +20,7 @@
 <p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/02_DLI-03-Robot-Sensors-ROS-2-Int.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/02_DLI-03-Robot-Sensors-ROS-2-Int.png" alt="DLI #03 - Robot Sensors &amp; ROS 2 Integration | 로봇 센서 구성과 ROS 2 연동" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span class="notion-callout-icon" aria-hidden="true">📌</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><strong>안녕하세요!<br>
-S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><div class="notion-spacer" aria-hidden="true" style="display:block;width:100%;height:1.5rem;min-height:1.5rem;"></div>
-<p style="margin:.35rem 0 .75rem;line-height:1.55;">오늘은 제작한 로봇에 RGB 카메라와 2D LiDAR 센서를 장착하고, 주변 환경을 인식하는 과정을 알아보겠습니다.</p>
+S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;">오늘은 제작한 로봇에 RGB 카메라와 2D LiDAR 센서를 장착하고, 주변 환경을 인식하는 과정을 알아보겠습니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">또한 NVIDIA Isaac Sim의 ROS 2 Bridge와 OmniGraph를 활용하여 센서 데이터를 ROS 2 Topic으로 전달하고, RViz2에서 실제 데이터를 확인합니다.</p>
 <p style="margin:.35rem 0 .75rem;line-height:1.55;">이를 통해 시뮬레이션 로봇이 단순히 움직이는 것을 넘어 주변 환경을 인식하고 외부 시스템과 데이터를 주고받는 구조를 이해합니다.</p>
 </div></div></div>
@@ -258,6 +257,8 @@ RViz2는 ROS 2에서 전달되는 로봇과 센서 데이터를 시각적으로 
 
 로봇의 센서 정보와 좌표계, 주변 환경 등을 확인하는 데 활용합니다.
 
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/08_6-1-RViz2%EB%9E%80.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/08_6-1-RViz2%EB%9E%80.png" alt="📄 6-1. RViz2란?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
 <a name="notion-heading-423d9e129df78026b06af66cf9d0f55f"></a>
 
 ### 📄 6-2. LiDAR 데이터 확인
@@ -265,6 +266,8 @@ RViz2는 ROS 2에서 전달되는 로봇과 센서 데이터를 시각적으로 
 RViz2를 실행하고 Global Options의 Fixed Frame을 `sim_lidar`로 설정합니다.
 
 이후 `/scan_lidar` Topic을 LaserScan Display로 추가하여 LiDAR 측정 결과를 확인합니다.
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/09_6-2-LiDAR-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%99%95%EC%9D%B8.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/09_6-2-LiDAR-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%99%95%EC%9D%B8.png" alt="📄 6-2. LiDAR 데이터 확인" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <a name="notion-heading-423d9e129df780a6a2c5da12fe7f4e67"></a>
 
@@ -298,7 +301,7 @@ RViz2를 실행하고 Global Options의 Fixed Frame을 `sim_lidar`로 설정합�
 
 # 📜 회고 및 다음 과제 (Retropective&Next Steps)
 
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/08_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/08_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/10_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/10_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <strong>💡 오늘 배운 핵심 내용</strong>
 
@@ -353,7 +356,7 @@ Google Classroom에서 해당 교육 범위의 공식 퀴즈를 진행합니다.
 
 # 👥 참고 문헌 (References)
 
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/09_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/09_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/11_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/11_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 1. NVIDIA DLI – Building Your First Robot in Isaac Sim
     [https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/](https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/building-your-first-robot-in-isaac-sim/)
@@ -382,9 +385,9 @@ Google Classroom에서 해당 교육 범위의 공식 퀴즈를 진행합니다.
 
 # 📨 문의하기 (Contact us)
 
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/10_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/10_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/12_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/12_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
-<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/13_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="./2026-11-25_DLI_%2303_-_Robot_Sensors_%26_ROS_2_Integration_%EB%A1%9C%EB%B4%87_%EC%84%BC%EC%84%9C_%EA%B5%AC%EC%84%B1%EA%B3%BC_ROS_2_%EC%97%B0%EB%8F%99_assets/13_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
 
 <blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><ul style="list-style-position:outside;margin:.5rem 0 .75rem;padding-left:1.5rem;"><li style="margin:.30rem 0;line-height:1.5;"><strong>Youtube : </strong><br>
 <a href="https://www.youtube.com/@sssrobotics">https://www.youtube.com/@sssrobotics</a></li><li style="margin:.30rem 0;line-height:1.5;"><strong>Blog : </strong><br>

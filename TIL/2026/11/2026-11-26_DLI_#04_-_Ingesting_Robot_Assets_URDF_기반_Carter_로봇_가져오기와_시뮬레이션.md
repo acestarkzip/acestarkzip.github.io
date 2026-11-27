@@ -1,6 +1,6 @@
 <!-- notion-to-github-managed -->
 <!-- notion-page-id: 424d9e129df780df8a5def6ac34ae47f -->
-<!-- notion-last-edited-time: 2026-11-27T13:34:00.000Z -->
+<!-- notion-last-edited-time: 2026-11-27T13:52:00.000Z -->
 
 # DLI #04 - Ingesting Robot Assets | URDF 기반 Carter 로봇 가져오기와 시뮬레이션
 
