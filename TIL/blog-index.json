@@ -1,19 +1,59 @@
 {
   "schema_version": 3,
   "source_of_truth": "notion_database",
-  "generated_at": "2026-11-27T04:11:12.663177+00:00",
-  "active_notion_page_count": 46,
-  "matched_markdown_count": 45,
-  "missing_markdown_count": 1,
-  "scanned_markdown_count": 54,
-  "total_count": 45,
+  "generated_at": "2026-11-27T13:28:25.447165+00:00",
+  "active_notion_page_count": 47,
+  "matched_markdown_count": 47,
+  "missing_markdown_count": 0,
+  "scanned_markdown_count": 62,
+  "total_count": 47,
   "posts": [
     {
-      "path": "TIL/2026/11/2026-11-26_DLI_4일차_DAY_03._Ingesting_Robot_Assets_–_URDF_기반_로봇_가져오기와_시뮬레이션.md",
+      "path": "TIL/2026/11/2026-11-27_DLI_#05_-_실습_사진_자료.md",
+      "date": "2026-11-27",
+      "number": 47,
+      "created_time": "2026-11-27T00:17:00.000Z",
+      "title": "DLI #05 - 실습 사진 자료",
+      "memo": "",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "DLI",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "425d9e129df7807f8884ea0929dec193",
+      "notion_url": "https://app.notion.com/p/DLI-05-425d9e129df7807f8884ea0929dec193"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-27_DLI_#05_-_Best_Practices_for_Robotics_and_OpenUSD_로봇_에셋_구성·최적화와_IK_통합_실습.md",
+      "date": "2026-11-27",
+      "number": 46,
+      "created_time": "2026-11-27T13:08:00.000Z",
+      "title": "DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습",
+      "memo": "URDF와 USD 기반의 로봇 에셋 구조를 이해하고, Mesh Merge Tool을 활용한 최적화부터 UR10e와 그리퍼 구성, 창고 시뮬레이션 환경 구축 및 IK 기반 로봇팔 제어까지 실습합니다.",
+      "tags": [
+        {
+          "name": "교육",
+          "color": "purple"
+        },
+        {
+          "name": "DLI",
+          "color": "green"
+        }
+      ],
+      "notion_page_id": "425d9e129df780aa8acae3b613c184fa",
+      "notion_url": "https://app.notion.com/p/DLI-05-Best-Practices-for-Robotics-and-OpenUSD-IK-425d9e129df780aa8acae3b613c184fa"
+    },
+    {
+      "path": "TIL/2026/11/2026-11-26_DLI_#04_-_Ingesting_Robot_Assets_URDF_기반_Carter_로봇_가져오기와_시뮬레이션.md",
       "date": "2026-11-26",
       "number": 45,
       "created_time": "2026-11-26T01:35:00.000Z",
-      "title": "DLI 4일차 | DAY 03. Ingesting Robot Assets – URDF 기반 로봇 가져오기와 시뮬레이션",
+      "title": "DLI #04 - Ingesting Robot Assets | URDF 기반 Carter 로봇 가져오기와 시뮬레이션",
       "memo": "URDF Importer를 활용해 Carter 로봇을 Isaac Sim으로 가져오고, 물리·관절·주행 제어를 설정한 뒤 카메라와 LiDAR를 장착하여 Nova Carter와 비교합니다.",
       "tags": [
         {
@@ -26,14 +66,14 @@
         }
       ],
       "notion_page_id": "424d9e129df780df8a5def6ac34ae47f",
-      "notion_url": "https://app.notion.com/p/DLI-4-DAY-03-Ingesting-Robot-Assets-URDF-424d9e129df780df8a5def6ac34ae47f"
+      "notion_url": "https://app.notion.com/p/DLI-04-Ingesting-Robot-Assets-URDF-Carter-424d9e129df780df8a5def6ac34ae47f"
     },
     {
-      "path": "TIL/2026/11/2026-11-25_DLI_3일차_DAY_02._Sensors_&_ROS_2_Integration_–_로봇_센서_구성과_ROS_2_연동_(22).md",
+      "path": "TIL/2026/11/2026-11-25_DLI_#03_-_Robot_Sensors_&_ROS_2_Integration_로봇_센서_구성과_ROS_2_연동.md",
       "date": "2026-11-25",
       "number": 44,
       "created_time": "2026-11-24T23:38:00.000Z",
-      "title": "DLI 3일차 | DAY 02. Sensors & ROS 2 Integration – 로봇 센서 구성과 ROS 2 연동 (2/2)",
+      "title": "DLI #03 - Robot Sensors & ROS 2 Integration | 로봇 센서 구성과 ROS 2 연동",
       "memo": "로봇에 카메라와 LiDAR를 장착하고 ROS 2 및 RViz2를 연동하여 센서 데이터를 확인합니다.",
       "tags": [
         {
@@ -46,14 +86,14 @@
         }
       ],
       "notion_page_id": "422d9e129df780f584bae0693319b79e",
-      "notion_url": "https://app.notion.com/p/DLI-3-DAY-02-Sensors-ROS-2-Integration-ROS-2-2-2-422d9e129df780f584bae0693319b79e"
+      "notion_url": "https://app.notion.com/p/DLI-03-Robot-Sensors-ROS-2-Integration-ROS-2-422d9e129df780f584bae0693319b79e"
     },
     {
-      "path": "TIL/2026/11/2026-11-24_DLI_2일차_DAY_02._Building_Your_First_Robot_–_Isaac_Sim_로봇_제작과_물리_엔진_(12).md",
+      "path": "TIL/2026/11/2026-11-24_DLI_#02_-_Building_Your_First_Robot_in_Isaac_Sim_Isaac_Sim_로봇_제작과_물리·제어_기초.md",
       "date": "2026-11-24",
       "number": 43,
       "created_time": "2026-11-24T23:36:00.000Z",
-      "title": "DLI 2일차 | DAY 02. Building Your First Robot – Isaac Sim 로봇 제작과 물리 엔진 (1/2)",
+      "title": "DLI #02 - Building Your First Robot in Isaac Sim | Isaac Sim 로봇 제작과 물리·제어 기초",
       "memo": "NVIDIA Isaac Sim에서 4륜 로봇을 직접 제작하고 물리 엔진과 제어기를 활용하여 움직입니다.",
       "tags": [
         {
@@ -66,14 +106,14 @@
         }
       ],
       "notion_page_id": "422d9e129df7808f8087f1468f2d3f27",
-      "notion_url": "https://app.notion.com/p/DLI-2-DAY-02-Building-Your-First-Robot-Isaac-Sim-1-2-422d9e129df7808f8087f1468f2d3f27"
+      "notion_url": "https://app.notion.com/p/DLI-02-Building-Your-First-Robot-in-Isaac-Sim-Isaac-Sim-422d9e129df7808f8087f1468f2d3f27"
     },
     {
-      "path": "TIL/2026/11/2026-11-23_DLI_1일차_DAY_01._Robotics_Foundations_–_자율로봇의_이해와_기초_실습.md",
+      "path": "TIL/2026/11/2026-11-23_DLI_#01_-_Robotics_Foundations_자율로봇의_이해와_핵심_기술.md",
       "date": "2026-11-23",
       "number": 42,
       "created_time": "2026-11-24T23:35:00.000Z",
-      "title": "DLI 1일차 | DAY 01. Robotics Foundations – 자율로봇의 이해와 기초 실습",
+      "title": "DLI #01 - Robotics Foundations | 자율로봇의 이해와 핵심 기술",
       "memo": "자율로봇의 기본 원리와 핵심 알고리즘을 학습하고 로보틱스 개발환경을 구축합니다.",
       "tags": [
         {
@@ -86,14 +126,14 @@
         }
       ],
       "notion_page_id": "422d9e129df780268df4c40f38b8a032",
-      "notion_url": "https://app.notion.com/p/DLI-1-DAY-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"
+      "notion_url": "https://app.notion.com/p/DLI-01-Robotics-Foundations-422d9e129df780268df4c40f38b8a032"
     },
     {
-      "path": "TIL/2026/11/2026-11-22_EP.02_-_OpenUSD의_Stage란_무엇일까요_(What_Is_a_Stage).md",
+      "path": "TIL/2026/11/2026-11-22_OpneUSD_EP.02_-_OpenUSD의_Stage란_무엇일까요_(What_Is_a_Stage).md",
       "date": "2026-11-22",
       "number": 41,
       "created_time": "2026-11-22T03:52:00.000Z",
-      "title": "EP.02 - OpenUSD의 Stage란 무엇일까요? (What Is a Stage?)",
+      "title": "OpneUSD EP.02 - OpenUSD의 Stage란 무엇일까요? (What Is a Stage?)",
       "memo": "OpenUSD Stage, USD Stage, OpenUSD란, NVIDIA Omniverse, Stage란 무엇인가, 3D Scene Graph, Scene Graph, USD Layer, USD Composition, Isaac Sim, 로봇 시뮬레이션, Physical AI, 3D 시뮬레이션",
       "tags": [
         {
@@ -106,14 +146,14 @@
         }
       ],
       "notion_page_id": "420d9e129df78066b41fe79f70458698",
-      "notion_url": "https://app.notion.com/p/EP-02-OpenUSD-Stage-What-Is-a-Stage-420d9e129df78066b41fe79f70458698"
+      "notion_url": "https://app.notion.com/p/OpneUSD-EP-02-OpenUSD-Stage-What-Is-a-Stage-420d9e129df78066b41fe79f70458698"
     },
     {
-      "path": "TIL/2026/11/2026-11-21_EP.01_-_왜_OpenUSD를_사용해야_할까요_NVIDIA_Omniverse와_3D_시뮬레이션의_핵심_기술.md",
+      "path": "TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_왜_OpenUSD를_사용해야_할까요_NVIDIA_Omniverse와_3D_시뮬레이션의_핵심_기술.md",
       "date": "2026-11-21",
       "number": 40,
       "created_time": "2026-11-22T03:11:00.000Z",
-      "title": "EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술",
+      "title": "OpneUSD EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술",
       "memo": "OpenUSD, NVIDIA Omniverse, 3D 시뮬레이션, Physical AI, 디지털 트윈",
       "tags": [
         {
@@ -126,7 +166,7 @@
         }
       ],
       "notion_page_id": "420d9e129df780a9bd2dd0d943ef5000",
-      "notion_url": "https://app.notion.com/p/EP-01-OpenUSD-NVIDIA-Omniverse-3D-420d9e129df780a9bd2dd0d943ef5000"
+      "notion_url": "https://app.notion.com/p/OpneUSD-EP-01-OpenUSD-NVIDIA-Omniverse-3D-420d9e129df780a9bd2dd0d943ef5000"
     },
     {
       "path": "TIL/2026/11/2026-11-20_ROS_2_Jazzy_기초_정리_개념·생태계부터_Turtlesim_통신_실습까지.md",

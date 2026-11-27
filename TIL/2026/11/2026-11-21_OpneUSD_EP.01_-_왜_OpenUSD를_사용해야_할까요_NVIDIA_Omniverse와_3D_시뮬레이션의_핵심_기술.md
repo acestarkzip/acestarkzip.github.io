@@ -1,0 +1,252 @@
+<!-- notion-to-github-managed -->
+<!-- notion-page-id: 420d9e129df780a9bd2dd0d943ef5000 -->
+<!-- notion-last-edited-time: 2026-11-27T12:51:00.000Z -->
+
+# OpneUSD EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술
+
+> - **날짜 :** 2026-11-21
+> - **간단메모 :** OpenUSD, NVIDIA Omniverse, 3D 시뮬레이션, Physical AI, 디지털 트윈
+> - **원본 노션 :** [바로가기 링크](https://app.notion.com/p/OpneUSD-EP-01-OpenUSD-NVIDIA-Omniverse-3D-420d9e129df780a9bd2dd0d943ef5000)
+
+---
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/01_OpneUSD-EP01-%EC%99%9C-OpenUSD%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/01_OpneUSD-EP01-%EC%99%9C-OpenUSD%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0.png" alt="OpneUSD EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+• Youtube : 
+<a href="https://www.youtube.com/@sssrobotics"><u>https://www.youtube.com/@sssrobotics</u></a>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/02_OpneUSD-EP01-%EC%99%9C-OpenUSD%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/02_OpneUSD-EP01-%EC%99%9C-OpenUSD%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0.png" alt="OpneUSD EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;align-items:flex-start;gap:.65rem;width:100%;min-width:0;"><span class="notion-callout-icon" aria-hidden="true">📌</span><div class="notion-callout-content" style="box-sizing:border-box;flex:1 1 auto;min-width:0;width:100%;"><strong>안녕하세요!<br>
+S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;">오늘부터 NVIDIA Omniverse에서 제공하는 OpenUSD 교육 콘텐츠를 기반으로, 3D 기술과 로보틱스 시뮬레이션의 핵심 개념을 하나씩 알아보겠습니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">첫 번째 시간에는 앞으로 배울 OpenUSD의 가장 기본적인 질문부터 시작하겠습니다.<br>
+<span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>"왜 우리는 OpenUSD를 사용해야 할까요?"</strong></span></p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">3D 산업에서는 다양한 소프트웨어와 도구를 사용하여 모델링, 설계, 시뮬레이션 및 렌더링 작업을 수행합니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">하지만 서로 다른 프로그램에서 제작한 3D 데이터를 하나의 환경에서 통합하고 협업하려면 여러 가지 문제가 발생할 수 있습니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">이러한 <strong>문제를 해결하기 위한 핵심 기술 중 하나가 바로 OpenUSD(Open Universal Scene Description) 입니다.</strong></p>
+</div></div></div>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+---
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/03_OpneUSD-EP01-%EC%99%9C-OpenUSD%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/03_OpneUSD-EP01-%EC%99%9C-OpenUSD%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0.png" alt="OpneUSD EP.01 - 왜 OpenUSD를 사용해야 할까요? NVIDIA Omniverse와 3D 시뮬레이션의 핵심 기술" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<a name="notion-heading-420d9e129df780ca8fbefdd09290ae6a"></a>
+
+# 📚 목차 (Contents)
+
+- [📚 목차 (Contents)](#notion-heading-420d9e129df780ca8fbefdd09290ae6a)
+- [📖 오늘의 진행 내용 (Today's Topics)](#notion-heading-420d9e129df780189d36ffb4571d3e0a)
+    - [📕 1. OpenUSD란 무엇일까요?](#notion-heading-420d9e129df78029a200ecd847935ff6)
+        - [📄 1-1. OpenUSD가 필요한 이유](#notion-heading-420d9e129df780f983bff46042aa918a)
+    - [📕 2. OpenUSD의 주요 이점 3가지](#notion-heading-420d9e129df78040a10ad94424267815)
+        - [📄 2-1. 범용 상호운용성 (Universal Interoperability)](#notion-heading-420d9e129df780379f26fdfb3877b356)
+        - [📄 2-2. 생성형 AI 및 시뮬레이션 지원 (Generative AI & Simulation)](#notion-heading-420d9e129df7808c8489c4df245ccf53)
+        - [📄 2-3. 효율적인 파이프라인 (Efficient Pipeline)](#notion-heading-420d9e129df78081aed3c8a5f2f39a83)
+    - [📕 3. OpenUSD의 산업 분야별 활용](#notion-heading-420d9e129df780b3ae2ec3dbad3806b1)
+        - [📄 3-1. 주요 활용 분야](#notion-heading-420d9e129df7803eadc0cfa17b054568)
+- [📜 회고 및 다음 과제 (Retropective&Next Steps)](#notion-heading-420d9e129df7809388bde07b27f899a0)
+- [👥 참고 문헌 (References)](#notion-heading-420d9e129df7808c8164c93ca7690747)
+- [📨 문의하기 (Contact us)](#notion-heading-420d9e129df780a28e7fc63cca362d7a)
+
+---
+
+<a name="notion-heading-420d9e129df780189d36ffb4571d3e0a"></a>
+
+# 📖 오늘의 진행 내용 (Today's Topics)
+
+<a name="notion-heading-420d9e129df78029a200ecd847935ff6"></a>
+
+## 📕 1. OpenUSD란 무엇일까요?
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/04_1-OpenUSD%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/04_1-OpenUSD%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94.png" alt="📕 1. OpenUSD란 무엇일까요?" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+OpenUSD(Open Universal Scene Description)는 픽사(Pixar)가 개발한 오픈소스 3D 장면 기술로, 현재는 다양한 산업 분야에서 활용되고 있습니다.
+
+단순히 3D 모델을 저장하는 파일 형식에 그치지 않고, 복잡한 3D 장면과 자산을 구성하고 관리하며 여러 작업자가 함께 협업할 수 있도록 지원하는 프레임워크입니다.
+
+<strong>특히 서로 다른 3D 애플리케이션에서 제작한 데이터를 통합하고, 복잡한 가상 환경을 효율적으로 구성</strong>할 수 있다는 장점이 있습니다.
+
+<a name="notion-heading-420d9e129df780f983bff46042aa918a"></a>
+
+### 📄 1-1. OpenUSD가 필요한 이유
+
+기존 3D 제작 환경에서는 사용하는 소프트웨어에 따라 데이터 형식과 작업 방식이 달라지는 경우가 많습니다.
+
+예를 들어 모델링 프로그램에서 제작한 3D 자산을 다른 시뮬레이션 프로그램으로 가져오려면 데이터 변환이나 추가적인 작업이 필요할 수 있습니다.
+
+<strong>OpenUSD는 이러한 문제를 줄이고 서로 다른 3D 도구와 데이터 간의 연결을 지원</strong>합니다.
+
+이를 통해 다양한 소프트웨어를 사용하는 작업자들이 <strong>하나의 공통된 3D 데이터 환경에서 협업할 수 있습니다.</strong>
+
+<a name="notion-heading-420d9e129df78040a10ad94424267815"></a>
+
+## 📕 2. OpenUSD의 주요 이점 3가지
+
+OpenUSD를 사용하는 이유는 크게 세 가지로 정리할 수 있습니다.
+
+<a name="notion-heading-420d9e129df780379f26fdfb3877b356"></a>
+
+### 📄 2-1. 범용 상호운용성 (Universal Interoperability)
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/05_2-1-%EB%B2%94%EC%9A%A9-%EC%83%81%ED%98%B8%EC%9A%B4%EC%9A%A9%EC%84%B1-Universal-Interop.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/05_2-1-%EB%B2%94%EC%9A%A9-%EC%83%81%ED%98%B8%EC%9A%B4%EC%9A%A9%EC%84%B1-Universal-Interop.png" alt="📄 2-1. 범용 상호운용성 (Universal Interoperability)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<strong>첫 번째는 서로 다른 3D 소프트웨어와 데이터 형식 간의 상호운용성</strong>입니다.
+
+OpenUSD는 다양한 3D 애플리케이션을 연결하는 공통 언어 역할을 합니다.
+
+이를 통해 각 작업자는 <strong>기존에 사용하던 도구를 유지하면서도 동일한 3D 데이터를 공유하고 활용</strong>할 수 있습니다.
+
+주요 장점은 다음과 같습니다.
+
+- 서로 다른 3D 애플리케이션 간 데이터 교환
+- 다양한 제작 환경에서 동일한 3D 자산 활용
+- 소프트웨어 간 협업 효율성 향상
+- 데이터 변환 과정에서 발생하는 불필요한 작업 감소
+
+<strong>즉, 서로 다른 도구를 사용하더라도 하나의 연결된 3D 환경을 구축할 수 있다는 것이 핵심</strong>입니다.
+
+<a name="notion-heading-420d9e129df7808c8489c4df245ccf53"></a>
+
+### 📄 2-2. 생성형 AI 및 시뮬레이션 지원 (Generative AI & Simulation)
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/06_2-2-%EC%83%9D%EC%84%B1%ED%98%95-AI-%EB%B0%8F-%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98-%EC%A7%80%EC%9B%90-Generati.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/06_2-2-%EC%83%9D%EC%84%B1%ED%98%95-AI-%EB%B0%8F-%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98-%EC%A7%80%EC%9B%90-Generati.png" alt="📄 2-2. 생성형 AI 및 시뮬레이션 지원 (Generative AI &amp; Simulation)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<strong>두 번째는 생성형 AI와 시뮬레이션 기술을 연결하는 기반이라는 점</strong>입니다.
+
+최근 AI 기술은 단순한 텍스트 및 이미지 생성을 넘어 실제 물리 환경에서 동작하는 로봇과 자율 시스템으로 확장되고 있습니다.
+
+이러한 Physical AI 기술을 개발하려면 현실 세계와 유사한 가상 환경을 구축하고, 다양한 상황에서 데이터를 생성하고 학습하는 과정이 중요합니다.
+
+OpenUSD는 복잡한 3D 장면과 가상 환경을 구성하고 관리할 수 있기 때문에 다음과 같은 분야에서 활용될 수 있습니다.
+
+- AI 학습을 위한 가상 환경 구축
+- 로봇 시뮬레이션 및 검증
+- 합성 데이터(Synthetic Data) 생성
+- 디지털 트윈(Digital Twin) 환경 구성
+- 생성형 AI 및 에이전트 AI 기반 3D 워크플로우
+
+특히 NVIDIA Omniverse와 Isaac Sim 같은 기술과 함께 활용하면 <strong>로봇이 현실 세계에 투입되기 전에 가상 환경에서 다양한 상황을 학습하고 검증하는 데 도움을 줄 수 있습니다.</strong>
+
+<a name="notion-heading-420d9e129df78081aed3c8a5f2f39a83"></a>
+
+### 📄 2-3. 효율적인 파이프라인 (Efficient Pipeline)
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/07_2-3-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-Efficient-Pipel.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/07_2-3-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-Efficient-Pipel.png" alt="📄 2-3. 효율적인 파이프라인 (Efficient Pipeline)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<strong>세 번째는 3D 제작 및 협업 파이프라인의 효율성</strong>입니다.
+
+대규모 3D 프로젝트에서는 여러 작업자가 동일한 자산을 수정하거나 서로 다른 부분을 동시에 작업하는 경우가 많습니다.
+
+<strong>OpenUSD는 레이어(Layers)와 컴포지션(Composition) 등의 기능을 활용하여 기존 데이터를 직접 덮어쓰지 않고도 여러 작업자의 변경 사항을 통합할 수 있도록 지원</strong>합니다.
+
+주요 장점은 다음과 같습니다.
+
+- 통합된 3D 자산 라이브러리 구축
+- 여러 작업자의 동시 협업 지원
+- 비파괴적인 데이터 수정 및 관리
+- 설계부터 제작까지 이어지는 작업 흐름 개선
+- 반복 작업과 불필요한 재작업 감소
+
+<strong>결과적으로 복잡한 3D 프로젝트에서도 자산을 효율적으로 관리하고 개발 속도를 높일 수 있습니다.</strong>
+
+<a name="notion-heading-420d9e129df780b3ae2ec3dbad3806b1"></a>
+
+## 📕 3. OpenUSD의 산업 분야별 활용
+
+OpenUSD는 특정 산업에만 국한된 기술이 아닙니다.
+
+다양한 3D 데이터와 가상 환경을 필요로 하는 산업 전반에서 활용 가능성이 확대되고 있습니다.
+
+<a name="notion-heading-420d9e129df7803eadc0cfa17b054568"></a>
+
+### 📄 3-1. 주요 활용 분야
+
+- <strong>산업 디자인:</strong> 제품 설계 및 3D 시각화
+- <strong>엔지니어링:</strong> 복잡한 설계 데이터 통합 및 검증
+- <strong>제조:</strong> 생산 공정 시뮬레이션 및 디지털 트윈
+- <strong>로보틱스:</strong> 로봇 시뮬레이션 및 가상 환경 구축
+- <strong>Physical AI:</strong> 가상 환경 기반 학습 및 합성 데이터 생성
+
+<strong>특히 로보틱스 분야에서는 OpenUSD를 기반으로 가상 공간을 구성하고, 로봇의 움직임과 주변 환경을 시뮬레이션하는 데 활용할 수 있습니다.</strong>
+
+이러한 기술은 현실 세계의 로봇 개발과 가상 환경을 연결하는 중요한 기반이 됩니다.
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/08_3-1-%EC%A3%BC%EC%9A%94-%ED%99%9C%EC%9A%A9-%EB%B6%84%EC%95%BC.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/08_3-1-%EC%A3%BC%EC%9A%94-%ED%99%9C%EC%9A%A9-%EB%B6%84%EC%95%BC.png" alt="📄 3-1. 주요 활용 분야" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<strong>🎬 다음 에피소드 예고</strong>
+
+<strong>EP.02 OpenUSD의 Stage란 무엇일까요?</strong>
+
+다음 시간에는 OpenUSD에서 가장 기본이 되는 개념 중 하나인 Stage(스테이지)에 대해 알아보겠습니다.
+
+3D 장면을 구성하고 관리하는 Stage는 어떤 역할을 할까요?
+
+다음 에피소드에서 함께 살펴보겠습니다!
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+---
+
+<a name="notion-heading-420d9e129df7809388bde07b27f899a0"></a>
+
+# 📜 회고 및 다음 과제 (Retropective&Next Steps)
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/09_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/09_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+오늘은 OpenUSD를 왜 사용해야 하는지, 그리고 어떤 장점을 가지고 있는지 살펴보았습니다.
+
+핵심 내용을 다시 정리해 보겠습니다.
+
+1. <span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>범용 상호운용성</strong><strong>:</strong></span> 서로 다른 3D 애플리케이션과 데이터를 연결합니다.
+1. <span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>생성형 AI 및 시뮬레이션</strong></span><strong>:</strong> Physical AI와 가상 환경 구축을 지원합니다.
+1. <span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>효율적인 파이프라인</strong></span><strong>:</strong> 여러 작업자가 효율적으로 협업하고 3D 자산을 관리할 수 있습니다.
+
+OpenUSD는 단순한 3D 파일 형식을 넘어 산업 디자인, 엔지니어링, 제조 및 로보틱스 분야에서 활용되는 중요한 3D 데이터 기술입니다.
+
+<span class="notion-inline-highlight" style="background-color:#76B900;color:#111827;border-radius:3px;padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone"><strong>특히 앞으로 Physical AI와 로봇 시뮬레이션 기술이 발전할수록 OpenUSD의 역할은 더욱 중요해질 것으로 기대됩니다.</strong></span>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+---
+
+<a name="notion-heading-420d9e129df7808c8164c93ca7690747"></a>
+
+# 👥 참고 문헌 (References)
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/10_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/10_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+- NVIDIA Omniverse — Learn OpenUSD
+- Pixar — Universal Scene Description (OpenUSD)
+- OpenUSD Official Documentation — [https://openusd.org/](https://openusd.org/)
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+---
+
+<a name="notion-heading-420d9e129df780a28e7fc63cca362d7a"></a>
+
+# 📨 문의하기 (Contact us)
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/11_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/12_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="./2026-11-21_OpneUSD_EP.01_-_%EC%99%9C_OpenUSD%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC_%ED%95%A0%EA%B9%8C%EC%9A%94_NVIDIA_Omniverse%EC%99%80_3D_%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%98_%ED%95%B5%EC%8B%AC_%EA%B8%B0%EC%88%A0_assets/12_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><ul style="list-style-position:outside;margin:.5rem 0 .75rem;padding-left:1.5rem;"><li style="margin:.30rem 0;line-height:1.5;"><strong>Youtube : </strong><br>
+<a href="https://www.youtube.com/@sssrobotics">https://www.youtube.com/@sssrobotics</a></li><li style="margin:.30rem 0;line-height:1.5;"><strong>Blog : </strong><br>
+<a href="https://www.sssrobotics.com/">https://www.sssrobotics.com</a></li></ul>
+</blockquote>
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>
+
+
+#OpenUSD #오픈USD #NVIDIA #엔비디아 #NVIDIA Omniverse #엔비디아 옴니버스 #3D 시뮬레이션 #Physical AI #피지컬AI #디지털트윈 #로봇 시뮬레이션 #합성데이터 #Synthetic Data #3D 데이터 #3D 협업 #로보틱스 #인공지능 #산업용 AI #S급로봇연구소 #SSSRobotics
+
+<div class="notion-spacer" aria-hidden="true" style="height:1.5rem;min-height:1.5rem;"></div>

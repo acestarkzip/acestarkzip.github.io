@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+    
+  
+  <meta name="description" content="• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 이번 시간에는 이동로봇에서 로봇팔로 학습 범위를 확장합니다. ROS 2의 robotdescription을 활용하여 UR10e 로봇팔을 가져오고, Mesh Merge Tool로 에셋을">
+  <link rel="canonical" href="https://www.sssrobotics.com/posts/425d9e129df780aa8acae3b613c184fa/">
+  <meta name="author" content="S급 로봇 연구소">
+  <meta name="keywords" content="교육, DLI">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="S급 로봇 연구소">
+  <meta property="og:title" content="DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습 | S급 로봇 연구소">
+  <meta property="og:description" content="• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 이번 시간에는 이동로봇에서 로봇팔로 학습 범위를 확장합니다. ROS 2의 robotdescription을 활용하여 UR10e 로봇팔을 가져오고, Mesh Merge Tool로 에셋을">
+  <meta property="og:url" content="https://www.sssrobotics.com/posts/425d9e129df780aa8acae3b613c184fa/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/01_DLI-05-Best-Practices-for-Robo.png">
+  <meta property="og:image:alt" content="DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습 | S급 로봇 연구소">
+  <meta name="twitter:description" content="• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 이번 시간에는 이동로봇에서 로봇팔로 학습 범위를 확장합니다. ROS 2의 robotdescription을 활용하여 UR10e 로봇팔을 가져오고, Mesh Merge Tool로 에셋을">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/01_DLI-05-Best-Practices-for-Robo.png">
+  <meta property="article:published_time" content="2026-11-27">
+  <meta property="article:modified_time" content="2026-11-27">
+  <meta property="article:section" content="교육">
+  <meta property="article:tag" content="교육">
+  <meta property="article:tag" content="DLI">
+  <title>DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습 | S급 로봇 연구소</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=20261122-highlight-linebox-v5">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://www.sssrobotics.com/posts/425d9e129df780aa8acae3b613c184fa/#blogposting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sssrobotics.com/posts/425d9e129df780aa8acae3b613c184fa/"},"headline":"DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습","description":"• Youtube : 📌 안녕하세요! S급 로봇 연구소(SSS Robotics)입니다. 🤖 이번 시간에는 이동로봇에서 로봇팔로 학습 범위를 확장합니다. ROS 2의 robotdescription을 활용하여 UR10e 로봇팔을 가져오고, Mesh Merge Tool로 에셋을","image":["https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/01_DLI-05-Best-Practices-for-Robo.png"],"author":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","url":"https://www.sssrobotics.com/"},"publisher":{"@type":"Organization","@id":"https://www.sssrobotics.com/#organization","name":"S급 로봇 연구소","logo":{"@type":"ImageObject","url":"https://www.sssrobotics.com/images/sss-robotics-logo.png"}},"inLanguage":"ko-KR","isAccessibleForFree":true,"datePublished":"2026-11-27","dateModified":"2026-11-27","keywords":["교육","DLI"],"articleSection":"교육"}</script>
+  <!-- SSS Robotics official favicon: use one stable site-wide icon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+</head>
+<body class="post-page">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand header-brand" href="/index.html" aria-label="S급 로봇 연구소 홈">
+        <img class="brand-logo" src="/images/sss-robotics-logo.png" alt="S급 로봇 연구소 로고" width="90" height="90">
+        <span class="brand-copy">
+          <span class="brand-name">S급 로봇 연구소</span>
+          <span class="brand-tagline">로봇과 인간이 공존할 미래를 준비합니다.</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="주 메뉴">
+        <a href="/#about">ABOUT</a>
+        <a class="active" href="/#blog">BLOG <span class="nav-dot"></span></a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="post-header shell">
+      <a class="back-link" href="/blog.html"><span aria-hidden="true">←</span> BACK TO BLOG</a>
+      <div class="article-meta"><span class="category" id="article-category">BLOG</span><time id="article-date"></time></div>
+      <h1 class="article-title" id="article-title">DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습</h1>
+      <p class="article-path" id="article-path">2026-11-27 · URDF와 USD 기반의 로봇 에셋 구조를 이해하고, Mesh Merge Tool을 활용한 최적화부터 UR10e와 그리퍼 구성, 창고 시뮬레이션 환경 구축 및 IK 기반 로봇팔 제어까지 실습합니다.</p>
+    </header>
+
+    <div class="article-layout shell">
+      <article class="markdown-body" id="markdown-content" aria-live="polite">
+        
+
+
+
+<blockquote>
+<ul>
+<li><strong>날짜 :</strong> 2026-11-27</li>
+<li><strong>간단메모 :</strong> URDF와 USD 기반의 로봇 에셋 구조를 이해하고, Mesh Merge Tool을 활용한 최적화부터 UR10e와 그리퍼 구성, 창고 시뮬레이션 환경 구축 및 IK 기반 로봇팔 제어까지 실습합니다.</li>
+<li><strong>원본 노션 :</strong> <a href="https://app.notion.com/p/DLI-05-Best-Practices-for-Robotics-and-OpenUSD-IK-425d9e129df780aa8acae3b613c184fa">바로가기 링크</a></li>
+</ul>
+</blockquote>
+<hr>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/01_DLI-05-Best-Practices-for-Robo.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/01_DLI-05-Best-Practices-for-Robo.png" alt="DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<p><strong>• Youtube :</strong><br>
+<a href="https://www.youtube.com/@sssrobotics"><u>https://www.youtube.com/@sssrobotics</u></a></p>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/02_DLI-05-Best-Practices-for-Robo.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/02_DLI-05-Best-Practices-for-Robo.png" alt="DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<div class="notion-callout" style="box-sizing:border-box;display:block;width:100%;max-width:100%;margin:1.1rem 0;padding:1rem 1.25rem;border-left:4px solid #76b900;border-radius:10px;color:inherit;line-height:1.55;"><div class="notion-callout-layout" style="display:flex;width:100%;"><span class="notion-callout-icon">📌</span><div class="notion-callout-content" style="box-sizing:border-box;width:100%;"><strong>안녕하세요!<br>
+S급 로봇 연구소(SSS Robotics)입니다. 🤖</strong><p style="margin:.35rem 0 .75rem;line-height:1.55;"><strong>이번 시간에는 이동로봇에서 로봇팔로 학습 범위를 확장합니다.</strong></p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">ROS 2의 robot_description을 활용하여 UR10e 로봇팔을 가져오고, Mesh Merge Tool로 에셋을 최적화합니다. 이후 Robot Assembler를 이용해 그리퍼를 장착하고, IK(Inverse Kinematics)를 활용하여 목표 위치에 따라 로봇팔을 움직여 보겠습니다.</p>
+<p style="margin:.35rem 0 .75rem;line-height:1.55;">마지막으로 창고 환경에 로봇과 작업물을 배치하여 실제 작업 상황과 유사한 시뮬레이션 장면을 구성합니다.</p>
+</div></div></div>
+
+<hr>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/03_DLI-05-Best-Practices-for-Robo.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/03_DLI-05-Best-Practices-for-Robo.png" alt="DLI #05 - Best Practices for Robotics and OpenUSD | 로봇 에셋 구성·최적화와 IK 통합 실습" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<h1 id="notion-heading-425d9e129df7804c819edae9f1a5bd58" style="scroll-margin-top:112px;">📚 목차 (Contents)</h1>
+<ul>
+<li><a href="#notion-heading-425d9e129df7804c819edae9f1a5bd58">📚 목차 (Contents)</a></li>
+<li><a href="#notion-heading-425d9e129df7809da70eec31e4cb7546">📖 오늘의 진행 내용 (Today's Topics)</a><ul>
+<li><a href="#notion-heading-425d9e129df7801f8daaf9db7cb5aeda">📕 1. 로봇 에셋 구조와 OpenUSD 모범사례</a><ul>
+<li><a href="#notion-heading-425d9e129df78079ba0becc9aa29281a">📄 1-1. URDF와 USD의 차이</a></li>
+<li><a href="#notion-heading-425d9e129df780769916ea560a751dc0">📄 1-2. Joint Type 이해하기</a></li>
+<li><a href="#notion-heading-425d9e129df780acb755c58b3304dbbf">📄 1-3. 로봇 에셋의 기능별 분리</a></li>
+<li><a href="#notion-heading-425d9e129df7801d9514cfa0588db685">📄 1-4. Variant란?</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-425d9e129df78026b152d6ac14b33814">📕 2. Mesh Merge Tool을 활용한 에셋 최적화</a><ul>
+<li><a href="#notion-heading-425d9e129df780f5ab58f8a21d11a86a">📄 2-1. Mesh Merge Tool이란?</a></li>
+<li><a href="#notion-heading-425d9e129df78033a4aff0536dfa7a4d">📄 2-2. 메시 통합 실습</a></li>
+<li><a href="#notion-heading-425d9e129df780a0af19c74d44a7c0e9">📄 2-3. 메시 정리와 위치 조정</a></li>
+<li><a href="#notion-heading-425d9e129df78033964fe61cf8eafa0b">📄 2-4. 충돌체 설정</a></li>
+<li><a href="#notion-heading-425d9e129df78038982cd4d965e39023">📄 2-5. 최적화 결과 확인</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-425d9e129df78093a243fa5286fb814f">📕 3. ROS 2를 활용한 UR10e 가져오기</a><ul>
+<li><a href="#notion-heading-425d9e129df78051b90ec08bc779de9f">📄 3-1. ROS 2 robot_description이란?</a></li>
+<li><a href="#notion-heading-425d9e129df78051afe8fbbc68fd45ac">📄 3-2. UR10e 패키지 준비</a></li>
+<li><a href="#notion-heading-425d9e129df780a79a27ef4b25a96685">📄 3-3. Isaac Sim에서 UR10e 가져오기</a></li>
+<li><a href="#notion-heading-425d9e129df7808aa693ec2030e0f7ce">📄 3-4. URDF Import 결과 확인</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-425d9e129df780ad9dc6d1138321f3ab">📕 4. Robot Assembler와 Variant로 그리퍼 장착</a><ul>
+<li><a href="#notion-heading-425d9e129df7805186a4cb5cf7fc17e9">📄 4-1. Robot Assembler란?</a></li>
+<li><a href="#notion-heading-425d9e129df7803e8f99d1939ea92c28">📄 4-2. 그리퍼 에셋 가져오기</a></li>
+<li><a href="#notion-heading-425d9e129df7803fafcad22a7d4cd815">📄 4-3. Robot Assembler 설정</a></li>
+<li><a href="#notion-heading-425d9e129df7806ab1ebe227cf1ac4f9">📄 4-4. 그리퍼 연결 확인</a></li>
+<li><a href="#notion-heading-425d9e129df780b8829be843aa0827ac">📄 4-5. Variant로 그리퍼 구성 변경하기</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-425d9e129df780ca996aea91ac01d3d8">📕 5. 창고 환경 구성 및 물리 시뮬레이션</a><ul>
+<li><a href="#notion-heading-425d9e129df780e69725ce6e20361c5b">📄 5-1. 학습 장면 구성하기</a></li>
+<li><a href="#notion-heading-425d9e129df78028ae15f54f25ed7513">📄 5-2. Reference와 Payload의 차이</a></li>
+<li><a href="#notion-heading-425d9e129df7806fafdfd9c37bce0721">📄 5-3. 로봇과 작업물 배치</a></li>
+<li><a href="#notion-heading-425d9e129df780f4b0d6e310df293c79">📄 5-4. Physics Inspector로 물리 확인</a></li>
+</ul>
+</li>
+<li><a href="#notion-heading-425d9e129df780618872d25b77bb2803">📕 6. IK(Inverse Kinematics)를 활용한 로봇팔 제어</a><ul>
+<li><a href="#notion-heading-425d9e129df78030b239edd3bdc6b7d2">📄 6-1. IK란?</a></li>
+<li><a href="#notion-heading-425d9e129df7800dab1cd13f91d45776">📄 6-2. IK 동작 과정</a></li>
+<li><a href="#notion-heading-425d9e129df78045a619d9309a2f7f1d">📄 6-3. IK 실습</a></li>
+<li><a href="#notion-heading-425d9e129df780b4a597e9ed726243dc">📄 6-4. IK의 한계 이해하기</a></li>
+<li><a href="#notion-heading-425d9e129df780c6ae9bcb2c0180093a">📄 6-5. 추가 실습 미션</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#notion-heading-425d9e129df780c1aad6f8c6aa0c774a">📜 회고 및 다음 과제 (Retropective&amp;Next Steps)</a><ul>
+<li><a href="#notion-heading-425d9e129df7808ea8a1d7fc5a33b2fc">💡 오늘 배운 핵심 내용</a></li>
+<li><a href="#notion-heading-425d9e129df7806eab58c5933a082233">📝 DLI 1 통합 실습 미션 (2H)</a><ul>
+<li><a href="#notion-heading-425d9e129df7809d91b7c82761705854">A. 나만의 로봇 학습 장면 만들기</a></li>
+<li><a href="#notion-heading-425d9e129df780a98b18d6da2ee65b84">B. 실습 조건</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#notion-heading-425d9e129df78078b2d0c10af11dffd3">👥 참고 문헌 (References)</a></li>
+<li><a href="#notion-heading-425d9e129df78076a147ccba81705aab">📨 문의하기 (Contact us)</a></li>
+</ul>
+<hr>
+<h1 id="notion-heading-425d9e129df7809da70eec31e4cb7546" style="scroll-margin-top:112px;">📖 오늘의 진행 내용 (Today's Topics)</h1>
+<h2 id="notion-heading-425d9e129df7801f8daaf9db7cb5aeda" style="scroll-margin-top:112px;">📕 1. 로봇 에셋 구조와 OpenUSD 모범사례</h2>
+<h3 id="notion-heading-425d9e129df78079ba0becc9aa29281a" style="scroll-margin-top:112px;">📄 1-1. URDF와 USD의 차이</h3>
+<p>URDF와 USD는 로봇을 표현하는 데 사용되지만 목적과 역할에 차이가 있습니다.</p>
+<ul>
+<li>URDF: 로봇의 링크, 관절, 질량, 관성 및 형상 등을 정의하는 로봇 설명 형식입니다.</li>
+<li>USD: 3D 장면과 객체, 물리 속성, 재질 및 에셋 간의 관계를 표현하는 데이터 형식입니다.</li>
+</ul>
+<p>URDF로 정의된 로봇을 USD로 변환하면 Isaac Sim에서 다양한 시뮬레이션 작업에 활용할 수 있습니다.</p>
+<h3 id="notion-heading-425d9e129df780769916ea560a751dc0" style="scroll-margin-top:112px;">📄 1-2. Joint Type 이해하기</h3>
+<p>로봇의 관절은 연결된 부품이 어떤 방식으로 움직이는지를 정의합니다.</p>
+<p>주요 관절 종류는 다음과 같습니다.</p>
+<ul>
+<li>Revolute: 회전 범위가 제한된 회전 관절입니다.</li>
+<li>Continuous: 회전 범위 제한 없이 계속 회전하는 관절입니다.</li>
+<li>Prismatic: 직선 방향으로 이동하는 관절입니다.</li>
+<li>Fixed: 두 부품을 고정하는 관절입니다.</li>
+<li>Mimic: 다른 관절의 움직임을 따라가는 관절입니다.</li>
+</ul>
+<p>예를 들어 이동로봇의 바퀴는 Continuous 관절을 사용하고, 로봇팔의 관절은 일반적으로 Revolute 관절을 사용합니다.</p>
+<h3 id="notion-heading-425d9e129df780acb755c58b3304dbbf" style="scroll-margin-top:112px;">📄 1-3. 로봇 에셋의 기능별 분리</h3>
+<p>OpenUSD에서는 로봇 에셋을 기능별로 나누어 관리할 수 있습니다.</p>
+<p>이번 교육에서는 Robotiq 그리퍼를 예시로 다음과 같은 구조를 살펴봅니다.</p>
+<ul>
+<li>Base: 로봇의 외형과 메시를 관리합니다.</li>
+<li>Physics: 충돌체와 물리 속성을 관리합니다.</li>
+<li>Robot: 로봇의 관절과 제어 관련 정보를 관리합니다.</li>
+<li>Sensor: 센서 관련 정보를 관리합니다.</li>
+</ul>
+<p>이처럼 기능별로 에셋을 분리하면 필요한 부분만 수정하고 재사용하기 편리합니다.</p>
+<h3 id="notion-heading-425d9e129df7801d9514cfa0588db685" style="scroll-margin-top:112px;">📄 1-4. Variant란?</h3>
+<p>Variant는 하나의 USD 에셋 안에 여러 가지 구성 상태를 저장하고 선택할 수 있는 기능입니다.</p>
+<p>예를 들어 그리퍼의 센서나 물리 속성을 켜고 끄거나, 로봇에 그리퍼가 장착된 상태와 장착되지 않은 상태를 선택할 수 있습니다.</p>
+<p>실제 로봇에서 도구를 교체하는 것처럼 다양한 구성을 효율적으로 관리할 수 있습니다.</p>
+<hr>
+<h2 id="notion-heading-425d9e129df78026b152d6ac14b33814" style="scroll-margin-top:112px;">📕 2. Mesh Merge Tool을 활용한 에셋 최적화</h2>
+<h3 id="notion-heading-425d9e129df780f5ab58f8a21d11a86a" style="scroll-margin-top:112px;">📄 2-1. Mesh Merge Tool이란?</h3>
+<p>Mesh Merge Tool은 여러 개의 메시를 하나로 합치는 도구입니다.</p>
+<p>CAD 프로그램에서 가져온 로봇 모델은 하나의 부품에도 여러 개의 메시가 포함되어 있는 경우가 많습니다.</p>
+<p>메시가 지나치게 많으면 렌더링과 충돌 계산에 부담이 발생할 수 있습니다.</p>
+<p>Mesh Merge Tool을 사용하면 여러 메시를 하나로 통합하여 에셋을 최적화할 수 있습니다.</p>
+<h3 id="notion-heading-425d9e129df78033a4aff0536dfa7a4d" style="scroll-margin-top:112px;">📄 2-2. 메시 통합 실습</h3>
+<p>이번 실습에서는 Robotiq 2F-140 그리퍼의 손가락 부분을 최적화합니다.</p>
+<ol>
+<li><code>robotiq_2f_140_base.usd</code> 파일을 엽니다.</li>
+<li>Tools &gt; Robotics &gt; Asset Editors &gt; Mesh Merge Tool을 실행합니다.</li>
+<li><code>right_inner_finger</code>의 메시를 선택합니다.</li>
+<li>Submeshes, Geometry Subsets, Materials 구성을 확인합니다.</li>
+<li>Combine Materials 옵션을 활성화합니다.</li>
+<li>MERGE를 실행하여 하나의 메시로 통합합니다.</li>
+</ol>
+<h3 id="notion-heading-425d9e129df780a0af19c74d44a7c0e9" style="scroll-margin-top:112px;">📄 2-3. 메시 정리와 위치 조정</h3>
+<p>합쳐진 메시를 기존 손가락 구조에 배치하고 위치를 조정합니다.</p>
+<p>이후 기존에 사용하던 중복 메시를 삭제하여 불필요한 데이터를 정리합니다.</p>
+<p>이번 실습에서는 손가락 메시를 2개에서 1개로 통합하는 과정을 진행합니다.</p>
+<h3 id="notion-heading-425d9e129df78033964fe61cf8eafa0b" style="scroll-margin-top:112px;">📄 2-4. 충돌체 설정</h3>
+<p>메시를 합치는 것만으로는 물리적인 충돌 계산이 완성되지 않습니다.</p>
+<p>새롭게 생성된 메시에도 충돌체를 설정해야 합니다.</p>
+<p>Property &gt; Physics &gt; Collider에서 Approximation을 Convex Hull로 변경합니다.</p>
+<p>Convex Hull은 물체의 외형을 감싸는 볼록한 형태로 충돌 영역을 근사하는 방식입니다.</p>
+<p>이를 통해 로봇 손가락과 주변 물체 사이의 충돌을 시뮬레이션할 수 있습니다.</p>
+<h3 id="notion-heading-425d9e129df78038982cd4d965e39023" style="scroll-margin-top:112px;">📄 2-5. 최적화 결과 확인</h3>
+<p>최적화된 그리퍼를 다시 열어 충돌체와 관절을 확인합니다.</p>
+<p><code>finger_joint</code>의 Target Position을 35로 설정하여 손가락이 정상적으로 움직이는지 확인합니다.</p>
+<p>하나의 관절을 변경했을 때 나머지 손가락도 함께 움직이면 Mimic 관절이 정상적으로 동작하는 것입니다.</p>
+<hr>
+<h2 id="notion-heading-425d9e129df78093a243fa5286fb814f" style="scroll-margin-top:112px;">📕 3. ROS 2를 활용한 UR10e 가져오기</h2>
+<h3 id="notion-heading-425d9e129df78051b90ec08bc779de9f" style="scroll-margin-top:112px;">📄 3-1. ROS 2 robot_description이란?</h3>
+<p>로봇 제조사에서는 일반적으로 로봇의 구조를 URDF 또는 Xacro 형식으로 제공합니다.</p>
+<p>ROS 2에서는 <code>robot_state_publisher</code>가 로봇의 설명 정보를 관리하고, Isaac Sim은 해당 정보를 전달받아 로봇을 가져올 수 있습니다.</p>
+<p>이번 실습에서는 Universal Robots의 UR10e 모델을 사용합니다.</p>
+<h3 id="notion-heading-425d9e129df78051afe8fbbc68fd45ac" style="scroll-margin-top:112px;">📄 3-2. UR10e 패키지 준비</h3>
+<p>ROS 2 워크스페이스에서 Universal Robots의 로봇 설명 패키지를 준비합니다.</p>
+<p><code>ur_description</code> 패키지를 빌드하고 실행하여 UR10e의 로봇 설명 정보를 제공합니다.</p>
+<p>주요 실행 과정은 다음과 같습니다.</p>
+<ol>
+<li>Universal Robots ROS 2 Description 저장소를 가져옵니다.</li>
+<li><code>colcon build</code>로 패키지를 빌드합니다.</li>
+<li><code>source install/setup.bash</code>를 실행합니다.</li>
+<li><code>ur_type:=ur10e</code> 옵션으로 로봇 설명 노드를 실행합니다.</li>
+<li><code>ros2 node list</code>를 통해 노드가 실행되었는지 확인합니다.</li>
+</ol>
+<h3 id="notion-heading-425d9e129df780a79a27ef4b25a96685" style="scroll-margin-top:112px;">📄 3-3. Isaac Sim에서 UR10e 가져오기</h3>
+<p>Isaac Sim의 File &gt; Import from ROS2 URDF Node 메뉴를 실행합니다.</p>
+<p>Node 항목에 <code>robot_state_publisher</code>를 입력하면 ROS 2에서 제공하는 UR10e 관절 정보를 불러올 수 있습니다.</p>
+<p>주요 설정은 다음과 같습니다.</p>
+<ul>
+<li>Links: Static Base</li>
+<li>Joint Configuration: Natural Frequency</li>
+<li>Joint Target: Position</li>
+<li>Natural Frequency: 관절 6개 모두 300</li>
+</ul>
+<p>IMPORT를 실행하면 Stage에 <code>/World/ur</code>가 생성됩니다.</p>
+<h3 id="notion-heading-425d9e129df7808aa693ec2030e0f7ce" style="scroll-margin-top:112px;">📄 3-4. URDF Import 결과 확인</h3>
+<p>가져온 UR10e의 링크와 관절 구조를 확인합니다.</p>
+<p>UR10e는 총 6개의 회전 관절을 가지고 있으며, 각 관절의 위치와 움직임을 Isaac Sim에서 확인할 수 있습니다.</p>
+<p>이를 통해 ROS 2에서 관리하는 로봇 정보를 Isaac Sim으로 가져오는 과정을 이해합니다.</p>
+<hr>
+<h2 id="notion-heading-425d9e129df780ad9dc6d1138321f3ab" style="scroll-margin-top:112px;">📕 4. Robot Assembler와 Variant로 그리퍼 장착</h2>
+<h3 id="notion-heading-425d9e129df7805186a4cb5cf7fc17e9" style="scroll-margin-top:112px;">📄 4-1. Robot Assembler란?</h3>
+<p>Robot Assembler는 서로 다른 로봇 에셋을 연결하는 도구입니다.</p>
+<p>이번 실습에서는 UR10e 로봇팔에 Robotiq 2F-140 그리퍼를 장착합니다.</p>
+<p>각각 별도로 존재하는 로봇 에셋을 연결하여 하나의 로봇 시스템으로 구성할 수 있습니다.</p>
+<h3 id="notion-heading-425d9e129df7803e8f99d1939ea92c28" style="scroll-margin-top:112px;">📄 4-2. 그리퍼 에셋 가져오기</h3>
+<p>UR10e USD 파일을 열고 그리퍼 USD 파일을 Reference로 추가합니다.</p>
+<p>이번 실습에서는 다음 파일을 사용합니다.</p>
+<ul>
+<li>로봇팔: <code>ur.usd</code></li>
+<li>그리퍼: <code>robotiq_2f_140.usd</code></li>
+</ul>
+<p>그리퍼를 UR10e 아래에 추가한 후 Stage에서 구조를 확인합니다.</p>
+<h3 id="notion-heading-425d9e129df7803fafcad22a7d4cd815" style="scroll-margin-top:112px;">📄 4-3. Robot Assembler 설정</h3>
+<p>Tools &gt; Robotics &gt; Asset Editors &gt; Robot Assembler를 실행합니다.</p>
+<p>다음 항목을 설정합니다.</p>
+<ul>
+<li>Base Robot: <code>/ur</code></li>
+<li>Attach Robot: <code>/ur/robotiq_2f_140</code></li>
+<li>Base Robot Attach Point: <code>wrist_3_link</code></li>
+<li>Attach Robot Attach Point: <code>robotiq_arg2f_base_link</code></li>
+<li>Assembly Namespace: <code>ee_link</code></li>
+</ul>
+<p>Begin Assembling Process를 실행하고 그리퍼의 방향을 조정합니다.</p>
+<p>Z +90 설정을 적용하여 그리퍼가 로봇 손목 방향에 맞게 연결되도록 합니다.</p>
+<h3 id="notion-heading-425d9e129df7806ab1ebe227cf1ac4f9" style="scroll-margin-top:112px;">📄 4-4. 그리퍼 연결 확인</h3>
+<p>Assemble and Simulate를 실행하여 시뮬레이션 중에도 그리퍼가 로봇 손목에 정상적으로 연결되어 있는지 확인합니다.</p>
+<p>정상적으로 연결되었다면 End Simulation And Finish를 실행하고 USD 파일을 저장합니다.</p>
+<h3 id="notion-heading-425d9e129df780b8829be843aa0827ac" style="scroll-margin-top:112px;">📄 4-5. Variant로 그리퍼 구성 변경하기</h3>
+<p>UR10e의 Property에서 Variants &gt; ee_link 항목을 확인합니다.</p>
+<p>다음 두 가지 구성을 선택할 수 있습니다.</p>
+<ul>
+<li>None: 그리퍼가 장착되지 않은 상태입니다.</li>
+<li>robotiq_2f_140: 그리퍼가 장착된 상태입니다.</li>
+</ul>
+<p>Variant를 변경하면 로봇팔의 그리퍼 장착 여부를 간편하게 전환할 수 있습니다.</p>
+<hr>
+<h2 id="notion-heading-425d9e129df780ca996aea91ac01d3d8" style="scroll-margin-top:112px;">📕 5. 창고 환경 구성 및 물리 시뮬레이션</h2>
+<h3 id="notion-heading-425d9e129df780e69725ce6e20361c5b" style="scroll-margin-top:112px;">📄 5-1. 학습 장면 구성하기</h3>
+<p>이번에는 로봇팔이 실제 작업을 수행할 수 있도록 창고 환경을 구성합니다.</p>
+<p>File &gt; New로 새로운 장면을 생성한 후 다음 에셋을 배치합니다.</p>
+<ul>
+<li>Small Warehouse Digital Twin: 창고 환경입니다.</li>
+<li>Sortbot Housing: 로봇 작업을 위한 받침대입니다.</li>
+<li>UR10e + Gripper: 작업을 수행할 로봇팔입니다.</li>
+<li>Toolbox: 로봇이 집어 올릴 작업 대상입니다.</li>
+</ul>
+<h3 id="notion-heading-425d9e129df78028ae15f54f25ed7513" style="scroll-margin-top:112px;">📄 5-2. Reference와 Payload의 차이</h3>
+<p>OpenUSD에서는 외부 에셋을 현재 장면에 연결하는 여러 방법을 제공합니다.</p>
+<ul>
+<li>Reference: 외부 USD 에셋을 현재 장면에 참조하여 추가합니다.</li>
+<li>Payload: 필요한 시점에 외부 에셋을 불러올 수 있도록 구성합니다.</li>
+</ul>
+<p>이번 실습에서는 창고와 받침대, 작업물은 Reference로 추가하고 로봇팔은 Payload로 추가합니다.</p>
+<p>이러한 방식을 사용하면 원본 에셋을 별도로 관리하면서 여러 장면에서 재사용할 수 있습니다.</p>
+<h3 id="notion-heading-425d9e129df7806fafdfd9c37bce0721" style="scroll-margin-top:112px;">📄 5-3. 로봇과 작업물 배치</h3>
+<p>창고 환경에 로봇팔과 Toolbox를 배치하고 위치를 조정합니다.</p>
+<p>로봇팔이 작업물을 집을 수 있도록 위치와 높이를 확인합니다.</p>
+<p>완성된 장면은 <code>warehouse_scene.usd</code>로 저장합니다.</p>
+<h3 id="notion-heading-425d9e129df780f4b0d6e310df293c79" style="scroll-margin-top:112px;">📄 5-4. Physics Inspector로 물리 확인</h3>
+<p>Tools &gt; Physics &gt; Physics Inspector를 실행합니다.</p>
+<p>로봇을 선택한 후 각 관절의 Drive Target과 Joint State를 확인합니다.</p>
+<p>슬라이더를 조정하거나 값을 입력하여 로봇팔의 관절이 정상적으로 움직이는지 확인합니다.</p>
+<p>물리 설정이 정상적으로 구성되어 있다면 해당 장면을 Isaac Lab의 학습 및 테스트 환경으로 활용할 수 있습니다.</p>
+<hr>
+<h2 id="notion-heading-425d9e129df780618872d25b77bb2803" style="scroll-margin-top:112px;">📕 6. IK(Inverse Kinematics)를 활용한 로봇팔 제어</h2>
+<h3 id="notion-heading-425d9e129df78030b239edd3bdc6b7d2" style="scroll-margin-top:112px;">📄 6-1. IK란?</h3>
+<p>IK(Inverse Kinematics)는 역기구학이라고 하며, 로봇의 끝부분이 목표 위치에 도달하기 위해 필요한 각 관절의 회전값을 계산하는 방법입니다.</p>
+<p>일반적인 로봇팔은 여러 개의 관절로 연결되어 있습니다.</p>
+<p>목표 위치가 주어지면 IK는 해당 위치에 도달하기 위한 관절의 움직임을 계산합니다.</p>
+<p>예를 들어 로봇팔이 특정 위치에 있는 상자를 집으려면 각 관절이 어느 정도 회전해야 하는지 계산해야 합니다.</p>
+<h3 id="notion-heading-425d9e129df7800dab1cd13f91d45776" style="scroll-margin-top:112px;">📄 6-2. IK 동작 과정</h3>
+<p>이번 실습에서는 다음과 같은 흐름으로 로봇팔을 제어합니다.</p>
+<ol>
+<li>TargetCube를 목표 위치로 설정합니다.</li>
+<li>Lula IK Solver가 목표 위치에 도달하기 위한 관절 각도를 계산합니다.</li>
+<li>Articulation Controller가 계산된 관절값을 로봇에 전달합니다.</li>
+<li>UR10e 로봇팔이 목표 위치를 향해 움직입니다.</li>
+</ol>
+<h3 id="notion-heading-425d9e129df78045a619d9309a2f7f1d" style="scroll-margin-top:112px;">📄 6-3. IK 실습</h3>
+<p>Isaac Sim을 종료한 후 제공된 <code>follow_target_example.py</code> 예제 스크립트를 실행합니다.</p>
+<p>스크립트에서 <code>asset_path</code>를 자신의 학습 장면 경로로 변경하고, 그리퍼의 끝부분을 나타내는 Prim 경로가 올바른지 확인합니다.</p>
+<p>실행 후 Stage에서 <code>/World/TargetCube</code>를 이동하면 로봇팔의 끝부분이 목표 위치를 따라 움직입니다.</p>
+<p>N 키를 사용하여 그리퍼를 열고 닫을 수도 있습니다.</p>
+<h3 id="notion-heading-425d9e129df780b4a597e9ed726243dc" style="scroll-margin-top:112px;">📄 6-4. IK의 한계 이해하기</h3>
+<p>IK는 목표 위치에 도달하기 위한 관절 각도를 계산하지만 주변 장애물과의 충돌을 자동으로 해결하지는 않습니다.</p>
+<p>예를 들어 로봇팔이 공구함이나 받침대에 막히면 목표 위치까지 도달하지 못할 수 있습니다.</p>
+<p>또한 로봇팔이 도달할 수 없는 위치를 목표로 설정하면 IK 경고가 발생할 수 있습니다.</p>
+<p>따라서 실제 로봇 제어에서는 IK뿐만 아니라 충돌 검사와 경로 계획도 중요합니다.</p>
+<h3 id="notion-heading-425d9e129df780c6ae9bcb2c0180093a" style="scroll-margin-top:112px;">📄 6-5. 추가 실습 미션</h3>
+<p>TargetCube를 이동하여 Toolbox를 직접 집어 올리는 동작을 구현합니다.</p>
+<p>단순히 위에서 내려오는 방식이 아니라 공구함의 손잡이 옆으로 접근하여 집어 올리는 동작을 시도합니다.</p>
+<p>로봇팔의 움직임과 그리퍼의 개폐 상태를 확인하면서 실제 작업과 유사한 동작을 구현합니다.</p>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<hr>
+<h1 id="notion-heading-425d9e129df780c1aad6f8c6aa0c774a" style="scroll-margin-top:112px;">📜 회고 및 다음 과제 (Retropective&amp;Next Steps)</h1>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/04_%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%EB%8B%A4%EC%9D%8C-%EA%B3%BC%EC%A0%9C-RetropectiveNext-St.png" alt="📜 회고 및 다음 과제 (Retropective&amp;Next Steps)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<h2 id="notion-heading-425d9e129df7808ea8a1d7fc5a33b2fc" style="scroll-margin-top:112px;">💡 오늘 배운 핵심 내용</h2>
+<ul>
+<li>URDF와 USD는 로봇의 구조와 3D 시뮬레이션 데이터를 표현하는 서로 다른 형식입니다.</li>
+<li>Mesh Merge Tool을 활용하면 여러 메시를 하나로 통합하여 에셋을 최적화할 수 있습니다.</li>
+<li>ROS 2의 robot_description을 활용하여 UR10e를 Isaac Sim으로 가져올 수 있습니다.</li>
+<li>Robot Assembler를 사용하면 로봇팔과 그리퍼를 연결할 수 있습니다.</li>
+<li>Variant를 활용하면 그리퍼의 장착 여부와 같은 에셋 구성을 변경할 수 있습니다.</li>
+<li>Reference와 Payload를 활용하면 외부 에셋을 효율적으로 관리할 수 있습니다.</li>
+<li>IK를 활용하면 목표 위치에 따라 로봇팔의 관절 움직임을 계산할 수 있습니다.</li>
+</ul>
+<h2 id="notion-heading-425d9e129df7806eab58c5933a082233" style="scroll-margin-top:112px;">📝 DLI 1 통합 실습 미션 (2H)</h2>
+<h3 id="notion-heading-425d9e129df7809d91b7c82761705854" style="scroll-margin-top:112px;">A. 나만의 로봇 학습 장면 만들기</h3>
+<p>지금까지 학습한 로봇 중 하나 이상을 선택하고, 작업 대상 물체 3개 이상을 배치하여 로봇이 실제로 수행할 수 있는 작업 환경을 구성합니다.</p>
+<p>사용 가능한 로봇 예시는 다음과 같습니다.</p>
+<ul>
+<li>SimpleRobot</li>
+<li>Carter</li>
+<li>Nova Carter</li>
+<li>UR10e + Gripper</li>
+</ul>
+<h3 id="notion-heading-425d9e129df780a98b18d6da2ee65b84" style="scroll-margin-top:112px;">B. 실습 조건</h3>
+<ul>
+<li>물리: 모든 물체에 충돌체를 설정하고, 움직이는 물체에는 강체를 적용합니다.</li>
+<li>안정성: Play 실행 후 10초 동안 물체가 바닥을 뚫거나 튀지 않아야 합니다.</li>
+<li>로봇 제어: 이동로봇은 키보드, 로봇팔은 IK 또는 Physics Inspector로 움직입니다.</li>
+<li>센서: 카메라를 하나 이상 구성하고 로봇 시점 화면을 확인합니다.</li>
+<li>에셋 구조: 장면 파일 하나에 Reference 또는 Payload 방식으로 외부 에셋을 연결합니다.</li>
+</ul>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<hr>
+<h1 id="notion-heading-425d9e129df78078b2d0c10af11dffd3" style="scroll-margin-top:112px;">👥 참고 문헌 (References)</h1>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/05_%EC%B0%B8%EA%B3%A0-%EB%AC%B8%ED%97%8C-References.png" alt="👥 참고 문헌 (References)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<ol>
+<li>
+<p>NVIDIA – Best Practices for Robotics and OpenUSD<br>
+<a href="https://docs.nvidia.com/learning/physical-ai/going-further-with-robotics/latest/best-practices-for-robotics-and-openusd/index.html">https://docs.nvidia.com/learning/physical-ai/going-further-with-robotics/latest/best-practices-for-robotics-and-openusd/index.html</a></p>
+</li>
+<li>
+<p>NVIDIA Isaac Sim Documentation<br>
+<a href="https://docs.isaacsim.omniverse.nvidia.com/">https://docs.isaacsim.omniverse.nvidia.com/</a></p>
+</li>
+<li>
+<p>Universal Robots – ROS 2 Description<br>
+<a href="https://github.com/UniversalRobots/Universal_Robots_ROS2_Description">https://github.com/UniversalRobots/Universal_Robots_ROS2_Description</a></p>
+</li>
+<li>
+<p>ROS 2 Documentation<br>
+<a href="https://docs.ros.org/en/jazzy/">https://docs.ros.org/en/jazzy/</a></p>
+</li>
+<li>
+<p>교육 참고 자료</p>
+<ul>
+<li>로봇 에셋 구조 모범사례</li>
+<li>에셋 최적화 (Mesh Merge Tool)</li>
+<li>UR10e 가져오기 (From ROS 2 robot_description)</li>
+<li>그리퍼 붙이기 (Robot Assembler와 Variant)</li>
+<li>학습 장면 조립과 IK로 움직이기</li>
+</ul>
+</li>
+</ol>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<hr>
+<h1 id="notion-heading-425d9e129df78076a147ccba81705aab" style="scroll-margin-top:112px;">📨 문의하기 (Contact us)</h1>
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/06_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<p class="notion-image" style="box-sizing:border-box;width:100%;max-width:100%;margin:.75rem 0;"><a href="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png"><img src="https://raw.githubusercontent.com/acestarkzip/acestarkzip.github.io/main/TIL/2026/11/2026-11-27_DLI_%2305_-_Best_Practices_for_Robotics_and_OpenUSD_%EB%A1%9C%EB%B4%87_%EC%97%90%EC%85%8B_%EA%B5%AC%EC%84%B1%C2%B7%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80_IK_%ED%86%B5%ED%95%A9_%EC%8B%A4%EC%8A%B5_assets/07_%EB%AC%B8%EC%9D%98%ED%95%98%EA%B8%B0-Contact-us.png" alt="📨 문의하기 (Contact us)" style="display:block;width:100%;max-width:100%;height:auto;border-radius:8px;"></a></p>
+
+<blockquote class="notion-quote" style="box-sizing:border-box;width:100%;max-width:100%;margin:1rem 0 1.25rem;padding:.35rem 0 .35rem 1rem;border-left:3px solid rgba(220,220,220,.72);color:inherit;"><ul style="list-style-position:outside;margin:.5rem 0 .75rem;"><li style="margin:.30rem 0;line-height:1.5;"><strong>Youtube : </strong><br>
+<a href="https://www.youtube.com/@sssrobotics">https://www.youtube.com/@sssrobotics</a></li><li style="margin:.30rem 0;line-height:1.5;"><strong>Blog : </strong><br>
+<a href="https://www.sssrobotics.com/">https://www.sssrobotics.com</a></li></ul>
+</blockquote>
+
+<div class="notion-spacer" style="height:1.5rem;"></div>
+
+<p>#S급로봇연구소 #로봇연구소 #sssrobotics #sss #OpenUSD #NVIDIA #IsaacSim #Omniverse #Robotics #PhysicalAI #피지컬AI #로봇 #시뮬레이션 #AI #AX #robot #simulation #엔비디아</p>
+<div class="notion-spacer" style="height:1.5rem;"></div>
+      </article>
+      <aside class="article-aside">
+        <span class="aside-label">S급 로봇 연구소 / BLOG</span>
+        <div class="aside-rule"></div>
+        <p class="aside-note">공부한 내용과 실험 과정, 문제를 해결하며 배운 것들을 기록합니다.</p>
+        <div class="aside-rule"></div>
+        <a class="text-link" href="/blog.html">ALL POSTS <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-bottom"><span>© <span id="current-year">2026</span> S급 로봇 연구소</span><span>BUILT WITH CURIOSITY<span class="green">.</span></span></div>
+  </footer>
+</body>
+</html>
